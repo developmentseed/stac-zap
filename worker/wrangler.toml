@@ -7,5 +7,5 @@ account_id = "ccbbf55035041bc17b45e77fbbcd9db2"
 [vars]
 # The sites that can call the Worker. For a local test, add e.g.
 # "http://localhost:4173" (vite preview) with a comma.
-ALLOWED_ORIGINS = "https://developmentseed.github.io"
+ALLOWED_ORIGINS = "https://developmentseed.org,https://developmentseed.github.io"
 JEV_MODEL = "typesafe/jev-1.13"

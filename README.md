@@ -41,7 +41,7 @@ only to OpenRouter. The key does not go into the browser bundle.
 The site is static, on GitHub Pages. A Cloudflare Worker (`worker/`) keeps
 the OpenRouter key and forwards the jev calls. The Worker:
 
-- accepts only requests from `https://developmentseed.github.io`,
+- accepts only requests from the site, `https://developmentseed.org`,
 - forwards only to the OpenRouter decisions API, always with the jev model,
 - accepts about 30 requests each minute from one visitor.
 
