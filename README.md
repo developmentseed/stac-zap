@@ -1,5 +1,9 @@
 # stac-zap
 
+**Try it: <https://developmentseed.org/stac-zap/>**
+
+![A zap request finds recent Sentinel-2 imagery of Salar de Uyuni, then SWISSIMAGE orthophotos of Zurich](docs/demo.gif)
+
 Zap mode for [stac-map](https://github.com/developmentseed/stac-map). Type one
 request, for example "recent cloud-free Sentinel-2 over Lisbon". The app
 opens the catalog and the collection, and searches for the place, the time and
