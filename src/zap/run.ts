@@ -8,6 +8,7 @@ import {
   SEASON_OPTIONS,
   toRange,
   type BBox2D,
+  type Range,
 } from "./options";
 import {
   catalogOf,
@@ -226,7 +227,15 @@ export async function zap(
     queryableExists(collectionHref, "eo:cloud_cover"),
   ]);
   const bbox: BBox2D | undefined = next.place?.bbox;
-  const range = next.period ? toRange(next.period, next.season) : null;
+  let range = next.period ? toRange(next.period, next.season) : null;
+  // A period outside the dates of the collection finds nothing, e.g. 2026
+  // for Hurricane Idalia in August 2023. Then the search covers all dates.
+  if (range && !inTime(range, collection.extent?.temporal?.interval?.[0])) {
+    onNote("The time period is outside this collection's dates, so the search covers all of them");
+    range = null;
+    next.period = undefined;
+    next.season = "whole-year";
+  }
 
   await open(collectionHref, () =>
     store.setSearchParams(searchHref, {
@@ -374,6 +383,17 @@ async function open(href: string, prepare: () => void): Promise<void> {
   prepare();
   store.setHref(href);
   await loaded;
+}
+
+/** Whether a range overlaps the dates of a collection. Unknown dates: true. */
+function inTime(range: Range, interval: (string | null)[] | undefined): boolean {
+  if (!interval) return true;
+  const start = interval[0] ? Date.parse(interval[0]) : -Infinity;
+  const end = interval[1] ? Date.parse(interval[1]) : Infinity;
+  return (
+    Date.parse(`${range.startDatetime}Z`) <= end &&
+    Date.parse(`${range.endDatetime}Z`) >= start
+  );
 }
 
 /** Whether two boxes overlap. Without a collection box, this is not known: true. */

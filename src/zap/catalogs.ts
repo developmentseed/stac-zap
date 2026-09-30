@@ -22,7 +22,10 @@ export type Collection = {
   title?: string;
   description?: string;
   links?: Link[];
-  extent?: { spatial?: { bbox?: number[][] } };
+  extent?: {
+    spatial?: { bbox?: number[][] };
+    temporal?: { interval?: (string | null)[][] };
+  };
 };
 
 const STAC_INDEX_URL = "https://stacindex.org/api/catalogs";
