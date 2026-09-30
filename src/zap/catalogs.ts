@@ -39,6 +39,10 @@ export const MAX_OPTIONS = 250;
 const MAX_COLLECTIONS = 1000;
 /** A catalog that does not answer in this time is left out, in milliseconds. */
 const PROBE_TIMEOUT = 6000;
+/** One try to list the collections of a catalog stops after this time. */
+const LIST_TIMEOUT = 30000;
+/** Wait this long before the second try, in milliseconds. */
+const RETRY_DELAY = 1000;
 
 /**
  * The catalogs a prompt can open by default. For each one, stac-map can show
@@ -217,9 +221,10 @@ export function listCatalogs(all = false): Promise<Catalog[]> {
 async function probe(catalog: Catalog): Promise<Catalog | null> {
   const keep = CURATED.includes(catalog) ? catalog : null;
   try {
-    const collections = await listCollections(
-      catalog.href,
-      AbortSignal.timeout(PROBE_TIMEOUT),
+    // The request continues after the timeout, so a prompt can use it.
+    const collections = await withTimeout(
+      listCollections(catalog.href),
+      PROBE_TIMEOUT,
     );
     if (collections.length === 0) return keep;
     const titles = collections.map((c) => c.title ?? c.id).join(", ");
@@ -234,16 +239,21 @@ async function probe(catalog: Catalog): Promise<Catalog | null> {
 /**
  * The collections of a catalog. Some APIs answer `/collections` with a web
  * page, not JSON; for those, the child links of the landing page are used.
+ * A failed request is tried again once: a busy API (e.g. Planetary Computer,
+ * while the map loads its tiles) can fail a request for a short time.
  * @throws If the catalog does not answer.
  */
-export function listCollections(
-  catalogHref: string,
-  signal?: AbortSignal,
-): Promise<Collection[]> {
+export function listCollections(catalogHref: string): Promise<Collection[]> {
   let list = collectionLists.get(catalogHref);
   if (!list) {
-    list = pagedCollections(catalogHref, signal)
-      .catch(() => childCollections(catalogHref, signal))
+    const tryList = () => {
+      const signal = AbortSignal.timeout(LIST_TIMEOUT);
+      return pagedCollections(catalogHref, signal).catch(() =>
+        childCollections(catalogHref, signal),
+      );
+    };
+    list = tryList()
+      .catch(() => delay(RETRY_DELAY).then(tryList))
       .then((collections) =>
         collections
           .filter((c) => !HIDDEN_COLLECTIONS.has(c.id))
@@ -369,6 +379,18 @@ export function hasRenderableItem(collectionHref: string): Promise<boolean> {
     renderable.set(collectionHref, result);
   }
   return result;
+}
+
+/** The promise, or a rejection if it does not settle in `ms`. */
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error("Timeout")), ms);
+    promise.then(resolve, reject).finally(() => clearTimeout(timer));
+  });
+}
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export async function fetchJson<T>(href: string, signal?: AbortSignal): Promise<T> {
