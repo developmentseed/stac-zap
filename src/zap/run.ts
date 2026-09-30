@@ -54,8 +54,14 @@ type Search = {
   cloud: string;
 };
 
-/** The number of items per search page. */
-const LIMIT = "50";
+/**
+ * The number of items per search page. Satellite scenes with cloud cover,
+ * e.g. Sentinel-2, are large and overlap a lot, and each one is a COG to
+ * load, so a few are enough. Tiled data, e.g. 1 km orthophoto tiles, needs
+ * more items to cover a city.
+ */
+const SCENE_LIMIT = "10";
+const TILE_LIMIT = "50";
 /** How long to wait for stac-map to load a collection, in milliseconds. */
 const LOAD_TIMEOUT = 10_000;
 
@@ -224,7 +230,7 @@ export async function zap(
       // An empty datetime is no filter: the whole record of the collection.
       startDatetime: range?.startDatetime ?? "",
       endDatetime: range?.endDatetime ?? "",
-      limit: LIMIT,
+      limit: hasCloudCover ? SCENE_LIMIT : TILE_LIMIT,
       bbox,
       queryables:
         hasCloudCover && next.cloud !== "any"

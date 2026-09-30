@@ -1,7 +1,7 @@
 # stac-zap
 
 Zap mode for [stac-map](https://github.com/developmentseed/stac-map). Type one
-request, for example "cloud-free Sentinel-2 over Lisbon last summer". The app
+request, for example "recent cloud-free Sentinel-2 over Lisbon". The app
 opens the catalog and the collection, and searches for the place, the time and
 the cloud cover.
 

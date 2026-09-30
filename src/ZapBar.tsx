@@ -18,7 +18,7 @@ import { KEEP, THRESHOLD } from "./zap/decide";
 import { zap, type ZapStep } from "./zap/run";
 
 const EXAMPLES = [
-  "cloud-free Sentinel-2 over Lisbon last summer",
+  "recent cloud-free Sentinel-2 over Lisbon",
   "Swiss orthophotos of Zurich",
   "elevation of Greenland",
   "crop types around Hanover",
@@ -332,7 +332,7 @@ type Rect = { top: number; left: number; width: number; height: number };
 /**
  * The position of stac-map's URL input, which the zap bar covers. The header
  * can move (e.g. when the window changes size), so this checks it four times
- * a second. It also hides the URL input in zap mode, and makes space for the
+ * a second. It also hides the URL form in zap mode, and makes space for the
  * mode button in URL mode.
  */
 function useHrefInputRect(mode: Mode): Rect | null {
@@ -343,7 +343,10 @@ function useHrefInputRect(mode: Mode): Rect | null {
       // stac-map can drop the input for a moment while it renders; the bar
       // stays where it was, so it keeps the focus.
       if (!hrefInput) return;
-      hrefInput.style.visibility = mode === "zap" ? "hidden" : "";
+      // The whole form, so its upload button does not show through the zap
+      // bar either.
+      const hrefForm = hrefInput.closest("form") ?? hrefInput;
+      hrefForm.style.visibility = mode === "zap" ? "hidden" : "";
       hrefInput.style.paddingInlineStart = mode === "url" ? "2.25rem" : "";
       const r = hrefInput.getBoundingClientRect();
       setRect((last) =>
