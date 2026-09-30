@@ -23,7 +23,7 @@ const EXAMPLES = [
   "elevation of Greenland",
   "crop types around Hanover",
   "Maxar imagery after Hurricane Idalia",
-  "land cover in the Amazon",
+  "land cover around Delhi",
 ];
 
 /** stac-map's URL input. stac-map has no slot in its header, so zap covers it. */

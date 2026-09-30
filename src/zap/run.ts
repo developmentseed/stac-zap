@@ -237,6 +237,16 @@ export async function zap(
     next.season = "whole-year";
   }
 
+  // A time period can be inside the dates of a collection and still find
+  // nothing, e.g. 2025 for land cover maps that end in 2024. A test search
+  // finds out; then the search covers all dates.
+  if (range && !(await hasItems(searchHref, collection.id, range, bbox))) {
+    onNote("Nothing matches this time period, so the search covers all dates");
+    range = null;
+    next.period = undefined;
+    next.season = "whole-year";
+  }
+
   await open(collectionHref, () =>
     store.setSearchParams(searchHref, {
       // An empty datetime is no filter: the whole record of the collection.
@@ -452,6 +462,29 @@ function latestYearOf(season: string, today: Date = new Date()): string {
  * The search link stac-map uses for a collection: the one of its root. The
  * search parameters are stored under this href.
  */
+/**
+ * Whether a search for one item finds one, with the time and the place. When
+ * the search fails, the answer is true: this is not known.
+ */
+async function hasItems(
+  searchHref: string,
+  collection: string,
+  range: Range,
+  bbox: BBox2D | undefined,
+): Promise<boolean> {
+  const url = new URL(searchHref);
+  url.searchParams.set("collections", collection);
+  url.searchParams.set("datetime", `${range.startDatetime}Z/${range.endDatetime}Z`);
+  url.searchParams.set("limit", "1");
+  if (bbox) url.searchParams.set("bbox", bbox.join(","));
+  try {
+    const page = await fetchJson<{ features?: unknown[] }>(url.href);
+    return (page.features?.length ?? 1) > 0;
+  } catch {
+    return true;
+  }
+}
+
 async function searchHrefOf(
   collection: Collection,
   catalogHref: string,

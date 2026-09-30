@@ -101,12 +101,6 @@ const CURATED: Catalog[] = [
       "(EarthDEM)",
   },
   {
-    id: "impact-observatory-stac-api",
-    href: "https://api.impactobservatory.com/stac-aws",
-    description:
-      "Impact Observatory: global 10 m annual land use and land cover maps",
-  },
-  {
     id: "earth-genome",
     href: "https://stac.earthgenome.org",
     description:
@@ -162,6 +156,18 @@ const EXTRA: Catalog[] = [
   },
 ];
 
+/**
+ * Collections that stac-map cannot show: their COGs keep each band as a
+ * separate image, which deck.gl-geotiff cannot read yet ("Band-separate
+ * images not yet implemented"). For land cover, ESA WorldCover works.
+ */
+const HIDDEN_COLLECTIONS = new Set([
+  "io-lulc",
+  "io-lulc-9-class",
+  "io-lulc-annual-v02",
+  "io-10m-annual-lulc",
+]);
+
 /** The catalog to open when jev does not pick one. */
 export const DEFAULT_CATALOG = CURATED[0]!;
 
@@ -203,20 +209,25 @@ export function listCatalogs(all = false): Promise<Catalog[]> {
   return list;
 }
 
-/** The catalog with its collection titles, or null if it does not answer. */
+/**
+ * The catalog with its collection titles, or null if it does not answer. A
+ * curated catalog stays even when it does not answer now, e.g. when Planetary
+ * Computer is slow: it was checked, and a prompt tries it again.
+ */
 async function probe(catalog: Catalog): Promise<Catalog | null> {
+  const keep = CURATED.includes(catalog) ? catalog : null;
   try {
     const collections = await listCollections(
       catalog.href,
       AbortSignal.timeout(PROBE_TIMEOUT),
     );
-    if (collections.length === 0) return null;
+    if (collections.length === 0) return keep;
     const titles = collections.map((c) => c.title ?? c.id).join(", ");
     const short =
       titles.length > MAX_TITLES ? `${titles.slice(0, MAX_TITLES)}…` : titles;
     return { ...catalog, description: `${catalog.description}. Collections: ${short}` };
   } catch {
-    return null;
+    return keep;
   }
 }
 
@@ -233,7 +244,11 @@ export function listCollections(
   if (!list) {
     list = pagedCollections(catalogHref, signal)
       .catch(() => childCollections(catalogHref, signal))
-      .then((collections) => collections.slice(0, MAX_COLLECTIONS));
+      .then((collections) =>
+        collections
+          .filter((c) => !HIDDEN_COLLECTIONS.has(c.id))
+          .slice(0, MAX_COLLECTIONS),
+      );
     list.catch(() => collectionLists.delete(catalogHref));
     collectionLists.set(catalogHref, list);
   }
