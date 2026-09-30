@@ -5,6 +5,8 @@ import { LuZap } from "react-icons/lu";
 
 /** Text in stac-map's welcome panel. stac-map has no slot for this panel. */
 const STAC_MAP_INTRO = "is a map-first visualization tool for";
+/** stac-map's URL input, in its header. */
+const HREF_INPUT = 'input[placeholder^="Enter a url to a STAC API"]';
 
 type Place = { top: number; left: number; width: number };
 
@@ -106,14 +108,17 @@ function useIntroPlace(active: boolean): Place | null {
   return place;
 }
 
-/** The outermost box of stac-map's welcome panel that is not the page. */
+/**
+ * The outermost box of stac-map's welcome panel: the last box before the one
+ * that also holds stac-map's header (the URL input).
+ */
 function findIntroPanel(): HTMLElement | null {
   const text = [...document.querySelectorAll("strong")].find(
     (el) => el.textContent === "stac-map" && el.parentElement?.textContent?.includes(STAC_MAP_INTRO),
   );
   let panel: HTMLElement | null = null;
   for (let el = text?.parentElement ?? null; el && el !== document.body; el = el.parentElement) {
-    if (el.getBoundingClientRect().width >= 600) break;
+    if (el.querySelector(HREF_INPUT)) break;
     panel = el;
   }
   return panel;
