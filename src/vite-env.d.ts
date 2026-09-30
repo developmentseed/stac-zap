@@ -1,5 +1,10 @@
 /// <reference types="vite/client" />
 
+interface Window {
+  /** Plausible analytics, from the script in index.html. */
+  plausible?: (event: string, options?: { props?: Record<string, string> }) => void;
+}
+
 interface ImportMetaEnv {
   /** The jev model on OpenRouter. Defaults to `typesafe/jev-1.13`. */
   readonly VITE_JEV_MODEL?: string;

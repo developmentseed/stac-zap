@@ -34,6 +34,9 @@ import { geocode, placeSpans, type Place } from "./geocode";
  * would do.
  */
 
+/** What a zap opened, e.g. for analytics. */
+export type ZapOutcome = { catalog: string; collection: string };
+
 /** One jev call, with the fields it answered, for the probability panel. */
 export type ZapStep = { fields: ZapFields; result: ZapResult };
 
@@ -76,7 +79,7 @@ let last: Search = { season: "whole-year", cloud: "any" };
 export async function zap(
   prompt: string,
   { allCatalogs, onStep, onNote }: ZapListener,
-): Promise<void> {
+): Promise<ZapOutcome | null> {
   const store = useStore.getState();
   const catalogs = await listCatalogs(allCatalogs);
   const currentCatalog = catalogOf(catalogs, store.href)?.id ?? null;
@@ -107,11 +110,11 @@ export async function zap(
   } catch (error) {
     // A catalog from STAC Index can be down or block browsers (CORS).
     onNote(`Could not list the collections of ${catalogHref}: ${error}`);
-    return;
+    return null;
   }
   if (collections.length === 0) {
     onNote(`${catalogHref} has no collections`);
-    return;
+    return null;
   }
   const options = shortlist(collections, prompt);
   const currentCollection =
@@ -170,7 +173,7 @@ export async function zap(
     currentCollection ??
     validChoice(second, secondResult, "collection");
   const chosen = collections.find((c) => c.id === collectionId);
-  if (!chosen) return;
+  if (!chosen) return null;
   const collection =
     chosen.id === currentCollection
       ? chosen
@@ -266,6 +269,7 @@ export async function zap(
   // these go after it.
   store.setProjection("mercator");
   if (bbox) store.setValueBbox(bbox);
+  return { catalog: catalog.id, collection: collection.id };
 }
 
 /** The number of collections, best first, to check for data stac-map can show. */

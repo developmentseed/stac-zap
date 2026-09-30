@@ -102,11 +102,13 @@ export default function ZapBar() {
     setBusy(true);
     clearAnswers();
     try {
-      await zap(text, {
+      const outcome = await zap(text, {
         allCatalogs,
         onStep: (step) => setSteps((steps) => [...steps, step]),
         onNote: (note) => setNotes((notes) => [...notes, note]),
       });
+      // Which data people open, never what they type.
+      if (outcome) window.plausible?.("Zap", { props: outcome });
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
