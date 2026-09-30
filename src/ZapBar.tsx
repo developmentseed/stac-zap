@@ -122,7 +122,7 @@ export default function ZapBar() {
       title={mode === "zap" ? "Enter a URL instead" : "Ask with zap"}
       onClick={() => changeMode(mode === "zap" ? "url" : "zap")}
     >
-      {mode === "zap" ? <LuZap /> : <LuLink />}
+      {mode === "zap" ? <LuZap color="var(--chakra-colors-orange-500)" /> : <LuLink />}
     </IconButton>
   );
 
