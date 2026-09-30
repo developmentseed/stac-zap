@@ -5,7 +5,7 @@
 ![A zap request finds recent Sentinel-2 imagery of Salar de Uyuni, then SWISSIMAGE orthophotos of Zurich](docs/demo.gif)
 
 Zap mode for [stac-map](https://github.com/developmentseed/stac-map). Type one
-request, for example "recent cloud-free Sentinel-2 over Salar de Uyuni". The app
+request, for example "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds". The app
 opens the catalog and the collection, and searches for the place, the time and
 the cloud cover.
 

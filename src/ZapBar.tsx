@@ -18,7 +18,7 @@ import { KEEP, THRESHOLD } from "./zap/decide";
 import { zap, type ZapStep } from "./zap/run";
 
 const EXAMPLES = [
-  "recent cloud-free Sentinel-2 over Salar de Uyuni",
+  "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
   "Swiss orthophotos of Zurich",
   "elevation of Greenland",
   "crop types around Hanover",
