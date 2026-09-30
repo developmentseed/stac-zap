@@ -92,6 +92,8 @@ export default function ZapBar() {
     if (busy) return;
     setPrompt("");
     clearAnswers();
+    // The close button takes the focus; back in the bar, the examples show.
+    input.current?.focus();
   }
 
   async function submit(text: string) {

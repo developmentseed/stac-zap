@@ -25,12 +25,12 @@ const MONTHS = [
 /** Periods a prompt can pick: a year, or a span back from today. */
 export function periodOptions(today: Date = new Date()): Record<string, string> {
   const options: Record<string, string> = {
-    "last-30-days": "The last 30 days: recent or latest imagery",
+    "last-30-days": "Recent: the last 30 days, the latest imagery",
     "last-12-months": "The last 12 months",
     "all-time": "Any time: the whole record of the collection",
   };
   for (let year = today.getUTCFullYear(); year >= 2015; year--) {
-    options[String(year)] = `The year ${year}`;
+    options[String(year)] = `The whole year ${year}`;
   }
   return options;
 }

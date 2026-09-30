@@ -146,6 +146,9 @@ export async function zap(
       label: "time period",
       current: last.period ?? null,
       options: periodOptions(),
+      // "Recent" can split between "the last 30 days" and "this year". Either
+      // is a better filter than none, so a lower bar applies.
+      threshold: 0.35,
     },
     season: {
       label: "part of the year",
