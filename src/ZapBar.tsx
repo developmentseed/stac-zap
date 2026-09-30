@@ -158,6 +158,15 @@ export default function ZapBar() {
       left={`${rect.left}px`}
       w={`${rect.width}px`}
       zIndex={10}
+      // The focus counts for the bar and the list below it: a click on the
+      // catalogs switch moves the focus to the switch, and the list must stay
+      // open for the click to change it.
+      onFocus={() => setFocused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setFocused(false);
+        }
+      }}
     >
       <form
         role="search"
@@ -197,9 +206,7 @@ export default function ZapBar() {
             onFocus={(event) => {
               event.target.select();
               justFocused.current = true;
-              setFocused(true);
             }}
-            onBlur={() => setFocused(false)}
             onMouseUp={(event) => {
               if (justFocused.current) event.preventDefault();
               justFocused.current = false;
