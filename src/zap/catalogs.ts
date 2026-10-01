@@ -54,7 +54,8 @@ const CURATED: Catalog[] = [
     id: "planetary-computer",
     href: "https://planetarycomputer.microsoft.com/api/stac/v1",
     description:
-      "Microsoft Planetary Computer: Sentinel-1 radar, Sentinel-2, Landsat, " +
+      "Microsoft Planetary Computer: the best catalog for Sentinel-2 and " +
+      "Landsat, with a cloud cover filter. Also Sentinel-1 radar, " +
       "Copernicus DEM elevation, ESA WorldCover and IO land cover, NAIP, " +
       "MODIS, climate and weather data",
   },
@@ -62,8 +63,12 @@ const CURATED: Catalog[] = [
     id: "earth-search",
     href: "https://earth-search.aws.element84.com/v1",
     description:
-      "Earth Search by Element 84: Sentinel-2, Landsat, Sentinel-1 and " +
-      "Copernicus DEM on AWS",
+      // Its search ignores the cloud cover filter of stac-map (it has no
+      // CQL2 filter), so Sentinel-2 and Landsat go to Planetary Computer.
+      "Earth Search by Element 84 on AWS: only for Sentinel-2 Level-1C or " +
+      "the Sentinel-2 Collection 1 reprocessing. It cannot filter by cloud " +
+      "cover. For other Sentinel-2 or Landsat requests, use Planetary " +
+      "Computer",
   },
   {
     id: "eoapi",

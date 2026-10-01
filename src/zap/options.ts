@@ -45,12 +45,49 @@ export const SEASON_OPTIONS: Record<string, string> = {
   ...Object.fromEntries(MONTHS.map((month, i) => [`m${i + 1}`, month])),
 };
 
-/** Maximum cloud cover options, in percent. */
+/**
+ * Maximum cloud cover options, in percent, from the strictest to no filter.
+ * {@link cloudChoice} depends on this order.
+ */
 export const CLOUD_OPTIONS: Record<string, string> = {
+  "5": "Cloud-free: at most 5% cloud cover",
   "10": "Clear sky: at most 10% cloud cover",
+  "15": "At most 15% cloud cover",
+  "20": "Few clouds: at most 20% cloud cover",
+  "25": "At most 25% cloud cover",
   "30": "Some clouds: at most 30% cloud cover",
+  "40": "At most 40% cloud cover",
+  "50": "Partly cloudy: at most 50% cloud cover",
+  "75": "Cloudy: at most 75% cloud cover",
   any: "Any cloud cover, no filter",
 };
+
+/**
+ * The cloud cover option from the jev probabilities: the median of the
+ * options, from the strictest to no filter. With many options, the
+ * probability spreads over the neighbours, e.g. "below 20%" can give 0.45 to
+ * 20 and 0.3 to 10. Then no option gets 0.5, but the median is still a good
+ * answer.
+ * @param probabilities Option id to probability, with `keep`.
+ * @param keep The id of the "keep" option.
+ * @returns The option id, or null when `keep` has half of the probability or
+ *   more.
+ */
+export function cloudChoice(
+  probabilities: Record<string, number>,
+  keep: string,
+): string | null {
+  const keepP = probabilities[keep] ?? 0;
+  const options = Object.keys(CLOUD_OPTIONS);
+  const total = options.reduce((sum, id) => sum + (probabilities[id] ?? 0), 0);
+  if (total === 0 || keepP >= 0.5) return null;
+  let cumulative = 0;
+  for (const id of options) {
+    cumulative += probabilities[id] ?? 0;
+    if (cumulative >= total / 2) return id;
+  }
+  return null;
+}
 
 /** A time range in stac-map's datetime input format (UTC, no zone). */
 export type Range = { startDatetime: string; endDatetime: string };

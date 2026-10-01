@@ -1,6 +1,7 @@
 import { useStore } from "@developmentseed/stac-map";
 import { decide, KEEP, THRESHOLD, type ZapFields, type ZapResult } from "./decide";
 import {
+  cloudChoice,
   CLOUD_OPTIONS,
   MAP_VIEW,
   NO_PLACE,
@@ -186,7 +187,14 @@ export async function zap(
   const newCollection = collection.id !== currentCollection;
   const changes = newCollection
     ? { ...acceptedAnswers(second, secondResult), ...secondResult.changes }
-    : secondResult.changes;
+    : { ...secondResult.changes };
+  // The cloud cover options are an ordered scale, so the median applies, not
+  // the 0.5 threshold.
+  const cloud = cloudChoice(
+    secondResult.answers.cloud?.probabilities ?? {},
+    KEEP,
+  );
+  if (cloud) changes.cloud = cloud;
   const next: Search = newCollection
     ? { place: last.place, season: "whole-year", cloud: "any" }
     : { ...last };
@@ -225,10 +233,16 @@ export async function zap(
   last = next;
 
   const collectionHref = hrefOf(collection, catalogHref);
-  const [searchHref, hasCloudCover] = await Promise.all([
-    searchHrefOf(collection, catalogHref),
+  const [{ searchHref, filters }, cloudQueryable] = await Promise.all([
+    searchOf(collection, catalogHref),
     queryableExists(collectionHref, "eo:cloud_cover"),
   ]);
+  const hasCloudCover = cloudQueryable && filters;
+  // Earth Search has the queryable, but its search ignores a CQL2 filter.
+  // stac-map sends only CQL2, so the items would have any cloud cover.
+  if (cloudQueryable && !filters && next.cloud !== "any") {
+    onNote(`${catalogHref} cannot filter by cloud cover, so the items can have any cloud cover`);
+  }
   const bbox: BBox2D | undefined = next.place?.bbox;
   let range = next.period ? toRange(next.period, next.season) : null;
   // A period outside the dates of the collection finds nothing, e.g. 2026
@@ -255,7 +269,7 @@ export async function zap(
       // An empty datetime is no filter: the whole record of the collection.
       startDatetime: range?.startDatetime ?? "",
       endDatetime: range?.endDatetime ?? "",
-      limit: hasCloudCover ? SCENE_LIMIT : TILE_LIMIT,
+      limit: cloudQueryable ? SCENE_LIMIT : TILE_LIMIT,
       bbox,
       queryables:
         hasCloudCover && next.cloud !== "any"
@@ -463,10 +477,6 @@ function latestYearOf(season: string, today: Date = new Date()): string {
 }
 
 /**
- * The search link stac-map uses for a collection: the one of its root. The
- * search parameters are stored under this href.
- */
-/**
  * Whether a search for one item finds one, with the time and the place. When
  * the search fails, the answer is true: this is not known.
  */
@@ -489,16 +499,23 @@ async function hasItems(
   }
 }
 
-async function searchHrefOf(
+/**
+ * The search link stac-map uses for a collection: the one of its root. The
+ * search parameters are stored under this href. Also whether the search takes
+ * a CQL2 filter.
+ */
+async function searchOf(
   collection: Collection,
   catalogHref: string,
-): Promise<string> {
-  const root = await fetchJson<{ links?: Link[] }>(
+): Promise<{ searchHref: string; filters: boolean }> {
+  const root = await fetchJson<{ links?: Link[]; conformsTo?: string[] }>(
     linkOf(collection, "root") ?? catalogHref,
   );
   const search = linkOf(root, "search");
   if (!search) throw new Error(`${catalogHref} has no search link`);
-  return search;
+  // The Filter extension, e.g. `https://api.stacspec.org/v1.0.0-rc.2/item-search#filter`.
+  const filters = (root.conformsTo ?? []).some((c) => /item-search#filter/.test(c));
+  return { searchHref: search, filters };
 }
 
 async function queryableExists(
