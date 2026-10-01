@@ -147,9 +147,11 @@ export default function ZapBar() {
     );
   }
 
-  const panelWidth = Math.min(
-    Math.max(rect.width, MIN_PANEL_WIDTH),
-    window.innerWidth - rect.left - 16,
+  // Never narrower than the bar, e.g. on a phone, where the bar is the full
+  // width of the window.
+  const panelWidth = Math.max(
+    rect.width,
+    Math.min(MIN_PANEL_WIDTH, window.innerWidth - rect.left - 16),
   );
   const showExamples = !prompt && !hasAnswers && !busy && (focused || !href);
 
@@ -198,6 +200,8 @@ export default function ZapBar() {
             // Read-only, not disabled, so the input keeps the focus.
             readOnly={busy}
             aria-busy={busy}
+            // 16px on a phone, so that iOS does not zoom in on focus.
+            fontSize={{ base: "md", md: "sm" }}
             onChange={(event) => {
               setPrompt(event.target.value);
               if (hasAnswers) clearAnswers();
@@ -263,6 +267,8 @@ export default function ZapBar() {
           py={1.5}
           fontSize="xs"
           justify="space-between"
+          flexWrap="wrap"
+          rowGap={1}
           // Keep the focus in the input, so the list stays open.
           onMouseDown={(event) => event.preventDefault()}
         >
@@ -395,14 +401,14 @@ function AnswerRow({
   const unsure = option !== "keep" && probability < THRESHOLD;
   return (
     <HStack gap={2} opacity={applied ? 1 : 0.55}>
-      <Text w="150px" flexShrink={0} color="fg.muted" truncate>
+      <Text w={{ base: "88px", md: "150px" }} flexShrink={0} color="fg.muted" truncate>
         {label}
       </Text>
       <Text flex={1} truncate title={option} fontWeight={applied ? "medium" : "normal"}>
         {option}
         {unsure && " (unsure)"}
       </Text>
-      <Box w="80px" h="6px" bg="bg.muted" rounded="full" flexShrink={0}>
+      <Box w={{ base: "40px", md: "80px" }} h="6px" bg="bg.muted" rounded="full" flexShrink={0}>
         <Box
           h="100%"
           w={`${Math.round(probability * 100)}%`}

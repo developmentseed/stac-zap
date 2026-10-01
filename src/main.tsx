@@ -1,9 +1,9 @@
 import { StacMap } from "@developmentseed/stac-map";
 import "@developmentseed/stac-map/style.css";
+import "./mobile.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { normalizeAssetKeys } from "./asset-keys";
-import MobileNotice from "./MobileNotice";
 import { signPlanetaryComputerFetches } from "./planetary-computer";
 import Welcome from "./Welcome";
 import ZapBar from "./ZapBar";
@@ -21,7 +21,6 @@ createRoot(document.getElementById("root")!).render(
           <>
             <ZapBar />
             <Welcome />
-            <MobileNotice />
           </>
         }
       />

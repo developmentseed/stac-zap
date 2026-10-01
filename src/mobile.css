@@ -1,0 +1,73 @@
+/*
+ * Phone layout for stac-map's overlay. stac-map puts its panel and header on
+ * a three-column grid at all widths, so on a phone the URL input (and the zap
+ * bar that covers it) is only a few pixels wide. stac-map has no props for
+ * this layout, so these rules find its parts by structure:
+ *
+ *   overlay (.chakra-container)
+ *   ├── grid
+ *   │   ├── panel item   (value panel, or the welcome panel)
+ *   │   └── header item  (URL form and buttons)
+ *   └── time filter      (only when the value has dates)
+ *
+ * On a phone, the buttons are one row, the URL form (and the zap bar) is a
+ * full-width row below them, and the panel is a sheet at the bottom of the
+ * screen. Keep the query the same as MOBILE_QUERY in src/mobile.ts.
+ */
+@media (max-width: 47.99rem) {
+  :root {
+    --zap-gutter: 12px;
+    /* Above the map attribution. */
+    --zap-sheet-bottom: 36px;
+    --zap-sheet-height: 35dvh;
+  }
+
+  /* stac-map's action bar (e.g. "250 items loaded") is at the bottom. */
+  :root:has(.chakra-action-bar__content) {
+    --zap-sheet-bottom: 96px;
+  }
+
+  .chakra-container:has(input[placeholder^="Enter a url to a STAC API"]) {
+    padding-inline: var(--zap-gutter);
+    padding-top: var(--zap-gutter);
+  }
+
+  .chakra-container:has(input[placeholder^="Enter a url to a STAC API"]) > :first-child {
+    display: block;
+  }
+
+  /* The panel: a sheet at the bottom. */
+  .chakra-container:has(input[placeholder^="Enter a url to a STAC API"]) > :first-child > :first-child {
+    position: fixed;
+    left: var(--zap-gutter);
+    right: var(--zap-gutter);
+    bottom: var(--zap-sheet-bottom);
+  }
+
+  .chakra-container:has(input[placeholder^="Enter a url to a STAC API"]) > :first-child > :first-child > div > :nth-child(2) {
+    max-height: var(--zap-sheet-height);
+  }
+
+  /* The header: the buttons on the first row, the URL form below them. */
+  .chakra-container:has(input[placeholder^="Enter a url to a STAC API"]) > :first-child > :nth-child(2) > div {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .chakra-container:has(input[placeholder^="Enter a url to a STAC API"]) > :first-child > :nth-child(2) > div > form {
+    flex: 1 0 100%;
+    order: 1;
+  }
+
+  /* 16px text, so that iOS does not zoom in when an input gets the focus. */
+  .chakra-container:has(input[placeholder^="Enter a url to a STAC API"]) input {
+    font-size: 16px;
+  }
+
+  /* The time filter: between the header and the sheet. */
+  .chakra-container:has(input[placeholder^="Enter a url to a STAC API"]) > :nth-child(2) {
+    top: 120px;
+    right: var(--zap-gutter);
+    bottom: calc(var(--zap-sheet-height) + var(--zap-sheet-bottom) + 64px);
+  }
+}

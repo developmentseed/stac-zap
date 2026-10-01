@@ -2,26 +2,32 @@ import { useStore } from "@developmentseed/stac-map";
 import { Box, HStack, Link, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { LuZap } from "react-icons/lu";
+import { useMobile } from "./mobile";
 
 /** Text in stac-map's welcome panel. stac-map has no slot for this panel. */
 const STAC_MAP_INTRO = "is a map-first visualization tool for";
 /** stac-map's URL input, in its header. */
 const HREF_INPUT = 'input[placeholder^="Enter a url to a STAC API"]';
 
-type Place = { top: number; left: number; width: number };
+/** `bottom` is the distance from the bottom of the window. */
+type Place = { top: number; bottom: number; left: number; width: number };
 
 /**
  * The stac-zap welcome panel. While no value is open, stac-map shows its own
- * welcome panel; this covers it with the same style.
+ * welcome panel; this covers it with the same style. On a phone, stac-map's
+ * panel is a sheet at the bottom (see `src/mobile.css`), so this panel grows
+ * up from the bottom of that sheet, and scrolls when it is too long.
  */
 export default function Welcome() {
   const href = useStore((store) => store.href);
+  const mobile = useMobile();
   const place = useIntroPlace(!href);
   if (href || !place) return null;
   return (
     <Box
       position="fixed"
-      top={`${place.top}px`}
+      top={mobile ? undefined : `${place.top}px`}
+      bottom={mobile ? `${place.bottom}px` : undefined}
       left={`${place.left}px`}
       w={`${place.width}px`}
       zIndex={10}
@@ -41,7 +47,14 @@ export default function Welcome() {
         </Box>
         stac-zap
       </HStack>
-      <Stack p={4} fontSize="sm" fontWeight="lighter" gap={3}>
+      <Stack
+        p={4}
+        fontSize="sm"
+        fontWeight="lighter"
+        gap={3}
+        maxH={mobile ? "var(--zap-sheet-height)" : undefined}
+        overflow="auto"
+      >
         <Box>
           Ask for earth observation data in your own words. The{" "}
           <Link variant="underline" href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank">
@@ -90,10 +103,15 @@ function useIntroPlace(active: boolean): Place | null {
       panel.style.visibility = "hidden";
       hidden = panel;
       const r = panel.getBoundingClientRect();
+      const bottom = window.innerHeight - r.bottom;
       setPlace((last) =>
-        last && last.top === r.top && last.left === r.left && last.width === r.width
+        last &&
+        last.top === r.top &&
+        last.bottom === bottom &&
+        last.left === r.left &&
+        last.width === r.width
           ? last
-          : { top: r.top, left: r.left, width: r.width },
+          : { top: r.top, bottom, left: r.left, width: r.width },
       );
     }
     update();
