@@ -3,6 +3,7 @@ import { decide, KEEP, THRESHOLD, type ZapFields, type ZapResult } from "./decid
 import {
   cloudChoice,
   CLOUD_OPTIONS,
+  CLOUD_SHORT,
   MAP_VIEW,
   NO_PLACE,
   periodOptions,
@@ -164,9 +165,13 @@ export async function zap(
       label: "maximum cloud cover",
       current: last.cloud,
       options: CLOUD_OPTIONS,
+      short: CLOUD_SHORT,
     },
   };
   const secondResult = await decide(prompt, second);
+  // The cloud cover options are an ordered scale, so the median applies, not
+  // the 0.5 threshold. The panel shows the median, as it is the filter used.
+  const cloud = medianCloud(secondResult, last.cloud);
   onStep({ fields: second, result: secondResult });
 
   const collectionId =
@@ -188,12 +193,6 @@ export async function zap(
   const changes = newCollection
     ? { ...acceptedAnswers(second, secondResult), ...secondResult.changes }
     : { ...secondResult.changes };
-  // The cloud cover options are an ordered scale, so the median applies, not
-  // the 0.5 threshold.
-  const cloud = cloudChoice(
-    secondResult.answers.cloud?.probabilities ?? {},
-    KEEP,
-  );
   if (cloud) changes.cloud = cloud;
   const next: Search = newCollection
     ? { place: last.place, season: "whole-year", cloud: "any" }
@@ -435,6 +434,27 @@ function overlaps(place: BBox2D, extent: number[] | undefined): boolean {
   // A box across the antimeridian has west > east; treat it as global.
   if (w > e) return place[1] <= n && place[3] >= s;
   return place[0] <= e && place[2] >= w && place[1] <= n && place[3] >= s;
+}
+
+/**
+ * Replaces jev's cloud cover answer with the median option of
+ * {@link cloudChoice}, in the answers and in the changes.
+ * @param current The cloud cover option before this prompt.
+ * @returns The median option, or null to keep the current one.
+ */
+function medianCloud(result: ZapResult, current: string): string | null {
+  const answer = result.answers.cloud;
+  if (!answer) return null;
+  const cloud = cloudChoice(answer.probabilities, KEEP);
+  const choice = cloud ?? KEEP;
+  result.answers.cloud = {
+    ...answer,
+    choice,
+    probability: answer.probabilities[choice] ?? 0,
+  };
+  delete result.changes.cloud;
+  if (cloud && cloud !== current) result.changes.cloud = cloud;
+  return cloud;
 }
 
 /** The answers that are options, not `keep`, with enough probability. */

@@ -241,7 +241,8 @@ export default function ZapBar() {
                 option={
                   answer.choice === KEEP
                     ? "keep"
-                    : shorten(fields[name]!.options[answer.choice] ?? answer.choice)
+                    : (fields[name]!.short?.[answer.choice] ??
+                      shorten(fields[name]!.options[answer.choice] ?? answer.choice))
                 }
                 probability={answer.probability}
                 applied={name in result.changes}

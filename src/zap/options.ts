@@ -62,6 +62,14 @@ export const CLOUD_OPTIONS: Record<string, string> = {
   any: "Any cloud cover, no filter",
 };
 
+/** The cloud cover options as the answers panel shows them: the filter used. */
+export const CLOUD_SHORT: Record<string, string> = Object.fromEntries(
+  Object.keys(CLOUD_OPTIONS).map((id) => [
+    id,
+    id === "any" ? "no filter" : `≤ ${id}%`,
+  ]),
+);
+
 /**
  * The cloud cover option from the jev probabilities: the median of the
  * options, from the strictest to no filter. With many options, the

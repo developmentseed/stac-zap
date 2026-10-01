@@ -25,6 +25,11 @@ export type ZapField = {
   current: string | null;
   /** Option id to the text jev reads. */
   options: Record<string, string>;
+  /**
+   * Option id to the text the answers panel shows, when the text before the
+   * first ":" of the option does not fit, e.g. "≤ 20%" for a cloud cover.
+   */
+  short?: Record<string, string>;
   /** False when the field must change, e.g. no catalog is open yet. */
   keepable?: boolean;
   /** The question, when "Which <label> best serves the request?" does not fit. */
