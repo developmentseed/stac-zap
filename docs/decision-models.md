@@ -23,6 +23,9 @@ raw results are in [eval/](../eval/README.md).
   on world knowledge.
 - **Most open models on Codiv are not yet usable for stac-zap.** JevK5 0.2 is
   the best of them (156 of 172), but it is slow (about 900 ms for each call).
+- **Jev 1.13 is also the fastest of the accurate models.** A call takes
+  about 300 ms, and the time almost does not increase with the number of
+  options. See [Latency](#latency).
 - **Some models cannot answer the large questions.** Tev1, Solar Decide and
   Verdict accept at most 20 to 26 options. Respan accepts only yes or no
   questions.
@@ -186,6 +189,60 @@ Tev1 4B, Solar Decide and Verdict 1.4 did not accept 100 options.
 
 Jev 1.13 knows the world much better than the other models. The open models
 on Codiv often select a band on the wrong continent.
+
+## Latency
+
+### Procedure
+
+The field test records the time of each call. The time starts when the
+request leaves the computer and stops when the answer arrives. Thus, the
+time includes the network. All calls went from one laptop in one run.
+
+### Results
+
+"p90" is the time that 90% of the calls do not exceed.
+
+| Model | Median | p90 | Median, 30 options or fewer | Median, more than 100 options |
+|---|---|---|---|---|
+| Tev1 4B | 247 ms | 346 ms | 247 ms | Rejected |
+| Jev 1.13 | 307 ms | 411 ms | 306 ms | **336 ms** |
+| D1 | 309 ms | 457 ms | 306 ms | 461 ms |
+| Mercury Decide | 424 ms | 814 ms | 399 ms | 939 ms |
+| Kev 4B | 574 ms | 1,032 ms | 552 ms | 1,159 ms |
+| Laya 1.0 | 664 ms | 739 ms | 659 ms | 729 ms |
+| Verdict 1.4 | 660 ms | 759 ms | 660 ms | Rejected |
+| CLM 0.1 | 679 ms | 801 ms | 670 ms | 709 ms |
+| OpenJev 0.1 | 867 ms | 1,185 ms | 855 ms | 1,185 ms |
+| JevK5 0.2 | 884 ms | 2,501 ms | 845 ms | 2,589 ms |
+| Solar Decide | 1,075 ms | **12,871 ms** | 1,075 ms | Rejected |
+
+### What the results show
+
+- **The time of Jev 1.13 almost does not change with the size of the
+  question.** A call takes 306 ms with 30 options or fewer, and 336 ms with
+  more than 100 options. For D1, the time increases by half. For Mercury
+  Decide, the time is more than two times longer. In stac-zap, the
+  collection question has the most options, so this difference is
+  important.
+- **Jev 1.13 and D1 are equally fast on small questions,** at about 300 ms.
+- **The models on Codiv take 0.7 to 0.9 s for each call.** On large
+  questions, JevK5 0.2 takes about 2.6 s.
+- **Solar Decide is not usable for an interactive app.** 10% of its calls
+  took more than 12 s. The slowest call took 23 s.
+- **Tev1 4B is the fastest model,** but it accepts at most 20 options.
+
+stac-zap makes 2 or 3 calls for each request, one after the other. With
+Jev 1.13, these calls take about 1 s in total. With a model on Codiv, they
+take 2 to 3 s. The STAC searches and the map data take more time than the
+model calls.
+
+### Limits
+
+- The times are from one run, from one computer, at one time of day.
+- The Codiv calls had a pause of 1.1 s between them, because of the rate
+  limit. Thus, the rate limit did not add time to a call.
+- The test asks each question in a separate call. The app asks 5 questions
+  in one call. Thus, the time for each request in the app can be different.
 
 ## Models that this document does not include
 
