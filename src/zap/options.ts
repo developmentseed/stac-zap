@@ -62,6 +62,18 @@ export const CLOUD_OPTIONS: Record<string, string> = {
   any: "Any cloud cover, no filter",
 };
 
+/**
+ * The cloud cover question. With the default question ("Pick 'keep' only if
+ * the request has nothing to do with the maximum cloud cover"), jev reads any
+ * request for optical imagery as a request about clouds, e.g. "Landsat over
+ * Denver", and spreads its answer over the thresholds. Then the median of
+ * {@link cloudChoice} adds a filter that the user did not ask for.
+ */
+export const CLOUD_QUESTION =
+  "Which maximum cloud cover does the request ask for? Only a request that " +
+  "mentions clouds, cloud cover, a clear sky or cloud-free imagery asks for " +
+  "one.";
+
 /** The cloud cover options as the answers panel shows them: the filter used. */
 export const CLOUD_SHORT: Record<string, string> = Object.fromEntries(
   Object.keys(CLOUD_OPTIONS).map((id) => [

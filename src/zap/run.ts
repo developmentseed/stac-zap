@@ -3,6 +3,7 @@ import { decide, KEEP, THRESHOLD, type ZapFields, type ZapResult } from "./decid
 import {
   cloudChoice,
   CLOUD_OPTIONS,
+  CLOUD_QUESTION,
   CLOUD_SHORT,
   MAP_VIEW,
   NO_PLACE,
@@ -166,6 +167,7 @@ export async function zap(
       current: last.cloud,
       options: CLOUD_OPTIONS,
       short: CLOUD_SHORT,
+      question: CLOUD_QUESTION,
     },
   };
   const secondResult = await decide(prompt, second);
