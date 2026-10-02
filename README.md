@@ -123,6 +123,12 @@ collection. stac-map runs the search.
 | `src/zap/run.ts` | The two jev calls, and the changes to the stac-map store. |
 | `src/ZapBar.tsx` | The prompt and the probability panel. |
 | `vite.config.ts` | The `/api/decide` endpoint, which adds the key. |
+| `eval/` | Tests that compare decision models on the questions of the app. |
+
+## Other decision models
+
+We compared jev with 10 other decision models on the questions of this app.
+The results are in [docs/decision-models.md](docs/decision-models.md).
 
 ## Limits
 

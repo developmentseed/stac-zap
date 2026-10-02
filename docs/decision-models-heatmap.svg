@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="872" viewBox="0 0 1200 872" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f0efec"/><line x1="0" y1="0" x2="0" y2="8" stroke="#d6d4cf" stroke-width="3"/></pattern></defs>
+<rect width="1200" height="872" fill="#ffffff"/>
+<text x="40" y="56" font-size="30" font-weight="700" fill="#1a1a19">Which decision model sets the map right?</text>
+<text x="40" y="90" font-size="17" fill="#6b6a66">stac-zap field test: 30 map requests, 6 settings. Each cell is the percent of answers the app applies correctly.</text>
+<text x="389.2857142857143" y="152" font-size="15" font-weight="600" fill="#1a1a19" text-anchor="middle">Catalog</text>
+<text x="507.85714285714283" y="152" font-size="15" font-weight="600" fill="#1a1a19" text-anchor="middle">Collection</text>
+<text x="626.4285714285714" y="152" font-size="15" font-weight="600" fill="#1a1a19" text-anchor="middle">Place</text>
+<text x="745.0000000000001" y="152" font-size="15" font-weight="600" fill="#1a1a19" text-anchor="middle">Time period</text>
+<text x="863.5714285714286" y="152" font-size="15" font-weight="600" fill="#1a1a19" text-anchor="middle">Part of year</text>
+<text x="982.1428571428572" y="152" font-size="15" font-weight="600" fill="#1a1a19" text-anchor="middle">Cloud cover</text>
+<text x="1100.7142857142858" y="152" font-size="15" font-weight="700" fill="#1a1a19" text-anchor="middle">Overall</text>
+<text x="40" y="194" font-size="17" font-weight="600" fill="#1a1a19">Jev 1.13</text>
+<text x="40" y="213" font-size="13" fill="#6b6a66">TypeSafe · on OpenRouter</text>
+<rect x="330" y="170" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="388.2857142857143" y="201" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">93%</text>
+<rect x="448.57142857142856" y="170" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="506.85714285714283" y="201" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="567.1428571428571" y="170" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="625.4285714285714" y="201" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="685.7142857142858" y="170" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="744.0000000000001" y="201" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">87%</text>
+<rect x="804.2857142857142" y="170" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="862.5714285714286" y="201" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="922.8571428571429" y="170" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="981.1428571428572" y="201" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="1049.4285714285716" y="170" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="1107.7142857142858" y="201" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">97%</text>
+<text x="40" y="246" font-size="17" font-weight="600" fill="#1a1a19">Mercury Decide (free)</text>
+<text x="40" y="265" font-size="13" fill="#6b6a66">Inception · on OpenRouter</text>
+<rect x="330" y="222" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="388.2857142857143" y="253" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">97%</text>
+<rect x="448.57142857142856" y="222" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="506.85714285714283" y="253" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">89%</text>
+<rect x="567.1428571428571" y="222" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="625.4285714285714" y="253" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="685.7142857142858" y="222" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="744.0000000000001" y="253" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">93%</text>
+<rect x="804.2857142857142" y="222" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="862.5714285714286" y="253" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">97%</text>
+<rect x="922.8571428571429" y="222" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="981.1428571428572" y="253" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="1049.4285714285716" y="222" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="1107.7142857142858" y="253" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">96%</text>
+<text x="40" y="298" font-size="17" font-weight="600" fill="#1a1a19">D1</text>
+<text x="40" y="317" font-size="13" fill="#6b6a66">Liquid AI · on OpenRouter</text>
+<rect x="330" y="274" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="388.2857142857143" y="305" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="448.57142857142856" y="274" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="506.85714285714283" y="305" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">81%</text>
+<rect x="567.1428571428571" y="274" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="625.4285714285714" y="305" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="685.7142857142858" y="274" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="744.0000000000001" y="305" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">93%</text>
+<rect x="804.2857142857142" y="274" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="862.5714285714286" y="305" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">97%</text>
+<rect x="922.8571428571429" y="274" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="981.1428571428572" y="305" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="1049.4285714285716" y="274" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="1107.7142857142858" y="305" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">95%</text>
+<text x="40" y="350" font-size="17" font-weight="600" fill="#1a1a19">JevK5 0.2</text>
+<text x="40" y="369" font-size="13" fill="#6b6a66">Alibi Serikbay · on Codiv</text>
+<rect x="330" y="326" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="388.2857142857143" y="357" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">83%</text>
+<rect x="448.57142857142856" y="326" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="506.85714285714283" y="357" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">81%</text>
+<rect x="567.1428571428571" y="326" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="625.4285714285714" y="357" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">93%</text>
+<rect x="685.7142857142858" y="326" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="744.0000000000001" y="357" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">90%</text>
+<rect x="804.2857142857142" y="326" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="862.5714285714286" y="357" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">97%</text>
+<rect x="922.8571428571429" y="326" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="981.1428571428572" y="357" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="1049.4285714285716" y="326" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="1107.7142857142858" y="357" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">91%</text>
+<text x="40" y="402" font-size="17" font-weight="600" fill="#1a1a19">OpenJev 0.1</text>
+<text x="40" y="421" font-size="13" fill="#6b6a66">on Codiv</text>
+<rect x="330" y="378" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="388.2857142857143" y="409" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">93%</text>
+<rect x="448.57142857142856" y="378" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="506.85714285714283" y="409" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">93%</text>
+<rect x="567.1428571428571" y="378" width="116.57142857142857" height="50" rx="4" fill="#3987e5"/>
+<text x="625.4285714285714" y="409" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">47%</text>
+<rect x="685.7142857142858" y="378" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="744.0000000000001" y="409" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">80%</text>
+<rect x="804.2857142857142" y="378" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="862.5714285714286" y="409" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="922.8571428571429" y="378" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="981.1428571428572" y="409" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="1049.4285714285716" y="378" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="1107.7142857142858" y="409" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">85%</text>
+<text x="40" y="454" font-size="17" font-weight="600" fill="#1a1a19">Tev1 4B Experimental</text>
+<text x="40" y="473" font-size="13" fill="#6b6a66">Together AI · on OpenRouter</text>
+<rect x="330" y="430" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="388.2857142857143" y="461" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">97%</text>
+<rect x="448.57142857142856" y="430" width="116.57142857142857" height="50" rx="4" fill="url(#hatch)"/>
+<text x="506.85714285714283" y="460" font-size="13" fill="#6b6a66" text-anchor="middle">too many options</text>
+<rect x="567.1428571428571" y="430" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="625.4285714285714" y="461" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">90%</text>
+<rect x="685.7142857142858" y="430" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="744.0000000000001" y="461" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">90%</text>
+<rect x="804.2857142857142" y="430" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="862.5714285714286" y="461" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">100%</text>
+<rect x="922.8571428571429" y="430" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="981.1428571428572" y="461" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">96%</text>
+<rect x="1049.4285714285716" y="430" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="1107.7142857142858" y="461" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">83%</text>
+<text x="40" y="506" font-size="17" font-weight="600" fill="#1a1a19">Solar Decide</text>
+<text x="40" y="525" font-size="13" fill="#6b6a66">Upstage · on OpenRouter</text>
+<rect x="330" y="482" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="388.2857142857143" y="513" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">87%</text>
+<rect x="448.57142857142856" y="482" width="116.57142857142857" height="50" rx="4" fill="url(#hatch)"/>
+<text x="506.85714285714283" y="512" font-size="13" fill="#6b6a66" text-anchor="middle">too many options</text>
+<rect x="567.1428571428571" y="482" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="625.4285714285714" y="513" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">97%</text>
+<rect x="685.7142857142858" y="482" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="744.0000000000001" y="513" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">90%</text>
+<rect x="804.2857142857142" y="482" width="116.57142857142857" height="50" rx="4" fill="#0d366b"/>
+<text x="862.5714285714286" y="513" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">97%</text>
+<rect x="922.8571428571429" y="482" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="981.1428571428572" y="513" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">92%</text>
+<rect x="1049.4285714285716" y="482" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="1107.7142857142858" y="513" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">81%</text>
+<text x="40" y="558" font-size="17" font-weight="600" fill="#1a1a19">Kev 4B</text>
+<text x="40" y="577" font-size="13" fill="#6b6a66">Jared Palmer · on OpenRouter</text>
+<rect x="330" y="534" width="116.57142857142857" height="50" rx="4" fill="#256abf"/>
+<text x="388.2857142857143" y="565" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">63%</text>
+<rect x="448.57142857142856" y="534" width="116.57142857142857" height="50" rx="4" fill="#256abf"/>
+<text x="506.85714285714283" y="565" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">70%</text>
+<rect x="567.1428571428571" y="534" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="625.4285714285714" y="565" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">80%</text>
+<rect x="685.7142857142858" y="534" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="744.0000000000001" y="565" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">93%</text>
+<rect x="804.2857142857142" y="534" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="862.5714285714286" y="565" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">87%</text>
+<rect x="922.8571428571429" y="534" width="116.57142857142857" height="50" rx="4" fill="#104281"/>
+<text x="981.1428571428572" y="565" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">92%</text>
+<rect x="1049.4285714285716" y="534" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="1107.7142857142858" y="565" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">81%</text>
+<text x="40" y="610" font-size="17" font-weight="600" fill="#1a1a19">Laya 1.0</text>
+<text x="40" y="629" font-size="13" fill="#6b6a66">Convai Innovations · on Codiv</text>
+<rect x="330" y="586" width="116.57142857142857" height="50" rx="4" fill="#9ec5f4"/>
+<text x="388.2857142857143" y="617" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">17%</text>
+<rect x="448.57142857142856" y="586" width="116.57142857142857" height="50" rx="4" fill="#6da7ec"/>
+<text x="506.85714285714283" y="617" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">30%</text>
+<rect x="567.1428571428571" y="586" width="116.57142857142857" height="50" rx="4" fill="#cde2fb"/>
+<text x="625.4285714285714" y="617" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">0%</text>
+<rect x="685.7142857142858" y="586" width="116.57142857142857" height="50" rx="4" fill="#5598e7"/>
+<text x="744.0000000000001" y="617" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">40%</text>
+<rect x="804.2857142857142" y="586" width="116.57142857142857" height="50" rx="4" fill="#1c5cab"/>
+<text x="862.5714285714286" y="617" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">73%</text>
+<rect x="922.8571428571429" y="586" width="116.57142857142857" height="50" rx="4" fill="#1c5cab"/>
+<text x="981.1428571428572" y="617" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">72%</text>
+<rect x="1049.4285714285716" y="586" width="116.57142857142857" height="50" rx="4" fill="#5598e7"/>
+<text x="1107.7142857142858" y="617" font-size="18" font-weight="700" fill="#1a1a19" text-anchor="middle">38%</text>
+<text x="40" y="662" font-size="17" font-weight="600" fill="#1a1a19">CLM 0.1</text>
+<text x="40" y="681" font-size="13" fill="#6b6a66">Contrastive-LM · on Codiv</text>
+<rect x="330" y="638" width="116.57142857142857" height="50" rx="4" fill="#b7d3f6"/>
+<text x="388.2857142857143" y="669" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">10%</text>
+<rect x="448.57142857142856" y="638" width="116.57142857142857" height="50" rx="4" fill="#86b6ef"/>
+<text x="506.85714285714283" y="669" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">26%</text>
+<rect x="567.1428571428571" y="638" width="116.57142857142857" height="50" rx="4" fill="#86b6ef"/>
+<text x="625.4285714285714" y="669" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">23%</text>
+<rect x="685.7142857142858" y="638" width="116.57142857142857" height="50" rx="4" fill="#cde2fb"/>
+<text x="744.0000000000001" y="669" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">3%</text>
+<rect x="804.2857142857142" y="638" width="116.57142857142857" height="50" rx="4" fill="#256abf"/>
+<text x="862.5714285714286" y="669" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">70%</text>
+<rect x="922.8571428571429" y="638" width="116.57142857142857" height="50" rx="4" fill="#1c5cab"/>
+<text x="981.1428571428572" y="669" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">72%</text>
+<rect x="1049.4285714285716" y="638" width="116.57142857142857" height="50" rx="4" fill="#6da7ec"/>
+<text x="1107.7142857142858" y="669" font-size="18" font-weight="700" fill="#1a1a19" text-anchor="middle">33%</text>
+<text x="40" y="714" font-size="17" font-weight="600" fill="#1a1a19">Verdict 1.4</text>
+<text x="40" y="733" font-size="13" fill="#6b6a66">Heman10x · on Codiv</text>
+<rect x="330" y="690" width="116.57142857142857" height="50" rx="4" fill="#b7d3f6"/>
+<text x="388.2857142857143" y="721" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">7%</text>
+<rect x="448.57142857142856" y="690" width="116.57142857142857" height="50" rx="4" fill="url(#hatch)"/>
+<text x="506.85714285714283" y="720" font-size="13" fill="#6b6a66" text-anchor="middle">too many options</text>
+<rect x="567.1428571428571" y="690" width="116.57142857142857" height="50" rx="4" fill="#cde2fb"/>
+<text x="625.4285714285714" y="721" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">0%</text>
+<rect x="685.7142857142858" y="690" width="116.57142857142857" height="50" rx="4" fill="#9ec5f4"/>
+<text x="744.0000000000001" y="721" font-size="16" font-weight="500" fill="#1a1a19" text-anchor="middle">20%</text>
+<rect x="804.2857142857142" y="690" width="116.57142857142857" height="50" rx="4" fill="#256abf"/>
+<text x="862.5714285714286" y="721" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">70%</text>
+<rect x="922.8571428571429" y="690" width="116.57142857142857" height="50" rx="4" fill="#184f95"/>
+<text x="981.1428571428572" y="721" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">80%</text>
+<rect x="1049.4285714285716" y="690" width="116.57142857142857" height="50" rx="4" fill="#6da7ec"/>
+<text x="1107.7142857142858" y="721" font-size="18" font-weight="700" fill="#1a1a19" text-anchor="middle">30%</text>
+<rect x="40" y="776" width="19" height="12" fill="#cde2fb"/>
+<rect x="60" y="776" width="19" height="12" fill="#b7d3f6"/>
+<rect x="80" y="776" width="19" height="12" fill="#9ec5f4"/>
+<rect x="100" y="776" width="19" height="12" fill="#86b6ef"/>
+<rect x="120" y="776" width="19" height="12" fill="#6da7ec"/>
+<rect x="140" y="776" width="19" height="12" fill="#5598e7"/>
+<rect x="160" y="776" width="19" height="12" fill="#3987e5"/>
+<rect x="180" y="776" width="19" height="12" fill="#2a78d6"/>
+<rect x="200" y="776" width="19" height="12" fill="#256abf"/>
+<rect x="220" y="776" width="19" height="12" fill="#1c5cab"/>
+<rect x="240" y="776" width="19" height="12" fill="#184f95"/>
+<rect x="260" y="776" width="19" height="12" fill="#104281"/>
+<rect x="280" y="776" width="19" height="12" fill="#0d366b"/>
+<text x="40" y="808" font-size="13" fill="#6b6a66">0%</text>
+<text x="300" y="808" font-size="13" fill="#6b6a66" text-anchor="end">100%</text>
+<rect x="320" y="774" width="34" height="16" rx="3" fill="url(#hatch)"/>
+<text x="362" y="787" font-size="13" fill="#6b6a66">The model's API takes fewer options than the question has (up to 250 collections)</text>
+<text x="40" y="838" font-size="13" fill="#6b6a66">Tested on 2 October 2026. One question per call. Overall counts rejected questions as wrong. </text>
+<text x="40" y="858" font-size="13" fill="#6b6a66">A small test of one app, not a benchmark. Code and data: github.com/developmentseed/stac-zap (eval/)</text>
+</svg>

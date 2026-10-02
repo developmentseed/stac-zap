@@ -1,0 +1,161 @@
+{
+ "provider": "openrouter",
+ "model": "respan/span-01-lite",
+ "fine": 30,
+ "cost": 0.0,
+ "latencies": [],
+ "results": [
+  {
+   "name": "Lisbon",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Reykjavik",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Nairobi",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Ushuaia",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Ulaanbaatar",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Anchorage",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Perth, Australia",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Kathmandu",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Honolulu",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Timbuktu",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Longyearbyen, Svalbard",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "McMurdo Station",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Quito",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Lagos",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Vladivostok",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Troms\u00f8",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Hobart",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Lima",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Cairo",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Mount Kilimanjaro",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Lake Titicaca",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Easter Island",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Death Valley",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Chernobyl",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Fukushima Daiichi nuclear plant",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "the Aral Sea",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Mount Everest",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "the Gal\u00e1pagos Islands",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Bora Bora",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Churchill, Manitoba",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Dakar",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Kinshasa",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Antananarivo",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Tbilisi",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "Almaty",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "cloud-free imagery of the Grand Canyon last summer",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "flooding in Porto Alegre",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  },
+  {
+   "name": "deforestation in Rond\u00f4nia",
+   "error": "400 {\"error\":{\"message\":\"Respan only accepts noul questions whose instructions and criteria are plain strings (question \\\"lat\\\")\",\"code\":400}}"
+  }
+ ]
+}

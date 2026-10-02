@@ -1,0 +1,161 @@
+{
+ "provider": "codiv",
+ "model": "verdict-1.4",
+ "fine": 30,
+ "cost": 0.0,
+ "latencies": [],
+ "results": [
+  {
+   "name": "Lisbon",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Reykjavik",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Nairobi",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Ushuaia",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Ulaanbaatar",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Anchorage",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Perth, Australia",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Kathmandu",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Honolulu",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Timbuktu",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Longyearbyen, Svalbard",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "McMurdo Station",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Quito",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Lagos",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Vladivostok",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Troms\u00f8",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Hobart",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Lima",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Cairo",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Mount Kilimanjaro",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Lake Titicaca",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Easter Island",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Death Valley",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Chernobyl",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Fukushima Daiichi nuclear plant",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "the Aral Sea",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Mount Everest",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "the Gal\u00e1pagos Islands",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Bora Bora",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Churchill, Manitoba",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Dakar",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Kinshasa",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Antananarivo",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Tbilisi",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "Almaty",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "cloud-free imagery of the Grand Canyon last summer",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "flooding in Porto Alegre",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  },
+  {
+   "name": "deforestation in Rond\u00f4nia",
+   "error": "400 {\"detail\":\"Too many choices. Must have at most 24 choices.\"}"
+  }
+ ]
+}

@@ -1,0 +1,161 @@
+{
+ "provider": "openrouter",
+ "model": "upstage/solar-decide",
+ "fine": 30,
+ "cost": 0.0,
+ "latencies": [],
+ "results": [
+  {
+   "name": "Lisbon",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Reykjavik",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Nairobi",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Ushuaia",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Ulaanbaatar",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Anchorage",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Perth, Australia",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Kathmandu",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Honolulu",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Timbuktu",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Longyearbyen, Svalbard",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "McMurdo Station",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Quito",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Lagos",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Vladivostok",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Troms\u00f8",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Hobart",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Lima",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Cairo",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Mount Kilimanjaro",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Lake Titicaca",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Easter Island",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Death Valley",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Chernobyl",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Fukushima Daiichi nuclear plant",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "the Aral Sea",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Mount Everest",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "the Gal\u00e1pagos Islands",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Bora Bora",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Churchill, Manitoba",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Dakar",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Kinshasa",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Antananarivo",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Tbilisi",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "Almaty",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "cloud-free imagery of the Grand Canyon last summer",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "flooding in Porto Alegre",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  },
+  {
+   "name": "deforestation in Rond\u00f4nia",
+   "error": "422 {\"error\":{\"message\":\"HTTP 422: {\\\"error\\\":{\\\"type\\\":\\\"validation_failed\\\",\\\"message\\\":\\\"question lat: 100 candidates exceed the 26 single-token labels this route supports\\\"}}\\n\",\"code\":422}}"
+  }
+ ]
+}
