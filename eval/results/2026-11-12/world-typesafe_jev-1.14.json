@@ -1,0 +1,314 @@
+{
+ "provider": "openrouter",
+ "model": "typesafe/jev-1.14",
+ "fine": 30,
+ "cost": 0.022891512000000006,
+ "latencies": [
+  196,
+  209,
+  211,
+  211,
+  213,
+  216,
+  218,
+  221,
+  229,
+  230,
+  235,
+  235,
+  235,
+  236,
+  236,
+  239,
+  249,
+  254,
+  257,
+  257,
+  259,
+  262,
+  263,
+  264,
+  270,
+  270,
+  271,
+  272,
+  272,
+  272,
+  273,
+  278,
+  278,
+  278,
+  280,
+  280,
+  282,
+  283,
+  284,
+  284,
+  286,
+  287,
+  287,
+  290,
+  290,
+  292,
+  292,
+  295,
+  297,
+  297,
+  298,
+  299,
+  299,
+  300,
+  303,
+  305,
+  306,
+  306,
+  308,
+  309,
+  309,
+  310,
+  312,
+  312,
+  313,
+  313,
+  314,
+  314,
+  315,
+  316,
+  317,
+  324,
+  324,
+  327,
+  330,
+  332,
+  332,
+  334,
+  336,
+  339,
+  343,
+  344,
+  346,
+  347,
+  351,
+  351,
+  352,
+  354,
+  358,
+  360,
+  363,
+  366,
+  367,
+  370,
+  381,
+  382,
+  384,
+  386,
+  388,
+  389,
+  391,
+  392,
+  393,
+  401,
+  409,
+  410,
+  410,
+  411,
+  413,
+  415,
+  415,
+  443,
+  455,
+  504
+ ],
+ "results": [
+  {
+   "name": "Lisbon",
+   "flat": 386,
+   "fine": 61
+  },
+  {
+   "name": "Reykjavik",
+   "flat": 108,
+   "fine": 44
+  },
+  {
+   "name": "Nairobi",
+   "flat": 457,
+   "fine": 79
+  },
+  {
+   "name": "Ushuaia",
+   "flat": 612,
+   "fine": 528
+  },
+  {
+   "name": "Ulaanbaatar",
+   "flat": 59,
+   "fine": 886
+  },
+  {
+   "name": "Anchorage",
+   "flat": 101,
+   "fine": 38
+  },
+  {
+   "name": "Perth, Australia",
+   "flat": 119,
+   "fine": 61
+  },
+  {
+   "name": "Kathmandu",
+   "flat": 74,
+   "fine": 89
+  },
+  {
+   "name": "Honolulu",
+   "flat": 275,
+   "fine": 43
+  },
+  {
+   "name": "Timbuktu",
+   "flat": 684,
+   "fine": 607
+  },
+  {
+   "name": "Longyearbyen, Svalbard",
+   "flat": 70,
+   "fine": 80
+  },
+  {
+   "name": "McMurdo Station",
+   "flat": 3684,
+   "fine": 1867
+  },
+  {
+   "name": "Quito",
+   "flat": 426,
+   "fine": 317
+  },
+  {
+   "name": "Lagos",
+   "flat": 480,
+   "fine": 13
+  },
+  {
+   "name": "Vladivostok",
+   "flat": 312,
+   "fine": 133
+  },
+  {
+   "name": "Tromsø",
+   "flat": 114,
+   "fine": 259
+  },
+  {
+   "name": "Hobart",
+   "flat": 141,
+   "fine": 70
+  },
+  {
+   "name": "Lima",
+   "flat": 242,
+   "fine": 85
+  },
+  {
+   "name": "Cairo",
+   "flat": 72,
+   "fine": 88
+  },
+  {
+   "name": "Mount Kilimanjaro",
+   "flat": 731,
+   "fine": 430
+  },
+  {
+   "name": "Lake Titicaca",
+   "flat": 102,
+   "fine": 761
+  },
+  {
+   "name": "Easter Island",
+   "flat": 1929,
+   "fine": 2789
+  },
+  {
+   "name": "Death Valley",
+   "flat": 356,
+   "fine": 357
+  },
+  {
+   "name": "Chernobyl",
+   "flat": 404,
+   "fine": 88
+  },
+  {
+   "name": "Fukushima Daiichi nuclear plant",
+   "flat": 552,
+   "fine": 48
+  },
+  {
+   "name": "the Aral Sea",
+   "flat": 801,
+   "fine": 438
+  },
+  {
+   "name": "Mount Everest",
+   "flat": 936,
+   "fine": 71
+  },
+  {
+   "name": "the Galápagos Islands",
+   "flat": 934,
+   "fine": 72
+  },
+  {
+   "name": "Bora Bora",
+   "flat": 914,
+   "fine": 467
+  },
+  {
+   "name": "Churchill, Manitoba",
+   "flat": 437,
+   "fine": 944
+  },
+  {
+   "name": "Dakar",
+   "flat": 149,
+   "fine": 210
+  },
+  {
+   "name": "Kinshasa",
+   "flat": 1099,
+   "fine": 160
+  },
+  {
+   "name": "Antananarivo",
+   "flat": 232,
+   "fine": 69
+  },
+  {
+   "name": "Tbilisi",
+   "flat": 321,
+   "fine": 357
+  },
+  {
+   "name": "Almaty",
+   "flat": 102,
+   "fine": 90
+  },
+  {
+   "name": "cloud-free imagery of the Grand Canyon last summer",
+   "flat": 146,
+   "fine": 70
+  },
+  {
+   "name": "flooding in Porto Alegre",
+   "flat": 256,
+   "fine": 92
+  },
+  {
+   "name": "deforestation in Rondônia",
+   "flat": 486,
+   "fine": 393
+  }
+ ]
+}

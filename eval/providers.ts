@@ -42,7 +42,7 @@ export type ProviderName = keyof typeof PROVIDERS;
 export function modelOfEnv(): { provider: ProviderName; model: string; tag: string } {
   const provider = (process.env.PROVIDER ?? "openrouter") as ProviderName;
   if (!(provider in PROVIDERS)) throw new Error(`Unknown provider: ${provider}`);
-  const model = process.env.MODEL ?? "typesafe/jev-1.13";
+  const model = process.env.MODEL ?? "typesafe/jev-1.14";
   return { provider, model, tag: model.replace(/[/:~]/g, "_") };
 }
 

@@ -5,9 +5,10 @@ Tested on 2 October 2026.
 stac-zap uses a decision model to turn a short request, for example "Landsat
 over Denver in July 2024", into map settings. A decision model does not write
 text. It gets a text and a set of questions with fixed options. It returns one
-option per question and a probability for each option. stac-zap uses
+option per question and a probability for each option. stac-zap used
 [Jev 1.13](https://typesafe.ai/blog/introducing-system-one-models-and-jev) by
-TypeSafe on OpenRouter.
+TypeSafe on OpenRouter for these tests. It now uses Jev 1.14. See
+[Jev 1.14](#jev-114).
 
 Many new decision models became available in September 2026. This document
 compares 11 of them on the questions that stac-zap asks. The scripts and the
@@ -243,6 +244,42 @@ model calls.
   limit. Thus, the rate limit did not add time to a call.
 - The test asks each question in a separate call. The app asks 5 questions
   in one call. Thus, the time for each request in the app can be different.
+
+## Jev 1.14
+
+Tested on 12 November 2026.
+
+TypeSafe released Jev 1.14 (`typesafe/jev-1.14`) on OpenRouter. The new
+version adds Box questions, which find one target in an image. stac-zap does
+not use Box questions. We did the field test and the world knowledge test
+again with Jev 1.14. The expected answers use the same date as before, 2
+October 2026.
+
+| Model | catalog | collection | place | period | season | cloud | Total | Median latency |
+|---|---|---|---|---|---|---|---|---|
+| Jev 1.13 | 28/30 | 27/27 | 30/30 | 26/30 | 30/30 | 25/25 | **166/172** | 307 ms |
+| Jev 1.14 | 27/30 | 27/27 | 30/30 | 26/30 | 29/30 | 25/25 | 164/172 | 296 ms |
+
+| Model | 100 bands: median error | Coarse to fine: median error | Within 100 km | Within 250 km |
+|---|---|---|---|---|
+| Jev 1.13 | **281 km** | 110 km | 18/38 | 22/38 |
+| Jev 1.14 | 356 km | **92 km** | 20/38 | 23/38 |
+
+- **The results are almost the same.** Jev 1.14 is incorrect on two prompts
+  where Jev 1.13 is correct. Both answers had a probability near the
+  threshold:
+  - For "NAIP imagery of Austin, Texas from 2022", Jev 1.14 selects Earth
+    Search (0.51). Jev 1.13 selects Planetary Computer (0.52).
+  - For "Maxar imagery after Hurricane Idalia", Jev 1.14 selects September as
+    the season (0.66). The prompt does not ask for a season.
+- **Jev 1.14 is correct on no prompt where Jev 1.13 is incorrect.**
+- **The cost is the same, and the latency is almost the same.**
+- **In world knowledge, the two versions are approximately equal.** Jev 1.14
+  is better with coarse-to-fine questions and less good with one large
+  question.
+
+stac-zap now uses Jev 1.14. The raw results are in
+`eval/results/2026-11-12/`.
 
 ## Models that this document does not include
 

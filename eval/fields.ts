@@ -9,7 +9,7 @@
  * fields in one call.
  *
  * Usage:
- *   PROVIDER=openrouter MODEL=typesafe/jev-1.13 pnpm tsx eval/fields.ts
+ *   PROVIDER=openrouter MODEL=typesafe/jev-1.14 pnpm tsx eval/fields.ts
  * Optional: FIELDS=cloud,period asks only these fields and replaces them in
  * the result file. RESULTS=eval/results/<date> sets the output folder.
  */
