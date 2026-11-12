@@ -36,7 +36,7 @@ the raw results are in [eval/](../eval/README.md).
   filter that the user did not ask for. A new question text corrects this
   problem. See [Cloud cover](#cloud-cover).
 - **An extraction model reads place, time and cloud cover better than the
-  option lists.** Clairic (Cloudflare) is correct on 83 of 85 of these
+  option lists.** Clairic (Cloudflare) is correct on 84 of 85 of these
   questions. Jev is correct on 80 of 85. Clairic also reads 13 of 16
   requests that the option lists of the app cannot hold, for example
   "between March 2023 and June 2024" or "under 12% clouds". With three
@@ -369,14 +369,18 @@ We found these problems with the other variants:
 - **A cloud cover number can move into the dates.** In one call with the
   cloud cover, "June 2024 under 12% clouds" ended on 2024-06-02, not
   2024-06-30. Thus, the app asks for the time in a separate call.
+- **The place and the cloud cover do not need the context of the app.**
+  With the context, "this area, mostly clear" got 50%. With the request
+  only, it got a value from 10% to 20%, and the call costs less. Thus, the
+  call for the place and the cloud cover gets the request only.
 
 ### Results
 
 | Model | Place | Time | Cloud cover | Total | Unparsed requests | Median time |
 |---|---|---|---|---|---|---|
 | Jev 1.13 (options) | 30/30 | 25/30 | **25/25** | 80/85 | 0/16 | 476 ms |
-| **Clairic, compact** | **30/30** | **29/30** | 24/25 | **83/85** | **16/16** | **462 ms** |
-| Clairic, compact, app calls | 30/30 | 29/30 | 24/25 | 83/85 | 16/16 | 584 ms |
+| **Clairic, compact, app calls** | **30/30** | **29/30** | **25/25** | **84/85** | **16/16** | 715 ms |
+| Clairic, compact | 30/30 | 29/30 | 24/25 | 83/85 | 16/16 | 462 ms |
 | Clairic, compact, one call | 30/30 | 28/30 | 24/25 | 82/85 | 16/16 | 520 ms |
 | Clairic, hinted | 30/30 | 27/30 | 24/25 | 81/85 | 14/16 | 779 ms |
 | Clairic, plain | 29/30 | 24/30 | 23/25 | 76/85 | 10/16 | 496 ms |
@@ -385,10 +389,11 @@ We found these problems with the other variants:
 For Jev, the time is correct only when the period and the part of the year
 are both correct.
 
-"One call" asks all five fields in one call. "App calls" asks two calls at
-the same time, as the app does: one for the place and the cloud cover, and
-one for the time. The time is the time of the slower call. The other rows ask
-place, time and cloud cover in three separate calls.
+"App calls" asks two calls at the same time, as the app does: one for the
+place and the cloud cover, with the request only, and one for the time, with
+the context of the app. The time is the time of the slower call. "One call"
+asks all five fields in one call, with the context. The other rows ask place,
+time and cloud cover in three separate calls, with the context.
 
 ### The unparsed requests
 
@@ -424,11 +429,14 @@ rules, Clairic is correct on 13 of 16.
   selects the nearest option, which is wrong for all 16 requests. For
   example, "under 12% clouds" becomes 15%, and a place of five words loses
   its first word.
-- **Jev is still better on indirect cloud cover.** For "this area, mostly
-  clear", Clairic gave 50%. "Mostly clear" is not one of the words in its
-  instructions. We did not add it, because it is a test request.
-- **Clairic is as fast as Jev.** A call takes about 460 ms. With all fields
-  in one call, it takes about 520 ms.
+- **The calls of the app are the best design.** They are correct on 84 of
+  85. Only the time call gets the context of the app.
+- **One call is not better.** It costs about the same as the two calls of
+  the app, and a cloud cover number moved into the dates of two requests.
+  The order of the fields did not change this.
+- **Clairic is about as fast as Jev.** A Clairic call takes 460 to 720 ms
+  in these runs. The app makes the two calls at the same time as the first
+  call to Jev.
 - **Shorter instructions make the call only a little smaller.** For the
   time fields, the short phrases of terse use 506 schema tokens. The full
   sentences of compact use 550 tokens. The server reads a large call in
@@ -439,18 +447,34 @@ rules, Clairic is correct on 13 of 16.
 - **ScaleDown Extract finds places, but it accepts only text fields.** It
   cannot give dates or numbers. It is also two times slower.
 
-The remaining errors of Clairic, compact:
+The remaining error of the calls of the app: "NAIP imagery of Austin, Texas
+from 2022" ends on 2026-12-02. The correct end is 2022-12-31.
 
-- "NAIP imagery of Austin, Texas from 2022": the end is 2026-12-02. The
-  correct end is 2022-12-31.
-- "Sentinel-2 of this area, mostly clear": 50%, not 10% to 20%.
+### Cost
+
+We measured the cost of the model calls for the 30 requests of the field
+test, with the prices of OpenRouter on 12 November 2026. The call that
+selects a place from the geocoder results is the same in both designs, so
+it is not in the table.
+
+| Call | Jev only | Jev and Clairic |
+|---|---|---|
+| Jev: catalog | $0.000091 | $0.000091 |
+| Jev: second call | $0.000331 (5 questions) | $0.000272 (collection only) |
+| Clairic: two calls | | $0.000138 |
+| **Each request** | **$0.000422** | **$0.000501** |
+
+Jev and Clairic cost 19% more for each request: $79 more for each million
+requests. Most of the cost of the second call to Jev is the collection
+options, so it decreases only a little without the other questions.
 
 ### Recommendation
 
 Use Clairic for the place, the time and the cloud cover. Keep Jev for the
-catalog and the collection. Ask Clairic in two calls, one for the time and
-one for the place and the cloud cover, at the same time as the first call
-to Jev. Then the second call to Jev asks only for the collection.
+catalog and the collection. Ask Clairic in two calls, at the same time as
+the first call to Jev: one for the time, with the context of the app, and
+one for the place and the cloud cover, with the request only. Then the
+second call to Jev asks only for the collection.
 
 When Clairic does not answer, use the current questions of Jev. The
 extractions API is alpha, and Clairic is a preview model. Thus, the API

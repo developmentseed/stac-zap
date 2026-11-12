@@ -33,7 +33,7 @@ import {
   rangesOf,
   type Range,
 } from "./score";
-import { EXTRACT_CALLS, rangeOfAnswers as appRangeOfAnswers } from "../src/zap/extract";
+import { callState, EXTRACT_CALLS, rangeOfAnswers as appRangeOfAnswers } from "../src/zap/extract";
 
 const REFERENCE_DATE = TODAY.toISOString().slice(0, 10);
 const SETS = ["field", "unparsed", "dev"] as const;
@@ -199,9 +199,11 @@ const all = tasks(set);
  */
 async function askApp(prompt: string): ReturnType<typeof ask> {
   const replies = await Promise.all(
-    EXTRACT_CALLS.map((fields) => {
-      const dated = Object.values(fields).some((f) => f.type === "date");
-      return extract(model, stateOf(variant, prompt, TODAY), fields, dated ? REFERENCE_DATE : undefined);
+    EXTRACT_CALLS.map((call) => {
+      const dated = Object.values(call.fields).some((f) => f.type === "date");
+      // The compact variant is the app: each call has its own state.
+      const state = variant === "compact" ? callState(call, prompt, TODAY) : stateOf(variant, prompt, TODAY);
+      return extract(model, state, call.fields, dated ? REFERENCE_DATE : undefined);
     }),
   );
   const failed = replies.find((r) => "error" in r);

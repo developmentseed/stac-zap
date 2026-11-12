@@ -18,18 +18,18 @@
      "value": "Lisbon",
      "guess": "Lisbon",
      "span": [
-      579,
-      585
+      16,
+      22
      ],
-     "p_null": 0.0014310284750536084,
-     "confidence": 0.998875081539154
+     "p_null": 0.0005281301564536989,
+     "confidence": 0.9999759197235107
     },
     "cloud": {
      "type": "number",
      "value": 20,
      "guess": 20,
-     "p_null": 0.0013450173428282142,
-     "confidence": 0.9938123034024839
+     "p_null": 0.004660663194954395,
+     "confidence": 0.9900294054663278
     },
     "when": {
      "type": "text",
@@ -57,8 +57,8 @@
      "confidence": 0.2987449894905888
     }
    },
-   "ms": 722,
-   "cost": 0.00016439999999999998,
+   "ms": 1573,
+   "cost": 0.0001378,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 144,
@@ -80,18 +80,18 @@
      "value": "Lisbon",
      "guess": "Lisbon",
      "span": [
-      579,
-      585
+      16,
+      22
      ],
-     "p_null": 0.0014310284750536084,
-     "confidence": 0.998875081539154
+     "p_null": 0.0005281301564536989,
+     "confidence": 0.9999759197235107
     },
     "cloud": {
      "type": "number",
      "value": 20,
      "guess": 20,
-     "p_null": 0.0013450173428282142,
-     "confidence": 0.9938123034024839
+     "p_null": 0.004660663194954395,
+     "confidence": 0.9900294054663278
     },
     "when": {
      "type": "text",
@@ -119,8 +119,8 @@
      "confidence": 0.2987449894905888
     }
    },
-   "ms": 722,
-   "cost": 0.00016439999999999998,
+   "ms": 1573,
+   "cost": 0.0001378,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 144,
@@ -139,18 +139,18 @@
      "value": "Lisbon",
      "guess": "Lisbon",
      "span": [
-      579,
-      585
+      16,
+      22
      ],
-     "p_null": 0.0014310284750536084,
-     "confidence": 0.998875081539154
+     "p_null": 0.0005281301564536989,
+     "confidence": 0.9999759197235107
     },
     "cloud": {
      "type": "number",
      "value": 20,
      "guess": 20,
-     "p_null": 0.0013450173428282142,
-     "confidence": 0.9938123034024839
+     "p_null": 0.004660663194954395,
+     "confidence": 0.9900294054663278
     },
     "when": {
      "type": "text",
@@ -178,8 +178,8 @@
      "confidence": 0.2987449894905888
     }
    },
-   "ms": 722,
-   "cost": 0.00016439999999999998,
+   "ms": 1573,
+   "cost": 0.0001378,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 144,
@@ -198,18 +198,18 @@
      "value": "Johor Malaysia",
      "guess": "Johor Malaysia",
      "span": [
-      583,
-      597
+      20,
+      34
      ],
-     "p_null": 0.006092951633036137,
-     "confidence": 0.9707392454147339
+     "p_null": 0.0063800509087741375,
+     "confidence": 0.9563063979148865
     },
     "cloud": {
      "type": "number",
      "value": 20,
      "guess": 20,
-     "p_null": 0.0017339347396045923,
-     "confidence": 0.9835450845539169
+     "p_null": 0.003432351164519787,
+     "confidence": 0.9873990211075595
     },
     "when": {
      "type": "text",
@@ -237,8 +237,8 @@
      "confidence": 0.9875173241008633
     }
    },
-   "ms": 584,
-   "cost": 0.0001676,
+   "ms": 874,
+   "cost": 0.0001408,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 152,
@@ -257,18 +257,18 @@
      "value": "Johor Malaysia",
      "guess": "Johor Malaysia",
      "span": [
-      583,
-      597
+      20,
+      34
      ],
-     "p_null": 0.006092951633036137,
-     "confidence": 0.9707392454147339
+     "p_null": 0.0063800509087741375,
+     "confidence": 0.9563063979148865
     },
     "cloud": {
      "type": "number",
      "value": 20,
      "guess": 20,
-     "p_null": 0.0017339347396045923,
-     "confidence": 0.9835450845539169
+     "p_null": 0.003432351164519787,
+     "confidence": 0.9873990211075595
     },
     "when": {
      "type": "text",
@@ -296,8 +296,8 @@
      "confidence": 0.9875173241008633
     }
    },
-   "ms": 584,
-   "cost": 0.0001676,
+   "ms": 874,
+   "cost": 0.0001408,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 152,
@@ -316,18 +316,18 @@
      "value": "Johor Malaysia",
      "guess": "Johor Malaysia",
      "span": [
-      583,
-      597
+      20,
+      34
      ],
-     "p_null": 0.006092951633036137,
-     "confidence": 0.9707392454147339
+     "p_null": 0.0063800509087741375,
+     "confidence": 0.9563063979148865
     },
     "cloud": {
      "type": "number",
      "value": 20,
      "guess": 20,
-     "p_null": 0.0017339347396045923,
-     "confidence": 0.9835450845539169
+     "p_null": 0.003432351164519787,
+     "confidence": 0.9873990211075595
     },
     "when": {
      "type": "text",
@@ -355,8 +355,8 @@
      "confidence": 0.9875173241008633
     }
    },
-   "ms": 584,
-   "cost": 0.0001676,
+   "ms": 874,
+   "cost": 0.0001408,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 152,
@@ -375,18 +375,18 @@
      "value": "Denver",
      "guess": "Denver",
      "span": [
-      576,
-      582
+      13,
+      19
      ],
-     "p_null": 0.003627416677772999,
-     "confidence": 0.9997708201408386
+     "p_null": 0.0029586032032966614,
+     "confidence": 0.9998595714569092
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 30,
-     "p_null": 0.9995385408401489,
-     "confidence": 0.022998987574317082
+     "guess": 10,
+     "p_null": 0.9990289211273193,
+     "confidence": 0.15197456373784776
     },
     "when": {
      "type": "text",
@@ -414,8 +414,8 @@
      "confidence": 0.9506373776881237
     }
    },
-   "ms": 809,
-   "cost": 0.0001648,
+   "ms": 643,
+   "cost": 0.0001382,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 145,
@@ -437,18 +437,18 @@
      "value": "Denver",
      "guess": "Denver",
      "span": [
-      576,
-      582
+      13,
+      19
      ],
-     "p_null": 0.003627416677772999,
-     "confidence": 0.9997708201408386
+     "p_null": 0.0029586032032966614,
+     "confidence": 0.9998595714569092
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 30,
-     "p_null": 0.9995385408401489,
-     "confidence": 0.022998987574317082
+     "guess": 10,
+     "p_null": 0.9990289211273193,
+     "confidence": 0.15197456373784776
     },
     "when": {
      "type": "text",
@@ -476,8 +476,8 @@
      "confidence": 0.9506373776881237
     }
    },
-   "ms": 809,
-   "cost": 0.0001648,
+   "ms": 643,
+   "cost": 0.0001382,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 145,
@@ -496,18 +496,18 @@
      "value": "Denver",
      "guess": "Denver",
      "span": [
-      576,
-      582
+      13,
+      19
      ],
-     "p_null": 0.003627416677772999,
-     "confidence": 0.9997708201408386
+     "p_null": 0.0029586032032966614,
+     "confidence": 0.9998595714569092
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 30,
-     "p_null": 0.9995385408401489,
-     "confidence": 0.022998987574317082
+     "guess": 10,
+     "p_null": 0.9990289211273193,
+     "confidence": 0.15197456373784776
     },
     "when": {
      "type": "text",
@@ -535,8 +535,8 @@
      "confidence": 0.9506373776881237
     }
    },
-   "ms": 809,
-   "cost": 0.0001648,
+   "ms": 643,
+   "cost": 0.0001382,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 145,
@@ -555,18 +555,18 @@
      "value": "the Grand Canyon",
      "guess": "the Grand Canyon",
      "span": [
-      585,
-      601
+      22,
+      38
      ],
-     "p_null": 0.0002595773839857429,
-     "confidence": 0.9784811735153198
+     "p_null": 0.0002276605082442984,
+     "confidence": 0.9479337334632874
     },
     "cloud": {
      "type": "number",
      "value": 5,
      "guess": 5,
-     "p_null": 0.007856628857553005,
-     "confidence": 0.9266316067849729
+     "p_null": 0.004311395343393087,
+     "confidence": 0.7982482835676911
     },
     "when": {
      "type": "text",
@@ -576,8 +576,8 @@
       474,
       478
      ],
-     "p_null": 0.9992578625679016,
-     "confidence": 0.21629855036735535
+     "p_null": 0.9992696642875671,
+     "confidence": 0.22486363351345062
     },
     "start": {
      "type": "date",
@@ -594,8 +594,8 @@
      "confidence": 0.9950411224949474
     }
    },
-   "ms": 563,
-   "cost": 0.0001632,
+   "ms": 532,
+   "cost": 0.0001364,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 141,
@@ -614,18 +614,18 @@
      "value": "the Grand Canyon",
      "guess": "the Grand Canyon",
      "span": [
-      585,
-      601
+      22,
+      38
      ],
-     "p_null": 0.0002595773839857429,
-     "confidence": 0.9784811735153198
+     "p_null": 0.0002276605082442984,
+     "confidence": 0.9479337334632874
     },
     "cloud": {
      "type": "number",
      "value": 5,
      "guess": 5,
-     "p_null": 0.007856628857553005,
-     "confidence": 0.9266316067849729
+     "p_null": 0.004311395343393087,
+     "confidence": 0.7982482835676911
     },
     "when": {
      "type": "text",
@@ -635,8 +635,8 @@
       474,
       478
      ],
-     "p_null": 0.9992578625679016,
-     "confidence": 0.21629855036735535
+     "p_null": 0.9992696642875671,
+     "confidence": 0.22486363351345062
     },
     "start": {
      "type": "date",
@@ -653,8 +653,8 @@
      "confidence": 0.9950411224949474
     }
    },
-   "ms": 563,
-   "cost": 0.0001632,
+   "ms": 532,
+   "cost": 0.0001364,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 141,
@@ -673,18 +673,18 @@
      "value": "the Grand Canyon",
      "guess": "the Grand Canyon",
      "span": [
-      585,
-      601
+      22,
+      38
      ],
-     "p_null": 0.0002595773839857429,
-     "confidence": 0.9784811735153198
+     "p_null": 0.0002276605082442984,
+     "confidence": 0.9479337334632874
     },
     "cloud": {
      "type": "number",
      "value": 5,
      "guess": 5,
-     "p_null": 0.007856628857553005,
-     "confidence": 0.9266316067849729
+     "p_null": 0.004311395343393087,
+     "confidence": 0.7982482835676911
     },
     "when": {
      "type": "text",
@@ -694,8 +694,8 @@
       474,
       478
      ],
-     "p_null": 0.9992578625679016,
-     "confidence": 0.21629855036735535
+     "p_null": 0.9992696642875671,
+     "confidence": 0.22486363351345062
     },
     "start": {
      "type": "date",
@@ -712,8 +712,8 @@
      "confidence": 0.9950411224949474
     }
    },
-   "ms": 563,
-   "cost": 0.0001632,
+   "ms": 532,
+   "cost": 0.0001364,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 141,
@@ -732,18 +732,18 @@
      "value": "the Netherlands",
      "guess": "the Netherlands",
      "span": [
-      583,
-      598
+      20,
+      35
      ],
-     "p_null": 0.004385262727737427,
-     "confidence": 0.8465572595596313
+     "p_null": 0.005224237684160471,
+     "confidence": 0.8526257872581482
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9995972514152527,
-     "confidence": 0.0637396737723236
+     "p_null": 0.998790442943573,
+     "confidence": 0.26677923497953
     },
     "when": {
      "type": "text",
@@ -753,26 +753,26 @@
       602,
       614
      ],
-     "p_null": 0.0013936097966507077,
-     "confidence": 0.9912726283073425
+     "p_null": 0.0014023467665538192,
+     "confidence": 0.9908707737922668
     },
     "start": {
      "type": "date",
      "value": "2025-01-01",
      "guess": "2025-01-01",
-     "p_null": 0.0002735643647611141,
-     "confidence": 0.9978030704013515
+     "p_null": 0.0002683704951778054,
+     "confidence": 0.9977521365159607
     },
     "end": {
      "type": "date",
      "value": "2025-01-31",
      "guess": "2025-01-31",
-     "p_null": 0.030180417001247406,
-     "confidence": 0.8239538013586494
+     "p_null": 0.028549799695611,
+     "confidence": 0.8335304081498414
     }
    },
-   "ms": 449,
-   "cost": 0.000166,
+   "ms": 933,
+   "cost": 0.0001394,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 148,
@@ -794,18 +794,18 @@
      "value": "the Netherlands",
      "guess": "the Netherlands",
      "span": [
-      583,
-      598
+      20,
+      35
      ],
-     "p_null": 0.004385262727737427,
-     "confidence": 0.8465572595596313
+     "p_null": 0.005224237684160471,
+     "confidence": 0.8526257872581482
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9995972514152527,
-     "confidence": 0.0637396737723236
+     "p_null": 0.998790442943573,
+     "confidence": 0.26677923497953
     },
     "when": {
      "type": "text",
@@ -815,26 +815,26 @@
       602,
       614
      ],
-     "p_null": 0.0013936097966507077,
-     "confidence": 0.9912726283073425
+     "p_null": 0.0014023467665538192,
+     "confidence": 0.9908707737922668
     },
     "start": {
      "type": "date",
      "value": "2025-01-01",
      "guess": "2025-01-01",
-     "p_null": 0.0002735643647611141,
-     "confidence": 0.9978030704013515
+     "p_null": 0.0002683704951778054,
+     "confidence": 0.9977521365159607
     },
     "end": {
      "type": "date",
      "value": "2025-01-31",
      "guess": "2025-01-31",
-     "p_null": 0.030180417001247406,
-     "confidence": 0.8239538013586494
+     "p_null": 0.028549799695611,
+     "confidence": 0.8335304081498414
     }
    },
-   "ms": 449,
-   "cost": 0.000166,
+   "ms": 933,
+   "cost": 0.0001394,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 148,
@@ -853,18 +853,18 @@
      "value": "the Netherlands",
      "guess": "the Netherlands",
      "span": [
-      583,
-      598
+      20,
+      35
      ],
-     "p_null": 0.004385262727737427,
-     "confidence": 0.8465572595596313
+     "p_null": 0.005224237684160471,
+     "confidence": 0.8526257872581482
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9995972514152527,
-     "confidence": 0.0637396737723236
+     "p_null": 0.998790442943573,
+     "confidence": 0.26677923497953
     },
     "when": {
      "type": "text",
@@ -874,26 +874,26 @@
       602,
       614
      ],
-     "p_null": 0.0013936097966507077,
-     "confidence": 0.9912726283073425
+     "p_null": 0.0014023467665538192,
+     "confidence": 0.9908707737922668
     },
     "start": {
      "type": "date",
      "value": "2025-01-01",
      "guess": "2025-01-01",
-     "p_null": 0.0002735643647611141,
-     "confidence": 0.9978030704013515
+     "p_null": 0.0002683704951778054,
+     "confidence": 0.9977521365159607
     },
     "end": {
      "type": "date",
      "value": "2025-01-31",
      "guess": "2025-01-31",
-     "p_null": 0.030180417001247406,
-     "confidence": 0.8239538013586494
+     "p_null": 0.028549799695611,
+     "confidence": 0.8335304081498414
     }
    },
-   "ms": 449,
-   "cost": 0.000166,
+   "ms": 933,
+   "cost": 0.0001394,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 148,
@@ -912,18 +912,18 @@
      "value": "Mount Everest",
      "guess": "Mount Everest",
      "span": [
-      576,
-      589
+      13,
+      26
      ],
-     "p_null": 0.0003605053061619401,
-     "confidence": 0.999995231628418
+     "p_null": 0.00016493532166350633,
+     "confidence": 0.9999905824661255
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 3,
-     "p_null": 0.9993784427642822,
-     "confidence": 0.024406676962852696
+     "guess": 10,
+     "p_null": 0.9954211115837097,
+     "confidence": 0.058588506461937626
     },
     "when": {
      "type": "text",
@@ -933,26 +933,26 @@
       474,
       478
      ],
-     "p_null": 0.9992063641548157,
-     "confidence": 0.2567429840564728
+     "p_null": 0.9991704225540161,
+     "confidence": 0.24480241537094116
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9993317723274231,
-     "confidence": 0.3494145442890879
+     "p_null": 0.9992305040359497,
+     "confidence": 0.3649439621923189
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9581746459007263,
-     "confidence": 0.9989676832175542
+     "p_null": 0.9576341509819031,
+     "confidence": 0.9989658911582323
     }
    },
-   "ms": 464,
-   "cost": 0.000162,
+   "ms": 818,
+   "cost": 0.0001354,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 138,
@@ -971,18 +971,18 @@
      "value": "Mount Everest",
      "guess": "Mount Everest",
      "span": [
-      576,
-      589
+      13,
+      26
      ],
-     "p_null": 0.0003605053061619401,
-     "confidence": 0.999995231628418
+     "p_null": 0.00016493532166350633,
+     "confidence": 0.9999905824661255
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 3,
-     "p_null": 0.9993784427642822,
-     "confidence": 0.024406676962852696
+     "guess": 10,
+     "p_null": 0.9954211115837097,
+     "confidence": 0.058588506461937626
     },
     "when": {
      "type": "text",
@@ -992,26 +992,26 @@
       474,
       478
      ],
-     "p_null": 0.9992063641548157,
-     "confidence": 0.2567429840564728
+     "p_null": 0.9991704225540161,
+     "confidence": 0.24480241537094116
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9993317723274231,
-     "confidence": 0.3494145442890879
+     "p_null": 0.9992305040359497,
+     "confidence": 0.3649439621923189
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9581746459007263,
-     "confidence": 0.9989676832175542
+     "p_null": 0.9576341509819031,
+     "confidence": 0.9989658911582323
     }
    },
-   "ms": 464,
-   "cost": 0.000162,
+   "ms": 818,
+   "cost": 0.0001354,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 138,
@@ -1030,18 +1030,18 @@
      "value": "Mount Everest",
      "guess": "Mount Everest",
      "span": [
-      576,
-      589
+      13,
+      26
      ],
-     "p_null": 0.0003605053061619401,
-     "confidence": 0.999995231628418
+     "p_null": 0.00016493532166350633,
+     "confidence": 0.9999905824661255
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 3,
-     "p_null": 0.9993784427642822,
-     "confidence": 0.024406676962852696
+     "guess": 10,
+     "p_null": 0.9954211115837097,
+     "confidence": 0.058588506461937626
     },
     "when": {
      "type": "text",
@@ -1051,26 +1051,26 @@
       474,
       478
      ],
-     "p_null": 0.9992063641548157,
-     "confidence": 0.2567429840564728
+     "p_null": 0.9991704225540161,
+     "confidence": 0.24480241537094116
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9993317723274231,
-     "confidence": 0.3494145442890879
+     "p_null": 0.9992305040359497,
+     "confidence": 0.3649439621923189
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9581746459007263,
-     "confidence": 0.9989676832175542
+     "p_null": 0.9576341509819031,
+     "confidence": 0.9989658911582323
     }
    },
-   "ms": 464,
-   "cost": 0.000162,
+   "ms": 818,
+   "cost": 0.0001354,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 138,
@@ -1089,18 +1089,18 @@
      "value": "Kenya",
      "guess": "Kenya",
      "span": [
-      577,
-      582
+      14,
+      19
      ],
-     "p_null": 0.0013030152767896652,
-     "confidence": 0.9997422099113464
+     "p_null": 0.0002738665498327464,
+     "confidence": 0.9999998807907104
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9989047050476074,
-     "confidence": 0.048036657692162074
+     "p_null": 0.997087299823761,
+     "confidence": 0.07879394973584465
     },
     "when": {
      "type": "text",
@@ -1110,26 +1110,26 @@
       474,
       478
      ],
-     "p_null": 0.999560534954071,
-     "confidence": 0.24474047124385834
+     "p_null": 0.9995750784873962,
+     "confidence": 0.24177686870098114
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9896464943885803,
-     "confidence": 0.4478194032017224
+     "p_null": 0.9901485443115234,
+     "confidence": 0.4449393655054587
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.7088719606399536,
-     "confidence": 0.9991346549531231
+     "p_null": 0.7379032373428345,
+     "confidence": 0.9991094157999231
     }
    },
-   "ms": 668,
-   "cost": 0.000162,
+   "ms": 974,
+   "cost": 0.0001352,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 138,
@@ -1148,18 +1148,18 @@
      "value": "Kenya",
      "guess": "Kenya",
      "span": [
-      577,
-      582
+      14,
+      19
      ],
-     "p_null": 0.0013030152767896652,
-     "confidence": 0.9997422099113464
+     "p_null": 0.0002738665498327464,
+     "confidence": 0.9999998807907104
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9989047050476074,
-     "confidence": 0.048036657692162074
+     "p_null": 0.997087299823761,
+     "confidence": 0.07879394973584465
     },
     "when": {
      "type": "text",
@@ -1169,26 +1169,26 @@
       474,
       478
      ],
-     "p_null": 0.999560534954071,
-     "confidence": 0.24474047124385834
+     "p_null": 0.9995750784873962,
+     "confidence": 0.24177686870098114
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9896464943885803,
-     "confidence": 0.4478194032017224
+     "p_null": 0.9901485443115234,
+     "confidence": 0.4449393655054587
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.7088719606399536,
-     "confidence": 0.9991346549531231
+     "p_null": 0.7379032373428345,
+     "confidence": 0.9991094157999231
     }
    },
-   "ms": 668,
-   "cost": 0.000162,
+   "ms": 974,
+   "cost": 0.0001352,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 138,
@@ -1207,18 +1207,18 @@
      "value": "Kenya",
      "guess": "Kenya",
      "span": [
-      577,
-      582
+      14,
+      19
      ],
-     "p_null": 0.0013030152767896652,
-     "confidence": 0.9997422099113464
+     "p_null": 0.0002738665498327464,
+     "confidence": 0.9999998807907104
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9989047050476074,
-     "confidence": 0.048036657692162074
+     "p_null": 0.997087299823761,
+     "confidence": 0.07879394973584465
     },
     "when": {
      "type": "text",
@@ -1228,26 +1228,26 @@
       474,
       478
      ],
-     "p_null": 0.999560534954071,
-     "confidence": 0.24474047124385834
+     "p_null": 0.9995750784873962,
+     "confidence": 0.24177686870098114
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9896464943885803,
-     "confidence": 0.4478194032017224
+     "p_null": 0.9901485443115234,
+     "confidence": 0.4449393655054587
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.7088719606399536,
-     "confidence": 0.9991346549531231
+     "p_null": 0.7379032373428345,
+     "confidence": 0.9991094157999231
     }
    },
-   "ms": 668,
-   "cost": 0.000162,
+   "ms": 974,
+   "cost": 0.0001352,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 138,
@@ -1266,18 +1266,18 @@
      "value": "Zurich",
      "guess": "Zurich",
      "span": [
-      584,
-      590
+      21,
+      27
      ],
-     "p_null": 0.004980107303708792,
-     "confidence": 0.9995837807655334
+     "p_null": 0.003093292471021414,
+     "confidence": 0.9990342855453491
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.997346043586731,
-     "confidence": 0.03779185989382282
+     "p_null": 0.9952556490898132,
+     "confidence": 0.2564600012985532
     },
     "when": {
      "type": "text",
@@ -1287,26 +1287,26 @@
       584,
       590
      ],
-     "p_null": 0.9990895986557007,
-     "confidence": 0.535499095916748
+     "p_null": 0.9991531372070312,
+     "confidence": 0.5471286773681641
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9960030913352966,
-     "confidence": 0.4456246231876169
+     "p_null": 0.9960403442382812,
+     "confidence": 0.47080449291324133
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9263589978218079,
-     "confidence": 0.9983913589757138
+     "p_null": 0.9275416731834412,
+     "confidence": 0.9984499818181399
     }
    },
-   "ms": 622,
-   "cost": 0.0001628,
+   "ms": 791,
+   "cost": 0.0001362,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -1325,18 +1325,18 @@
      "value": "Zurich",
      "guess": "Zurich",
      "span": [
-      584,
-      590
+      21,
+      27
      ],
-     "p_null": 0.004980107303708792,
-     "confidence": 0.9995837807655334
+     "p_null": 0.003093292471021414,
+     "confidence": 0.9990342855453491
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.997346043586731,
-     "confidence": 0.03779185989382282
+     "p_null": 0.9952556490898132,
+     "confidence": 0.2564600012985532
     },
     "when": {
      "type": "text",
@@ -1346,26 +1346,26 @@
       584,
       590
      ],
-     "p_null": 0.9990895986557007,
-     "confidence": 0.535499095916748
+     "p_null": 0.9991531372070312,
+     "confidence": 0.5471286773681641
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9960030913352966,
-     "confidence": 0.4456246231876169
+     "p_null": 0.9960403442382812,
+     "confidence": 0.47080449291324133
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9263589978218079,
-     "confidence": 0.9983913589757138
+     "p_null": 0.9275416731834412,
+     "confidence": 0.9984499818181399
     }
    },
-   "ms": 622,
-   "cost": 0.0001628,
+   "ms": 791,
+   "cost": 0.0001362,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -1384,18 +1384,18 @@
      "value": "Zurich",
      "guess": "Zurich",
      "span": [
-      584,
-      590
+      21,
+      27
      ],
-     "p_null": 0.004980107303708792,
-     "confidence": 0.9995837807655334
+     "p_null": 0.003093292471021414,
+     "confidence": 0.9990342855453491
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.997346043586731,
-     "confidence": 0.03779185989382282
+     "p_null": 0.9952556490898132,
+     "confidence": 0.2564600012985532
     },
     "when": {
      "type": "text",
@@ -1405,26 +1405,26 @@
       584,
       590
      ],
-     "p_null": 0.9990895986557007,
-     "confidence": 0.535499095916748
+     "p_null": 0.9991531372070312,
+     "confidence": 0.5471286773681641
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9960030913352966,
-     "confidence": 0.4456246231876169
+     "p_null": 0.9960403442382812,
+     "confidence": 0.47080449291324133
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9263589978218079,
-     "confidence": 0.9983913589757138
+     "p_null": 0.9275416731834412,
+     "confidence": 0.9984499818181399
     }
    },
-   "ms": 622,
-   "cost": 0.0001628,
+   "ms": 791,
+   "cost": 0.0001362,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -1443,18 +1443,18 @@
      "value": null,
      "guess": "Hurricane Idalia",
      "span": [
-      583,
-      599
+      20,
+      36
      ],
-     "p_null": 0.9510502219200134,
-     "confidence": 0.8416892290115356
+     "p_null": 0.9235049486160278,
+     "confidence": 0.9222766757011414
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9977681636810303,
-     "confidence": 0.03130733387908527
+     "p_null": 0.9964302182197571,
+     "confidence": 0.3044496484828084
     },
     "when": {
      "type": "text",
@@ -1464,8 +1464,8 @@
       577,
       599
      ],
-     "p_null": 0.7401621341705322,
-     "confidence": 0.803625226020813
+     "p_null": 0.7489363551139832,
+     "confidence": 0.8009476065635681
     },
     "start": {
      "type": "date",
@@ -1482,8 +1482,8 @@
      "confidence": 0.9912989366430126
     }
    },
-   "ms": 608,
-   "cost": 0.0001632,
+   "ms": 571,
+   "cost": 0.0001364,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 141,
@@ -1502,18 +1502,18 @@
      "value": null,
      "guess": "Hurricane Idalia",
      "span": [
-      583,
-      599
+      20,
+      36
      ],
-     "p_null": 0.9510502219200134,
-     "confidence": 0.8416892290115356
+     "p_null": 0.9235049486160278,
+     "confidence": 0.9222766757011414
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9977681636810303,
-     "confidence": 0.03130733387908527
+     "p_null": 0.9964302182197571,
+     "confidence": 0.3044496484828084
     },
     "when": {
      "type": "text",
@@ -1523,8 +1523,8 @@
       577,
       599
      ],
-     "p_null": 0.7401621341705322,
-     "confidence": 0.803625226020813
+     "p_null": 0.7489363551139832,
+     "confidence": 0.8009476065635681
     },
     "start": {
      "type": "date",
@@ -1541,8 +1541,8 @@
      "confidence": 0.9912989366430126
     }
    },
-   "ms": 608,
-   "cost": 0.0001632,
+   "ms": 571,
+   "cost": 0.0001364,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 141,
@@ -1561,29 +1561,29 @@
      "value": "Svalbard",
      "guess": "Svalbard",
      "span": [
-      586,
-      594
+      23,
+      31
      ],
-     "p_null": 0.009278321638703346,
-     "confidence": 0.9997898936271667
+     "p_null": 0.006554893217980862,
+     "confidence": 0.9982578158378601
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.99904865026474,
-     "confidence": 0.04107679490968793
+     "p_null": 0.9990710020065308,
+     "confidence": 0.1043692295244085
     },
     "when": {
      "type": "text",
      "value": null,
-     "guess": "Past seasons",
+     "guess": "Past",
      "span": [
       474,
-      486
+      478
      ],
-     "p_null": 0.9993425011634827,
-     "confidence": 0.20064331591129303
+     "p_null": 0.9993745684623718,
+     "confidence": 0.2053128182888031
     },
     "start": {
      "type": "date",
@@ -1600,8 +1600,8 @@
      "confidence": 0.9991039089712455
     }
    },
-   "ms": 559,
-   "cost": 0.0001632,
+   "ms": 488,
+   "cost": 0.0001366,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 141,
@@ -1620,29 +1620,29 @@
      "value": "Svalbard",
      "guess": "Svalbard",
      "span": [
-      586,
-      594
+      23,
+      31
      ],
-     "p_null": 0.009278321638703346,
-     "confidence": 0.9997898936271667
+     "p_null": 0.006554893217980862,
+     "confidence": 0.9982578158378601
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.99904865026474,
-     "confidence": 0.04107679490968793
+     "p_null": 0.9990710020065308,
+     "confidence": 0.1043692295244085
     },
     "when": {
      "type": "text",
      "value": null,
-     "guess": "Past seasons",
+     "guess": "Past",
      "span": [
       474,
-      486
+      478
      ],
-     "p_null": 0.9993425011634827,
-     "confidence": 0.20064331591129303
+     "p_null": 0.9993745684623718,
+     "confidence": 0.2053128182888031
     },
     "start": {
      "type": "date",
@@ -1659,8 +1659,8 @@
      "confidence": 0.9991039089712455
     }
    },
-   "ms": 559,
-   "cost": 0.0001632,
+   "ms": 488,
+   "cost": 0.0001366,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 141,
@@ -1679,29 +1679,29 @@
      "value": "Svalbard",
      "guess": "Svalbard",
      "span": [
-      586,
-      594
+      23,
+      31
      ],
-     "p_null": 0.009278321638703346,
-     "confidence": 0.9997898936271667
+     "p_null": 0.006554893217980862,
+     "confidence": 0.9982578158378601
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.99904865026474,
-     "confidence": 0.04107679490968793
+     "p_null": 0.9990710020065308,
+     "confidence": 0.1043692295244085
     },
     "when": {
      "type": "text",
      "value": null,
-     "guess": "Past seasons",
+     "guess": "Past",
      "span": [
       474,
-      486
+      478
      ],
-     "p_null": 0.9993425011634827,
-     "confidence": 0.20064331591129303
+     "p_null": 0.9993745684623718,
+     "confidence": 0.2053128182888031
     },
     "start": {
      "type": "date",
@@ -1718,8 +1718,8 @@
      "confidence": 0.9991039089712455
     }
    },
-   "ms": 559,
-   "cost": 0.0001632,
+   "ms": 488,
+   "cost": 0.0001366,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 141,
@@ -1738,18 +1738,18 @@
      "value": "Austin, Texas",
      "guess": "Austin, Texas",
      "span": [
-      579,
-      592
+      16,
+      29
      ],
-     "p_null": 0.0030653178691864014,
-     "confidence": 0.9574552178382874
+     "p_null": 0.00420716917142272,
+     "confidence": 0.8919857740402222
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 30,
-     "p_null": 0.9997392296791077,
-     "confidence": 0.030140242864811366
+     "guess": 10,
+     "p_null": 0.9981582760810852,
+     "confidence": 0.2815310670388117
     },
     "when": {
      "type": "text",
@@ -1759,26 +1759,26 @@
       598,
       602
      ],
-     "p_null": 0.0009885329054668546,
-     "confidence": 0.8988485336303711
+     "p_null": 0.0010136564960703254,
+     "confidence": 0.8948074579238892
     },
     "start": {
      "type": "date",
      "value": "2022-01-01",
      "guess": "2022-01-01",
-     "p_null": 0.0006002708687447011,
-     "confidence": 0.9985683454753546
+     "p_null": 0.0005935803055763245,
+     "confidence": 0.9987017051884445
     },
     "end": {
      "type": "date",
      "value": "2026-12-02",
      "guess": "2026-12-02",
-     "p_null": 0.10912209004163742,
-     "confidence": 0.4187426444311492
+     "p_null": 0.10861323028802872,
+     "confidence": 0.41723429316988453
     }
    },
-   "ms": 529,
-   "cost": 0.00016560000000000001,
+   "ms": 905,
+   "cost": 0.0001388,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 147,
@@ -1800,18 +1800,18 @@
      "value": "Austin, Texas",
      "guess": "Austin, Texas",
      "span": [
-      579,
-      592
+      16,
+      29
      ],
-     "p_null": 0.0030653178691864014,
-     "confidence": 0.9574552178382874
+     "p_null": 0.00420716917142272,
+     "confidence": 0.8919857740402222
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 30,
-     "p_null": 0.9997392296791077,
-     "confidence": 0.030140242864811366
+     "guess": 10,
+     "p_null": 0.9981582760810852,
+     "confidence": 0.2815310670388117
     },
     "when": {
      "type": "text",
@@ -1821,26 +1821,26 @@
       598,
       602
      ],
-     "p_null": 0.0009885329054668546,
-     "confidence": 0.8988485336303711
+     "p_null": 0.0010136564960703254,
+     "confidence": 0.8948074579238892
     },
     "start": {
      "type": "date",
      "value": "2022-01-01",
      "guess": "2022-01-01",
-     "p_null": 0.0006002708687447011,
-     "confidence": 0.9985683454753546
+     "p_null": 0.0005935803055763245,
+     "confidence": 0.9987017051884445
     },
     "end": {
      "type": "date",
      "value": "2026-12-02",
      "guess": "2026-12-02",
-     "p_null": 0.10912209004163742,
-     "confidence": 0.4187426444311492
+     "p_null": 0.10861323028802872,
+     "confidence": 0.41723429316988453
     }
    },
-   "ms": 529,
-   "cost": 0.00016560000000000001,
+   "ms": 905,
+   "cost": 0.0001388,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 147,
@@ -1859,18 +1859,18 @@
      "value": "Austin, Texas",
      "guess": "Austin, Texas",
      "span": [
-      579,
-      592
+      16,
+      29
      ],
-     "p_null": 0.0030653178691864014,
-     "confidence": 0.9574552178382874
+     "p_null": 0.00420716917142272,
+     "confidence": 0.8919857740402222
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 30,
-     "p_null": 0.9997392296791077,
-     "confidence": 0.030140242864811366
+     "guess": 10,
+     "p_null": 0.9981582760810852,
+     "confidence": 0.2815310670388117
     },
     "when": {
      "type": "text",
@@ -1880,26 +1880,26 @@
       598,
       602
      ],
-     "p_null": 0.0009885329054668546,
-     "confidence": 0.8988485336303711
+     "p_null": 0.0010136564960703254,
+     "confidence": 0.8948074579238892
     },
     "start": {
      "type": "date",
      "value": "2022-01-01",
      "guess": "2022-01-01",
-     "p_null": 0.0006002708687447011,
-     "confidence": 0.9985683454753546
+     "p_null": 0.0005935803055763245,
+     "confidence": 0.9987017051884445
     },
     "end": {
      "type": "date",
      "value": "2026-12-02",
      "guess": "2026-12-02",
-     "p_null": 0.10912209004163742,
-     "confidence": 0.4187426444311492
+     "p_null": 0.10861323028802872,
+     "confidence": 0.41723429316988453
     }
    },
-   "ms": 529,
-   "cost": 0.00016560000000000001,
+   "ms": 905,
+   "cost": 0.0001388,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 147,
@@ -1918,18 +1918,18 @@
      "value": "Lower Saxony",
      "guess": "Lower Saxony",
      "span": [
-      577,
-      589
+      14,
+      26
      ],
-     "p_null": 0.0012289984151721,
-     "confidence": 0.9999903440475464
+     "p_null": 0.0008524886798113585,
+     "confidence": 0.9999984502792358
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9990461468696594,
-     "confidence": 0.03787025732065863
+     "p_null": 0.995140552520752,
+     "confidence": 0.06560194948723945
     },
     "when": {
      "type": "text",
@@ -1939,26 +1939,26 @@
       474,
       486
      ],
-     "p_null": 0.9989957213401794,
-     "confidence": 0.18704722821712494
+     "p_null": 0.9989572763442993,
+     "confidence": 0.19050873816013336
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9947823882102966,
-     "confidence": 0.4840458428480892
+     "p_null": 0.9945881366729736,
+     "confidence": 0.4690250573446552
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.8527619242668152,
-     "confidence": 0.9990952617144829
+     "p_null": 0.8320254683494568,
+     "confidence": 0.9990881270739649
     }
    },
-   "ms": 583,
-   "cost": 0.0001628,
+   "ms": 570,
+   "cost": 0.000136,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -1977,18 +1977,18 @@
      "value": "Lower Saxony",
      "guess": "Lower Saxony",
      "span": [
-      577,
-      589
+      14,
+      26
      ],
-     "p_null": 0.0012289984151721,
-     "confidence": 0.9999903440475464
+     "p_null": 0.0008524886798113585,
+     "confidence": 0.9999984502792358
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9990461468696594,
-     "confidence": 0.03787025732065863
+     "p_null": 0.995140552520752,
+     "confidence": 0.06560194948723945
     },
     "when": {
      "type": "text",
@@ -1998,26 +1998,26 @@
       474,
       486
      ],
-     "p_null": 0.9989957213401794,
-     "confidence": 0.18704722821712494
+     "p_null": 0.9989572763442993,
+     "confidence": 0.19050873816013336
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9947823882102966,
-     "confidence": 0.4840458428480892
+     "p_null": 0.9945881366729736,
+     "confidence": 0.4690250573446552
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.8527619242668152,
-     "confidence": 0.9990952617144829
+     "p_null": 0.8320254683494568,
+     "confidence": 0.9990881270739649
     }
    },
-   "ms": 583,
-   "cost": 0.0001628,
+   "ms": 570,
+   "cost": 0.000136,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -2036,18 +2036,18 @@
      "value": "Lower Saxony",
      "guess": "Lower Saxony",
      "span": [
-      577,
-      589
+      14,
+      26
      ],
-     "p_null": 0.0012289984151721,
-     "confidence": 0.9999903440475464
+     "p_null": 0.0008524886798113585,
+     "confidence": 0.9999984502792358
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9990461468696594,
-     "confidence": 0.03787025732065863
+     "p_null": 0.995140552520752,
+     "confidence": 0.06560194948723945
     },
     "when": {
      "type": "text",
@@ -2057,26 +2057,26 @@
       474,
       486
      ],
-     "p_null": 0.9989957213401794,
-     "confidence": 0.18704722821712494
+     "p_null": 0.9989572763442993,
+     "confidence": 0.19050873816013336
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9947823882102966,
-     "confidence": 0.4840458428480892
+     "p_null": 0.9945881366729736,
+     "confidence": 0.4690250573446552
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.8527619242668152,
-     "confidence": 0.9990952617144829
+     "p_null": 0.8320254683494568,
+     "confidence": 0.9990881270739649
     }
    },
-   "ms": 583,
-   "cost": 0.0001628,
+   "ms": 570,
+   "cost": 0.000136,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -2095,18 +2095,18 @@
      "value": "Hannover",
      "guess": "Hannover",
      "span": [
-      580,
-      588
+      17,
+      25
      ],
-     "p_null": 0.0008823696407489479,
-     "confidence": 0.9995856881141663
+     "p_null": 0.00018584421195555478,
+     "confidence": 0.9999990463256836
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9973363280296326,
-     "confidence": 0.030819732380227286
+     "p_null": 0.9924899935722351,
+     "confidence": 0.1241448973834244
     },
     "when": {
      "type": "text",
@@ -2116,26 +2116,26 @@
       474,
       478
      ],
-     "p_null": 0.9994257688522339,
-     "confidence": 0.22299672663211823
+     "p_null": 0.9994414448738098,
+     "confidence": 0.21635937690734863
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9930453896522522,
-     "confidence": 0.6718244052341436
+     "p_null": 0.9935278296470642,
+     "confidence": 0.6710666518482723
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9077094793319702,
-     "confidence": 0.9975999877402538
+     "p_null": 0.9128261208534241,
+     "confidence": 0.9975045735188134
     }
    },
-   "ms": 919,
-   "cost": 0.000162,
+   "ms": 562,
+   "cost": 0.0001354,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 138,
@@ -2154,18 +2154,18 @@
      "value": "Hannover",
      "guess": "Hannover",
      "span": [
-      580,
-      588
+      17,
+      25
      ],
-     "p_null": 0.0008823696407489479,
-     "confidence": 0.9995856881141663
+     "p_null": 0.00018584421195555478,
+     "confidence": 0.9999990463256836
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9973363280296326,
-     "confidence": 0.030819732380227286
+     "p_null": 0.9924899935722351,
+     "confidence": 0.1241448973834244
     },
     "when": {
      "type": "text",
@@ -2175,26 +2175,26 @@
       474,
       478
      ],
-     "p_null": 0.9994257688522339,
-     "confidence": 0.22299672663211823
+     "p_null": 0.9994414448738098,
+     "confidence": 0.21635937690734863
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9930453896522522,
-     "confidence": 0.6718244052341436
+     "p_null": 0.9935278296470642,
+     "confidence": 0.6710666518482723
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9077094793319702,
-     "confidence": 0.9975999877402538
+     "p_null": 0.9128261208534241,
+     "confidence": 0.9975045735188134
     }
    },
-   "ms": 919,
-   "cost": 0.000162,
+   "ms": 562,
+   "cost": 0.0001354,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 138,
@@ -2213,18 +2213,18 @@
      "value": "Hannover",
      "guess": "Hannover",
      "span": [
-      580,
-      588
+      17,
+      25
      ],
-     "p_null": 0.0008823696407489479,
-     "confidence": 0.9995856881141663
+     "p_null": 0.00018584421195555478,
+     "confidence": 0.9999990463256836
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9973363280296326,
-     "confidence": 0.030819732380227286
+     "p_null": 0.9924899935722351,
+     "confidence": 0.1241448973834244
     },
     "when": {
      "type": "text",
@@ -2234,26 +2234,26 @@
       474,
       478
      ],
-     "p_null": 0.9994257688522339,
-     "confidence": 0.22299672663211823
+     "p_null": 0.9994414448738098,
+     "confidence": 0.21635937690734863
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9930453896522522,
-     "confidence": 0.6718244052341436
+     "p_null": 0.9935278296470642,
+     "confidence": 0.6710666518482723
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9077094793319702,
-     "confidence": 0.9975999877402538
+     "p_null": 0.9128261208534241,
+     "confidence": 0.9975045735188134
     }
    },
-   "ms": 919,
-   "cost": 0.000162,
+   "ms": 562,
+   "cost": 0.0001354,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 138,
@@ -2264,26 +2264,26 @@
    "prompt": "recent Sentinel-2 of the Amazon rainforest",
    "group": "place",
    "expect": "Amazon rainforest | Amazon",
-   "value": "the Amazon rainforest",
+   "value": "Amazon rainforest",
    "ok": true,
    "answers": {
     "place": {
      "type": "text",
-     "value": "the Amazon rainforest",
-     "guess": "the Amazon rainforest",
+     "value": "Amazon rainforest",
+     "guess": "Amazon rainforest",
      "span": [
-      584,
-      605
+      25,
+      42
      ],
-     "p_null": 0.0030581627506762743,
-     "confidence": 0.6712977290153503
+     "p_null": 0.009207051247358322,
+     "confidence": 0.5586681365966797
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 10,
-     "p_null": 0.9994046688079834,
-     "confidence": 0.016077007155799895
+     "guess": 0,
+     "p_null": 0.9631777405738831,
+     "confidence": 0.4959799988720036
     },
     "when": {
      "type": "text",
@@ -2293,26 +2293,26 @@
       563,
       569
      ],
-     "p_null": 0.048079341650009155,
-     "confidence": 0.9898518323898315
+     "p_null": 0.04905620589852333,
+     "confidence": 0.9888945817947388
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.6593629121780396,
-     "confidence": 0.3535625872646594
+     "p_null": 0.6507702469825745,
+     "confidence": 0.34148160924443427
     },
     "end": {
      "type": "date",
      "value": "2026-10-02",
      "guess": "2026-10-02",
-     "p_null": 0.06057347357273102,
-     "confidence": 0.9956757533977882
+     "p_null": 0.05730096250772476,
+     "confidence": 0.9955272196301723
     }
    },
-   "ms": 610,
-   "cost": 0.000164,
+   "ms": 564,
+   "cost": 0.0001372,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 143,
@@ -2331,21 +2331,21 @@
    "answers": {
     "place": {
      "type": "text",
-     "value": "the Amazon rainforest",
-     "guess": "the Amazon rainforest",
+     "value": "Amazon rainforest",
+     "guess": "Amazon rainforest",
      "span": [
-      584,
-      605
+      25,
+      42
      ],
-     "p_null": 0.0030581627506762743,
-     "confidence": 0.6712977290153503
+     "p_null": 0.009207051247358322,
+     "confidence": 0.5586681365966797
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 10,
-     "p_null": 0.9994046688079834,
-     "confidence": 0.016077007155799895
+     "guess": 0,
+     "p_null": 0.9631777405738831,
+     "confidence": 0.4959799988720036
     },
     "when": {
      "type": "text",
@@ -2355,26 +2355,26 @@
       563,
       569
      ],
-     "p_null": 0.048079341650009155,
-     "confidence": 0.9898518323898315
+     "p_null": 0.04905620589852333,
+     "confidence": 0.9888945817947388
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.6593629121780396,
-     "confidence": 0.3535625872646594
+     "p_null": 0.6507702469825745,
+     "confidence": 0.34148160924443427
     },
     "end": {
      "type": "date",
      "value": "2026-10-02",
      "guess": "2026-10-02",
-     "p_null": 0.06057347357273102,
-     "confidence": 0.9956757533977882
+     "p_null": 0.05730096250772476,
+     "confidence": 0.9955272196301723
     }
    },
-   "ms": 610,
-   "cost": 0.000164,
+   "ms": 564,
+   "cost": 0.0001372,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 143,
@@ -2393,18 +2393,18 @@
      "value": "the Alps",
      "guess": "the Alps",
      "span": [
-      585,
-      593
+      22,
+      30
      ],
-     "p_null": 0.0016904724761843681,
-     "confidence": 0.9836416244506836
+     "p_null": 0.0012282313546165824,
+     "confidence": 0.9906766414642334
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9987953901290894,
-     "confidence": 0.03919761222157607
+     "p_null": 0.9996446371078491,
+     "confidence": 0.12836025356220507
     },
     "when": {
      "type": "text",
@@ -2432,8 +2432,8 @@
      "confidence": 0.18163473513311637
     }
    },
-   "ms": 868,
-   "cost": 0.000166,
+   "ms": 535,
+   "cost": 0.0001392,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 148,
@@ -2455,18 +2455,18 @@
      "value": "the Alps",
      "guess": "the Alps",
      "span": [
-      585,
-      593
+      22,
+      30
      ],
-     "p_null": 0.0016904724761843681,
-     "confidence": 0.9836416244506836
+     "p_null": 0.0012282313546165824,
+     "confidence": 0.9906766414642334
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9987953901290894,
-     "confidence": 0.03919761222157607
+     "p_null": 0.9996446371078491,
+     "confidence": 0.12836025356220507
     },
     "when": {
      "type": "text",
@@ -2494,8 +2494,8 @@
      "confidence": 0.18163473513311637
     }
    },
-   "ms": 868,
-   "cost": 0.000166,
+   "ms": 535,
+   "cost": 0.0001392,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 148,
@@ -2514,18 +2514,18 @@
      "value": "the Alps",
      "guess": "the Alps",
      "span": [
-      585,
-      593
+      22,
+      30
      ],
-     "p_null": 0.0016904724761843681,
-     "confidence": 0.9836416244506836
+     "p_null": 0.0012282313546165824,
+     "confidence": 0.9906766414642334
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9987953901290894,
-     "confidence": 0.03919761222157607
+     "p_null": 0.9996446371078491,
+     "confidence": 0.12836025356220507
     },
     "when": {
      "type": "text",
@@ -2553,8 +2553,8 @@
      "confidence": 0.18163473513311637
     }
    },
-   "ms": 868,
-   "cost": 0.000166,
+   "ms": 535,
+   "cost": 0.0001392,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 148,
@@ -2573,18 +2573,18 @@
      "value": "Aral Sea",
      "guess": "Aral Sea",
      "span": [
-      578,
-      586
+      15,
+      23
      ],
-     "p_null": 0.005384973715990782,
-     "confidence": 0.44250836968421936
+     "p_null": 0.009512465447187424,
+     "confidence": 0.8477310538291931
     },
     "cloud": {
      "type": "number",
      "value": 10,
      "guess": 10,
-     "p_null": 0.006559372413903475,
-     "confidence": 0.9332555425219528
+     "p_null": 0.0040448992513120174,
+     "confidence": 0.9734698681269348
     },
     "when": {
      "type": "text",
@@ -2594,26 +2594,26 @@
       587,
       594
      ],
-     "p_null": 0.000657889002468437,
-     "confidence": 0.8617201447486877
+     "p_null": 0.0006649645511060953,
+     "confidence": 0.852882444858551
     },
     "start": {
      "type": "date",
      "value": "2016-01-01",
      "guess": "2016-01-01",
-     "p_null": 0.0008057430386543274,
-     "confidence": 0.9980687048761281
+     "p_null": 0.0008638209546916187,
+     "confidence": 0.9980164090231239
     },
     "end": {
      "type": "date",
      "value": "2016-12-31",
      "guess": "2016-12-31",
-     "p_null": 0.01755700074136257,
-     "confidence": 0.44663212312285167
+     "p_null": 0.016675075516104698,
+     "confidence": 0.49779221619024216
     }
    },
-   "ms": 589,
-   "cost": 0.0001684,
+   "ms": 516,
+   "cost": 0.0001418,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 154,
@@ -2635,18 +2635,18 @@
      "value": "Aral Sea",
      "guess": "Aral Sea",
      "span": [
-      578,
-      586
+      15,
+      23
      ],
-     "p_null": 0.005384973715990782,
-     "confidence": 0.44250836968421936
+     "p_null": 0.009512465447187424,
+     "confidence": 0.8477310538291931
     },
     "cloud": {
      "type": "number",
      "value": 10,
      "guess": 10,
-     "p_null": 0.006559372413903475,
-     "confidence": 0.9332555425219528
+     "p_null": 0.0040448992513120174,
+     "confidence": 0.9734698681269348
     },
     "when": {
      "type": "text",
@@ -2656,26 +2656,26 @@
       587,
       594
      ],
-     "p_null": 0.000657889002468437,
-     "confidence": 0.8617201447486877
+     "p_null": 0.0006649645511060953,
+     "confidence": 0.852882444858551
     },
     "start": {
      "type": "date",
      "value": "2016-01-01",
      "guess": "2016-01-01",
-     "p_null": 0.0008057430386543274,
-     "confidence": 0.9980687048761281
+     "p_null": 0.0008638209546916187,
+     "confidence": 0.9980164090231239
     },
     "end": {
      "type": "date",
      "value": "2016-12-31",
      "guess": "2016-12-31",
-     "p_null": 0.01755700074136257,
-     "confidence": 0.44663212312285167
+     "p_null": 0.016675075516104698,
+     "confidence": 0.49779221619024216
     }
    },
-   "ms": 589,
-   "cost": 0.0001684,
+   "ms": 516,
+   "cost": 0.0001418,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 154,
@@ -2694,18 +2694,18 @@
      "value": "Aral Sea",
      "guess": "Aral Sea",
      "span": [
-      578,
-      586
+      15,
+      23
      ],
-     "p_null": 0.005384973715990782,
-     "confidence": 0.44250836968421936
+     "p_null": 0.009512465447187424,
+     "confidence": 0.8477310538291931
     },
     "cloud": {
      "type": "number",
      "value": 10,
      "guess": 10,
-     "p_null": 0.006559372413903475,
-     "confidence": 0.9332555425219528
+     "p_null": 0.0040448992513120174,
+     "confidence": 0.9734698681269348
     },
     "when": {
      "type": "text",
@@ -2715,26 +2715,26 @@
       587,
       594
      ],
-     "p_null": 0.000657889002468437,
-     "confidence": 0.8617201447486877
+     "p_null": 0.0006649645511060953,
+     "confidence": 0.852882444858551
     },
     "start": {
      "type": "date",
      "value": "2016-01-01",
      "guess": "2016-01-01",
-     "p_null": 0.0008057430386543274,
-     "confidence": 0.9980687048761281
+     "p_null": 0.0008638209546916187,
+     "confidence": 0.9980164090231239
     },
     "end": {
      "type": "date",
      "value": "2016-12-31",
      "guess": "2016-12-31",
-     "p_null": 0.01755700074136257,
-     "confidence": 0.44663212312285167
+     "p_null": 0.016675075516104698,
+     "confidence": 0.49779221619024216
     }
    },
-   "ms": 589,
-   "cost": 0.0001684,
+   "ms": 516,
+   "cost": 0.0001418,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 154,
@@ -2753,18 +2753,18 @@
      "value": "this area",
      "guess": "this area",
      "span": [
-      577,
-      586
+      14,
+      23
      ],
-     "p_null": 0.016869792714715004,
-     "confidence": 0.6996577978134155
+     "p_null": 0.016838960349559784,
+     "confidence": 0.9552199840545654
     },
     "cloud": {
      "type": "number",
-     "value": 50,
-     "guess": 50,
-     "p_null": 0.03265499323606491,
-     "confidence": 0.22400246108093394
+     "value": 10,
+     "guess": 10,
+     "p_null": 0.010522972792387009,
+     "confidence": 0.321377405481004
     },
     "when": {
      "type": "text",
@@ -2792,8 +2792,8 @@
      "confidence": 0.9926235025617476
     }
    },
-   "ms": 489,
-   "cost": 0.000164,
+   "ms": 508,
+   "cost": 0.0001374,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 143,
@@ -2812,18 +2812,18 @@
      "value": "this area",
      "guess": "this area",
      "span": [
-      577,
-      586
+      14,
+      23
      ],
-     "p_null": 0.016869792714715004,
-     "confidence": 0.6996577978134155
+     "p_null": 0.016838960349559784,
+     "confidence": 0.9552199840545654
     },
     "cloud": {
      "type": "number",
-     "value": 50,
-     "guess": 50,
-     "p_null": 0.03265499323606491,
-     "confidence": 0.22400246108093394
+     "value": 10,
+     "guess": 10,
+     "p_null": 0.010522972792387009,
+     "confidence": 0.321377405481004
     },
     "when": {
      "type": "text",
@@ -2851,8 +2851,8 @@
      "confidence": 0.9926235025617476
     }
    },
-   "ms": 489,
-   "cost": 0.000164,
+   "ms": 508,
+   "cost": 0.0001374,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 143,
@@ -2863,26 +2863,26 @@
    "prompt": "Sentinel-2 of this area, mostly clear",
    "group": "cloud",
    "expect": "10 to 20",
-   "value": 50,
-   "ok": false,
+   "value": 10,
+   "ok": true,
    "answers": {
     "place": {
      "type": "text",
      "value": "this area",
      "guess": "this area",
      "span": [
-      577,
-      586
+      14,
+      23
      ],
-     "p_null": 0.016869792714715004,
-     "confidence": 0.6996577978134155
+     "p_null": 0.016838960349559784,
+     "confidence": 0.9552199840545654
     },
     "cloud": {
      "type": "number",
-     "value": 50,
-     "guess": 50,
-     "p_null": 0.03265499323606491,
-     "confidence": 0.22400246108093394
+     "value": 10,
+     "guess": 10,
+     "p_null": 0.010522972792387009,
+     "confidence": 0.321377405481004
     },
     "when": {
      "type": "text",
@@ -2910,8 +2910,8 @@
      "confidence": 0.9926235025617476
     }
    },
-   "ms": 489,
-   "cost": 0.000164,
+   "ms": 508,
+   "cost": 0.0001374,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 143,
@@ -2930,18 +2930,18 @@
      "value": "Rome",
      "guess": "Rome",
      "span": [
-      588,
-      592
+      25,
+      29
      ],
-     "p_null": 0.001376637490466237,
-     "confidence": 0.9987105131149292
+     "p_null": 0.0011480646207928658,
+     "confidence": 0.9999833106994629
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9996190071105957,
-     "confidence": 0.024543073983969665
+     "p_null": 0.9994528889656067,
+     "confidence": 0.1320695276180004
     },
     "when": {
      "type": "text",
@@ -2951,26 +2951,26 @@
       519,
       582
      ],
-     "p_null": 0.9986485838890076,
-     "confidence": 0.10583775490522385
+     "p_null": 0.9987103939056396,
+     "confidence": 0.10014541447162628
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9917045831680298,
-     "confidence": 0.46147910090953487
+     "p_null": 0.9912338852882385,
+     "confidence": 0.47056667707866146
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9894465208053589,
-     "confidence": 0.9931832366430919
+     "p_null": 0.9869547486305237,
+     "confidence": 0.9936802185383504
     }
    },
-   "ms": 607,
-   "cost": 0.000164,
+   "ms": 877,
+   "cost": 0.0001374,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 143,
@@ -2989,18 +2989,18 @@
      "value": "Rome",
      "guess": "Rome",
      "span": [
-      588,
-      592
+      25,
+      29
      ],
-     "p_null": 0.001376637490466237,
-     "confidence": 0.9987105131149292
+     "p_null": 0.0011480646207928658,
+     "confidence": 0.9999833106994629
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9996190071105957,
-     "confidence": 0.024543073983969665
+     "p_null": 0.9994528889656067,
+     "confidence": 0.1320695276180004
     },
     "when": {
      "type": "text",
@@ -3010,26 +3010,26 @@
       519,
       582
      ],
-     "p_null": 0.9986485838890076,
-     "confidence": 0.10583775490522385
+     "p_null": 0.9987103939056396,
+     "confidence": 0.10014541447162628
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9917045831680298,
-     "confidence": 0.46147910090953487
+     "p_null": 0.9912338852882385,
+     "confidence": 0.47056667707866146
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9894465208053589,
-     "confidence": 0.9931832366430919
+     "p_null": 0.9869547486305237,
+     "confidence": 0.9936802185383504
     }
    },
-   "ms": 607,
-   "cost": 0.000164,
+   "ms": 877,
+   "cost": 0.0001374,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 143,
@@ -3048,18 +3048,18 @@
      "value": "Louisville",
      "guess": "Louisville",
      "span": [
-      593,
-      603
+      30,
+      40
      ],
-     "p_null": 0.017745263874530792,
-     "confidence": 0.9312631487846375
+     "p_null": 0.0072013624012470245,
+     "confidence": 0.9603309631347656
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 0,
-     "p_null": 0.9990335702896118,
-     "confidence": 0.30490337584086097
+     "guess": 10,
+     "p_null": 0.9995043277740479,
+     "confidence": 0.04441795739160912
     },
     "when": {
      "type": "text",
@@ -3069,26 +3069,26 @@
       474,
       478
      ],
-     "p_null": 0.9993181228637695,
-     "confidence": 0.2085191309452057
+     "p_null": 0.9993374943733215,
+     "confidence": 0.2136235535144806
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9989349246025085,
-     "confidence": 0.5557466593035882
+     "p_null": 0.9988719820976257,
+     "confidence": 0.5511702379245084
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.8924496173858643,
-     "confidence": 0.9995047539836225
+     "p_null": 0.891196608543396,
+     "confidence": 0.9994898654037082
     }
    },
-   "ms": 455,
-   "cost": 0.0001624,
+   "ms": 623,
+   "cost": 0.0001358,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 139,
@@ -3107,18 +3107,18 @@
      "value": "Louisville",
      "guess": "Louisville",
      "span": [
-      593,
-      603
+      30,
+      40
      ],
-     "p_null": 0.017745263874530792,
-     "confidence": 0.9312631487846375
+     "p_null": 0.0072013624012470245,
+     "confidence": 0.9603309631347656
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 0,
-     "p_null": 0.9990335702896118,
-     "confidence": 0.30490337584086097
+     "guess": 10,
+     "p_null": 0.9995043277740479,
+     "confidence": 0.04441795739160912
     },
     "when": {
      "type": "text",
@@ -3128,26 +3128,26 @@
       474,
       478
      ],
-     "p_null": 0.9993181228637695,
-     "confidence": 0.2085191309452057
+     "p_null": 0.9993374943733215,
+     "confidence": 0.2136235535144806
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9989349246025085,
-     "confidence": 0.5557466593035882
+     "p_null": 0.9988719820976257,
+     "confidence": 0.5511702379245084
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.8924496173858643,
-     "confidence": 0.9995047539836225
+     "p_null": 0.891196608543396,
+     "confidence": 0.9994898654037082
     }
    },
-   "ms": 455,
-   "cost": 0.0001624,
+   "ms": 623,
+   "cost": 0.0001358,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 139,
@@ -3166,18 +3166,18 @@
      "value": "Louisville",
      "guess": "Louisville",
      "span": [
-      593,
-      603
+      30,
+      40
      ],
-     "p_null": 0.017745263874530792,
-     "confidence": 0.9312631487846375
+     "p_null": 0.0072013624012470245,
+     "confidence": 0.9603309631347656
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 0,
-     "p_null": 0.9990335702896118,
-     "confidence": 0.30490337584086097
+     "guess": 10,
+     "p_null": 0.9995043277740479,
+     "confidence": 0.04441795739160912
     },
     "when": {
      "type": "text",
@@ -3187,26 +3187,26 @@
       474,
       478
      ],
-     "p_null": 0.9993181228637695,
-     "confidence": 0.2085191309452057
+     "p_null": 0.9993374943733215,
+     "confidence": 0.2136235535144806
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9989349246025085,
-     "confidence": 0.5557466593035882
+     "p_null": 0.9988719820976257,
+     "confidence": 0.5511702379245084
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.8924496173858643,
-     "confidence": 0.9995047539836225
+     "p_null": 0.891196608543396,
+     "confidence": 0.9994898654037082
     }
    },
-   "ms": 455,
-   "cost": 0.0001624,
+   "ms": 623,
+   "cost": 0.0001358,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 139,
@@ -3225,18 +3225,18 @@
      "value": "Lagos",
      "guess": "Lagos",
      "span": [
-      602,
-      607
+      39,
+      44
      ],
-     "p_null": 0.00260502309538424,
-     "confidence": 0.9977633953094482
+     "p_null": 0.0010952861048281193,
+     "confidence": 0.9999375343322754
     },
     "cloud": {
      "type": "number",
      "value": 5,
      "guess": 5,
-     "p_null": 0.0071273790672421455,
-     "confidence": 0.8979846009676739
+     "p_null": 0.007222447544336319,
+     "confidence": 0.9260338832721284
     },
     "when": {
      "type": "text",
@@ -3246,26 +3246,26 @@
       612,
       616
      ],
-     "p_null": 0.0024427708704024553,
-     "confidence": 0.9807925820350647
+     "p_null": 0.0024610126856714487,
+     "confidence": 0.9816011190414429
     },
     "start": {
      "type": "date",
      "value": "2023-01-01",
      "guess": "2023-01-01",
-     "p_null": 0.0010243639117106795,
-     "confidence": 0.9963722777236015
+     "p_null": 0.0009997315937653184,
+     "confidence": 0.9965117803796743
     },
     "end": {
      "type": "date",
      "value": "2023-12-31",
      "guess": "2023-12-31",
-     "p_null": 0.04365299269556999,
-     "confidence": 0.40804064031275955
+     "p_null": 0.04201819375157356,
+     "confidence": 0.4222675387220731
     }
    },
-   "ms": 520,
-   "cost": 0.0001664,
+   "ms": 700,
+   "cost": 0.0001396,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 149,
@@ -3287,18 +3287,18 @@
      "value": "Lagos",
      "guess": "Lagos",
      "span": [
-      602,
-      607
+      39,
+      44
      ],
-     "p_null": 0.00260502309538424,
-     "confidence": 0.9977633953094482
+     "p_null": 0.0010952861048281193,
+     "confidence": 0.9999375343322754
     },
     "cloud": {
      "type": "number",
      "value": 5,
      "guess": 5,
-     "p_null": 0.0071273790672421455,
-     "confidence": 0.8979846009676739
+     "p_null": 0.007222447544336319,
+     "confidence": 0.9260338832721284
     },
     "when": {
      "type": "text",
@@ -3308,26 +3308,26 @@
       612,
       616
      ],
-     "p_null": 0.0024427708704024553,
-     "confidence": 0.9807925820350647
+     "p_null": 0.0024610126856714487,
+     "confidence": 0.9816011190414429
     },
     "start": {
      "type": "date",
      "value": "2023-01-01",
      "guess": "2023-01-01",
-     "p_null": 0.0010243639117106795,
-     "confidence": 0.9963722777236015
+     "p_null": 0.0009997315937653184,
+     "confidence": 0.9965117803796743
     },
     "end": {
      "type": "date",
      "value": "2023-12-31",
      "guess": "2023-12-31",
-     "p_null": 0.04365299269556999,
-     "confidence": 0.40804064031275955
+     "p_null": 0.04201819375157356,
+     "confidence": 0.4222675387220731
     }
    },
-   "ms": 520,
-   "cost": 0.0001664,
+   "ms": 700,
+   "cost": 0.0001396,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 149,
@@ -3346,18 +3346,18 @@
      "value": "Kathmandu",
      "guess": "Kathmandu",
      "span": [
-      580,
-      589
+      17,
+      26
      ],
-     "p_null": 0.0003894261899404228,
-     "confidence": 0.9998927116394043
+     "p_null": 0.00009945974306901917,
+     "confidence": 0.9999865293502808
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 10,
-     "p_null": 0.9956997632980347,
-     "confidence": 0.06273873594131882
+     "guess": 50,
+     "p_null": 0.9975383281707764,
+     "confidence": 0.11143554448613469
     },
     "when": {
      "type": "text",
@@ -3367,26 +3367,26 @@
       474,
       478
      ],
-     "p_null": 0.9993263483047485,
-     "confidence": 0.21793347597122192
+     "p_null": 0.9993274211883545,
+     "confidence": 0.2017998993396759
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9938334226608276,
-     "confidence": 0.5560681570400925
+     "p_null": 0.9937630295753479,
+     "confidence": 0.5511369007716839
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.8360241651535034,
-     "confidence": 0.9989311446455801
+     "p_null": 0.8387561440467834,
+     "confidence": 0.9989140062699541
     }
    },
-   "ms": 881,
-   "cost": 0.0001628,
+   "ms": 791,
+   "cost": 0.0001362,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -3405,18 +3405,18 @@
      "value": "Kathmandu",
      "guess": "Kathmandu",
      "span": [
-      580,
-      589
+      17,
+      26
      ],
-     "p_null": 0.0003894261899404228,
-     "confidence": 0.9998927116394043
+     "p_null": 0.00009945974306901917,
+     "confidence": 0.9999865293502808
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 10,
-     "p_null": 0.9956997632980347,
-     "confidence": 0.06273873594131882
+     "guess": 50,
+     "p_null": 0.9975383281707764,
+     "confidence": 0.11143554448613469
     },
     "when": {
      "type": "text",
@@ -3426,26 +3426,26 @@
       474,
       478
      ],
-     "p_null": 0.9993263483047485,
-     "confidence": 0.21793347597122192
+     "p_null": 0.9993274211883545,
+     "confidence": 0.2017998993396759
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9938334226608276,
-     "confidence": 0.5560681570400925
+     "p_null": 0.9937630295753479,
+     "confidence": 0.5511369007716839
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.8360241651535034,
-     "confidence": 0.9989311446455801
+     "p_null": 0.8387561440467834,
+     "confidence": 0.9989140062699541
     }
    },
-   "ms": 881,
-   "cost": 0.0001628,
+   "ms": 791,
+   "cost": 0.0001362,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -3464,18 +3464,18 @@
      "value": "Kathmandu",
      "guess": "Kathmandu",
      "span": [
-      580,
-      589
+      17,
+      26
      ],
-     "p_null": 0.0003894261899404228,
-     "confidence": 0.9998927116394043
+     "p_null": 0.00009945974306901917,
+     "confidence": 0.9999865293502808
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 10,
-     "p_null": 0.9956997632980347,
-     "confidence": 0.06273873594131882
+     "guess": 50,
+     "p_null": 0.9975383281707764,
+     "confidence": 0.11143554448613469
     },
     "when": {
      "type": "text",
@@ -3485,26 +3485,26 @@
       474,
       478
      ],
-     "p_null": 0.9993263483047485,
-     "confidence": 0.21793347597122192
+     "p_null": 0.9993274211883545,
+     "confidence": 0.2017998993396759
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9938334226608276,
-     "confidence": 0.5560681570400925
+     "p_null": 0.9937630295753479,
+     "confidence": 0.5511369007716839
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.8360241651535034,
-     "confidence": 0.9989311446455801
+     "p_null": 0.8387561440467834,
+     "confidence": 0.9989140062699541
     }
    },
-   "ms": 881,
-   "cost": 0.0001628,
+   "ms": 791,
+   "cost": 0.0001362,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -3523,18 +3523,18 @@
      "value": "Iceland",
      "guess": "Iceland",
      "span": [
-      576,
-      583
+      13,
+      20
      ],
-     "p_null": 0.008839932270348072,
-     "confidence": 0.9989534616470337
+     "p_null": 0.005881693214178085,
+     "confidence": 0.9994739890098572
     },
     "cloud": {
      "type": "number",
      "value": 40,
      "guess": 40,
-     "p_null": 0.006871453020721674,
-     "confidence": 0.9670062226020502
+     "p_null": 0.03719848766922951,
+     "confidence": 0.9651442692372314
     },
     "when": {
      "type": "text",
@@ -3544,26 +3544,26 @@
       587,
       598
      ],
-     "p_null": 0.0015213636215776205,
-     "confidence": 0.9573854207992554
+     "p_null": 0.0015489071374759078,
+     "confidence": 0.9567550420761108
     },
     "start": {
      "type": "date",
      "value": "2021-09-01",
      "guess": "2021-09-01",
-     "p_null": 0.00028118619229644537,
-     "confidence": 0.8719547171340868
+     "p_null": 0.00027513454551808536,
+     "confidence": 0.8651366759861947
     },
     "end": {
      "type": "date",
      "value": "2021-12-02",
      "guess": "2021-12-02",
-     "p_null": 0.008155967108905315,
-     "confidence": 0.17519381045821747
+     "p_null": 0.008027919568121433,
+     "confidence": 0.16590230346648346
     }
    },
-   "ms": 531,
-   "cost": 0.000168,
+   "ms": 843,
+   "cost": 0.0001414,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 153,
@@ -3585,18 +3585,18 @@
      "value": "Iceland",
      "guess": "Iceland",
      "span": [
-      576,
-      583
+      13,
+      20
      ],
-     "p_null": 0.008839932270348072,
-     "confidence": 0.9989534616470337
+     "p_null": 0.005881693214178085,
+     "confidence": 0.9994739890098572
     },
     "cloud": {
      "type": "number",
      "value": 40,
      "guess": 40,
-     "p_null": 0.006871453020721674,
-     "confidence": 0.9670062226020502
+     "p_null": 0.03719848766922951,
+     "confidence": 0.9651442692372314
     },
     "when": {
      "type": "text",
@@ -3606,26 +3606,26 @@
       587,
       598
      ],
-     "p_null": 0.0015213636215776205,
-     "confidence": 0.9573854207992554
+     "p_null": 0.0015489071374759078,
+     "confidence": 0.9567550420761108
     },
     "start": {
      "type": "date",
      "value": "2021-09-01",
      "guess": "2021-09-01",
-     "p_null": 0.00028118619229644537,
-     "confidence": 0.8719547171340868
+     "p_null": 0.00027513454551808536,
+     "confidence": 0.8651366759861947
     },
     "end": {
      "type": "date",
      "value": "2021-12-02",
      "guess": "2021-12-02",
-     "p_null": 0.008155967108905315,
-     "confidence": 0.17519381045821747
+     "p_null": 0.008027919568121433,
+     "confidence": 0.16590230346648346
     }
    },
-   "ms": 531,
-   "cost": 0.000168,
+   "ms": 843,
+   "cost": 0.0001414,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 153,
@@ -3644,18 +3644,18 @@
      "value": "Iceland",
      "guess": "Iceland",
      "span": [
-      576,
-      583
+      13,
+      20
      ],
-     "p_null": 0.008839932270348072,
-     "confidence": 0.9989534616470337
+     "p_null": 0.005881693214178085,
+     "confidence": 0.9994739890098572
     },
     "cloud": {
      "type": "number",
      "value": 40,
      "guess": 40,
-     "p_null": 0.006871453020721674,
-     "confidence": 0.9670062226020502
+     "p_null": 0.03719848766922951,
+     "confidence": 0.9651442692372314
     },
     "when": {
      "type": "text",
@@ -3665,26 +3665,26 @@
       587,
       598
      ],
-     "p_null": 0.0015213636215776205,
-     "confidence": 0.9573854207992554
+     "p_null": 0.0015489071374759078,
+     "confidence": 0.9567550420761108
     },
     "start": {
      "type": "date",
      "value": "2021-09-01",
      "guess": "2021-09-01",
-     "p_null": 0.00028118619229644537,
-     "confidence": 0.8719547171340868
+     "p_null": 0.00027513454551808536,
+     "confidence": 0.8651366759861947
     },
     "end": {
      "type": "date",
      "value": "2021-12-02",
      "guess": "2021-12-02",
-     "p_null": 0.008155967108905315,
-     "confidence": 0.17519381045821747
+     "p_null": 0.008027919568121433,
+     "confidence": 0.16590230346648346
     }
    },
-   "ms": 531,
-   "cost": 0.000168,
+   "ms": 843,
+   "cost": 0.0001414,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 153,
@@ -3703,18 +3703,22 @@
      "value": "Lisbon",
      "guess": "Lisbon",
      "span": [
-      579,
-      585
+      16,
+      22
      ],
-     "p_null": 0.0014615774853155017,
-     "confidence": 0.999154806137085
+     "p_null": 0.0005328630795702338,
+     "confidence": 0.9999700784683228
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 10,
-     "p_null": 0.999562680721283,
-     "confidence": 0.08334411720301142
+     "guess": 12,
+     "span": [
+      35,
+      37
+     ],
+     "p_null": 0.9968886971473694,
+     "confidence": 0.646265997921347
     },
     "when": {
      "type": "text",
@@ -3724,26 +3728,26 @@
       589,
       607
      ],
-     "p_null": 0.002061794511973858,
-     "confidence": 0.9253883361816406
+     "p_null": 0.002040260238572955,
+     "confidence": 0.9304298162460327
     },
     "start": {
      "type": "date",
      "value": "2025-10-01",
      "guess": "2025-10-01",
-     "p_null": 0.000034689124731812626,
-     "confidence": 0.7779817650296639
+     "p_null": 0.00003377421307959594,
+     "confidence": 0.7850213068765228
     },
     "end": {
      "type": "date",
      "value": "2026-10-02",
      "guess": "2026-10-02",
-     "p_null": 0.0034502889029681683,
-     "confidence": 0.7057445805318264
+     "p_null": 0.0033234574366360903,
+     "confidence": 0.7138628574507079
     }
    },
-   "ms": 693,
-   "cost": 0.0001648,
+   "ms": 979,
+   "cost": 0.0001382,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 145,
@@ -3765,18 +3769,22 @@
      "value": "Lisbon",
      "guess": "Lisbon",
      "span": [
-      579,
-      585
+      16,
+      22
      ],
-     "p_null": 0.0014615774853155017,
-     "confidence": 0.999154806137085
+     "p_null": 0.0005328630795702338,
+     "confidence": 0.9999700784683228
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 10,
-     "p_null": 0.999562680721283,
-     "confidence": 0.08334411720301142
+     "guess": 12,
+     "span": [
+      35,
+      37
+     ],
+     "p_null": 0.9968886971473694,
+     "confidence": 0.646265997921347
     },
     "when": {
      "type": "text",
@@ -3786,26 +3794,26 @@
       589,
       607
      ],
-     "p_null": 0.002061794511973858,
-     "confidence": 0.9253883361816406
+     "p_null": 0.002040260238572955,
+     "confidence": 0.9304298162460327
     },
     "start": {
      "type": "date",
      "value": "2025-10-01",
      "guess": "2025-10-01",
-     "p_null": 0.000034689124731812626,
-     "confidence": 0.7779817650296639
+     "p_null": 0.00003377421307959594,
+     "confidence": 0.7850213068765228
     },
     "end": {
      "type": "date",
      "value": "2026-10-02",
      "guess": "2026-10-02",
-     "p_null": 0.0034502889029681683,
-     "confidence": 0.7057445805318264
+     "p_null": 0.0033234574366360903,
+     "confidence": 0.7138628574507079
     }
    },
-   "ms": 693,
-   "cost": 0.0001648,
+   "ms": 979,
+   "cost": 0.0001382,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 145,
@@ -3824,18 +3832,22 @@
      "value": "Lisbon",
      "guess": "Lisbon",
      "span": [
-      579,
-      585
+      16,
+      22
      ],
-     "p_null": 0.0014615774853155017,
-     "confidence": 0.999154806137085
+     "p_null": 0.0005328630795702338,
+     "confidence": 0.9999700784683228
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 10,
-     "p_null": 0.999562680721283,
-     "confidence": 0.08334411720301142
+     "guess": 12,
+     "span": [
+      35,
+      37
+     ],
+     "p_null": 0.9968886971473694,
+     "confidence": 0.646265997921347
     },
     "when": {
      "type": "text",
@@ -3845,26 +3857,26 @@
       589,
       607
      ],
-     "p_null": 0.002061794511973858,
-     "confidence": 0.9253883361816406
+     "p_null": 0.002040260238572955,
+     "confidence": 0.9304298162460327
     },
     "start": {
      "type": "date",
      "value": "2025-10-01",
      "guess": "2025-10-01",
-     "p_null": 0.000034689124731812626,
-     "confidence": 0.7779817650296639
+     "p_null": 0.00003377421307959594,
+     "confidence": 0.7850213068765228
     },
     "end": {
      "type": "date",
      "value": "2026-10-02",
      "guess": "2026-10-02",
-     "p_null": 0.0034502889029681683,
-     "confidence": 0.7057445805318264
+     "p_null": 0.0033234574366360903,
+     "confidence": 0.7138628574507079
     }
    },
-   "ms": 693,
-   "cost": 0.0001648,
+   "ms": 979,
+   "cost": 0.0001382,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 145,
@@ -3883,18 +3895,18 @@
      "value": "Cotopaxi",
      "guess": "Cotopaxi",
      "span": [
-      579,
-      587
+      16,
+      24
      ],
-     "p_null": 0.0006567200762219727,
-     "confidence": 0.9999768733978271
+     "p_null": 0.0009103227639570832,
+     "confidence": 0.9996755123138428
     },
     "cloud": {
      "type": "number",
      "value": 30,
      "guess": 30,
-     "p_null": 0.0021561062894761562,
-     "confidence": 0.8883410542739508
+     "p_null": 0.0035818798933178186,
+     "confidence": 0.948745371424147
     },
     "when": {
      "type": "text",
@@ -3904,26 +3916,26 @@
       591,
       604
      ],
-     "p_null": 0.0017028652364388108,
-     "confidence": 0.8834884762763977
+     "p_null": 0.0017357143806293607,
+     "confidence": 0.8864664435386658
     },
     "start": {
      "type": "date",
      "value": "2025-12-01",
      "guess": "2025-12-01",
-     "p_null": 0.0003743785200640559,
-     "confidence": 0.9991372275587508
+     "p_null": 0.0003870257642120123,
+     "confidence": 0.9990237739512222
     },
     "end": {
      "type": "date",
      "value": "2025-12-31",
      "guess": "2025-12-31",
-     "p_null": 0.002340169157832861,
-     "confidence": 0.9863902990813064
+     "p_null": 0.002429388230666518,
+     "confidence": 0.9858125095307924
     }
    },
-   "ms": 700,
-   "cost": 0.0001696,
+   "ms": 822,
+   "cost": 0.000143,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 157,
@@ -3945,18 +3957,18 @@
      "value": "Cotopaxi",
      "guess": "Cotopaxi",
      "span": [
-      579,
-      587
+      16,
+      24
      ],
-     "p_null": 0.0006567200762219727,
-     "confidence": 0.9999768733978271
+     "p_null": 0.0009103227639570832,
+     "confidence": 0.9996755123138428
     },
     "cloud": {
      "type": "number",
      "value": 30,
      "guess": 30,
-     "p_null": 0.0021561062894761562,
-     "confidence": 0.8883410542739508
+     "p_null": 0.0035818798933178186,
+     "confidence": 0.948745371424147
     },
     "when": {
      "type": "text",
@@ -3966,26 +3978,26 @@
       591,
       604
      ],
-     "p_null": 0.0017028652364388108,
-     "confidence": 0.8834884762763977
+     "p_null": 0.0017357143806293607,
+     "confidence": 0.8864664435386658
     },
     "start": {
      "type": "date",
      "value": "2025-12-01",
      "guess": "2025-12-01",
-     "p_null": 0.0003743785200640559,
-     "confidence": 0.9991372275587508
+     "p_null": 0.0003870257642120123,
+     "confidence": 0.9990237739512222
     },
     "end": {
      "type": "date",
      "value": "2025-12-31",
      "guess": "2025-12-31",
-     "p_null": 0.002340169157832861,
-     "confidence": 0.9863902990813064
+     "p_null": 0.002429388230666518,
+     "confidence": 0.9858125095307924
     }
    },
-   "ms": 700,
-   "cost": 0.0001696,
+   "ms": 822,
+   "cost": 0.000143,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 157,
@@ -4004,18 +4016,18 @@
      "value": "Cotopaxi",
      "guess": "Cotopaxi",
      "span": [
-      579,
-      587
+      16,
+      24
      ],
-     "p_null": 0.0006567200762219727,
-     "confidence": 0.9999768733978271
+     "p_null": 0.0009103227639570832,
+     "confidence": 0.9996755123138428
     },
     "cloud": {
      "type": "number",
      "value": 30,
      "guess": 30,
-     "p_null": 0.0021561062894761562,
-     "confidence": 0.8883410542739508
+     "p_null": 0.0035818798933178186,
+     "confidence": 0.948745371424147
     },
     "when": {
      "type": "text",
@@ -4025,26 +4037,26 @@
       591,
       604
      ],
-     "p_null": 0.0017028652364388108,
-     "confidence": 0.8834884762763977
+     "p_null": 0.0017357143806293607,
+     "confidence": 0.8864664435386658
     },
     "start": {
      "type": "date",
      "value": "2025-12-01",
      "guess": "2025-12-01",
-     "p_null": 0.0003743785200640559,
-     "confidence": 0.9991372275587508
+     "p_null": 0.0003870257642120123,
+     "confidence": 0.9990237739512222
     },
     "end": {
      "type": "date",
      "value": "2025-12-31",
      "guess": "2025-12-31",
-     "p_null": 0.002340169157832861,
-     "confidence": 0.9863902990813064
+     "p_null": 0.002429388230666518,
+     "confidence": 0.9858125095307924
     }
    },
-   "ms": 700,
-   "cost": 0.0001696,
+   "ms": 822,
+   "cost": 0.000143,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 157,
@@ -4063,18 +4075,18 @@
      "value": "Helsinki",
      "guess": "Helsinki",
      "span": [
-      593,
-      601
+      30,
+      38
      ],
-     "p_null": 0.02386963926255703,
-     "confidence": 0.9820418953895569
+     "p_null": 0.006376608740538359,
+     "confidence": 0.9969954490661621
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.996683657169342,
-     "confidence": 0.1032598608296064
+     "p_null": 0.9971000552177429,
+     "confidence": 0.21648714859306828
     },
     "when": {
      "type": "text",
@@ -4102,8 +4114,8 @@
      "confidence": 0.9989156443057773
     }
    },
-   "ms": 598,
-   "cost": 0.0001624,
+   "ms": 715,
+   "cost": 0.000136,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 139,
@@ -4122,18 +4134,18 @@
      "value": "Helsinki",
      "guess": "Helsinki",
      "span": [
-      593,
-      601
+      30,
+      38
      ],
-     "p_null": 0.02386963926255703,
-     "confidence": 0.9820418953895569
+     "p_null": 0.006376608740538359,
+     "confidence": 0.9969954490661621
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.996683657169342,
-     "confidence": 0.1032598608296064
+     "p_null": 0.9971000552177429,
+     "confidence": 0.21648714859306828
     },
     "when": {
      "type": "text",
@@ -4161,8 +4173,8 @@
      "confidence": 0.9989156443057773
     }
    },
-   "ms": 598,
-   "cost": 0.0001624,
+   "ms": 715,
+   "cost": 0.000136,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 139,
@@ -4181,18 +4193,18 @@
      "value": "Helsinki",
      "guess": "Helsinki",
      "span": [
-      593,
-      601
+      30,
+      38
      ],
-     "p_null": 0.02386963926255703,
-     "confidence": 0.9820418953895569
+     "p_null": 0.006376608740538359,
+     "confidence": 0.9969954490661621
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.996683657169342,
-     "confidence": 0.1032598608296064
+     "p_null": 0.9971000552177429,
+     "confidence": 0.21648714859306828
     },
     "when": {
      "type": "text",
@@ -4220,8 +4232,8 @@
      "confidence": 0.9989156443057773
     }
    },
-   "ms": 598,
-   "cost": 0.0001624,
+   "ms": 715,
+   "cost": 0.000136,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 139,
@@ -4240,18 +4252,18 @@
      "value": "Klagenfurt",
      "guess": "Klagenfurt",
      "span": [
-      588,
-      598
+      25,
+      35
      ],
-     "p_null": 0.017731033265590668,
-     "confidence": 0.9159855246543884
+     "p_null": 0.01262021902948618,
+     "confidence": 0.6760222911834717
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.998512327671051,
-     "confidence": 0.03577435999556354
+     "p_null": 0.995342493057251,
+     "confidence": 0.1807777446471252
     },
     "when": {
      "type": "text",
@@ -4261,26 +4273,26 @@
       474,
       478
      ],
-     "p_null": 0.99872225522995,
-     "confidence": 0.1079336628317833
+     "p_null": 0.9987630844116211,
+     "confidence": 0.10520084202289581
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9971464276313782,
-     "confidence": 0.6035882329613367
+     "p_null": 0.9969853758811951,
+     "confidence": 0.6085164243732193
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9641967415809631,
-     "confidence": 0.9972860122054904
+     "p_null": 0.9652740359306335,
+     "confidence": 0.9974391910252182
     }
    },
-   "ms": 485,
-   "cost": 0.00016439999999999998,
+   "ms": 702,
+   "cost": 0.0001376,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 144,
@@ -4299,18 +4311,18 @@
      "value": "Klagenfurt",
      "guess": "Klagenfurt",
      "span": [
-      588,
-      598
+      25,
+      35
      ],
-     "p_null": 0.017731033265590668,
-     "confidence": 0.9159855246543884
+     "p_null": 0.01262021902948618,
+     "confidence": 0.6760222911834717
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.998512327671051,
-     "confidence": 0.03577435999556354
+     "p_null": 0.995342493057251,
+     "confidence": 0.1807777446471252
     },
     "when": {
      "type": "text",
@@ -4320,26 +4332,26 @@
       474,
       478
      ],
-     "p_null": 0.99872225522995,
-     "confidence": 0.1079336628317833
+     "p_null": 0.9987630844116211,
+     "confidence": 0.10520084202289581
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9971464276313782,
-     "confidence": 0.6035882329613367
+     "p_null": 0.9969853758811951,
+     "confidence": 0.6085164243732193
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9641967415809631,
-     "confidence": 0.9972860122054904
+     "p_null": 0.9652740359306335,
+     "confidence": 0.9974391910252182
     }
    },
-   "ms": 485,
-   "cost": 0.00016439999999999998,
+   "ms": 702,
+   "cost": 0.0001376,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 144,
@@ -4358,18 +4370,18 @@
      "value": "Klagenfurt",
      "guess": "Klagenfurt",
      "span": [
-      588,
-      598
+      25,
+      35
      ],
-     "p_null": 0.017731033265590668,
-     "confidence": 0.9159855246543884
+     "p_null": 0.01262021902948618,
+     "confidence": 0.6760222911834717
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.998512327671051,
-     "confidence": 0.03577435999556354
+     "p_null": 0.995342493057251,
+     "confidence": 0.1807777446471252
     },
     "when": {
      "type": "text",
@@ -4379,26 +4391,26 @@
       474,
       478
      ],
-     "p_null": 0.99872225522995,
-     "confidence": 0.1079336628317833
+     "p_null": 0.9987630844116211,
+     "confidence": 0.10520084202289581
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-10-01",
-     "p_null": 0.9971464276313782,
-     "confidence": 0.6035882329613367
+     "p_null": 0.9969853758811951,
+     "confidence": 0.6085164243732193
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9641967415809631,
-     "confidence": 0.9972860122054904
+     "p_null": 0.9652740359306335,
+     "confidence": 0.9974391910252182
     }
    },
-   "ms": 485,
-   "cost": 0.00016439999999999998,
+   "ms": 702,
+   "cost": 0.0001376,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 144,
@@ -4417,18 +4429,18 @@
      "value": "Vancouver",
      "guess": "Vancouver",
      "span": [
-      595,
-      604
+      32,
+      41
      ],
-     "p_null": 0.011014650575816631,
-     "confidence": 0.9997122883796692
+     "p_null": 0.002768468577414751,
+     "confidence": 0.9999738931655884
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9981797933578491,
-     "confidence": 0.07828348809952836
+     "p_null": 0.999041736125946,
+     "confidence": 0.109384857091674
     },
     "when": {
      "type": "text",
@@ -4438,26 +4450,26 @@
       595,
       604
      ],
-     "p_null": 0.9992039799690247,
-     "confidence": 0.2364145666360855
+     "p_null": 0.9992423057556152,
+     "confidence": 0.22739344835281372
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-01-01",
-     "p_null": 0.9982604384422302,
-     "confidence": 0.3475821762674638
+     "p_null": 0.9983041286468506,
+     "confidence": 0.3470232473255713
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9721170663833618,
-     "confidence": 0.9982953755131371
+     "p_null": 0.9726755619049072,
+     "confidence": 0.9981933764809277
     }
    },
-   "ms": 507,
-   "cost": 0.0001628,
+   "ms": 851,
+   "cost": 0.000136,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -4476,18 +4488,18 @@
      "value": "Vancouver",
      "guess": "Vancouver",
      "span": [
-      595,
-      604
+      32,
+      41
      ],
-     "p_null": 0.011014650575816631,
-     "confidence": 0.9997122883796692
+     "p_null": 0.002768468577414751,
+     "confidence": 0.9999738931655884
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9981797933578491,
-     "confidence": 0.07828348809952836
+     "p_null": 0.999041736125946,
+     "confidence": 0.109384857091674
     },
     "when": {
      "type": "text",
@@ -4497,26 +4509,26 @@
       595,
       604
      ],
-     "p_null": 0.9992039799690247,
-     "confidence": 0.2364145666360855
+     "p_null": 0.9992423057556152,
+     "confidence": 0.22739344835281372
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-01-01",
-     "p_null": 0.9982604384422302,
-     "confidence": 0.3475821762674638
+     "p_null": 0.9983041286468506,
+     "confidence": 0.3470232473255713
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9721170663833618,
-     "confidence": 0.9982953755131371
+     "p_null": 0.9726755619049072,
+     "confidence": 0.9981933764809277
     }
    },
-   "ms": 507,
-   "cost": 0.0001628,
+   "ms": 851,
+   "cost": 0.000136,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -4535,18 +4547,18 @@
      "value": "Vancouver",
      "guess": "Vancouver",
      "span": [
-      595,
-      604
+      32,
+      41
      ],
-     "p_null": 0.011014650575816631,
-     "confidence": 0.9997122883796692
+     "p_null": 0.002768468577414751,
+     "confidence": 0.9999738931655884
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9981797933578491,
-     "confidence": 0.07828348809952836
+     "p_null": 0.999041736125946,
+     "confidence": 0.109384857091674
     },
     "when": {
      "type": "text",
@@ -4556,26 +4568,26 @@
       595,
       604
      ],
-     "p_null": 0.9992039799690247,
-     "confidence": 0.2364145666360855
+     "p_null": 0.9992423057556152,
+     "confidence": 0.22739344835281372
     },
     "start": {
      "type": "date",
      "value": null,
      "guess": "2026-01-01",
-     "p_null": 0.9982604384422302,
-     "confidence": 0.3475821762674638
+     "p_null": 0.9983041286468506,
+     "confidence": 0.3470232473255713
     },
     "end": {
      "type": "date",
      "value": null,
      "guess": "2026-10-02",
-     "p_null": 0.9721170663833618,
-     "confidence": 0.9982953755131371
+     "p_null": 0.9726755619049072,
+     "confidence": 0.9981933764809277
     }
    },
-   "ms": 507,
-   "cost": 0.0001628,
+   "ms": 851,
+   "cost": 0.000136,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 140,
@@ -4594,18 +4606,18 @@
      "value": "Nairobi",
      "guess": "Nairobi",
      "span": [
-      577,
-      584
+      14,
+      21
      ],
-     "p_null": 0.007956686429679394,
-     "confidence": 0.927259087562561
+     "p_null": 0.015653932467103004,
+     "confidence": 0.999688982963562
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 50,
-     "p_null": 0.9594957232475281,
-     "confidence": 0.05289100000066398
+     "guess": 70,
+     "p_null": 0.9905058741569519,
+     "confidence": 0.1751768056937788
     },
     "when": {
      "type": "text",
@@ -4615,26 +4627,26 @@
       588,
       599
      ],
-     "p_null": 0.002438462572172284,
-     "confidence": 0.9578524231910706
+     "p_null": 0.002415685448795557,
+     "confidence": 0.957955002784729
     },
     "start": {
      "type": "date",
      "value": "2023-01-01",
      "guess": "2023-01-01",
-     "p_null": 0.0007422033231705427,
-     "confidence": 0.8712154115868312
+     "p_null": 0.0008117611287161708,
+     "confidence": 0.8637093195824529
     },
     "end": {
      "type": "date",
      "value": "2023-09-01",
      "guess": "2023-09-01",
-     "p_null": 0.023738885298371315,
-     "confidence": 0.16052255804891727
+     "p_null": 0.02325640246272087,
+     "confidence": 0.1655135636462355
     }
    },
-   "ms": 460,
-   "cost": 0.0001664,
+   "ms": 1125,
+   "cost": 0.0001398,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 149,
@@ -4656,18 +4668,18 @@
      "value": "Nairobi",
      "guess": "Nairobi",
      "span": [
-      577,
-      584
+      14,
+      21
      ],
-     "p_null": 0.007956686429679394,
-     "confidence": 0.927259087562561
+     "p_null": 0.015653932467103004,
+     "confidence": 0.999688982963562
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 50,
-     "p_null": 0.9594957232475281,
-     "confidence": 0.05289100000066398
+     "guess": 70,
+     "p_null": 0.9905058741569519,
+     "confidence": 0.1751768056937788
     },
     "when": {
      "type": "text",
@@ -4677,26 +4689,26 @@
       588,
       599
      ],
-     "p_null": 0.002438462572172284,
-     "confidence": 0.9578524231910706
+     "p_null": 0.002415685448795557,
+     "confidence": 0.957955002784729
     },
     "start": {
      "type": "date",
      "value": "2023-01-01",
      "guess": "2023-01-01",
-     "p_null": 0.0007422033231705427,
-     "confidence": 0.8712154115868312
+     "p_null": 0.0008117611287161708,
+     "confidence": 0.8637093195824529
     },
     "end": {
      "type": "date",
      "value": "2023-09-01",
      "guess": "2023-09-01",
-     "p_null": 0.023738885298371315,
-     "confidence": 0.16052255804891727
+     "p_null": 0.02325640246272087,
+     "confidence": 0.1655135636462355
     }
    },
-   "ms": 460,
-   "cost": 0.0001664,
+   "ms": 1125,
+   "cost": 0.0001398,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 149,
@@ -4715,18 +4727,18 @@
      "value": "Nairobi",
      "guess": "Nairobi",
      "span": [
-      577,
-      584
+      14,
+      21
      ],
-     "p_null": 0.007956686429679394,
-     "confidence": 0.927259087562561
+     "p_null": 0.015653932467103004,
+     "confidence": 0.999688982963562
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 50,
-     "p_null": 0.9594957232475281,
-     "confidence": 0.05289100000066398
+     "guess": 70,
+     "p_null": 0.9905058741569519,
+     "confidence": 0.1751768056937788
     },
     "when": {
      "type": "text",
@@ -4736,26 +4748,26 @@
       588,
       599
      ],
-     "p_null": 0.002438462572172284,
-     "confidence": 0.9578524231910706
+     "p_null": 0.002415685448795557,
+     "confidence": 0.957955002784729
     },
     "start": {
      "type": "date",
      "value": "2023-01-01",
      "guess": "2023-01-01",
-     "p_null": 0.0007422033231705427,
-     "confidence": 0.8712154115868312
+     "p_null": 0.0008117611287161708,
+     "confidence": 0.8637093195824529
     },
     "end": {
      "type": "date",
      "value": "2023-09-01",
      "guess": "2023-09-01",
-     "p_null": 0.023738885298371315,
-     "confidence": 0.16052255804891727
+     "p_null": 0.02325640246272087,
+     "confidence": 0.1655135636462355
     }
    },
-   "ms": 460,
-   "cost": 0.0001664,
+   "ms": 1125,
+   "cost": 0.0001398,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 149,
@@ -4774,18 +4786,18 @@
      "value": "Lake Titicaca",
      "guess": "Lake Titicaca",
      "span": [
-      598,
-      611
+      35,
+      48
      ],
-     "p_null": 0.0015789918834343553,
-     "confidence": 0.9996570348739624
+     "p_null": 0.0017860737862065434,
+     "confidence": 0.9993637204170227
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 30,
-     "p_null": 0.9997186064720154,
-     "confidence": 0.030707481973188972
+     "guess": 10,
+     "p_null": 0.9987964630126953,
+     "confidence": 0.2745770325397209
     },
     "when": {
      "type": "text",
@@ -4813,8 +4825,8 @@
      "confidence": 0.4679481966615117
     }
    },
-   "ms": 616,
-   "cost": 0.0001664,
+   "ms": 562,
+   "cost": 0.0001398,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 149,
@@ -4836,18 +4848,18 @@
      "value": "Lake Titicaca",
      "guess": "Lake Titicaca",
      "span": [
-      598,
-      611
+      35,
+      48
      ],
-     "p_null": 0.0015789918834343553,
-     "confidence": 0.9996570348739624
+     "p_null": 0.0017860737862065434,
+     "confidence": 0.9993637204170227
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 30,
-     "p_null": 0.9997186064720154,
-     "confidence": 0.030707481973188972
+     "guess": 10,
+     "p_null": 0.9987964630126953,
+     "confidence": 0.2745770325397209
     },
     "when": {
      "type": "text",
@@ -4875,8 +4887,8 @@
      "confidence": 0.4679481966615117
     }
    },
-   "ms": 616,
-   "cost": 0.0001664,
+   "ms": 562,
+   "cost": 0.0001398,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 149,
@@ -4895,18 +4907,18 @@
      "value": "Lake Titicaca",
      "guess": "Lake Titicaca",
      "span": [
-      598,
-      611
+      35,
+      48
      ],
-     "p_null": 0.0015789918834343553,
-     "confidence": 0.9996570348739624
+     "p_null": 0.0017860737862065434,
+     "confidence": 0.9993637204170227
     },
     "cloud": {
      "type": "number",
      "value": null,
-     "guess": 30,
-     "p_null": 0.9997186064720154,
-     "confidence": 0.030707481973188972
+     "guess": 10,
+     "p_null": 0.9987964630126953,
+     "confidence": 0.2745770325397209
     },
     "when": {
      "type": "text",
@@ -4934,8 +4946,8 @@
      "confidence": 0.4679481966615117
     }
    },
-   "ms": 616,
-   "cost": 0.0001664,
+   "ms": 562,
+   "cost": 0.0001398,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 149,
@@ -4954,18 +4966,18 @@
      "value": "Los Angeles",
      "guess": "Los Angeles",
      "span": [
-      576,
-      587
+      13,
+      24
      ],
-     "p_null": 0.002556977327913046,
-     "confidence": 0.9999254941940308
+     "p_null": 0.0011994644301012158,
+     "confidence": 0.9999372959136963
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9991593360900879,
-     "confidence": 0.05410049792767791
+     "p_null": 0.998185932636261,
+     "confidence": 0.13649018573472824
     },
     "when": {
      "type": "text",
@@ -4975,26 +4987,26 @@
       591,
       603
      ],
-     "p_null": 0.001247674459591508,
-     "confidence": 0.5292450785636902
+     "p_null": 0.0012924326583743095,
+     "confidence": 0.5503286719322205
     },
     "start": {
      "type": "date",
      "value": "2025-01-01",
      "guess": "2025-01-01",
-     "p_null": 0.0002026394649874419,
-     "confidence": 0.9985600205079181
+     "p_null": 0.00020600210700649768,
+     "confidence": 0.9985318420013984
     },
     "end": {
      "type": "date",
      "value": "2025-01-31",
      "guess": "2025-01-31",
-     "p_null": 0.02122112363576889,
-     "confidence": 0.910539704889132
+     "p_null": 0.020038554444909096,
+     "confidence": 0.909844814145851
     }
    },
-   "ms": 484,
-   "cost": 0.0001648,
+   "ms": 575,
+   "cost": 0.0001382,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 145,
@@ -5016,18 +5028,18 @@
      "value": "Los Angeles",
      "guess": "Los Angeles",
      "span": [
-      576,
-      587
+      13,
+      24
      ],
-     "p_null": 0.002556977327913046,
-     "confidence": 0.9999254941940308
+     "p_null": 0.0011994644301012158,
+     "confidence": 0.9999372959136963
     },
     "cloud": {
      "type": "number",
      "value": null,
      "guess": 10,
-     "p_null": 0.9991593360900879,
-     "confidence": 0.05410049792767791
+     "p_null": 0.998185932636261,
+     "confidence": 0.13649018573472824
     },
     "when": {
      "type": "text",
@@ -5037,26 +5049,26 @@
       591,
       603
      ],
-     "p_null": 0.001247674459591508,
-     "confidence": 0.5292450785636902
+     "p_null": 0.0012924326583743095,
+     "confidence": 0.5503286719322205
     },
     "start": {
      "type": "date",
      "value": "2025-01-01",
      "guess": "2025-01-01",
-     "p_null": 0.0002026394649874419,
-     "confidence": 0.9985600205079181
+     "p_null": 0.00020600210700649768,
+     "confidence": 0.9985318420013984
     },
     "end": {
      "type": "date",
      "value": "2025-01-31",
      "guess": "2025-01-31",
-     "p_null": 0.02122112363576889,
-     "confidence": 0.910539704889132
+     "p_null": 0.020038554444909096,
+     "confidence": 0.909844814145851
     }
    },
-   "ms": 484,
-   "cost": 0.0001648,
+   "ms": 575,
+   "cost": 0.0001382,
    "usage": {
     "schema_tokens": 550,
     "state_tokens": 145,

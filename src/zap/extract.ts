@@ -98,15 +98,28 @@ export const EXTRACT_GROUPS = {
   },
 } as const satisfies Record<string, Record<string, ExtractField>>;
 
+/** One extraction call: its fields, and whether its state has the app context. */
+export type ExtractCall = { fields: Record<string, ExtractField>; context: boolean };
+
 /**
- * The calls the app makes, at the same time. The time fields go in their
- * own call: in one call with the cloud cover, a number such as "12% clouds"
- * moved into the dates, e.g. "June 2024" ended on 2024-06-02.
+ * The calls the app makes, at the same time.
+ * - The time fields go in their own call: in one call with the cloud cover,
+ *   a number such as "12% clouds" moved into the dates, e.g. "June 2024"
+ *   ended on 2024-06-02.
+ * - The time call reads the app context and today's date (see
+ *   {@link extractState}); the dates were worse without them. The place
+ *   and cloud call reads the request only: it is cheaper, and with the
+ *   context, "mostly clear" became 50%.
  */
-export const EXTRACT_CALLS: Record<string, ExtractField>[] = [
-  { ...EXTRACT_GROUPS.place, ...EXTRACT_GROUPS.cloud },
-  EXTRACT_GROUPS.time,
+export const EXTRACT_CALLS: ExtractCall[] = [
+  { fields: { ...EXTRACT_GROUPS.place, ...EXTRACT_GROUPS.cloud }, context: false },
+  { fields: EXTRACT_GROUPS.time, context: true },
 ];
+
+/** The state of one call: the request, or the request with the app context and today's date. */
+export function callState(call: ExtractCall, prompt: string, today: Date = new Date()): string {
+  return call.context ? extractState(prompt, today) : prompt;
+}
 
 /**
  * The text the model reads: the state that jev reads (the app, today's date
@@ -265,14 +278,15 @@ export async function extract(prompt: string, today: Date = new Date()): Promise
   const url = decideUrl
     ? `${decideUrl.replace(/\/$/, "")}/extract`
     : `${import.meta.env.BASE_URL}api/extract`;
-  const ask = async (fields: Record<string, ExtractField>) => {
+  const ask = async (call: ExtractCall) => {
+    const { fields } = call;
     const dated = Object.values(fields).some((f) => f.type === "date");
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         model,
-        state: extractState(prompt, today),
+        state: callState(call, prompt, today),
         fields,
         // The API rejects a reference date with no date field.
         ...(dated ? { reference_date: isoDay(today) } : {}),
