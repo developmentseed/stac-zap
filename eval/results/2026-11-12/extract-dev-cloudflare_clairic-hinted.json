@@ -1,0 +1,1178 @@
+{
+ "model": "cloudflare/clairic",
+ "set": "dev",
+ "variant": "hinted",
+ "oneCall": false,
+ "today": "2026-10-02",
+ "rows": [
+  {
+   "id": "D1",
+   "prompt": "Sentinel-2 of Madrid on 3 May 2022",
+   "group": "time",
+   "expect": "2022-05-03 to 2022-05-03",
+   "value": [
+    "2022-05-03",
+    "2022-05-03"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "3 May 2022",
+     "guess": "3 May 2022",
+     "span": [
+      587,
+      597
+     ],
+     "p_null": 0.0017648990033194423,
+     "confidence": 0.9092098474502563
+    },
+    "start": {
+     "type": "date",
+     "value": "2022-05-03",
+     "guess": "2022-05-03",
+     "p_null": 0.00047616599476896226,
+     "confidence": 0.9994326862361558
+    },
+    "end": {
+     "type": "date",
+     "value": "2022-05-03",
+     "guess": "2022-05-03",
+     "p_null": 0.0030038803815841675,
+     "confidence": 0.9979709746385815
+    }
+   },
+   "ms": 1107,
+   "cost": 0.000097,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 148,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D2",
+   "prompt": "Landsat of Quito since 2019",
+   "group": "time",
+   "expect": "2019-01-01 to 2026-10-02",
+   "value": [
+    "2019-01-01",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "since 2019",
+     "guess": "since 2019",
+     "span": [
+      580,
+      590
+     ],
+     "p_null": 0.0027217462193220854,
+     "confidence": 0.9282821416854858
+    },
+    "start": {
+     "type": "date",
+     "value": "2019-01-01",
+     "guess": "2019-01-01",
+     "p_null": 0.0003542093327268958,
+     "confidence": 0.9924636742117702
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.05780193582177162,
+     "confidence": 0.9991469795841647
+    }
+   },
+   "ms": 551,
+   "cost": 0.0000964,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 145,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D3",
+   "prompt": "Sentinel-2 of Berlin over the past 2 months",
+   "group": "time",
+   "expect": "2026-08-02 to 2026-10-02",
+   "value": [
+    "2026-08-01",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the past 2 months",
+     "guess": "the past 2 months",
+     "span": [
+      589,
+      606
+     ],
+     "p_null": 0.003196534002199769,
+     "confidence": 0.8052822947502136
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-08-01",
+     "guess": "2026-08-01",
+     "p_null": 0.00012463102757465094,
+     "confidence": 0.8807620732792588
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.0007977437926456332,
+     "confidence": 0.5975163804074202
+    }
+   },
+   "ms": 481,
+   "cost": 0.0000964,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 145,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D4",
+   "prompt": "MODIS of Chile in March 2021",
+   "group": "time",
+   "expect": "2021-03-01 to 2021-03-31",
+   "value": [
+    "2021-03-01",
+    "2021-03-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "March 2021",
+     "guess": "March 2021",
+     "span": [
+      581,
+      591
+     ],
+     "p_null": 0.0004275460378266871,
+     "confidence": 0.9181414842605591
+    },
+    "start": {
+     "type": "date",
+     "value": "2021-03-01",
+     "guess": "2021-03-01",
+     "p_null": 0.00033568436629138887,
+     "confidence": 0.9928343267497401
+    },
+    "end": {
+     "type": "date",
+     "value": "2021-03-31",
+     "guess": "2021-03-31",
+     "p_null": 0.0039305114187300205,
+     "confidence": 0.7913401132090822
+    }
+   },
+   "ms": 692,
+   "cost": 0.0000964,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 145,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D5",
+   "prompt": "NAIP of Ohio in 2021",
+   "group": "time",
+   "expect": "2021-01-01 to 2021-12-31",
+   "value": [
+    "2021-01-01",
+    "2021-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "in 2021",
+     "guess": "in 2021",
+     "span": [
+      576,
+      583
+     ],
+     "p_null": 0.0001873304572654888,
+     "confidence": 0.8501261472702026
+    },
+    "start": {
+     "type": "date",
+     "value": "2021-01-01",
+     "guess": "2021-01-01",
+     "p_null": 0.005060502327978611,
+     "confidence": 0.9808459447694289
+    },
+    "end": {
+     "type": "date",
+     "value": "2021-12-31",
+     "guess": "2021-12-31",
+     "p_null": 0.10666672885417938,
+     "confidence": 0.8244980402272662
+    }
+   },
+   "ms": 529,
+   "cost": 0.0000962,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 144,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D6",
+   "prompt": "Sentinel-2 of Seoul in autumn 2022",
+   "group": "time",
+   "expect": "2022-09-01 to 2022-11-30",
+   "value": [
+    "2022-09-01",
+    "2022-11-30"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "autumn 2022",
+     "guess": "autumn 2022",
+     "span": [
+      586,
+      597
+     ],
+     "p_null": 0.0019647006411105394,
+     "confidence": 0.9638295769691467
+    },
+    "start": {
+     "type": "date",
+     "value": "2022-09-01",
+     "guess": "2022-09-01",
+     "p_null": 0.000028710153856081888,
+     "confidence": 0.9961426482344867
+    },
+    "end": {
+     "type": "date",
+     "value": "2022-11-30",
+     "guess": "2022-11-30",
+     "p_null": 0.0007615257636643946,
+     "confidence": 0.8067498078381696
+    }
+   },
+   "ms": 531,
+   "cost": 0.0000966,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 146,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D7",
+   "prompt": "Sentinel-2 of Oslo in winter 2023",
+   "group": "time",
+   "expect": "2022-12-01 to 2023-02-28",
+   "value": [
+    "2023-12-01",
+    "2024-02-02"
+   ],
+   "ok": false,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "winter 2023",
+     "guess": "winter 2023",
+     "span": [
+      585,
+      596
+     ],
+     "p_null": 0.006809011567384005,
+     "confidence": 0.9224903583526611
+    },
+    "start": {
+     "type": "date",
+     "value": "2023-12-01",
+     "guess": "2023-12-01",
+     "p_null": 0.0028311670757830143,
+     "confidence": 0.8395755374844058
+    },
+    "end": {
+     "type": "date",
+     "value": "2024-02-02",
+     "guess": "2024-02-02",
+     "p_null": 0.09889243543148041,
+     "confidence": 0.2562729289892633
+    }
+   },
+   "ms": 497,
+   "cost": 0.0000966,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 146,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D8",
+   "prompt": "Landsat of Utah last winter",
+   "group": "time",
+   "expect": "2025-12-01 to 2026-02-28",
+   "value": [
+    "2026-12-01",
+    "2026-02-02"
+   ],
+   "ok": false,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "last winter",
+     "guess": "last winter",
+     "span": [
+      579,
+      590
+     ],
+     "p_null": 0.0043848734349012375,
+     "confidence": 0.9974498152732849
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-12-01",
+     "guess": "2026-12-01",
+     "p_null": 0.0005602700402960181,
+     "confidence": 0.9287252903754095
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-02-02",
+     "guess": "2026-02-02",
+     "p_null": 0.020547548308968544,
+     "confidence": 0.9339955745769675
+    }
+   },
+   "ms": 582,
+   "cost": 0.0000954,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 140,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D9",
+   "prompt": "latest Sentinel-2 of Cape Town",
+   "group": "time",
+   "expect": "2026-09-02 to 2026-10-02",
+   "value": [
+    "2026-09-01",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "latest",
+     "guess": "latest",
+     "span": [
+      563,
+      569
+     ],
+     "p_null": 0.07585291564464569,
+     "confidence": 0.9957543611526489
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-01",
+     "guess": "2026-09-01",
+     "p_null": 0.18672196567058563,
+     "confidence": 0.652110753425474
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.16600678861141205,
+     "confidence": 0.9964324973742025
+    }
+   },
+   "ms": 474,
+   "cost": 0.0000956,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 141,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D10",
+   "prompt": "elevation of the Andes",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9995526671409607,
+     "confidence": 0.2710849940776825
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.7108495831489563,
+     "confidence": 0.31575521928877953
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8368846774101257,
+     "confidence": 0.9975465157374179
+    }
+   },
+   "ms": 480,
+   "cost": 0.0000952,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 139,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D11",
+   "prompt": "Sentinel-2 of Quebec with less than 15% clouds",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "less than 15%",
+     "span": [
+      589,
+      602
+     ],
+     "p_null": 0.998415470123291,
+     "confidence": 0.35358813405036926
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-01",
+     "guess": "2026-09-01",
+     "p_null": 0.1272934079170227,
+     "confidence": 0.8457850080599942
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.6706886291503906,
+     "confidence": 0.972830811709895
+    }
+   },
+   "ms": 505,
+   "cost": 0.0000968,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 147,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D11",
+   "prompt": "Sentinel-2 of Quebec with less than 15% clouds",
+   "group": "cloud",
+   "expect": "15",
+   "value": 15,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 15,
+     "guess": 15,
+     "p_null": 0.004008263349533081,
+     "confidence": 0.9794591439185896
+    }
+   },
+   "ms": 358,
+   "cost": 0.0000453,
+   "usage": {
+    "schema_tokens": 306,
+    "state_tokens": 147,
+    "passes": 1
+   }
+  },
+  {
+   "id": "D12",
+   "prompt": "soil moisture of Spain",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9995319843292236,
+     "confidence": 0.24593549966812134
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-02",
+     "guess": "2026-09-02",
+     "p_null": 0.07006387412548065,
+     "confidence": 0.5048899107685918
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.14290988445281982,
+     "confidence": 0.9993613877195623
+    }
+   },
+   "ms": 557,
+   "cost": 0.000095,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 138,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D13",
+   "prompt": "building footprints of Nairobi",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Nairobi",
+     "span": [
+      586,
+      593
+     ],
+     "p_null": 0.9994327425956726,
+     "confidence": 0.15938837826251984
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.7024798393249512,
+     "confidence": 0.3595510960037609
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.6350408792495728,
+     "confidence": 0.998182466052807
+    }
+   },
+   "ms": 561,
+   "cost": 0.0000952,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 139,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D14",
+   "prompt": "Landsat of the Nile delta",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "the Nile",
+     "span": [
+      574,
+      582
+     ],
+     "p_null": 0.9990691542625427,
+     "confidence": 0.165516197681427
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-01",
+     "guess": "2026-09-01",
+     "p_null": 0.1250387281179428,
+     "confidence": 0.5075703640864028
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.7219180464744568,
+     "confidence": 0.98679723203279
+    }
+   },
+   "ms": 637,
+   "cost": 0.0000954,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 140,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D14",
+   "prompt": "Landsat of the Nile delta",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9970357418060303,
+     "confidence": 0.11623184819759431
+    }
+   },
+   "ms": 416,
+   "cost": 0.0000446,
+   "usage": {
+    "schema_tokens": 306,
+    "state_tokens": 140,
+    "passes": 1
+   }
+  },
+  {
+   "id": "D15",
+   "prompt": "orthophotos of Bern",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9996464252471924,
+     "confidence": 0.18259845674037933
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-01",
+     "guess": "2026-09-01",
+     "p_null": 0.313656747341156,
+     "confidence": 0.38224709654994554
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.7296241521835327,
+     "confidence": 0.9967897787230027
+    }
+   },
+   "ms": 514,
+   "cost": 0.0000952,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 139,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D16",
+   "prompt": "Sentinel-1 of Rotterdam port",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Rotterdam",
+     "span": [
+      577,
+      586
+     ],
+     "p_null": 0.9990584254264832,
+     "confidence": 0.13803744316101074
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-01",
+     "guess": "2026-09-01",
+     "p_null": 0.4035341441631317,
+     "confidence": 0.489493003854331
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9036669135093689,
+     "confidence": 0.9971928763051272
+    }
+   },
+   "ms": 375,
+   "cost": 0.0000954,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 140,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D17",
+   "prompt": "Sentinel-2 of Porto in May 2023",
+   "group": "time",
+   "expect": "2023-05-01 to 2023-05-31",
+   "value": [
+    "2023-05-01",
+    "2023-05-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "May 2023",
+     "guess": "May 2023",
+     "span": [
+      586,
+      594
+     ],
+     "p_null": 0.001287134480662644,
+     "confidence": 0.831443190574646
+    },
+    "start": {
+     "type": "date",
+     "value": "2023-05-01",
+     "guess": "2023-05-01",
+     "p_null": 0.0007856753072701395,
+     "confidence": 0.9949048195207109
+    },
+    "end": {
+     "type": "date",
+     "value": "2023-05-31",
+     "guess": "2023-05-31",
+     "p_null": 0.00301281176507473,
+     "confidence": 0.9094209950202653
+    }
+   },
+   "ms": 533,
+   "cost": 0.0000966,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 146,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D18",
+   "prompt": "Landsat of Calgary from June to August 2021",
+   "group": "time",
+   "expect": "2021-06-01 to 2021-08-31",
+   "value": [
+    "2021-06-01",
+    "2021-08-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "June to August 2021",
+     "guess": "June to August 2021",
+     "span": [
+      587,
+      606
+     ],
+     "p_null": 0.01086018793284893,
+     "confidence": 0.638281524181366
+    },
+    "start": {
+     "type": "date",
+     "value": "2021-06-01",
+     "guess": "2021-06-01",
+     "p_null": 0.00001385420637234347,
+     "confidence": 0.9962974359944207
+    },
+    "end": {
+     "type": "date",
+     "value": "2021-08-31",
+     "guess": "2021-08-31",
+     "p_null": 0.0005106405587866902,
+     "confidence": 0.7969440948677904
+    }
+   },
+   "ms": 517,
+   "cost": 0.0000968,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 147,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D19",
+   "prompt": "Sentinel-2 of Montreal in fall 2020",
+   "group": "time",
+   "expect": "2020-09-01 to 2020-11-30",
+   "value": [
+    "2020-09-01",
+    "2020-11-30"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "fall 2020",
+     "guess": "fall 2020",
+     "span": [
+      589,
+      598
+     ],
+     "p_null": 0.002712687011808157,
+     "confidence": 0.9316151142120361
+    },
+    "start": {
+     "type": "date",
+     "value": "2020-09-01",
+     "guess": "2020-09-01",
+     "p_null": 0.00007432558777509257,
+     "confidence": 0.9911336284732386
+    },
+    "end": {
+     "type": "date",
+     "value": "2020-11-30",
+     "guess": "2020-11-30",
+     "p_null": 0.0015692763263359666,
+     "confidence": 0.440239845893972
+    }
+   },
+   "ms": 511,
+   "cost": 0.0000966,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 146,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D20",
+   "prompt": "Sentinel-2 of Athens last summer",
+   "group": "time",
+   "expect": "2026-06-01 to 2026-08-31",
+   "value": [
+    "2026-06-01",
+    "2026-08-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "last summer",
+     "guess": "last summer",
+     "span": [
+      584,
+      595
+     ],
+     "p_null": 0.0024792819749563932,
+     "confidence": 0.9957683086395264
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-06-01",
+     "guess": "2026-06-01",
+     "p_null": 0.0002545223105698824,
+     "confidence": 0.9958062620705905
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-08-31",
+     "guess": "2026-08-31",
+     "p_null": 0.0016661365516483784,
+     "confidence": 0.7697566151038469
+    }
+   },
+   "ms": 522,
+   "cost": 0.0000956,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 141,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D21",
+   "prompt": "Sentinel-2 of Bogota, clear sky",
+   "group": "cloud",
+   "expect": "10",
+   "value": 10,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 10,
+     "guess": 10,
+     "p_null": 0.0012425001477822661,
+     "confidence": 0.9833181691083696
+    }
+   },
+   "ms": 574,
+   "cost": 0.0000449,
+   "usage": {
+    "schema_tokens": 306,
+    "state_tokens": 143,
+    "passes": 1
+   }
+  },
+  {
+   "id": "D22",
+   "prompt": "Sentinel-2 of Kampala, partly cloudy is fine",
+   "group": "cloud",
+   "expect": "50",
+   "value": 50,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 50,
+     "guess": 50,
+     "p_null": 0.029973013326525688,
+     "confidence": 0.9849922954901439
+    }
+   },
+   "ms": 439,
+   "cost": 0.0000451,
+   "usage": {
+    "schema_tokens": 306,
+    "state_tokens": 145,
+    "passes": 1
+   }
+  },
+  {
+   "id": "D23",
+   "prompt": "Landsat of Bali in 2022",
+   "group": "time",
+   "expect": "2022-01-01 to 2022-12-31",
+   "value": [
+    "2022-01-01",
+    "2022-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "in 2022",
+     "guess": "in 2022",
+     "span": [
+      579,
+      586
+     ],
+     "p_null": 0.0002474970242474228,
+     "confidence": 0.7330359816551208
+    },
+    "start": {
+     "type": "date",
+     "value": "2022-01-01",
+     "guess": "2022-01-01",
+     "p_null": 0.003919112030416727,
+     "confidence": 0.9755992664584618
+    },
+    "end": {
+     "type": "date",
+     "value": "2022-12-31",
+     "guess": "2022-12-31",
+     "p_null": 0.061461176723241806,
+     "confidence": 0.7761890517798546
+    }
+   },
+   "ms": 515,
+   "cost": 0.0000962,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 144,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D23",
+   "prompt": "Landsat of Bali in 2022",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9982286095619202,
+     "confidence": 0.05592417582176008
+    }
+   },
+   "ms": 455,
+   "cost": 0.000045,
+   "usage": {
+    "schema_tokens": 306,
+    "state_tokens": 144,
+    "passes": 1
+   }
+  },
+  {
+   "id": "D24",
+   "prompt": "Sentinel-2 of Dakar, any cloud cover",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 75,
+     "p_null": 0.9709103107452393,
+     "confidence": 0.2433067897535339
+    }
+   },
+   "ms": 408,
+   "cost": 0.0000449,
+   "usage": {
+    "schema_tokens": 306,
+    "state_tokens": 143,
+    "passes": 1
+   }
+  },
+  {
+   "id": "D25",
+   "prompt": "Sentinel-2 here in June 2024",
+   "group": "time",
+   "expect": "2024-06-01 to 2024-06-30",
+   "value": [
+    "2024-06-01",
+    "2024-08-31"
+   ],
+   "ok": false,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "June 2024",
+     "guess": "June 2024",
+     "span": [
+      582,
+      591
+     ],
+     "p_null": 0.001305962330661714,
+     "confidence": 0.9041277170181274
+    },
+    "start": {
+     "type": "date",
+     "value": "2024-06-01",
+     "guess": "2024-06-01",
+     "p_null": 0.001323338714428246,
+     "confidence": 0.9851864927986663
+    },
+    "end": {
+     "type": "date",
+     "value": "2024-08-31",
+     "guess": "2024-08-31",
+     "p_null": 0.015933748334646225,
+     "confidence": 0.3856369848968325
+    }
+   },
+   "ms": 525,
+   "cost": 0.0000964,
+   "usage": {
+    "schema_tokens": 674,
+    "state_tokens": 145,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D25",
+   "prompt": "Sentinel-2 here in June 2024",
+   "group": "place",
+   "expect": "map-view",
+   "value": "here",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "here",
+     "guess": "here",
+     "span": [
+      574,
+      578
+     ],
+     "p_null": 0.12149027734994888,
+     "confidence": 0.5225411653518677
+    }
+   },
+   "ms": 384,
+   "cost": 0.0000431,
+   "usage": {
+    "schema_tokens": 286,
+    "state_tokens": 145,
+    "passes": 1
+   }
+  },
+  {
+   "id": "D26",
+   "prompt": "NAIP of the Everglades",
+   "group": "place",
+   "expect": "Everglades",
+   "value": "the Everglades",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Everglades",
+     "guess": "the Everglades",
+     "span": [
+      571,
+      585
+     ],
+     "p_null": 0.0011448386358097196,
+     "confidence": 0.859998881816864
+    }
+   },
+   "ms": 462,
+   "cost": 0.0000427,
+   "usage": {
+    "schema_tokens": 286,
+    "state_tokens": 141,
+    "passes": 1
+   }
+  }
+ ]
+}

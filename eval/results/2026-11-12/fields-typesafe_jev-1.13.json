@@ -1,0 +1,2488 @@
+{
+ "provider": "openrouter",
+ "model": "typesafe/jev-1.13",
+ "today": "2026-10-02",
+ "rows": [
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "place",
+   "expect": [
+    "Lisbon"
+   ],
+   "options": 13,
+   "top": "Lisbon",
+   "p": 1,
+   "choice": "Lisbon",
+   "ok": true,
+   "probabilities": {
+    "Lisbon": 1,
+    "Sentinel-2": 0,
+    "Sentinel-2 over Lisbon": 0,
+    "Lisbon last summer": 0,
+    "summer": 0
+   },
+   "ms": 934,
+   "cost": 0.000033642
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "period",
+   "expect": [
+    "2026"
+   ],
+   "options": 16,
+   "top": "2025",
+   "p": 0.49,
+   "choice": "2025",
+   "ok": false,
+   "probabilities": {
+    "2015": 0,
+    "2024": 0.01,
+    "2025": 0.49,
+    "2026": 0.46,
+    "last-12-months": 0.04
+   },
+   "ms": 510,
+   "cost": 0.00003612
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "season",
+   "expect": [
+    "summer"
+   ],
+   "options": 18,
+   "top": "summer",
+   "p": 0.83,
+   "choice": "summer",
+   "ok": true,
+   "probabilities": {
+    "summer": 0.83,
+    "m7": 0.07,
+    "m8": 0.06,
+    "m9": 0.03,
+    "autumn": 0.01
+   },
+   "ms": 524,
+   "cost": 0.000032844
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "cloud",
+   "expect": [
+    "15",
+    "20",
+    "25"
+   ],
+   "options": 11,
+   "top": "20",
+   "p": 0.96,
+   "choice": "20",
+   "ok": true,
+   "probabilities": {
+    "10": 0.01,
+    "15": 0.01,
+    "20": 0.96,
+    "25": 0.01,
+    "30": 0.01
+   },
+   "ms": 471,
+   "cost": 0.000031752
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "place",
+   "expect": [
+    "Johor",
+    "Johor Malaysia"
+   ],
+   "options": 30,
+   "top": "Johor Malaysia",
+   "p": 0.99,
+   "choice": "Johor Malaysia",
+   "ok": true,
+   "probabilities": {
+    "20": 0,
+    "Johor Malaysia": 0.99,
+    "Johor": 0.01,
+    "I": 0,
+    "I want": 0
+   },
+   "ms": 490,
+   "cost": 0.000045654
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "all-time",
+   "p": 0.34,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2026": 0.15,
+    "all-time": 0.34,
+    "keep": 0.23,
+    "last-12-months": 0.13,
+    "last-30-days": 0.11
+   },
+   "ms": 483,
+   "cost": 0.000036456
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.68,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.68,
+    "whole-year": 0.21,
+    "autumn": 0.04,
+    "m10": 0.04,
+    "summer": 0.01
+   },
+   "ms": 513,
+   "cost": 0.00003318
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "cloud",
+   "expect": [
+    "15",
+    "20"
+   ],
+   "options": 11,
+   "top": "20",
+   "p": 1,
+   "choice": "20",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "20": 1,
+    "25": 0
+   },
+   "ms": 529,
+   "cost": 0.000032088
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "place",
+   "expect": [
+    "Denver"
+   ],
+   "options": 11,
+   "top": "Denver",
+   "p": 1,
+   "choice": "Denver",
+   "ok": true,
+   "probabilities": {
+    "2024": 0,
+    "Denver": 1,
+    "Landsat": 0,
+    "Landsat over Denver": 0,
+    "Denver in July": 0
+   },
+   "ms": 461,
+   "cost": 0.00003297
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "period",
+   "expect": [
+    "2024"
+   ],
+   "options": 16,
+   "top": "2024",
+   "p": 1,
+   "choice": "2024",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2024": 1
+   },
+   "ms": 514,
+   "cost": 0.000036204
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "season",
+   "expect": [
+    "m7"
+   ],
+   "options": 18,
+   "top": "m7",
+   "p": 0.95,
+   "choice": "m7",
+   "ok": true,
+   "probabilities": {
+    "m7": 0.95,
+    "summer": 0.05,
+    "whole-year": 0,
+    "spring": 0,
+    "autumn": 0
+   },
+   "ms": 471,
+   "cost": 0.000032928
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.98,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.98,
+    "any": 0.02
+   },
+   "ms": 522,
+   "cost": 0.000031836
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "place",
+   "expect": [
+    "Grand Canyon"
+   ],
+   "options": 10,
+   "top": "Grand Canyon",
+   "p": 1,
+   "choice": "Grand Canyon",
+   "ok": true,
+   "probabilities": {
+    "Grand Canyon": 1,
+    "cloud-free": 0,
+    "cloud-free imagery": 0,
+    "imagery": 0,
+    "imagery of the Grand": 0
+   },
+   "ms": 502,
+   "cost": 0.000031248
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "last-30-days",
+   "p": 0.28,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2026": 0.16,
+    "last-30-days": 0.28,
+    "last-12-months": 0.27,
+    "all-time": 0.17,
+    "keep": 0.07
+   },
+   "ms": 1525,
+   "cost": 0.000035994
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.48,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.48,
+    "whole-year": 0.15,
+    "autumn": 0.13,
+    "winter": 0.09,
+    "summer": 0.05
+   },
+   "ms": 460,
+   "cost": 0.000032718
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "cloud",
+   "expect": [
+    "5",
+    "10"
+   ],
+   "options": 11,
+   "top": "5",
+   "p": 0.98,
+   "choice": "5",
+   "ok": true,
+   "probabilities": {
+    "5": 0.98,
+    "10": 0.02,
+    "15": 0,
+    "20": 0,
+    "25": 0
+   },
+   "ms": 518,
+   "cost": 0.000031626
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "place",
+   "expect": [
+    "Netherlands"
+   ],
+   "options": 13,
+   "top": "Netherlands",
+   "p": 1,
+   "choice": "Netherlands",
+   "ok": true,
+   "probabilities": {
+    "2025": 0,
+    "Netherlands": 1,
+    "Sentinel-1": 0,
+    "Sentinel-1 radar": 0,
+    "radar": 0
+   },
+   "ms": 465,
+   "cost": 0.00003507
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "period",
+   "expect": [
+    "2025"
+   ],
+   "options": 16,
+   "top": "2025",
+   "p": 1,
+   "choice": "2025",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2025": 1
+   },
+   "ms": 510,
+   "cost": 0.000036288
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "season",
+   "expect": [
+    "m1"
+   ],
+   "options": 18,
+   "top": "m1",
+   "p": 0.85,
+   "choice": "m1",
+   "ok": true,
+   "probabilities": {
+    "m1": 0.85,
+    "winter": 0.15,
+    "whole-year": 0,
+    "spring": 0,
+    "summer": 0
+   },
+   "ms": 460,
+   "cost": 0.000033012
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.98,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.98,
+    "any": 0.02
+   },
+   "ms": 457,
+   "cost": 0.00003192
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "place",
+   "expect": [
+    "Mount Everest",
+    "Everest"
+   ],
+   "options": 9,
+   "top": "Mount Everest",
+   "p": 1,
+   "choice": "Mount Everest",
+   "ok": true,
+   "probabilities": {
+    "Mount Everest": 1,
+    "elevation": 0,
+    "elevation of Mount": 0,
+    "elevation of Mount Everest": 0,
+    "Mount": 0
+   },
+   "ms": 472,
+   "cost": 0.00003087
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.41,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.08,
+    "2026": 0.04,
+    "keep": 0.41,
+    "all-time": 0.39,
+    "last-12-months": 0.05
+   },
+   "ms": 470,
+   "cost": 0.000035868
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.77,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.77,
+    "whole-year": 0.13,
+    "spring": 0.03,
+    "autumn": 0.03,
+    "winter": 0.03
+   },
+   "ms": 444,
+   "cost": 0.000032592
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.99,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.99,
+    "any": 0.01
+   },
+   "ms": 466,
+   "cost": 0.0000315
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "place",
+   "expect": [
+    "Kenya"
+   ],
+   "options": 9,
+   "top": "Kenya",
+   "p": 1,
+   "choice": "Kenya",
+   "ok": true,
+   "probabilities": {
+    "Kenya": 1,
+    "land": 0,
+    "land cover": 0,
+    "land cover of Kenya": 0,
+    "cover": 0
+   },
+   "ms": 454,
+   "cost": 0.000030282
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "2025",
+   "p": 0.41,
+   "choice": "2025",
+   "ok": false,
+   "probabilities": {
+    "2025": 0.41,
+    "2026": 0.14,
+    "keep": 0.17,
+    "all-time": 0.14,
+    "last-12-months": 0.09
+   },
+   "ms": 455,
+   "cost": 0.000035868
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.65,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.65,
+    "whole-year": 0.16,
+    "autumn": 0.08,
+    "m10": 0.04,
+    "summer": 0.02
+   },
+   "ms": 471,
+   "cost": 0.000032592
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.98,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.98,
+    "any": 0.02
+   },
+   "ms": 521,
+   "cost": 0.0000315
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "place",
+   "expect": [
+    "Zurich"
+   ],
+   "options": 9,
+   "top": "Zurich",
+   "p": 1,
+   "choice": "Zurich",
+   "ok": true,
+   "probabilities": {
+    "Zurich": 1,
+    "Swiss": 0,
+    "Swiss orthophotos": 0,
+    "Swiss orthophotos of Zurich": 0,
+    "orthophotos": 0
+   },
+   "ms": 508,
+   "cost": 0.000031374
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.22,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2026": 0.22,
+    "keep": 0.22,
+    "last-12-months": 0.18,
+    "last-30-days": 0.15,
+    "all-time": 0.12
+   },
+   "ms": 514,
+   "cost": 0.000035952
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.47,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.47,
+    "summer": 0.25,
+    "whole-year": 0.13,
+    "autumn": 0.04,
+    "m7": 0.04
+   },
+   "ms": 484,
+   "cost": 0.000032676
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.98,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.98,
+    "any": 0.02
+   },
+   "ms": 452,
+   "cost": 0.000031584
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "field": "place",
+   "expect": [
+    "no-place"
+   ],
+   "options": 12,
+   "top": "no-place",
+   "p": 0.96,
+   "choice": "no-place",
+   "ok": true,
+   "probabilities": {
+    "no-place": 0.96,
+    "keep": 0.03,
+    "Hurricane Idalia": 0.01,
+    "Maxar": 0,
+    "Maxar imagery": 0
+   },
+   "ms": 452,
+   "cost": 0.000033264
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "2023",
+   "p": 0.48,
+   "choice": "2023",
+   "ok": false,
+   "probabilities": {
+    "2022": 0.12,
+    "2023": 0.48,
+    "2024": 0.06,
+    "2026": 0.19,
+    "last-30-days": 0.08
+   },
+   "ms": 461,
+   "cost": 0.000035994
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "m9",
+   "p": 0.52,
+   "choice": "m9",
+   "ok": false,
+   "probabilities": {
+    "m9": 0.52,
+    "m8": 0.28,
+    "summer": 0.09,
+    "autumn": 0.09,
+    "whole-year": 0.01
+   },
+   "ms": 459,
+   "cost": 0.000032718
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "place",
+   "expect": [
+    "Svalbard"
+   ],
+   "options": 9,
+   "top": "Svalbard",
+   "p": 1,
+   "choice": "Svalbard",
+   "ok": true,
+   "probabilities": {
+    "Svalbard": 1,
+    "ArcticDEM": 0,
+    "ArcticDEM elevation": 0,
+    "ArcticDEM elevation of Svalbard": 0,
+    "elevation": 0
+   },
+   "ms": 460,
+   "cost": 0.000032004
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "all-time",
+   "p": 0.41,
+   "choice": "all-time",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.14,
+    "2026": 0.06,
+    "all-time": 0.41,
+    "keep": 0.19,
+    "last-12-months": 0.05
+   },
+   "ms": 470,
+   "cost": 0.000036078
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.66,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.66,
+    "summer": 0.12,
+    "winter": 0.09,
+    "whole-year": 0.08,
+    "m7": 0.02
+   },
+   "ms": 467,
+   "cost": 0.000032802
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.99,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.99,
+    "any": 0.01
+   },
+   "ms": 491,
+   "cost": 0.00003171
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "place",
+   "expect": [
+    "Austin",
+    "Austin Texas"
+   ],
+   "options": 15,
+   "top": "Austin Texas",
+   "p": 0.9,
+   "choice": "Austin Texas",
+   "ok": true,
+   "probabilities": {
+    "2022": 0,
+    "Austin Texas": 0.9,
+    "Austin": 0.1,
+    "NAIP": 0,
+    "NAIP imagery": 0
+   },
+   "ms": 466,
+   "cost": 0.000035784
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "period",
+   "expect": [
+    "2022"
+   ],
+   "options": 16,
+   "top": "2022",
+   "p": 1,
+   "choice": "2022",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2022": 1
+   },
+   "ms": 489,
+   "cost": 0.000036246
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.45,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.45,
+    "whole-year": 0.26,
+    "summer": 0.15,
+    "m7": 0.04,
+    "m8": 0.03
+   },
+   "ms": 497,
+   "cost": 0.00003297
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.97,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.97,
+    "any": 0.03
+   },
+   "ms": 930,
+   "cost": 0.000031878
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "place",
+   "expect": [
+    "Lower Saxony"
+   ],
+   "options": 12,
+   "top": "Lower Saxony",
+   "p": 1,
+   "choice": "Lower Saxony",
+   "ok": true,
+   "probabilities": {
+    "Lower Saxony": 1,
+    "crop": 0,
+    "crop types": 0,
+    "crop types in Lower": 0,
+    "types": 0
+   },
+   "ms": 459,
+   "cost": 0.000032466
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "2026",
+   "p": 0.42,
+   "choice": "2026",
+   "ok": false,
+   "probabilities": {
+    "2025": 0.22,
+    "2026": 0.42,
+    "keep": 0.14,
+    "last-12-months": 0.11,
+    "all-time": 0.07
+   },
+   "ms": 441,
+   "cost": 0.000035952
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "summer",
+   "p": 0.36,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "summer": 0.36,
+    "autumn": 0.16,
+    "m7": 0.1,
+    "keep": 0.1,
+    "whole-year": 0.09
+   },
+   "ms": 523,
+   "cost": 0.000032676
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.99,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.99,
+    "any": 0.01
+   },
+   "ms": 462,
+   "cost": 0.000031584
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "field": "place",
+   "expect": [
+    "Hannover"
+   ],
+   "options": 9,
+   "top": "Hannover",
+   "p": 1,
+   "choice": "Hannover",
+   "ok": true,
+   "probabilities": {
+    "Hannover": 1,
+    "aerial": 0,
+    "aerial photos": 0,
+    "aerial photos of Hannover": 0,
+    "photos": 0
+   },
+   "ms": 472,
+   "cost": 0.000030618
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "last-30-days",
+   "p": 0.26,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2026": 0.15,
+    "last-30-days": 0.26,
+    "last-12-months": 0.23,
+    "all-time": 0.18,
+    "keep": 0.14
+   },
+   "ms": 476,
+   "cost": 0.000035868
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.48,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.48,
+    "summer": 0.21,
+    "whole-year": 0.15,
+    "autumn": 0.08,
+    "m7": 0.03
+   },
+   "ms": 539,
+   "cost": 0.000032592
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.98,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.98,
+    "any": 0.02
+   },
+   "ms": 458,
+   "cost": 0.0000315
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "field": "place",
+   "expect": [
+    "Amazon rainforest",
+    "Amazon"
+   ],
+   "options": 10,
+   "top": "Amazon rainforest",
+   "p": 0.99,
+   "choice": "Amazon rainforest",
+   "ok": true,
+   "probabilities": {
+    "Amazon rainforest": 0.99,
+    "Amazon": 0.01,
+    "recent": 0,
+    "recent Sentinel-2": 0,
+    "Sentinel-2": 0
+   },
+   "ms": 486,
+   "cost": 0.000032004
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "field": "period",
+   "expect": [
+    "last-30-days"
+   ],
+   "options": 16,
+   "top": "last-30-days",
+   "p": 0.71,
+   "choice": "last-30-days",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2025": 0.02,
+    "2026": 0.09,
+    "last-30-days": 0.71,
+    "last-12-months": 0.18
+   },
+   "ms": 493,
+   "cost": 0.000036162
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "m9",
+   "p": 0.22,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "m9": 0.22,
+    "autumn": 0.19,
+    "m10": 0.16,
+    "keep": 0.14,
+    "whole-year": 0.12
+   },
+   "ms": 451,
+   "cost": 0.000032886
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "place",
+   "expect": [
+    "Alps"
+   ],
+   "options": 16,
+   "top": "Alps",
+   "p": 1,
+   "choice": "Alps",
+   "ok": true,
+   "probabilities": {
+    "2024": 0,
+    "Alps": 1,
+    "MODIS": 0,
+    "MODIS snow": 0,
+    "MODIS snow cover": 0
+   },
+   "ms": 490,
+   "cost": 0.000036162
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "period",
+   "expect": [
+    "2024"
+   ],
+   "options": 16,
+   "top": "2024",
+   "p": 0.97,
+   "choice": "2024",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2023": 0.02,
+    "2024": 0.97,
+    "2025": 0.01
+   },
+   "ms": 466,
+   "cost": 0.000036288
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "season",
+   "expect": [
+    "winter"
+   ],
+   "options": 18,
+   "top": "winter",
+   "p": 0.99,
+   "choice": "winter",
+   "ok": true,
+   "probabilities": {
+    "winter": 0.99,
+    "m1": 0.01,
+    "whole-year": 0,
+    "spring": 0,
+    "summer": 0
+   },
+   "ms": 482,
+   "cost": 0.000033012
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.97,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.97,
+    "any": 0.03
+   },
+   "ms": 513,
+   "cost": 0.00003192
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "place",
+   "expect": [
+    "Aral Sea"
+   ],
+   "options": 16,
+   "top": "Aral Sea",
+   "p": 1,
+   "choice": "Aral Sea",
+   "ok": true,
+   "probabilities": {
+    "10": 0,
+    "2016": 0,
+    "Aral Sea": 1,
+    "Landsat": 0,
+    "Landsat of the Aral": 0
+   },
+   "ms": 494,
+   "cost": 0.000037968
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "period",
+   "expect": [
+    "2016"
+   ],
+   "options": 16,
+   "top": "2016",
+   "p": 1,
+   "choice": "2016",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 1,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0
+   },
+   "ms": 480,
+   "cost": 0.000036582
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.41,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.41,
+    "whole-year": 0.35,
+    "summer": 0.16,
+    "m7": 0.03,
+    "m8": 0.02
+   },
+   "ms": 469,
+   "cost": 0.000033306
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "cloud",
+   "expect": [
+    "10"
+   ],
+   "options": 11,
+   "top": "10",
+   "p": 1,
+   "choice": "10",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 1,
+    "15": 0,
+    "20": 0,
+    "25": 0
+   },
+   "ms": 480,
+   "cost": 0.000032214
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "place",
+   "expect": [
+    "map-view"
+   ],
+   "options": 11,
+   "top": "map-view",
+   "p": 0.79,
+   "choice": "map-view",
+   "ok": true,
+   "probabilities": {
+    "map-view": 0.79,
+    "area": 0.16,
+    "Sentinel-2 of this area": 0.02,
+    "keep": 0.02,
+    "no-place": 0.01
+   },
+   "ms": 504,
+   "cost": 0.000032004
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "last-30-days",
+   "p": 0.33,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.1,
+    "2026": 0.18,
+    "last-30-days": 0.33,
+    "last-12-months": 0.22,
+    "keep": 0.1
+   },
+   "ms": 448,
+   "cost": 0.000036078
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.43,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.43,
+    "autumn": 0.14,
+    "summer": 0.13,
+    "whole-year": 0.1,
+    "m10": 0.07
+   },
+   "ms": 584,
+   "cost": 0.000032802
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "cloud",
+   "expect": [
+    "10",
+    "15",
+    "20"
+   ],
+   "options": 11,
+   "top": "10",
+   "p": 0.37,
+   "choice": "15",
+   "ok": true,
+   "probabilities": {
+    "10": 0.37,
+    "15": 0.11,
+    "20": 0.3,
+    "25": 0.09,
+    "30": 0.1
+   },
+   "ms": 459,
+   "cost": 0.00003171
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "field": "place",
+   "expect": [
+    "Rome"
+   ],
+   "options": 9,
+   "top": "Rome",
+   "p": 1,
+   "choice": "Rome",
+   "ok": true,
+   "probabilities": {
+    "Rome": 1,
+    "Sentinel-2": 0,
+    "Sentinel-2 Level-1C": 0,
+    "Sentinel-2 Level-1C over Rome": 0,
+    "Level-1C": 0
+   },
+   "ms": 508,
+   "cost": 0.000032172
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.26,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2026": 0.12,
+    "keep": 0.26,
+    "all-time": 0.25,
+    "last-30-days": 0.23,
+    "last-12-months": 0.09
+   },
+   "ms": 486,
+   "cost": 0.000036078
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.56,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.56,
+    "m10": 0.15,
+    "autumn": 0.13,
+    "whole-year": 0.11,
+    "summer": 0.03
+   },
+   "ms": 462,
+   "cost": 0.000032802
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "place",
+   "expect": [
+    "Louisville"
+   ],
+   "options": 12,
+   "top": "Louisville",
+   "p": 0.76,
+   "choice": "Louisville",
+   "ok": true,
+   "probabilities": {
+    "Louisville": 0.76,
+    "Kentucky": 0.22,
+    "lidar elevation near Louisville": 0.01,
+    "elevation near Louisville": 0.01,
+    "Kentucky lidar": 0
+   },
+   "ms": 473,
+   "cost": 0.000033096
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "all-time",
+   "p": 0.3,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.17,
+    "2026": 0.19,
+    "all-time": 0.3,
+    "keep": 0.19,
+    "last-12-months": 0.09
+   },
+   "ms": 457,
+   "cost": 0.00003591
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.84,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.84,
+    "whole-year": 0.1,
+    "autumn": 0.02,
+    "winter": 0.02,
+    "summer": 0.01
+   },
+   "ms": 503,
+   "cost": 0.000032634
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.99,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.99,
+    "any": 0.01
+   },
+   "ms": 473,
+   "cost": 0.000031542
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "field": "place",
+   "expect": [
+    "Lagos"
+   ],
+   "options": 18,
+   "top": "Lagos",
+   "p": 1,
+   "choice": "Lagos",
+   "ok": true,
+   "probabilities": {
+    "2023": 0,
+    "Lagos": 1,
+    "global": 0,
+    "global cloud-free": 0,
+    "global cloud-free Sentinel-2": 0
+   },
+   "ms": 473,
+   "cost": 0.000039144
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "field": "period",
+   "expect": [
+    "2023"
+   ],
+   "options": 16,
+   "top": "2023",
+   "p": 1,
+   "choice": "2023",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2023": 1
+   },
+   "ms": 498,
+   "cost": 0.00003633
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.48,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.48,
+    "whole-year": 0.37,
+    "winter": 0.07,
+    "summer": 0.02,
+    "spring": 0.01
+   },
+   "ms": 476,
+   "cost": 0.000033054
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "place",
+   "expect": [
+    "Kathmandu"
+   ],
+   "options": 9,
+   "top": "Kathmandu",
+   "p": 1,
+   "choice": "Kathmandu",
+   "ok": true,
+   "probabilities": {
+    "Kathmandu": 1,
+    "drone": 0,
+    "drone imagery": 0,
+    "drone imagery of Kathmandu": 0,
+    "imagery": 0
+   },
+   "ms": 461,
+   "cost": 0.000030912
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "last-30-days",
+   "p": 0.29,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2026": 0.06,
+    "last-30-days": 0.29,
+    "keep": 0.26,
+    "last-12-months": 0.2,
+    "all-time": 0.16
+   },
+   "ms": 459,
+   "cost": 0.00003591
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.48,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.48,
+    "autumn": 0.17,
+    "whole-year": 0.15,
+    "spring": 0.11,
+    "winter": 0.05
+   },
+   "ms": 538,
+   "cost": 0.000032634
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.98,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.98,
+    "any": 0.02
+   },
+   "ms": 471,
+   "cost": 0.000031542
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "place",
+   "expect": [
+    "Iceland"
+   ],
+   "options": 19,
+   "top": "Iceland",
+   "p": 1,
+   "choice": "Iceland",
+   "ok": true,
+   "probabilities": {
+    "40": 0,
+    "2021": 0,
+    "Iceland": 1,
+    "Landsat": 0,
+    "Landsat over Iceland": 0
+   },
+   "ms": 461,
+   "cost": 0.000040278
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "period",
+   "expect": [
+    "2021"
+   ],
+   "options": 16,
+   "top": "2021",
+   "p": 1,
+   "choice": "2021",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2021": 1
+   },
+   "ms": 525,
+   "cost": 0.00003654
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "season",
+   "expect": [
+    "autumn"
+   ],
+   "options": 18,
+   "top": "autumn",
+   "p": 0.99,
+   "choice": "autumn",
+   "ok": true,
+   "probabilities": {
+    "autumn": 0.99,
+    "m9": 0.01,
+    "whole-year": 0,
+    "spring": 0,
+    "summer": 0
+   },
+   "ms": 526,
+   "cost": 0.000033264
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "cloud",
+   "expect": [
+    "40"
+   ],
+   "options": 11,
+   "top": "40",
+   "p": 1,
+   "choice": "40",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "20": 0,
+    "40": 1
+   },
+   "ms": 502,
+   "cost": 0.000032172
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "place",
+   "expect": [
+    "Lisbon"
+   ],
+   "options": 12,
+   "top": "Lisbon",
+   "p": 1,
+   "choice": "Lisbon",
+   "ok": true,
+   "probabilities": {
+    "12": 0,
+    "Lisbon": 1,
+    "radar": 0,
+    "radar images": 0,
+    "radar images of Lisbon": 0
+   },
+   "ms": 466,
+   "cost": 0.000032592
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "period",
+   "expect": [
+    "last-12-months"
+   ],
+   "options": 16,
+   "top": "last-12-months",
+   "p": 0.99,
+   "choice": "last-12-months",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2025": 0.01,
+    "last-12-months": 0.99
+   },
+   "ms": 471,
+   "cost": 0.000036162
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.69,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.69,
+    "whole-year": 0.25,
+    "autumn": 0.02,
+    "m12": 0.02,
+    "winter": 0.01
+   },
+   "ms": 437,
+   "cost": 0.000032886
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.97,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.97,
+    "any": 0.03
+   },
+   "ms": 470,
+   "cost": 0.000031794
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "place",
+   "expect": [
+    "Cotopaxi"
+   ],
+   "options": 19,
+   "top": "Cotopaxi",
+   "p": 1,
+   "choice": "Cotopaxi",
+   "ok": true,
+   "probabilities": {
+    "30": 0,
+    "2025": 0,
+    "Cotopaxi": 1,
+    "Sentinel-2": 0,
+    "Sentinel-2 over Cotopaxi": 0
+   },
+   "ms": 529,
+   "cost": 0.000040446
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "period",
+   "expect": [
+    "2025"
+   ],
+   "options": 16,
+   "top": "2025",
+   "p": 0.99,
+   "choice": "2025",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2025": 0.99,
+    "last-12-months": 0.01
+   },
+   "ms": 472,
+   "cost": 0.000036624
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "season",
+   "expect": [
+    "m12"
+   ],
+   "options": 18,
+   "top": "m12",
+   "p": 0.78,
+   "choice": "m12",
+   "ok": true,
+   "probabilities": {
+    "m12": 0.78,
+    "winter": 0.22,
+    "whole-year": 0,
+    "spring": 0,
+    "summer": 0
+   },
+   "ms": 484,
+   "cost": 0.000033348
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "cloud",
+   "expect": [
+    "30"
+   ],
+   "options": 11,
+   "top": "30",
+   "p": 1,
+   "choice": "30",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "20": 0,
+    "30": 1
+   },
+   "ms": 469,
+   "cost": 0.000032256
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "field": "place",
+   "expect": [
+    "Helsinki"
+   ],
+   "options": 12,
+   "top": "Helsinki",
+   "p": 0.96,
+   "choice": "Helsinki",
+   "ok": true,
+   "probabilities": {
+    "Helsinki": 0.96,
+    "Finnish forest": 0.02,
+    "forest inventory near Helsinki": 0.02,
+    "Finnish": 0,
+    "Finnish forest inventory": 0
+   },
+   "ms": 453,
+   "cost": 0.000032424
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "2025",
+   "p": 0.39,
+   "choice": "2025",
+   "ok": false,
+   "probabilities": {
+    "2025": 0.39,
+    "2026": 0.25,
+    "last-12-months": 0.13,
+    "keep": 0.12,
+    "all-time": 0.06
+   },
+   "ms": 541,
+   "cost": 0.00003591
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "summer",
+   "p": 0.42,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "summer": 0.42,
+    "autumn": 0.16,
+    "keep": 0.13,
+    "m7": 0.12,
+    "whole-year": 0.07
+   },
+   "ms": 468,
+   "cost": 0.000032634
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.99,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.99,
+    "any": 0.01
+   },
+   "ms": 493,
+   "cost": 0.000031542
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "place",
+   "expect": [
+    "Klagenfurt"
+   ],
+   "options": 9,
+   "top": "Klagenfurt",
+   "p": 0.82,
+   "choice": "Klagenfurt",
+   "ok": true,
+   "probabilities": {
+    "Klagenfurt": 0.82,
+    "Carinthia orthophotos of Klagenfurt": 0.1,
+    "Carinthia": 0.06,
+    "orthophotos of Klagenfurt": 0.02,
+    "Carinthia orthophotos": 0
+   },
+   "ms": 492,
+   "cost": 0.00003213
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "2026",
+   "p": 0.26,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2026": 0.26,
+    "last-12-months": 0.2,
+    "all-time": 0.17,
+    "keep": 0.14,
+    "last-30-days": 0.12
+   },
+   "ms": 475,
+   "cost": 0.00003612
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "summer",
+   "p": 0.42,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "summer": 0.42,
+    "keep": 0.29,
+    "whole-year": 0.09,
+    "m7": 0.06,
+    "m8": 0.05
+   },
+   "ms": 474,
+   "cost": 0.000032844
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.97,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0.01,
+    "10": 0,
+    "15": 0,
+    "keep": 0.97,
+    "any": 0.02
+   },
+   "ms": 454,
+   "cost": 0.000031752
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "place",
+   "expect": [
+    "Vancouver"
+   ],
+   "options": 16,
+   "top": "Vancouver",
+   "p": 1,
+   "choice": "Vancouver",
+   "ok": true,
+   "probabilities": {
+    "Vancouver": 1,
+    "Canadian": 0,
+    "Canadian high": 0,
+    "Canadian high resolution": 0,
+    "Canadian high resolution DEM": 0
+   },
+   "ms": 569,
+   "cost": 0.000034734
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "2025",
+   "p": 0.31,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.31,
+    "2026": 0.13,
+    "keep": 0.21,
+    "all-time": 0.16,
+    "last-12-months": 0.13
+   },
+   "ms": 529,
+   "cost": 0.000035952
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.84,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.84,
+    "whole-year": 0.12,
+    "summer": 0.02,
+    "winter": 0.02,
+    "spring": 0
+   },
+   "ms": 518,
+   "cost": 0.000032676
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.99,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.99,
+    "any": 0.01
+   },
+   "ms": 530,
+   "cost": 0.000031584
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "place",
+   "expect": [
+    "Nairobi"
+   ],
+   "options": 14,
+   "top": "Nairobi",
+   "p": 0.99,
+   "choice": "Nairobi",
+   "ok": true,
+   "probabilities": {
+    "2023": 0,
+    "Nairobi": 0.99,
+    "Nairobi in spring 2023": 0.01,
+    "Sentinel-2": 0,
+    "Sentinel-2 of Nairobi": 0
+   },
+   "ms": 516,
+   "cost": 0.000036456
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "period",
+   "expect": [
+    "2023"
+   ],
+   "options": 16,
+   "top": "2023",
+   "p": 1,
+   "choice": "2023",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2023": 1
+   },
+   "ms": 475,
+   "cost": 0.00003633
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "season",
+   "expect": [
+    "spring"
+   ],
+   "options": 18,
+   "top": "spring",
+   "p": 0.96,
+   "choice": "spring",
+   "ok": true,
+   "probabilities": {
+    "spring": 0.96,
+    "summer": 0.02,
+    "m4": 0.01,
+    "m5": 0.01,
+    "whole-year": 0
+   },
+   "ms": 462,
+   "cost": 0.000033054
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "cloud",
+   "expect": [
+    "any",
+    "keep"
+   ],
+   "options": 11,
+   "top": "any",
+   "p": 0.94,
+   "choice": "any",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "any": 0.94,
+    "keep": 0.06
+   },
+   "ms": 525,
+   "cost": 0.000031962
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "place",
+   "expect": [
+    "Lake Titicaca",
+    "Titicaca"
+   ],
+   "options": 18,
+   "top": "Lake Titicaca",
+   "p": 1,
+   "choice": "Lake Titicaca",
+   "ok": true,
+   "probabilities": {
+    "2019": 0,
+    "Lake Titicaca": 1,
+    "Landsat": 0,
+    "Landsat imagery": 0,
+    "Landsat imagery from March": 0
+   },
+   "ms": 493,
+   "cost": 0.000039354
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "period",
+   "expect": [
+    "2019"
+   ],
+   "options": 16,
+   "top": "2019",
+   "p": 1,
+   "choice": "2019",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 1
+   },
+   "ms": 461,
+   "cost": 0.000036372
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "season",
+   "expect": [
+    "m3"
+   ],
+   "options": 18,
+   "top": "m3",
+   "p": 0.9,
+   "choice": "m3",
+   "ok": true,
+   "probabilities": {
+    "m3": 0.9,
+    "spring": 0.09,
+    "keep": 0.01,
+    "whole-year": 0,
+    "summer": 0
+   },
+   "ms": 467,
+   "cost": 0.000033096
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.97,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "5": 0,
+    "10": 0,
+    "15": 0,
+    "keep": 0.97,
+    "any": 0.03
+   },
+   "ms": 488,
+   "cost": 0.000032004
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "field": "place",
+   "expect": [
+    "Los Angeles"
+   ],
+   "options": 15,
+   "top": "Los Angeles",
+   "p": 1,
+   "choice": "Los Angeles",
+   "ok": true,
+   "probabilities": {
+    "2025": 0,
+    "Los Angeles": 1,
+    "wildfires": 0,
+    "wildfires in Los": 0,
+    "wildfires in Los Angeles": 0
+   },
+   "ms": 498,
+   "cost": 0.000035742
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "field": "period",
+   "expect": [
+    "2025"
+   ],
+   "options": 16,
+   "top": "2025",
+   "p": 0.99,
+   "choice": "2025",
+   "ok": true,
+   "probabilities": {
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2025": 0.99,
+    "last-12-months": 0.01
+   },
+   "ms": 522,
+   "cost": 0.000036204
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "field": "season",
+   "expect": [
+    "m1"
+   ],
+   "options": 18,
+   "top": "m1",
+   "p": 0.84,
+   "choice": "m1",
+   "ok": true,
+   "probabilities": {
+    "m1": 0.84,
+    "winter": 0.16,
+    "whole-year": 0,
+    "spring": 0,
+    "summer": 0
+   },
+   "ms": 499,
+   "cost": 0.000032928
+  }
+ ]
+}

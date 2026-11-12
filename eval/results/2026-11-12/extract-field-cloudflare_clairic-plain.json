@@ -1,0 +1,1907 @@
+{
+ "model": "cloudflare/clairic",
+ "set": "field",
+ "variant": "plain",
+ "today": "2026-10-02",
+ "rows": [
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "group": "place",
+   "expect": "Lisbon",
+   "value": "Lisbon",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "guess": "Lisbon",
+     "span": [
+      16,
+      22
+     ],
+     "p_null": 0.00046644461690448225,
+     "confidence": 0.9999828338623047
+    }
+   },
+   "ms": 1095,
+   "cost": 2.89e-05
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "group": "time",
+   "expect": "2026-06-01 to 2026-08-31",
+   "value": [
+    "2026-06-01",
+    "2026-08-31"
+   ],
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2026-06-01",
+     "guess": "2026-06-01",
+     "p_null": 0.0009319773525930941,
+     "confidence": 0.6228062515698696
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-08-31",
+     "guess": "2026-08-31",
+     "p_null": 0.0030361635144799948,
+     "confidence": 0.22724397098206944
+    }
+   },
+   "ms": 549,
+   "cost": 2.78e-05
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "group": "cloud",
+   "expect": "15 to 25",
+   "value": null,
+   "ok": false,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 90,
+     "p_null": 0.9982684850692749,
+     "confidence": 0.0802240155659205
+    }
+   },
+   "ms": 596,
+   "cost": 1.85e-05
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "group": "place",
+   "expect": "Johor | Johor Malaysia",
+   "value": "Johor Malaysia",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Johor Malaysia",
+     "guess": "Johor Malaysia",
+     "span": [
+      20,
+      34
+     ],
+     "p_null": 0.007460268680006266,
+     "confidence": 0.9546239376068115
+    }
+   },
+   "ms": 524,
+   "cost": 2.96e-05
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9798152446746826,
+     "confidence": 0.7221482843082678
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-31",
+     "p_null": 0.9968535304069519,
+     "confidence": 0.3762265470834976
+    }
+   },
+   "ms": 526,
+   "cost": 2.85e-05
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "group": "cloud",
+   "expect": "15 to 20",
+   "value": 20,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 20,
+     "guess": 20,
+     "p_null": 7.598267984576523e-05,
+     "confidence": 0.9991080554417524
+    }
+   },
+   "ms": 536,
+   "cost": 1.92e-05
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "group": "place",
+   "expect": "Denver",
+   "value": "Denver",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Denver",
+     "guess": "Denver",
+     "span": [
+      13,
+      19
+     ],
+     "p_null": 0.0018750099698081613,
+     "confidence": 0.9999387264251709
+    }
+   },
+   "ms": 509,
+   "cost": 2.9e-05
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "group": "time",
+   "expect": "2024-07-01 to 2024-07-31",
+   "value": [
+    "2024-07-01",
+    "2024-07-31"
+   ],
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2024-07-01",
+     "guess": "2024-07-01",
+     "p_null": 0.002653801580891013,
+     "confidence": 0.9877001918496953
+    },
+    "end": {
+     "type": "date",
+     "value": "2024-07-31",
+     "guess": "2024-07-31",
+     "p_null": 0.0006811905768699944,
+     "confidence": 0.9821260462403195
+    }
+   },
+   "ms": 527,
+   "cost": 2.79e-05
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9999963045120239,
+     "confidence": 0.09243977782465942
+    }
+   },
+   "ms": 558,
+   "cost": 1.86e-05
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "group": "place",
+   "expect": "Grand Canyon",
+   "value": "the Grand Canyon",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Grand Canyon",
+     "guess": "the Grand Canyon",
+     "span": [
+      22,
+      38
+     ],
+     "p_null": 0.00025817201822064817,
+     "confidence": 0.9045671224594116
+    }
+   },
+   "ms": 411,
+   "cost": 2.85e-05
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8792657852172852,
+     "confidence": 0.59437395798494
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.986370325088501,
+     "confidence": 0.5942565801372569
+    }
+   },
+   "ms": 463,
+   "cost": 2.74e-05
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "group": "cloud",
+   "expect": "0 to 10",
+   "value": 0,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 0,
+     "guess": 0,
+     "p_null": 0.031072644516825676,
+     "confidence": 0.9814336682473199
+    }
+   },
+   "ms": 454,
+   "cost": 1.81e-05
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "group": "place",
+   "expect": "Netherlands",
+   "value": "the Netherlands",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Netherlands",
+     "guess": "the Netherlands",
+     "span": [
+      20,
+      35
+     ],
+     "p_null": 0.003965696785598993,
+     "confidence": 0.8926106691360474
+    }
+   },
+   "ms": 501,
+   "cost": 2.93e-05
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "group": "time",
+   "expect": "2025-01-01 to 2025-01-31",
+   "value": [
+    "2025-01-01",
+    "2025-01-31"
+   ],
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2025-01-01",
+     "guess": "2025-01-01",
+     "p_null": 0.011972864158451557,
+     "confidence": 0.8994768786843925
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-01-31",
+     "guess": "2025-01-31",
+     "p_null": 0.018960200250148773,
+     "confidence": 0.9372123520354818
+    }
+   },
+   "ms": 499,
+   "cost": 2.82e-05
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 300,
+     "p_null": 0.9999992847442627,
+     "confidence": 0.08472043625241542
+    }
+   },
+   "ms": 466,
+   "cost": 1.89e-05
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "group": "place",
+   "expect": "Mount Everest | Everest",
+   "value": "Mount Everest",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Mount Everest",
+     "guess": "Mount Everest",
+     "span": [
+      13,
+      26
+     ],
+     "p_null": 0.00012181095371488482,
+     "confidence": 0.9999799728393555
+    }
+   },
+   "ms": 481,
+   "cost": 2.83e-05
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.960212767124176,
+     "confidence": 0.642264369481371
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9949761629104614,
+     "confidence": 0.32052058305603315
+    }
+   },
+   "ms": 511,
+   "cost": 2.72e-05
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 3,
+     "p_null": 0.9999825954437256,
+     "confidence": 0.030512302356602284
+    }
+   },
+   "ms": 451,
+   "cost": 1.79e-05
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "group": "place",
+   "expect": "Kenya",
+   "value": "Kenya",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kenya",
+     "guess": "Kenya",
+     "span": [
+      14,
+      19
+     ],
+     "p_null": 0.00044725232874043286,
+     "confidence": 0.9999998807907104
+    }
+   },
+   "ms": 478,
+   "cost": 2.82e-05
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.805793285369873,
+     "confidence": 0.5778700209634918
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9677428603172302,
+     "confidence": 0.32527569476133933
+    }
+   },
+   "ms": 463,
+   "cost": 2.71e-05
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 3,
+     "p_null": 0.9999790191650391,
+     "confidence": 0.08562997292114315
+    }
+   },
+   "ms": 602,
+   "cost": 1.78e-05
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "group": "place",
+   "expect": "Zurich",
+   "value": "Zurich",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Zurich",
+     "guess": "Zurich",
+     "span": [
+      21,
+      27
+     ],
+     "p_null": 0.0018444423330947757,
+     "confidence": 0.9994173049926758
+    }
+   },
+   "ms": 461,
+   "cost": 2.85e-05
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9251720309257507,
+     "confidence": 0.5319415920726946
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9964994192123413,
+     "confidence": 0.590914421060125
+    }
+   },
+   "ms": 490,
+   "cost": 2.74e-05
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 3,
+     "p_null": 0.9999909400939941,
+     "confidence": 0.04396517670239459
+    }
+   },
+   "ms": 536,
+   "cost": 1.81e-05
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "group": "place",
+   "expect": "no-place",
+   "value": "no-place",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": null,
+     "guess": "Hurricane Idalia",
+     "span": [
+      20,
+      36
+     ],
+     "p_null": 0.9701400399208069,
+     "confidence": 0.9033451080322266
+    }
+   },
+   "ms": 504,
+   "cost": 2.85e-05
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.5977286100387573,
+     "confidence": 0.6320663055088299
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.980463445186615,
+     "confidence": 0.5543538691027213
+    }
+   },
+   "ms": 463,
+   "cost": 2.74e-05
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "group": "place",
+   "expect": "Svalbard",
+   "value": "Svalbard",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Svalbard",
+     "guess": "Svalbard",
+     "span": [
+      23,
+      31
+     ],
+     "p_null": 0.004085521213710308,
+     "confidence": 0.9992285966873169
+    }
+   },
+   "ms": 549,
+   "cost": 2.86e-05
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9091589450836182,
+     "confidence": 0.7208450271615178
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9967671632766724,
+     "confidence": 0.7814260378693789
+    }
+   },
+   "ms": 518,
+   "cost": 2.75e-05
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 3,
+     "p_null": 0.9999915361404419,
+     "confidence": 0.06469511555362355
+    }
+   },
+   "ms": 462,
+   "cost": 1.82e-05
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "group": "place",
+   "expect": "Austin | Austin Texas",
+   "value": "Austin, Texas",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Austin, Texas",
+     "guess": "Austin, Texas",
+     "span": [
+      16,
+      29
+     ],
+     "p_null": 0.004371419548988342,
+     "confidence": 0.8321069478988647
+    }
+   },
+   "ms": 491,
+   "cost": 2.91e-05
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "group": "time",
+   "expect": "2022-01-01 to 2022-12-31",
+   "value": [
+    "2022-01-01",
+    "2022-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2022-01-01",
+     "guess": "2022-01-01",
+     "p_null": 0.010556379333138466,
+     "confidence": 0.9544718176462873
+    },
+    "end": {
+     "type": "date",
+     "value": "2022-12-31",
+     "guess": "2022-12-31",
+     "p_null": 0.0312592051923275,
+     "confidence": 0.9804291268686481
+    }
+   },
+   "ms": 496,
+   "cost": 2.8e-05
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 100,
+     "p_null": 0.9999979734420776,
+     "confidence": 0.0514167308367359
+    }
+   },
+   "ms": 501,
+   "cost": 1.87e-05
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "group": "place",
+   "expect": "Lower Saxony",
+   "value": "Lower Saxony",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lower Saxony",
+     "guess": "Lower Saxony",
+     "span": [
+      14,
+      26
+     ],
+     "p_null": 0.001583331380970776,
+     "confidence": 0.9999922513961792
+    }
+   },
+   "ms": 448,
+   "cost": 2.84e-05
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8921986818313599,
+     "confidence": 0.607818050922927
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9914364218711853,
+     "confidence": 0.4275817578618228
+    }
+   },
+   "ms": 747,
+   "cost": 2.73e-05
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9999755620956421,
+     "confidence": 0.03667125124558517
+    }
+   },
+   "ms": 431,
+   "cost": 1.8e-05
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "group": "place",
+   "expect": "Hannover",
+   "value": "Hannover",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Hannover",
+     "guess": "Hannover",
+     "span": [
+      17,
+      25
+     ],
+     "p_null": 0.00015081369201652706,
+     "confidence": 0.9999994039535522
+    }
+   },
+   "ms": 501,
+   "cost": 2.83e-05
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9449971914291382,
+     "confidence": 0.6011702314435864
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9929518103599548,
+     "confidence": 0.41753714509839857
+    }
+   },
+   "ms": 443,
+   "cost": 2.72e-05
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9999957084655762,
+     "confidence": 0.06317889278377346
+    }
+   },
+   "ms": 750,
+   "cost": 1.79e-05
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "group": "place",
+   "expect": "Amazon rainforest | Amazon",
+   "value": "Amazon rainforest",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Amazon rainforest",
+     "guess": "Amazon rainforest",
+     "span": [
+      25,
+      42
+     ],
+     "p_null": 0.006896169390529394,
+     "confidence": 0.6603493690490723
+    }
+   },
+   "ms": 469,
+   "cost": 2.87e-05
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "group": "time",
+   "expect": "2026-09-02 to 2026-10-02",
+   "value": null,
+   "ok": false,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8062029480934143,
+     "confidence": 0.534799493246286
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9672795534133911,
+     "confidence": 0.4126916187700927
+    }
+   },
+   "ms": 507,
+   "cost": 2.76e-05
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "group": "place",
+   "expect": "Alps",
+   "value": "the Alps",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Alps",
+     "guess": "the Alps",
+     "span": [
+      22,
+      30
+     ],
+     "p_null": 0.002011719159781933,
+     "confidence": 0.983558714389801
+    }
+   },
+   "ms": 535,
+   "cost": 2.92e-05
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "group": "time",
+   "expect": "2023-12-01 to 2024-02-29",
+   "value": [
+    "2024-12-01",
+    "2024-03-31"
+   ],
+   "ok": false,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2024-12-01",
+     "guess": "2024-12-01",
+     "p_null": 0.017735468223690987,
+     "confidence": 0.57088009151437
+    },
+    "end": {
+     "type": "date",
+     "value": "2024-03-31",
+     "guess": "2024-03-31",
+     "p_null": 0.011139795184135437,
+     "confidence": 0.2071817014937866
+    }
+   },
+   "ms": 533,
+   "cost": 2.81e-05
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9999897480010986,
+     "confidence": 0.11702436158828172
+    }
+   },
+   "ms": 727,
+   "cost": 1.88e-05
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "group": "place",
+   "expect": "Aral Sea",
+   "value": "Aral Sea",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Aral Sea",
+     "guess": "Aral Sea",
+     "span": [
+      15,
+      23
+     ],
+     "p_null": 0.006950239650905132,
+     "confidence": 0.8801065683364868
+    }
+   },
+   "ms": 466,
+   "cost": 2.99e-05
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "group": "time",
+   "expect": "2016-01-01 to 2016-12-31",
+   "value": [
+    "2016-10-01",
+    "2016-12-31"
+   ],
+   "ok": false,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2016-10-01",
+     "guess": "2016-10-01",
+     "p_null": 0.033782608807086945,
+     "confidence": 0.45914182847228
+    },
+    "end": {
+     "type": "date",
+     "value": "2016-12-31",
+     "guess": "2016-12-31",
+     "p_null": 0.07775130867958069,
+     "confidence": 0.3312443694232813
+    }
+   },
+   "ms": 485,
+   "cost": 2.88e-05
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "group": "cloud",
+   "expect": "10 to 10",
+   "value": 10,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 10,
+     "guess": 10,
+     "p_null": 0.00027923809830099344,
+     "confidence": 0.9984094509103775
+    }
+   },
+   "ms": 458,
+   "cost": 1.95e-05
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "group": "place",
+   "expect": "map-view",
+   "value": "no-place",
+   "ok": false,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": null,
+     "guess": "Sentinel-2",
+     "span": [
+      0,
+      10
+     ],
+     "p_null": 0.6687361598014832,
+     "confidence": 0.3491173982620239
+    }
+   },
+   "ms": 418,
+   "cost": 2.88e-05
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8860734701156616,
+     "confidence": 0.5180583243988609
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9847044944763184,
+     "confidence": 0.6490890979940456
+    }
+   },
+   "ms": 483,
+   "cost": 2.77e-05
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "group": "cloud",
+   "expect": "10 to 20",
+   "value": null,
+   "ok": false,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 90,
+     "p_null": 0.9989936947822571,
+     "confidence": 0.08259247491651245
+    }
+   },
+   "ms": 478,
+   "cost": 1.84e-05
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "group": "place",
+   "expect": "Rome",
+   "value": "Rome",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Rome",
+     "guess": "Rome",
+     "span": [
+      25,
+      29
+     ],
+     "p_null": 0.0008840809459798038,
+     "confidence": 0.9999903440475464
+    }
+   },
+   "ms": 431,
+   "cost": 2.88e-05
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.7895175814628601,
+     "confidence": 0.5662970786829907
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9908331036567688,
+     "confidence": 0.7192228681358532
+    }
+   },
+   "ms": 492,
+   "cost": 2.77e-05
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "group": "place",
+   "expect": "Louisville",
+   "value": "Louisville",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Louisville",
+     "guess": "Louisville",
+     "span": [
+      30,
+      40
+     ],
+     "p_null": 0.0037489524111151695,
+     "confidence": 0.9882446527481079
+    }
+   },
+   "ms": 517,
+   "cost": 2.84e-05
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9280897378921509,
+     "confidence": 0.6675824857266291
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.995941698551178,
+     "confidence": 0.5610666564882206
+    }
+   },
+   "ms": 484,
+   "cost": 2.73e-05
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 3,
+     "p_null": 0.9999959468841553,
+     "confidence": 0.06545287286513622
+    }
+   },
+   "ms": 520,
+   "cost": 1.8e-05
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "group": "place",
+   "expect": "Lagos",
+   "value": "Lagos",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lagos",
+     "guess": "Lagos",
+     "span": [
+      39,
+      44
+     ],
+     "p_null": 0.0013701342977583408,
+     "confidence": 0.9999644756317139
+    }
+   },
+   "ms": 507,
+   "cost": 2.93e-05
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "group": "time",
+   "expect": "2023-01-01 to 2023-12-31",
+   "value": [
+    "2023-01-01",
+    "2023-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2023-01-01",
+     "guess": "2023-01-01",
+     "p_null": 0.01564301736652851,
+     "confidence": 0.85509272534549
+    },
+    "end": {
+     "type": "date",
+     "value": "2023-12-31",
+     "guess": "2023-12-31",
+     "p_null": 0.059464603662490845,
+     "confidence": 0.8747791660673965
+    }
+   },
+   "ms": 499,
+   "cost": 2.82e-05
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "group": "place",
+   "expect": "Kathmandu",
+   "value": "Kathmandu",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kathmandu",
+     "guess": "Kathmandu",
+     "span": [
+      17,
+      26
+     ],
+     "p_null": 0.00012486464402172714,
+     "confidence": 0.9999922513961792
+    }
+   },
+   "ms": 498,
+   "cost": 2.85e-05
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9454303979873657,
+     "confidence": 0.6559198444300213
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9950971007347107,
+     "confidence": 0.4960632151853312
+    }
+   },
+   "ms": 463,
+   "cost": 2.74e-05
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.999996542930603,
+     "confidence": 0.08615333993509858
+    }
+   },
+   "ms": 470,
+   "cost": 1.81e-05
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "group": "place",
+   "expect": "Iceland",
+   "value": "Iceland",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Iceland",
+     "guess": "Iceland",
+     "span": [
+      13,
+      20
+     ],
+     "p_null": 0.005260178353637457,
+     "confidence": 0.9997661709785461
+    }
+   },
+   "ms": 510,
+   "cost": 2.98e-05
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "group": "time",
+   "expect": "2021-09-01 to 2021-11-30",
+   "value": [
+    "2021-09-01",
+    "2021-12-31"
+   ],
+   "ok": false,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2021-09-01",
+     "guess": "2021-09-01",
+     "p_null": 0.00529014365747571,
+     "confidence": 0.8409500548082223
+    },
+    "end": {
+     "type": "date",
+     "value": "2021-12-31",
+     "guess": "2021-12-31",
+     "p_null": 0.012984850443899632,
+     "confidence": 0.21991546518455132
+    }
+   },
+   "ms": 445,
+   "cost": 2.87e-05
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "group": "cloud",
+   "expect": "40 to 40",
+   "value": 40,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 40,
+     "guess": 40,
+     "p_null": 0.00014616650878451765,
+     "confidence": 0.9993833409528056
+    }
+   },
+   "ms": 493,
+   "cost": 1.94e-05
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "group": "place",
+   "expect": "Lisbon",
+   "value": "Lisbon",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "guess": "Lisbon",
+     "span": [
+      16,
+      22
+     ],
+     "p_null": 0.0004849745600949973,
+     "confidence": 0.9999892711639404
+    }
+   },
+   "ms": 433,
+   "cost": 2.9e-05
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "group": "time",
+   "expect": "2025-10-02 to 2026-10-02",
+   "value": [
+    "2025-10-02",
+    "2025-10-02"
+   ],
+   "ok": false,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2025-10-02",
+     "guess": "2025-10-02",
+     "p_null": 8.867302312864922e-06,
+     "confidence": 0.8123075383016013
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-10-02",
+     "guess": "2025-10-02",
+     "p_null": 0.000319592742016539,
+     "confidence": 0.6681918006546224
+    }
+   },
+   "ms": 466,
+   "cost": 2.79e-05
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 100,
+     "p_null": 0.999994158744812,
+     "confidence": 0.04730622514897206
+    }
+   },
+   "ms": 551,
+   "cost": 1.86e-05
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "group": "place",
+   "expect": "Cotopaxi",
+   "value": "Cotopaxi",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Cotopaxi",
+     "guess": "Cotopaxi",
+     "span": [
+      16,
+      24
+     ],
+     "p_null": 0.0005220401799306273,
+     "confidence": 0.9996792078018188
+    }
+   },
+   "ms": 431,
+   "cost": 3.02e-05
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "group": "time",
+   "expect": "2025-12-01 to 2025-12-31",
+   "value": [
+    "2025-12-01",
+    "2025-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2025-12-01",
+     "guess": "2025-12-01",
+     "p_null": 0.003357982262969017,
+     "confidence": 0.9864558747826128
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-12-31",
+     "guess": "2025-12-31",
+     "p_null": 0.0025034488644450903,
+     "confidence": 0.998035754465333
+    }
+   },
+   "ms": 446,
+   "cost": 2.91e-05
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "group": "cloud",
+   "expect": "30 to 30",
+   "value": 30,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 30,
+     "guess": 30,
+     "p_null": 7.507203554268926e-05,
+     "confidence": 0.9996465038619907
+    }
+   },
+   "ms": 444,
+   "cost": 1.98e-05
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "group": "place",
+   "expect": "Helsinki",
+   "value": "Helsinki",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Helsinki",
+     "guess": "Helsinki",
+     "span": [
+      30,
+      38
+     ],
+     "p_null": 0.005284947343170643,
+     "confidence": 0.998776376247406
+    }
+   },
+   "ms": 522,
+   "cost": 2.85e-05
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9678398966789246,
+     "confidence": 0.6402773357265986
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9980491399765015,
+     "confidence": 0.6774809555089832
+    }
+   },
+   "ms": 476,
+   "cost": 2.74e-05
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 300,
+     "p_null": 0.9999969005584717,
+     "confidence": 0.05956267461397993
+    }
+   },
+   "ms": 458,
+   "cost": 1.81e-05
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "group": "place",
+   "expect": "Klagenfurt",
+   "value": "Klagenfurt",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Klagenfurt",
+     "guess": "Klagenfurt",
+     "span": [
+      25,
+      35
+     ],
+     "p_null": 0.009406803175807,
+     "confidence": 0.6572016477584839
+    }
+   },
+   "ms": 477,
+   "cost": 2.88e-05
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9060584306716919,
+     "confidence": 0.6142222892094337
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9924200177192688,
+     "confidence": 0.5811380898607628
+    }
+   },
+   "ms": 496,
+   "cost": 2.77e-05
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 3,
+     "p_null": 0.9999796152114868,
+     "confidence": 0.0386842098992827
+    }
+   },
+   "ms": 520,
+   "cost": 1.84e-05
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "group": "place",
+   "expect": "Vancouver",
+   "value": "Vancouver",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Vancouver",
+     "guess": "Vancouver",
+     "span": [
+      32,
+      41
+     ],
+     "p_null": 0.002680140547454357,
+     "confidence": 0.999963641166687
+    }
+   },
+   "ms": 434,
+   "cost": 2.84e-05
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8959656357765198,
+     "confidence": 0.642587098257469
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9905735850334167,
+     "confidence": 0.5755756176392085
+    }
+   },
+   "ms": 484,
+   "cost": 2.73e-05
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9999843835830688,
+     "confidence": 0.04424559847239455
+    }
+   },
+   "ms": 421,
+   "cost": 1.8e-05
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "group": "place",
+   "expect": "Nairobi",
+   "value": "Nairobi",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Nairobi",
+     "guess": "Nairobi",
+     "span": [
+      14,
+      21
+     ],
+     "p_null": 0.010937229730188847,
+     "confidence": 0.9999120235443115
+    }
+   },
+   "ms": 523,
+   "cost": 2.94e-05
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "group": "time",
+   "expect": "2023-03-01 to 2023-05-31",
+   "value": [
+    "2023-01-01",
+    "2023-05-31"
+   ],
+   "ok": false,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2023-01-01",
+     "guess": "2023-01-01",
+     "p_null": 0.015551910735666752,
+     "confidence": 0.3589180653364876
+    },
+    "end": {
+     "type": "date",
+     "value": "2023-05-31",
+     "guess": "2023-05-31",
+     "p_null": 0.012923398055136204,
+     "confidence": 0.15602895673838874
+    }
+   },
+   "ms": 525,
+   "cost": 2.83e-05
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9865218997001648,
+     "confidence": 0.24719057544196268
+    }
+   },
+   "ms": 505,
+   "cost": 1.9e-05
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "group": "place",
+   "expect": "Lake Titicaca | Titicaca",
+   "value": "Lake Titicaca",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lake Titicaca",
+     "guess": "Lake Titicaca",
+     "span": [
+      35,
+      48
+     ],
+     "p_null": 0.0014120436972007155,
+     "confidence": 0.9994161128997803
+    }
+   },
+   "ms": 498,
+   "cost": 2.94e-05
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "group": "time",
+   "expect": "2019-03-01 to 2019-03-31",
+   "value": [
+    "2019-03-01",
+    "2019-03-31"
+   ],
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2019-03-01",
+     "guess": "2019-03-01",
+     "p_null": 0.0023119430989027023,
+     "confidence": 0.9863103212219988
+    },
+    "end": {
+     "type": "date",
+     "value": "2019-03-31",
+     "guess": "2019-03-31",
+     "p_null": 0.0007705590105615556,
+     "confidence": 0.9927731375393314
+    }
+   },
+   "ms": 498,
+   "cost": 2.83e-05
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9999977350234985,
+     "confidence": 0.10810711607136801
+    }
+   },
+   "ms": 529,
+   "cost": 1.9e-05
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "group": "place",
+   "expect": "Los Angeles",
+   "value": "Los Angeles",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Los Angeles",
+     "guess": "Los Angeles",
+     "span": [
+      13,
+      24
+     ],
+     "p_null": 0.0011624818434938788,
+     "confidence": 0.9999674558639526
+    }
+   },
+   "ms": 526,
+   "cost": 2.9e-05
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "group": "time",
+   "expect": "2025-01-01 to 2025-01-31",
+   "value": [
+    "2025-01-01",
+    "2025-01-31"
+   ],
+   "ok": true,
+   "answers": {
+    "start": {
+     "type": "date",
+     "value": "2025-01-01",
+     "guess": "2025-01-01",
+     "p_null": 0.005360516253858805,
+     "confidence": 0.950250087622498
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-01-31",
+     "guess": "2025-01-31",
+     "p_null": 0.01694919355213642,
+     "confidence": 0.972183090319521
+    }
+   },
+   "ms": 500,
+   "cost": 2.79e-05
+  }
+ ]
+}
