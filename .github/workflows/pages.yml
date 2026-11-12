@@ -15,7 +15,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # The site calls the Worker, so deploy the Worker first. A site with routes
+  # that the Worker does not have yet fails (e.g. `/extract`).
+  worker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          # A Cloudflare API token from the "Edit Cloudflare Workers" template.
+          # The account id is in `worker/wrangler.toml`. The OpenRouter key is
+          # a Worker secret and a deploy keeps it.
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: worker
+          wranglerVersion: "4.160.1"
+          command: deploy
   build:
+    needs: worker
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

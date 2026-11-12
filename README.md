@@ -55,8 +55,8 @@ the OpenRouter key and forwards the jev and Clairic calls. The Worker:
   5 calls.
 
 If the Worker has no `/extract` route yet, the site still works: jev picks
-the place, the time and the cloud cover. Deploy the Worker again after you
-update it.
+the place, the time and the cloud cover. The "Deploy to GitHub Pages"
+workflow deploys the Worker before the site, so the two stay the same.
 
 Give the OpenRouter key a budget limit. The budget limit is the last check.
 
@@ -78,7 +78,16 @@ gh variable set DECIDE_URL --repo developmentseed/stac-zap --body https://stac-z
 gh workflow run pages.yml --repo developmentseed/stac-zap
 ```
 
-Each push to `main` deploys the site again.
+Each push to `main` deploys the Worker and the site again. For the Worker
+deploy, the workflow needs a Cloudflare API token. Make one from the "Edit
+Cloudflare Workers" template for the Development Seed account, then set it
+as the `CLOUDFLARE_API_TOKEN` repository secret:
+
+```shell
+gh secret set CLOUDFLARE_API_TOKEN --repo developmentseed/stac-zap
+```
+
+Without this secret, the workflow stops before it deploys the site.
 
 ## How it works
 
