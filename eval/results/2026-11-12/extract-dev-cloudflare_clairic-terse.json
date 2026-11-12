@@ -39,7 +39,7 @@
      "confidence": 0.9777854127125555
     }
    },
-   "ms": 1310,
+   "ms": 1141,
    "cost": 0.0000566,
    "usage": {
     "schema_tokens": 506,
@@ -66,25 +66,25 @@
       39,
       49
      ],
-     "p_null": 0.004299698397517204,
-     "confidence": 0.8402144908905029
+     "p_null": 0.00429884297773242,
+     "confidence": 0.8273493647575378
     },
     "start": {
      "type": "date",
      "value": "2019-01-01",
      "guess": "2019-01-01",
-     "p_null": 0.004397523123770952,
-     "confidence": 0.9795914059397661
+     "p_null": 0.005129010882228613,
+     "confidence": 0.9803133360414813
     },
     "end": {
      "type": "date",
      "value": "2026-10-02",
      "guess": "2026-10-02",
-     "p_null": 0.31373390555381775,
-     "confidence": 0.9924509206340099
+     "p_null": 0.3081456422805786,
+     "confidence": 0.9922550366362879
     }
    },
-   "ms": 441,
+   "ms": 587,
    "cost": 0.000056,
    "usage": {
     "schema_tokens": 506,
@@ -98,10 +98,10 @@
    "group": "time",
    "expect": "2026-08-02 to 2026-10-02",
    "value": [
-    "2026-08-01",
-    "2026-08-02"
+    "2026-08-02",
+    "2026-10-02"
    ],
-   "ok": false,
+   "ok": true,
    "answers": {
     "when": {
      "type": "text",
@@ -111,25 +111,25 @@
       48,
       65
      ],
-     "p_null": 0.0032299000304192305,
-     "confidence": 0.5581619143486023
+     "p_null": 0.0032246140763163567,
+     "confidence": 0.5855687856674194
     },
     "start": {
      "type": "date",
      "value": "2026-08-01",
      "guess": "2026-08-01",
-     "p_null": 0.0002741134085226804,
-     "confidence": 0.4909971374043523
+     "p_null": 0.00028798304265365005,
+     "confidence": 0.4791413403752108
     },
     "end": {
      "type": "date",
      "value": "2026-08-02",
      "guess": "2026-08-02",
-     "p_null": 0.003763103624805808,
-     "confidence": 0.572528326423781
+     "p_null": 0.004167955834418535,
+     "confidence": 0.5571147816327173
     }
    },
-   "ms": 499,
+   "ms": 720,
    "cost": 0.000056,
    "usage": {
     "schema_tokens": 506,
@@ -174,7 +174,7 @@
      "confidence": 0.32167671200997644
     }
    },
-   "ms": 444,
+   "ms": 488,
    "cost": 0.0000558,
    "usage": {
     "schema_tokens": 506,
@@ -219,7 +219,7 @@
      "confidence": 0.4135227233470427
     }
    },
-   "ms": 540,
+   "ms": 636,
    "cost": 0.0000556,
    "usage": {
     "schema_tokens": 506,
@@ -264,7 +264,7 @@
      "confidence": 0.16630733692356883
     }
    },
-   "ms": 673,
+   "ms": 547,
    "cost": 0.0000562,
    "usage": {
     "schema_tokens": 506,
@@ -309,7 +309,7 @@
      "confidence": 0.2865240134175892
     }
    },
-   "ms": 644,
+   "ms": 945,
    "cost": 0.0000562,
    "usage": {
     "schema_tokens": 506,
@@ -354,7 +354,7 @@
      "confidence": 0.37746957871057446
     }
    },
-   "ms": 403,
+   "ms": 528,
    "cost": 0.000055,
    "usage": {
     "schema_tokens": 506,
@@ -399,7 +399,7 @@
      "confidence": 0.9816284390845269
     }
    },
-   "ms": 497,
+   "ms": 508,
    "cost": 0.000055,
    "usage": {
     "schema_tokens": 506,
@@ -441,7 +441,7 @@
      "confidence": 0.9904249903988265
     }
    },
-   "ms": 467,
+   "ms": 619,
    "cost": 0.0000548,
    "usage": {
     "schema_tokens": 506,
@@ -483,7 +483,7 @@
      "confidence": 0.9448691363609516
     }
    },
-   "ms": 504,
+   "ms": 429,
    "cost": 0.0000564,
    "usage": {
     "schema_tokens": 506,
@@ -507,7 +507,7 @@
      "confidence": 0.9654815496726848
     }
    },
-   "ms": 387,
+   "ms": 464,
    "cost": 0.0000261,
    "usage": {
     "schema_tokens": 232,
@@ -549,7 +549,7 @@
      "confidence": 0.988323471528359
     }
    },
-   "ms": 522,
+   "ms": 596,
    "cost": 0.0000546,
    "usage": {
     "schema_tokens": 506,
@@ -591,7 +591,7 @@
      "confidence": 0.9898676280861116
     }
    },
-   "ms": 544,
+   "ms": 636,
    "cost": 0.0000546,
    "usage": {
     "schema_tokens": 506,
@@ -633,7 +633,7 @@
      "confidence": 0.9847059665499205
     }
    },
-   "ms": 479,
+   "ms": 497,
    "cost": 0.000055,
    "usage": {
     "schema_tokens": 506,
@@ -657,7 +657,7 @@
      "confidence": 0.1452928744475562
     }
    },
-   "ms": 451,
+   "ms": 532,
    "cost": 0.0000254,
    "usage": {
     "schema_tokens": 232,
@@ -699,7 +699,7 @@
      "confidence": 0.9910106235914912
     }
    },
-   "ms": 406,
+   "ms": 443,
    "cost": 0.0000546,
    "usage": {
     "schema_tokens": 506,
@@ -741,7 +741,7 @@
      "confidence": 0.98736317087437
     }
    },
-   "ms": 453,
+   "ms": 655,
    "cost": 0.000055,
    "usage": {
     "schema_tokens": 506,
@@ -786,7 +786,7 @@
      "confidence": 0.3622193315756514
     }
    },
-   "ms": 521,
+   "ms": 671,
    "cost": 0.0000562,
    "usage": {
     "schema_tokens": 506,
@@ -831,7 +831,7 @@
      "confidence": 0.9006560399753052
     }
    },
-   "ms": 442,
+   "ms": 437,
    "cost": 0.0000564,
    "usage": {
     "schema_tokens": 506,
@@ -876,7 +876,7 @@
      "confidence": 0.29288592152621595
     }
    },
-   "ms": 556,
+   "ms": 769,
    "cost": 0.0000562,
    "usage": {
     "schema_tokens": 506,
@@ -921,7 +921,7 @@
      "confidence": 0.19505197457794496
     }
    },
-   "ms": 716,
+   "ms": 719,
    "cost": 0.0000552,
    "usage": {
     "schema_tokens": 506,
@@ -945,7 +945,7 @@
      "confidence": 0.9496473992495833
     }
    },
-   "ms": 419,
+   "ms": 636,
    "cost": 0.0000257,
    "usage": {
     "schema_tokens": 232,
@@ -969,7 +969,7 @@
      "confidence": 0.9935783224526834
     }
    },
-   "ms": 408,
+   "ms": 665,
    "cost": 0.0000259,
    "usage": {
     "schema_tokens": 232,
@@ -1014,7 +1014,7 @@
      "confidence": 0.3055111809145861
     }
    },
-   "ms": 383,
+   "ms": 494,
    "cost": 0.0000558,
    "usage": {
     "schema_tokens": 506,
@@ -1038,7 +1038,7 @@
      "confidence": 0.12190922080717768
     }
    },
-   "ms": 405,
+   "ms": 537,
    "cost": 0.0000258,
    "usage": {
     "schema_tokens": 232,
@@ -1062,7 +1062,7 @@
      "confidence": 0.14925204700041989
     }
    },
-   "ms": 392,
+   "ms": 1027,
    "cost": 0.0000257,
    "usage": {
     "schema_tokens": 232,
@@ -1107,7 +1107,7 @@
      "confidence": 0.7213340723931524
     }
    },
-   "ms": 521,
+   "ms": 1063,
    "cost": 0.000056,
    "usage": {
     "schema_tokens": 506,
@@ -1135,7 +1135,7 @@
      "confidence": 0.4492059350013733
     }
    },
-   "ms": 455,
+   "ms": 1235,
    "cost": 0.0000313,
    "usage": {
     "schema_tokens": 286,
@@ -1163,12 +1163,282 @@
      "confidence": 0.9963105320930481
     }
    },
-   "ms": 437,
+   "ms": 1016,
    "cost": 0.0000308,
    "usage": {
     "schema_tokens": 286,
     "state_tokens": 22,
     "passes": 1
+   }
+  },
+  {
+   "id": "D27",
+   "prompt": "Sentinel-2 of Nantes in the last 6 weeks",
+   "group": "time",
+   "expect": "2026-08-21 to 2026-10-02",
+   "value": [
+    "2026-08-21",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the last 6 weeks",
+     "guess": "the last 6 weeks",
+     "span": [
+      46,
+      62
+     ],
+     "p_null": 0.0020475813653320074,
+     "confidence": 0.9923667311668396
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-08-06",
+     "guess": "2026-08-06",
+     "p_null": 0.01992826722562313,
+     "confidence": 0.07834163779651698
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-09-02",
+     "guess": "2026-09-02",
+     "p_null": 0.06152789667248726,
+     "confidence": 0.45578273773369776
+    }
+   },
+   "ms": 1235,
+   "cost": 0.000056,
+   "usage": {
+    "schema_tokens": 506,
+    "state_tokens": 27,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D28",
+   "prompt": "Sentinel-1 of Mumbai over the past 10 days",
+   "group": "time",
+   "expect": "2026-09-22 to 2026-10-02",
+   "value": [
+    "2026-09-22",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the past 10 days",
+     "guess": "the past 10 days",
+     "span": [
+      48,
+      64
+     ],
+     "p_null": 0.002525858348235488,
+     "confidence": 0.6314874887466431
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-22",
+     "guess": "2026-09-22",
+     "p_null": 0.016811266541481018,
+     "confidence": 0.9901662257186911
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.0032119271345436573,
+     "confidence": 0.6627355553773538
+    }
+   },
+   "ms": 477,
+   "cost": 0.0000562,
+   "usage": {
+    "schema_tokens": 506,
+    "state_tokens": 28,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D29",
+   "prompt": "Landsat of Phoenix in the last two years",
+   "group": "time",
+   "expect": "2024-10-02 to 2026-10-02",
+   "value": [
+    "2024-10-02",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the last two years",
+     "guess": "the last two years",
+     "span": [
+      44,
+      62
+     ],
+     "p_null": 0.002994915470480919,
+     "confidence": 0.9966458678245544
+    },
+    "start": {
+     "type": "date",
+     "value": "2024-01-01",
+     "guess": "2024-01-01",
+     "p_null": 0.0015341362450271845,
+     "confidence": 0.5088161289801526
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.03247176483273506,
+     "confidence": 0.7688940336445218
+    }
+   },
+   "ms": 984,
+   "cost": 0.0000556,
+   "usage": {
+    "schema_tokens": 506,
+    "state_tokens": 25,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D30",
+   "prompt": "Sentinel-2 of Ghent in Q3 2021",
+   "group": "time",
+   "expect": "2021-07-01 to 2021-09-30",
+   "value": [
+    "2021-07-01",
+    "2021-09-30"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "Q3 2021",
+     "guess": "Q3 2021",
+     "span": [
+      45,
+      52
+     ],
+     "p_null": 0.0033609773963689804,
+     "confidence": 0.9447200894355774
+    },
+    "start": {
+     "type": "date",
+     "value": "2021-07-01",
+     "guess": "2021-07-01",
+     "p_null": 0.01136750541627407,
+     "confidence": 0.35980579882361396
+    },
+    "end": {
+     "type": "date",
+     "value": "2021-09-02",
+     "guess": "2021-09-02",
+     "p_null": 0.37174496054649353,
+     "confidence": 0.14230514572676517
+    }
+   },
+   "ms": 753,
+   "cost": 0.0000566,
+   "usage": {
+    "schema_tokens": 506,
+    "state_tokens": 30,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D31",
+   "prompt": "Sentinel-2 of Pune in the first quarter of 2020",
+   "group": "time",
+   "expect": "2020-01-01 to 2020-03-31",
+   "value": [
+    "2020-01-01",
+    "2020-03-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the first quarter of 2020",
+     "guess": "the first quarter of 2020",
+     "span": [
+      44,
+      69
+     ],
+     "p_null": 0.009562158025801182,
+     "confidence": 0.7471864819526672
+    },
+    "start": {
+     "type": "date",
+     "value": "2020-01-01",
+     "guess": "2020-01-01",
+     "p_null": 0.0014290049439296126,
+     "confidence": 0.9214365840279988
+    },
+    "end": {
+     "type": "date",
+     "value": "2020-03-02",
+     "guess": "2020-03-02",
+     "p_null": 0.03901403397321701,
+     "confidence": 0.2081022105211863
+    }
+   },
+   "ms": 1623,
+   "cost": 0.0000568,
+   "usage": {
+    "schema_tokens": 506,
+    "state_tokens": 31,
+    "passes": 2
+   }
+  },
+  {
+   "id": "D32",
+   "prompt": "Landsat of Tucson for the fourth quarter of 2019",
+   "group": "time",
+   "expect": "2019-10-01 to 2019-12-31",
+   "value": [
+    "2019-10-01",
+    "2019-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the fourth quarter of 2019",
+     "guess": "the fourth quarter of 2019",
+     "span": [
+      44,
+      70
+     ],
+     "p_null": 0.0170341357588768,
+     "confidence": 0.9393421411514282
+    },
+    "start": {
+     "type": "date",
+     "value": "2019-01-01",
+     "guess": "2019-01-01",
+     "p_null": 0.004681828897446394,
+     "confidence": 0.5419368211062339
+    },
+    "end": {
+     "type": "date",
+     "value": "2019-12-31",
+     "guess": "2019-12-31",
+     "p_null": 0.012981612235307693,
+     "confidence": 0.8941411761509389
+    }
+   },
+   "ms": 639,
+   "cost": 0.0000566,
+   "usage": {
+    "schema_tokens": 506,
+    "state_tokens": 30,
+    "passes": 2
    }
   }
  ]
