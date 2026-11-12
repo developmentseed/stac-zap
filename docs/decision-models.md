@@ -366,6 +366,9 @@ We found these problems with the other variants:
   to today.
 - **Without the context of the app, the dates are worse.** Compare
   compact-today (32/36) and compact (36/36).
+- **A cloud cover number can move into the dates.** In one call with the
+  cloud cover, "June 2024 under 12% clouds" ended on 2024-06-02, not
+  2024-06-30. Thus, the app asks for the time in a separate call.
 
 ### Results
 
@@ -373,6 +376,7 @@ We found these problems with the other variants:
 |---|---|---|---|---|---|---|
 | Jev 1.13 (options) | 30/30 | 25/30 | **25/25** | 80/85 | 0/16 | 476 ms |
 | **Clairic, compact** | **30/30** | **29/30** | 24/25 | **83/85** | **16/16** | **462 ms** |
+| Clairic, compact, app calls | 30/30 | 29/30 | 24/25 | 83/85 | 16/16 | 584 ms |
 | Clairic, compact, one call | 30/30 | 28/30 | 24/25 | 82/85 | 16/16 | 520 ms |
 | Clairic, hinted | 30/30 | 27/30 | 24/25 | 81/85 | 14/16 | 779 ms |
 | Clairic, plain | 29/30 | 24/30 | 23/25 | 76/85 | 10/16 | 496 ms |
@@ -381,8 +385,10 @@ We found these problems with the other variants:
 For Jev, the time is correct only when the period and the part of the year
 are both correct.
 
-"One call" asks all five fields in one call, as the app would. The other
-rows ask place, time and cloud cover in separate calls.
+"One call" asks all five fields in one call. "App calls" asks two calls at
+the same time, as the app does: one for the place and the cloud cover, and
+one for the time. The time is the time of the slower call. The other rows ask
+place, time and cloud cover in three separate calls.
 
 ### The unparsed requests
 
@@ -442,9 +448,9 @@ The remaining errors of Clairic, compact:
 ### Recommendation
 
 Use Clairic for the place, the time and the cloud cover. Keep Jev for the
-catalog and the collection. Ask Clairic in one call, at the same time as
-the first call to Jev. Then the second call to Jev asks only for the
-collection.
+catalog and the collection. Ask Clairic in two calls, one for the time and
+one for the place and the cloud cover, at the same time as the first call
+to Jev. Then the second call to Jev asks only for the collection.
 
 When Clairic does not answer, use the current questions of Jev. The
 extractions API is alpha, and Clairic is a preview model. Thus, the API

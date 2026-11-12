@@ -57,8 +57,8 @@ result file name ends with the variant.
 - `compact-today` and `terse`: ablations of `compact`, for the record.
 
 The instructions were tuned only on `DEV_CASES` (`SET=dev`), not on the
-prompts of the tests. `ONE_CALL=1` asks all fields of a prompt in one call,
-as the app would. Each row stores the schema tokens and the number of
+prompts of the tests. `ONE_CALL=1` asks all fields of a prompt in one call.
+`APP_CALLS=1` asks them in the two calls of the app (`EXTRACT_CALLS`). Each row stores the schema tokens and the number of
 passes: above a limit, the server splits the fields into more passes.
 
 `extract.ts` uses OpenRouter only. `score.ts` holds the scoring rules of

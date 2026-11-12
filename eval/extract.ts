@@ -13,8 +13,9 @@
  * (`UNPARSED_CASES`), instead of the prompts of the field test (`CASES`).
  * SET=dev uses the prompts for tuning (`DEV_CASES`).
  * VARIANT selects the state and the instructions (see `extract-fields.ts`).
- * ONE_CALL=1 asks all groups of a prompt in one call, as the app would; the
- * cost of such a call is then in each of its rows.
+ * ONE_CALL=1 asks all groups of a prompt in one call; APP_CALLS=1 asks them
+ * in the calls of the app (`EXTRACT_CALLS`, `src/zap/extract.ts`). Then the
+ * rows of a prompt share the time and the cost of the calls.
  * RESULTS=eval/results/<date> sets the output folder.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -32,7 +33,7 @@ import {
   rangesOf,
   type Range,
 } from "./score";
-import { rangeOfAnswers as appRangeOfAnswers } from "../src/zap/extract";
+import { EXTRACT_CALLS, rangeOfAnswers as appRangeOfAnswers } from "../src/zap/extract";
 
 const REFERENCE_DATE = TODAY.toISOString().slice(0, 10);
 const SETS = ["field", "unparsed", "dev"] as const;
@@ -42,8 +43,10 @@ const set = (process.env.SET ?? "field") as (typeof SETS)[number];
 if (!SETS.includes(set)) throw new Error(`Unknown SET: ${set}`);
 const variant = (process.env.VARIANT ?? "hinted") as Variant;
 if (!VARIANTS.includes(variant)) throw new Error(`Unknown VARIANT: ${variant}`);
-/** Ask all groups of a prompt in one call, as the app would. */
+/** Ask all groups of a prompt in one call. */
 const oneCall = process.env.ONE_CALL === "1";
+/** Ask the groups of a prompt in the calls of the app. */
+const appCalls = process.env.APP_CALLS === "1";
 const GROUPS = groupsOf(variant);
 const codeCalendar = calendarInCode(variant);
 
@@ -179,7 +182,7 @@ function tasks(set: string): Task[] {
 }
 
 const dir = process.env.RESULTS ?? `eval/results/${new Date().toISOString().slice(0, 10)}`;
-const file = `${dir}/extract-${set}-${tag}-${variant}${oneCall ? "-onecall" : ""}.json`;
+const file = `${dir}/extract-${set}-${tag}-${variant}${oneCall ? "-onecall" : appCalls ? "-appcalls" : ""}.json`;
 
 /** Asks the groups of one prompt in one call. Groups with dates send the reference date. */
 async function ask(prompt: string, groups: Group[]) {
@@ -189,15 +192,38 @@ async function ask(prompt: string, groups: Group[]) {
 }
 
 const all = tasks(set);
-// With ONE_CALL, the tasks of a prompt share one reply.
+/**
+ * The calls of the app, at the same time, as one reply: the answers of all
+ * calls, the time of the slowest call, the sum of the costs, and the usage
+ * of the largest call.
+ */
+async function askApp(prompt: string): ReturnType<typeof ask> {
+  const replies = await Promise.all(
+    EXTRACT_CALLS.map((fields) => {
+      const dated = Object.values(fields).some((f) => f.type === "date");
+      return extract(model, stateOf(variant, prompt, TODAY), fields, dated ? REFERENCE_DATE : undefined);
+    }),
+  );
+  const failed = replies.find((r) => "error" in r);
+  if (failed) return failed;
+  const ok = replies as Exclude<(typeof replies)[number], { error: string }>[];
+  return {
+    answers: Object.assign({}, ...ok.map((r) => r.answers)),
+    ms: Math.max(...ok.map((r) => r.ms)),
+    cost: ok.reduce((s, r) => s + r.cost, 0),
+    usage: ok.reduce((a, r) => ((r.usage.schema_tokens ?? 0) > (a.schema_tokens ?? 0) ? r.usage : a), ok[0]!.usage),
+  };
+}
+
+// With ONE_CALL or APP_CALLS, the tasks of a prompt share one reply.
 const shared = new Map<string, ReturnType<typeof ask>>();
 const rows: ExtractRow[] = [];
 for (const task of all) {
   let reply: Awaited<ReturnType<typeof ask>>;
-  if (oneCall) {
+  if (oneCall || appCalls) {
     if (!shared.has(task.prompt)) {
       const groups = [...new Set(all.filter((t) => t.prompt === task.prompt).map((t) => t.group))];
-      shared.set(task.prompt, ask(task.prompt, groups));
+      shared.set(task.prompt, appCalls ? askApp(task.prompt) : ask(task.prompt, groups));
     }
     reply = await shared.get(task.prompt)!;
   } else {
@@ -219,7 +245,7 @@ for (const task of all) {
 console.error();
 
 mkdirSync(dir, { recursive: true });
-writeFileSync(file, JSON.stringify({ model, set, variant, oneCall, today: REFERENCE_DATE, rows }, null, 1));
+writeFileSync(file, JSON.stringify({ model, set, variant, oneCall, appCalls, today: REFERENCE_DATE, rows }, null, 1));
 const score = (group: Group) => {
   const r = rows.filter((x) => x.group === group);
   const errors = r.filter((x) => x.error).length;

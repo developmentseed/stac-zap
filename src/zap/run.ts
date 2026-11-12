@@ -27,15 +27,18 @@ import {
   type Link,
 } from "./catalogs";
 import { geocode, placeSpans, type Place } from "./geocode";
+import { extract, isMapView, toInputRange, type DayRange, type Extraction } from "./extract";
 
 /**
- * Runs one prompt in two or three jev calls. The collection options come from
- * the catalog, so the first call picks the catalog and the second call picks
- * the collection and the search. For the place, the second call picks the
- * words of the prompt that name it, Nominatim finds the places with that
- * name, and a third call picks the one the prompt means. The changes go
- * through the stac-map store, so a zap does what the same clicks in the panel
- * would do.
+ * Runs one prompt with an extraction call and two or three jev calls. The
+ * extraction (Clairic, see `extract.ts`) reads the place, the time and the
+ * cloud cover as values, at the same time as the first jev call, which picks
+ * the catalog. The collection options come from the catalog, so the second
+ * jev call picks the collection. For the place, Nominatim finds the places
+ * with the name, and a third jev call picks the one the prompt means. When
+ * the extraction fails, the second jev call also asks for the place, the
+ * time and the cloud cover, as options. The changes go through the stac-map
+ * store, so a zap does what the same clicks in the panel would do.
  */
 
 /** What a zap opened, e.g. for analytics. */
@@ -54,12 +57,13 @@ export type ZapListener = {
   onNote: (note: string) => void;
 };
 
-/** The options the last prompt picked, so the next prompt can keep them. */
+/** The search of the last prompt, so the next prompt can keep it. */
 type Search = {
   place?: Omit<Place, "id">;
-  period?: string;
-  season: string;
-  cloud: string;
+  /** The time range. Undefined: the whole record of the collection. */
+  range?: DayRange;
+  /** The maximum cloud cover in percent. Null: no filter. */
+  cloud: number | null;
 };
 
 /**
@@ -73,7 +77,7 @@ const TILE_LIMIT = "50";
 /** How long to wait for stac-map to load a collection, in milliseconds. */
 const LOAD_TIMEOUT = 10_000;
 
-let last: Search = { season: "whole-year", cloud: "any" };
+let last: Search = { cloud: null };
 
 /**
  * Runs one prompt against the map.
@@ -85,6 +89,13 @@ export async function zap(
   { allCatalogs, onStep, onNote }: ZapListener,
 ): Promise<ZapOutcome | null> {
   const store = useStore.getState();
+  const today = new Date();
+  // The extraction does not need the catalog, so it runs at the same time
+  // as the catalog call. On a failure, jev answers its fields as options.
+  const extraction = extract(prompt, today).catch((error: unknown) => {
+    onNote(`Could not read the place, time and cloud cover (${error}), so jev picks them from options`);
+    return null;
+  });
   const catalogs = await listCatalogs(allCatalogs);
   const currentCatalog = catalogOf(catalogs, store.href)?.id ?? null;
 
@@ -125,6 +136,8 @@ export async function zap(
     catalog.id === currentCatalog
       ? collectionOf(store.href, catalogHref)
       : null;
+  const extracted = await extraction;
+  const lastCloud = cloudOptionOf(last.cloud);
   const second: ZapFields = {
     collection: {
       label: "collection",
@@ -133,48 +146,14 @@ export async function zap(
       keepable: currentCollection !== null,
       threshold: 0,
     },
-    place: {
-      label: "place to search",
-      current: last.place?.label ?? null,
-      // The options are words of the prompt, so jev reads them as they are.
-      options: {
-        ...Object.fromEntries(placeSpans(prompt).map((span) => [span, span])),
-        [MAP_VIEW]: "The area the map shows now, e.g. 'here' or 'this area'",
-        [NO_PLACE]:
-          "No place: search everywhere. The request names no place, only " +
-          "data, an event such as a hurricane, or a time",
-      },
-      question:
-        "Which words of the request name the place to search? A place can be " +
-        "a city, a region, a country, a landmark or a natural feature, " +
-        "such as a mountain range, a river or a desert. The name of an " +
-        "event, e.g. 'Hurricane Idalia', or of a dataset is not a place.",
-    },
-    period: {
-      label: "time period",
-      current: last.period ?? null,
-      options: periodOptions(),
-      // "Recent" can split between "the last 30 days" and "this year". Either
-      // is a better filter than none, so a lower bar applies.
-      threshold: 0.35,
-    },
-    season: {
-      label: "part of the year",
-      current: last.season,
-      options: SEASON_OPTIONS,
-    },
-    cloud: {
-      label: "maximum cloud cover",
-      current: last.cloud,
-      options: CLOUD_OPTIONS,
-      short: CLOUD_SHORT,
-      question: CLOUD_QUESTION,
-    },
+    // Without an extraction, jev picks the place, the time and the cloud
+    // cover from options.
+    ...(extracted ? {} : searchFields(prompt, lastCloud)),
   };
   const secondResult = await decide(prompt, second);
   // The cloud cover options are an ordered scale, so the median applies, not
   // the 0.5 threshold. The panel shows the median, as it is the filter used.
-  const cloud = medianCloud(secondResult, last.cloud);
+  const cloud = extracted ? null : medianCloud(secondResult, lastCloud);
   onStep({ fields: second, result: secondResult });
 
   const collectionId =
@@ -197,9 +176,11 @@ export async function zap(
     ? { ...acceptedAnswers(second, secondResult), ...secondResult.changes }
     : { ...secondResult.changes };
   if (cloud) changes.cloud = cloud;
-  const next: Search = newCollection
-    ? { place: last.place, season: "whole-year", cloud: "any" }
-    : { ...last };
+  const next: Search = newCollection ? { place: last.place, cloud: null } : { ...last };
+  if (extracted) {
+    const applied = applyExtraction(extracted, changes, next);
+    onStep(extractionStep(extracted, applied));
+  }
   if (changes.place === NO_PLACE) {
     next.place = undefined;
   } else if (changes.place === MAP_VIEW) {
@@ -223,13 +204,15 @@ export async function zap(
     onNote(`${next.place.label.split(",")[0]} is outside this collection, so the search covers all of it`);
     next.place = undefined;
   }
-  if (changes.cloud) next.cloud = changes.cloud;
-  if (changes.period) next.period = changes.period;
-  if (changes.season) {
-    next.season = changes.season;
-    // "Last summer" can come back as a season with no year.
-    if (!next.period || !/^\d{4}$/.test(next.period)) {
-      next.period = latestYearOf(changes.season);
+  if (!extracted) {
+    if (changes.cloud) next.cloud = changes.cloud === "any" ? null : Number(changes.cloud);
+    if (changes.period || changes.season) {
+      // "Last summer" can come back as a season with no year.
+      const season = changes.season ?? "whole-year";
+      const period =
+        changes.period ?? (season !== "whole-year" ? latestYearOf(season, today) : undefined);
+      const r = period ? toRange(period, season, today) : null;
+      next.range = r ? [r.startDatetime.slice(0, 10), r.endDatetime.slice(0, 10)] : undefined;
     }
   }
   last = next;
@@ -242,18 +225,17 @@ export async function zap(
   const hasCloudCover = cloudQueryable && filters;
   // Earth Search has the queryable, but its search ignores a CQL2 filter.
   // stac-map sends only CQL2, so the items would have any cloud cover.
-  if (cloudQueryable && !filters && next.cloud !== "any") {
+  if (cloudQueryable && !filters && next.cloud !== null) {
     onNote(`${catalogHref} cannot filter by cloud cover, so the items can have any cloud cover`);
   }
   const bbox: BBox2D | undefined = next.place?.bbox;
-  let range = next.period ? toRange(next.period, next.season) : null;
+  let range = next.range ? toInputRange(next.range) : null;
   // A period outside the dates of the collection finds nothing, e.g. 2026
   // for Hurricane Idalia in August 2023. Then the search covers all dates.
   if (range && !inTime(range, collection.extent?.temporal?.interval?.[0])) {
     onNote("The time period is outside this collection's dates, so the search covers all of them");
     range = null;
-    next.period = undefined;
-    next.season = "whole-year";
+    next.range = undefined;
   }
 
   // A time period can be inside the dates of a collection and still find
@@ -262,8 +244,7 @@ export async function zap(
   if (range && !(await hasItems(searchHref, collection.id, range, bbox))) {
     onNote("Nothing matches this time period, so the search covers all dates");
     range = null;
-    next.period = undefined;
-    next.season = "whole-year";
+    next.range = undefined;
   }
 
   await open(collectionHref, () =>
@@ -274,8 +255,8 @@ export async function zap(
       limit: cloudQueryable ? SCENE_LIMIT : TILE_LIMIT,
       bbox,
       queryables:
-        hasCloudCover && next.cloud !== "any"
-          ? { "eo:cloud_cover": { lte: Number(next.cloud) } }
+        hasCloudCover && next.cloud !== null
+          ? { "eo:cloud_cover": { lte: next.cloud } }
           : {},
     }),
   );
@@ -557,4 +538,117 @@ function describe(collection: Collection): string {
   const short = text.length > 120 ? `${text.slice(0, 120)}…` : text;
   const title = collection.title ?? collection.id;
   return short ? `${title}: ${short}` : title;
+}
+
+/**
+ * The fields that jev answers when the extraction fails: the place, the time
+ * period, the part of the year and the cloud cover, as options.
+ * @param lastCloud The cloud cover option of the last search.
+ */
+function searchFields(prompt: string, lastCloud: string): ZapFields {
+  return {
+    place: {
+      label: "place to search",
+      current: last.place?.label ?? null,
+      // The options are words of the prompt, so jev reads them as they are.
+      options: {
+        ...Object.fromEntries(placeSpans(prompt).map((span) => [span, span])),
+        [MAP_VIEW]: "The area the map shows now, e.g. 'here' or 'this area'",
+        [NO_PLACE]:
+          "No place: search everywhere. The request names no place, only " +
+          "data, an event such as a hurricane, or a time",
+      },
+      question:
+        "Which words of the request name the place to search? A place can be " +
+        "a city, a region, a country, a landmark or a natural feature, " +
+        "such as a mountain range, a river or a desert. The name of an " +
+        "event, e.g. 'Hurricane Idalia', or of a dataset is not a place.",
+    },
+    period: {
+      label: "time period",
+      // The last range is not an option, so jev reads it as text.
+      current: last.range ? `${last.range[0]} to ${last.range[1]}` : null,
+      options: periodOptions(),
+      // "Recent" can split between "the last 30 days" and "this year". Either
+      // is a better filter than none, so a lower bar applies.
+      threshold: 0.35,
+    },
+    season: {
+      label: "part of the year",
+      current: "whole-year",
+      options: SEASON_OPTIONS,
+    },
+    cloud: {
+      label: "maximum cloud cover",
+      current: lastCloud,
+      options: CLOUD_OPTIONS,
+      short: CLOUD_SHORT,
+      question: CLOUD_QUESTION,
+    },
+  };
+}
+
+/** The cloud cover option of a number, e.g. "20", "any", or "12%" when no option has it. */
+function cloudOptionOf(cloud: number | null): string {
+  if (cloud === null) return "any";
+  return String(cloud) in CLOUD_OPTIONS ? String(cloud) : `${cloud}%`;
+}
+
+/** Which values of an extraction changed the search. */
+type Applied = { place: boolean; time: boolean; cloud: boolean };
+
+/**
+ * Applies the values of the extraction. A value replaces the last one; a
+ * null keeps it. The place goes into `changes`, as a jev answer does, so
+ * the same code finds it.
+ */
+function applyExtraction(extracted: Extraction, changes: Record<string, string>, next: Search): Applied {
+  if (extracted.place) changes.place = isMapView(extracted.place) ? MAP_VIEW : extracted.place;
+  if (extracted.range) next.range = extracted.range;
+  if (extracted.cloud !== null) next.cloud = extracted.cloud;
+  return { place: !!extracted.place, time: !!extracted.range, cloud: extracted.cloud !== null };
+}
+
+/**
+ * The extraction as a step of the answers panel: each value as the chosen
+ * option, with the confidence of the model. A value that is not in the
+ * prompt is "keep", with the probability that it is not there.
+ */
+function extractionStep(extracted: Extraction, applied: Applied): ZapStep {
+  const { answers } = extracted;
+  const row = (
+    label: string,
+    value: string | null,
+    answer: Extraction["answers"][string] | undefined,
+  ): [ZapFields[string], ZapResult["answers"][string]] => {
+    const choice = value ?? KEEP;
+    const probability = value
+      ? (answer?.confidence ?? 1 - (answer?.p_null ?? 0))
+      : (answer?.p_null ?? 1);
+    return [
+      { label, current: null, options: value ? { [value]: value } : {} },
+      { choice, probability, probabilities: { [choice]: probability } },
+    ];
+  };
+  const rows = {
+    place: row("place to search", extracted.place, answers.place),
+    period: row(
+      "time period",
+      extracted.range ? `${extracted.range[0]} – ${extracted.range[1]}` : null,
+      answers.when,
+    ),
+    cloud: row(
+      "maximum cloud cover",
+      extracted.cloud === null ? null : `≤ ${extracted.cloud}%`,
+      answers.cloud,
+    ),
+  };
+  const changes: Record<string, string> = {};
+  if (applied.place) changes.place = rows.place[1].choice;
+  if (applied.time) changes.period = rows.period[1].choice;
+  if (applied.cloud) changes.cloud = rows.cloud[1].choice;
+  return {
+    fields: Object.fromEntries(Object.entries(rows).map(([k, [f]]) => [k, f])),
+    result: { changes, answers: Object.fromEntries(Object.entries(rows).map(([k, [, a]]) => [k, a])) },
+  };
 }

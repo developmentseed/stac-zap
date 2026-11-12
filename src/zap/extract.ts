@@ -98,12 +98,15 @@ export const EXTRACT_GROUPS = {
   },
 } as const satisfies Record<string, Record<string, ExtractField>>;
 
-/** All fields, for one call. */
-export const EXTRACT_FIELDS: Record<string, ExtractField> = {
-  ...EXTRACT_GROUPS.place,
-  ...EXTRACT_GROUPS.time,
-  ...EXTRACT_GROUPS.cloud,
-};
+/**
+ * The calls the app makes, at the same time. The time fields go in their
+ * own call: in one call with the cloud cover, a number such as "12% clouds"
+ * moved into the dates, e.g. "June 2024" ended on 2024-06-02.
+ */
+export const EXTRACT_CALLS: Record<string, ExtractField>[] = [
+  { ...EXTRACT_GROUPS.place, ...EXTRACT_GROUPS.cloud },
+  EXTRACT_GROUPS.time,
+];
 
 /**
  * The text the model reads: the state that jev reads (the app, today's date
@@ -221,6 +224,16 @@ export function rangeOfAnswers(
   return [String(start), end === null ? isoDay(today) : String(end)];
 }
 
+/**
+ * Whether the place words mean the area the map shows now, e.g. "here",
+ * "this area" or "the map view".
+ */
+export function isMapView(words: string): boolean {
+  return /^(?:in |on )?(?:here|this (?:area|region|place|view)|the (?:map|map view|current view))$/i.test(
+    words.trim().replace(/[.,!?]+$/, ""),
+  );
+}
+
 /** A day range in stac-map's datetime input format: the whole first and last day. */
 export function toInputRange([start, end]: DayRange): Range {
   return { startDatetime: `${start}T00:00:00`, endDatetime: `${end}T23:59:59` };
@@ -240,9 +253,9 @@ export type Extraction = {
 };
 
 /**
- * Reads the place, the time and the cloud cover of a prompt, in one call to
- * the `/api/extract` endpoint.
- * @throws If the endpoint cannot answer.
+ * Reads the place, the time and the cloud cover of a prompt, in the calls of
+ * {@link EXTRACT_CALLS} to the `/api/extract` endpoint, at the same time.
+ * @throws If the endpoint cannot answer one of the calls.
  */
 export async function extract(prompt: string, today: Date = new Date()): Promise<Extraction> {
   const model = import.meta.env.VITE_EXTRACT_MODEL || "cloudflare/clairic";
@@ -252,20 +265,26 @@ export async function extract(prompt: string, today: Date = new Date()): Promise
   const url = decideUrl
     ? `${decideUrl.replace(/\/$/, "")}/extract`
     : `${import.meta.env.BASE_URL}api/extract`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model,
-      state: extractState(prompt, today),
-      fields: EXTRACT_FIELDS,
-      reference_date: isoDay(today),
-    }),
-  });
-  if (!response.ok) {
-    throw new Error(`extraction failed (${response.status}): ${await response.text()}`);
-  }
-  const { answers = {} } = (await response.json()) as { answers?: Record<string, ExtractAnswer> };
+  const ask = async (fields: Record<string, ExtractField>) => {
+    const dated = Object.values(fields).some((f) => f.type === "date");
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model,
+        state: extractState(prompt, today),
+        fields,
+        // The API rejects a reference date with no date field.
+        ...(dated ? { reference_date: isoDay(today) } : {}),
+      }),
+    });
+    if (!response.ok) {
+      throw new Error(`extraction failed (${response.status}): ${await response.text()}`);
+    }
+    const body = (await response.json()) as { answers?: Record<string, ExtractAnswer> };
+    return body.answers ?? {};
+  };
+  const answers: Record<string, ExtractAnswer> = Object.assign({}, ...(await Promise.all(EXTRACT_CALLS.map(ask))));
   const text = (a: ExtractAnswer | undefined) => {
     const v = valueOf(a);
     return typeof v === "string" && v.trim() ? v.trim() : null;

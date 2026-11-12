@@ -85,8 +85,9 @@ for (const w of world) {
 // The extraction test: place, time and cloud cover as values. Jev is scored
 // from its field test rows in the same folder: time is correct when the
 // period and the part of the year are both correct.
-type Extract = { model: string; set: string; variant?: string; oneCall?: boolean; rows: ExtractRow[] };
-const label = (e: Extract) => `${e.model} (${e.variant ?? "plain"}${e.oneCall ? ", one call" : ""})`;
+type Extract = { model: string; set: string; variant?: string; oneCall?: boolean; appCalls?: boolean; rows: ExtractRow[] };
+const label = (e: Extract) =>
+  `${e.model} (${e.variant ?? "plain"}${e.oneCall ? ", one call" : e.appCalls ? ", app calls" : ""})`;
 const GROUPS = ["place", "time", "cloud"] as const;
 const extracts = read<Extract>("extract-");
 const fieldOf = (e: Extract) => e.set === "field";
@@ -117,7 +118,7 @@ if (extracts.length || jevFields) {
     const ok = e.rows.filter((r) => r.ok).length;
     const ms = median(e.rows.flatMap((r) => (r.ms ? [r.ms] : [])));
     // With one call, the rows of a prompt share the cost of that call.
-    const costs = e.oneCall ? new Map(e.rows.map((r) => [r.prompt, r.cost ?? 0])).values() : e.rows.map((r) => r.cost ?? 0);
+    const costs = e.oneCall || e.appCalls ? new Map(e.rows.map((r) => [r.prompt, r.cost ?? 0])).values() : e.rows.map((r) => r.cost ?? 0);
     const cost = [...costs].reduce((s, c) => s + c, 0);
     console.log(`| ${label(e)} | ${GROUPS.map(part).join(" | ")} | ${ok}/${e.rows.length} | ${ms} ms | $${cost.toFixed(4)} |`);
   }

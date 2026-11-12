@@ -117,11 +117,11 @@ collection. stac-map runs the search.
 | File | Contents |
 | --- | --- |
 | `src/zap/decide.ts` | The jev payload and the answers. A port of the awii zap mode. |
-| `src/zap/extract.ts` | The Clairic fields for the place, the time and the cloud cover, and the code that makes a time range from the time words. Not used by `run.ts` yet. |
+| `src/zap/extract.ts` | The Clairic fields for the place, the time and the cloud cover, the two Clairic calls, and the code that makes a time range from the time words. |
 | `src/zap/catalogs.ts` | The curated catalogs, STAC Index, and the collections of each catalog. |
 | `src/zap/options.ts` | The time and cloud cover options. |
 | `src/zap/geocode.ts` | The Nominatim search, and the groups of words that can name a place. |
-| `src/zap/run.ts` | The two jev calls, and the changes to the stac-map store. |
+| `src/zap/run.ts` | The Clairic calls, the jev calls, and the changes to the stac-map store. If Clairic fails, jev also picks the place, the time and the cloud cover. |
 | `src/ZapBar.tsx` | The prompt and the probability panel. |
 | `vite.config.ts` | The `/api/decide` and `/api/extract` endpoints, which add the key. |
 | `eval/` | Tests that compare decision models on the questions of the app. |
