@@ -6,7 +6,7 @@
  * fail. The test shows how far the nearest option is from the request.
  *
  * Usage:
- *   PROVIDER=openrouter MODEL=typesafe/jev-1.13 pnpm tsx eval/unparsed.ts
+ *   PROVIDER=openrouter MODEL=typesafe/jev-1.14 pnpm tsx eval/unparsed.ts
  * Optional: RESULTS=eval/results/<date> sets the output folder.
  */
 import { mkdirSync, writeFileSync } from "node:fs";

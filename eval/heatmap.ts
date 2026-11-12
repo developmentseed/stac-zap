@@ -28,6 +28,7 @@ const NEUTRAL = "#f0efec";
 
 /** Short names for the rows, with the maker. */
 const NAMES: Record<string, [string, string]> = {
+  "typesafe/jev-1.14": ["Jev 1.14", "TypeSafe"],
   "typesafe/jev-1.13": ["Jev 1.13", "TypeSafe"],
   "inception/mercury-decide:free": ["Mercury Decide (free)", "Inception"],
   "liquid/d1": ["D1", "Liquid AI"],

@@ -8,5 +8,5 @@ account_id = "ccbbf55035041bc17b45e77fbbcd9db2"
 # The sites that can call the Worker. For a local test, add e.g.
 # "http://localhost:4173" (vite preview) with a comma.
 ALLOWED_ORIGINS = "https://developmentseed.org,https://developmentseed.github.io"
-JEV_MODEL = "typesafe/jev-1.13"
+JEV_MODEL = "typesafe/jev-1.14"
 EXTRACT_MODEL = "cloudflare/clairic"

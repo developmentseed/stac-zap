@@ -10,7 +10,7 @@
  * The error is the distance from the true point to the middle of the chosen
  * bands, for the flat call and for coarse-to-fine.
  *
- * Usage: PROVIDER=openrouter MODEL=typesafe/jev-1.13 pnpm tsx eval/world.ts
+ * Usage: PROVIDER=openrouter MODEL=typesafe/jev-1.14 pnpm tsx eval/world.ts
  * Optional: FINE=30 (default), RESULTS=eval/results/<date>.
  */
 import { mkdirSync, writeFileSync } from "node:fs";

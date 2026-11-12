@@ -34,13 +34,13 @@ The `PROVIDER` and `MODEL` variables select the model. `PROVIDER` is
 `openrouter` (the default) or `codiv`.
 
 ```bash
-PROVIDER=openrouter MODEL=typesafe/jev-1.13 pnpm tsx eval/fields.ts
+PROVIDER=openrouter MODEL=typesafe/jev-1.14 pnpm tsx eval/fields.ts
 PROVIDER=codiv MODEL=openjev-latest pnpm tsx eval/world.ts
 MODEL=cloudflare/clairic pnpm tsx eval/extract.ts
 MODEL=cloudflare/clairic SET=unparsed pnpm tsx eval/extract.ts
 MODEL=cloudflare/clairic VARIANT=compact pnpm tsx eval/extract.ts
 MODEL=cloudflare/clairic VARIANT=compact SET=dev pnpm tsx eval/extract.ts
-MODEL=typesafe/jev-1.13 pnpm tsx eval/unparsed.ts
+MODEL=typesafe/jev-1.14 pnpm tsx eval/unparsed.ts
 ```
 
 `extract.ts` asks in one of some variants, set with `VARIANT`.

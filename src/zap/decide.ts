@@ -85,7 +85,7 @@ function currentLabel(field: ZapField): string {
  * Builds the body of one jev decisions call, with one question per field.
  * @param prompt What the user typed.
  * @param fields The fields the prompt can change.
- * @param model The jev model id, e.g. `typesafe/jev-1.13`.
+ * @param model The jev model id, e.g. `typesafe/jev-1.14`.
  * @param today The date jev reads relative requests against.
  */
 export function buildPayload(
@@ -172,7 +172,7 @@ export async function decide(
   prompt: string,
   fields: ZapFields,
 ): Promise<ZapResult> {
-  const model = import.meta.env.VITE_JEV_MODEL || "typesafe/jev-1.13";
+  const model = import.meta.env.VITE_JEV_MODEL || "typesafe/jev-1.14";
   // The deployed site calls the Worker in `worker/`; the dev server has its
   // own `/api/decide`.
   const url =
