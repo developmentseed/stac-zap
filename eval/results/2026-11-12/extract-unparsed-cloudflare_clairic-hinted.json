@@ -1,0 +1,530 @@
+{
+ "model": "cloudflare/clairic",
+ "set": "unparsed",
+ "variant": "hinted",
+ "today": "2026-10-02",
+ "rows": [
+  {
+   "id": "U1",
+   "prompt": "Sentinel-2 of Lyon between March 2023 and June 2024",
+   "group": "time",
+   "expect": "2023-03-01 to 2024-06-30",
+   "value": [
+    "2023-03-01",
+    "2024-06-30"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "between March 2023 and June 2024",
+     "guess": "between March 2023 and June 2024",
+     "span": [
+      582,
+      614
+     ],
+     "p_null": 0.004607734736055136,
+     "confidence": 0.9995576739311218
+    },
+    "start": {
+     "type": "date",
+     "value": "2023-03-01",
+     "guess": "2023-03-01",
+     "p_null": 0.0006076304125599563,
+     "confidence": 0.9318218106190842
+    },
+    "end": {
+     "type": "date",
+     "value": "2024-06-30",
+     "guess": "2024-06-30",
+     "p_null": 0.00853679608553648,
+     "confidence": 0.5200825925703733
+    }
+   },
+   "ms": 1273,
+   "cost": 0.000098
+  },
+  {
+   "id": "U2",
+   "prompt": "Landsat of Cairo since 2020",
+   "group": "time",
+   "expect": "2020-01-01 to 2026-10-02",
+   "value": [
+    "2020-01-01",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "since 2020",
+     "guess": "since 2020",
+     "span": [
+      580,
+      590
+     ],
+     "p_null": 0.0020636615809053183,
+     "confidence": 0.9820575714111328
+    },
+    "start": {
+     "type": "date",
+     "value": "2020-01-01",
+     "guess": "2020-01-01",
+     "p_null": 0.0009943930199369788,
+     "confidence": 0.995429478470101
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.04067471623420715,
+     "confidence": 0.999062822957845
+    }
+   },
+   "ms": 1396,
+   "cost": 0.0000962
+  },
+  {
+   "id": "U3",
+   "prompt": "Landsat of Perth from 2018 to 2020",
+   "group": "time",
+   "expect": "2018-01-01 to 2020-12-31",
+   "value": [
+    "2018-01-01",
+    "2020-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "from 2018 to 2020",
+     "guess": "from 2018 to 2020",
+     "span": [
+      580,
+      597
+     ],
+     "p_null": 0.01434092503041029,
+     "confidence": 0.8417907357215881
+    },
+    "start": {
+     "type": "date",
+     "value": "2018-01-01",
+     "guess": "2018-01-01",
+     "p_null": 0.00032459828071296215,
+     "confidence": 0.9836107154868121
+    },
+    "end": {
+     "type": "date",
+     "value": "2020-12-31",
+     "guess": "2020-12-31",
+     "p_null": 0.005662869196385145,
+     "confidence": 0.6930965471719716
+    }
+   },
+   "ms": 619,
+   "cost": 0.0000974
+  },
+  {
+   "id": "U4",
+   "prompt": "Sentinel-1 of Jakarta on 15 January 2024",
+   "group": "time",
+   "expect": "2024-01-15 to 2024-01-15",
+   "value": [
+    "2024-01-15",
+    "2024-01-15"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "15 January 2024",
+     "guess": "15 January 2024",
+     "span": [
+      588,
+      603
+     ],
+     "p_null": 0.0011487407609820366,
+     "confidence": 0.9682172536849976
+    },
+    "start": {
+     "type": "date",
+     "value": "2024-01-15",
+     "guess": "2024-01-15",
+     "p_null": 0.0067441402934491634,
+     "confidence": 0.9872720058400685
+    },
+    "end": {
+     "type": "date",
+     "value": "2024-01-15",
+     "guess": "2024-01-15",
+     "p_null": 0.05755838751792908,
+     "confidence": 0.9725938063229452
+    }
+   },
+   "ms": 557,
+   "cost": 0.0000972
+  },
+  {
+   "id": "U5",
+   "prompt": "Sentinel-2 of Manila in the first two weeks of August 2025",
+   "group": "time",
+   "expect": "2025-08-01 to 2025-08-14",
+   "value": [
+    "2025-08-01",
+    "2025-08-14"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the first two weeks of August 2025",
+     "guess": "the first two weeks of August 2025",
+     "span": [
+      587,
+      621
+     ],
+     "p_null": 0.0017019493971019983,
+     "confidence": 0.6255639791488647
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-08-01",
+     "guess": "2025-08-01",
+     "p_null": 0.000014410664334718604,
+     "confidence": 0.9957505703746485
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-08-14",
+     "guess": "2025-08-14",
+     "p_null": 0.0000325829787470866,
+     "confidence": 0.8402447520823981
+    }
+   },
+   "ms": 2060,
+   "cost": 0.0000976
+  },
+  {
+   "id": "U6",
+   "prompt": "Sentinel-2 of Oslo in the last 3 months",
+   "group": "time",
+   "expect": "2026-07-02 to 2026-10-02",
+   "value": [
+    "2026-07-01",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the last 3 months",
+     "guess": "the last 3 months",
+     "span": [
+      585,
+      602
+     ],
+     "p_null": 0.003347421996295452,
+     "confidence": 0.8101125955581665
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-07-01",
+     "guess": "2026-07-01",
+     "p_null": 0.00013070160639472306,
+     "confidence": 0.8860676943238162
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.0007451536366716027,
+     "confidence": 0.5504199899163762
+    }
+   },
+   "ms": 963,
+   "cost": 0.0000964
+  },
+  {
+   "id": "U7",
+   "prompt": "Sentinel-2 of Kyiv over the past week",
+   "group": "time",
+   "expect": "2026-09-25 to 2026-10-02",
+   "value": [
+    "2026-09-25",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the past week",
+     "guess": "the past week",
+     "span": [
+      587,
+      600
+     ],
+     "p_null": 0.0034375025425106287,
+     "confidence": 0.9017684459686279
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-25",
+     "guess": "2026-09-25",
+     "p_null": 0.0001093453902285546,
+     "confidence": 0.9909651415123764
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.0000989434338407591,
+     "confidence": 0.8987704713583148
+    }
+   },
+   "ms": 945,
+   "cost": 0.0000962
+  },
+  {
+   "id": "U8",
+   "prompt": "Sentinel-2 of Lima in the second quarter of 2022",
+   "group": "time",
+   "expect": "2022-04-01 to 2022-06-30",
+   "value": [
+    "2022-03-01",
+    "2022-05-31"
+   ],
+   "ok": false,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "the second quarter of 2022",
+     "guess": "the second quarter of 2022",
+     "span": [
+      585,
+      611
+     ],
+     "p_null": 0.0014216229319572449,
+     "confidence": 0.5310094356536865
+    },
+    "start": {
+     "type": "date",
+     "value": "2022-03-01",
+     "guess": "2022-03-01",
+     "p_null": 0.00018530771194491535,
+     "confidence": 0.9776433013895561
+    },
+    "end": {
+     "type": "date",
+     "value": "2022-05-31",
+     "guess": "2022-05-31",
+     "p_null": 0.0027923125308007,
+     "confidence": 0.6409938040447861
+    }
+   },
+   "ms": 840,
+   "cost": 0.0000972
+  },
+  {
+   "id": "U9",
+   "prompt": "Sentinel-2 of Toronto from April to September 2023",
+   "group": "time",
+   "expect": "2023-04-01 to 2023-09-30",
+   "value": [
+    "2023-03-01",
+    "2023-09-30"
+   ],
+   "ok": false,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "from April to September 2023",
+     "guess": "from April to September 2023",
+     "span": [
+      585,
+      613
+     ],
+     "p_null": 0.01619088277220726,
+     "confidence": 0.690217137336731
+    },
+    "start": {
+     "type": "date",
+     "value": "2023-03-01",
+     "guess": "2023-03-01",
+     "p_null": 0.0020323803182691336,
+     "confidence": 0.5608491698683556
+    },
+    "end": {
+     "type": "date",
+     "value": "2023-09-30",
+     "guess": "2023-09-30",
+     "p_null": 0.006056597921997309,
+     "confidence": 0.9348596605903888
+    }
+   },
+   "ms": 803,
+   "cost": 0.000097
+  },
+  {
+   "id": "U10",
+   "prompt": "Landsat of the Aral Sea in 2000",
+   "group": "time",
+   "expect": "2000-01-01 to 2000-12-31",
+   "value": [
+    "2000-01-01",
+    "2000-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "when": {
+     "type": "text",
+     "value": "in 2000",
+     "guess": "in 2000",
+     "span": [
+      587,
+      594
+     ],
+     "p_null": 0.0011320404009893537,
+     "confidence": 0.9356516003608704
+    },
+    "start": {
+     "type": "date",
+     "value": "2000-01-01",
+     "guess": "2000-01-01",
+     "p_null": 0.0021526999771595,
+     "confidence": 0.9521371941473492
+    },
+    "end": {
+     "type": "date",
+     "value": "2000-12-31",
+     "guess": "2000-12-31",
+     "p_null": 0.038406167179346085,
+     "confidence": 0.8533250128813434
+    }
+   },
+   "ms": 1245,
+   "cost": 0.0000968
+  },
+  {
+   "id": "U11",
+   "prompt": "Landsat of Perth under 12% clouds",
+   "group": "cloud",
+   "expect": "12",
+   "value": 12,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 12,
+     "guess": 12,
+     "p_null": 0.008531979285180569,
+     "confidence": 0.8493110397924376
+    }
+   },
+   "ms": 709,
+   "cost": 0.000045
+  },
+  {
+   "id": "U12",
+   "prompt": "Sentinel-2 of Accra with at most 35% cloud cover",
+   "group": "cloud",
+   "expect": "35",
+   "value": 35,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 35,
+     "guess": 35,
+     "p_null": 0.01091980841010809,
+     "confidence": 0.9854439836132795
+    }
+   },
+   "ms": 943,
+   "cost": 0.0000455
+  },
+  {
+   "id": "U13",
+   "prompt": "Sentinel-2 of Reykjavik, below 3% clouds",
+   "group": "cloud",
+   "expect": "3",
+   "value": 3,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 3,
+     "guess": 3,
+     "p_null": 0.005699640139937401,
+     "confidence": 0.9854020350392394
+    }
+   },
+   "ms": 1040,
+   "cost": 0.0000454
+  },
+  {
+   "id": "U14",
+   "prompt": "Landsat of Hanoi with up to 60% clouds",
+   "group": "cloud",
+   "expect": "60",
+   "value": 60,
+   "ok": true,
+   "answers": {
+    "cloud": {
+     "type": "number",
+     "value": 60,
+     "guess": 60,
+     "p_null": 0.006505684461444616,
+     "confidence": 0.9823049322941338
+    }
+   },
+   "ms": 712,
+   "cost": 0.0000453
+  },
+  {
+   "id": "U15",
+   "prompt": "Sentinel-2 over Santa Cruz de la Sierra in 2024",
+   "group": "place",
+   "expect": "Santa Cruz de la Sierra",
+   "value": "Santa Cruz de la Sierra",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Santa Cruz de la Sierra",
+     "guess": "Santa Cruz de la Sierra",
+     "span": [
+      579,
+      602
+     ],
+     "p_null": 0.0008484767749905586,
+     "confidence": 0.9989699125289917
+    }
+   },
+   "ms": 751,
+   "cost": 0.0000435
+  },
+  {
+   "id": "U16",
+   "prompt": "Sentinel-2 of Ciudad Autónoma de Buenos Aires",
+   "group": "place",
+   "expect": "Ciudad Autónoma de Buenos Aires",
+   "value": "Ciudad Autónoma de Buenos Aires",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Ciudad Autónoma de Buenos Aires",
+     "guess": "Ciudad Autónoma de Buenos Aires",
+     "span": [
+      577,
+      608
+     ],
+     "p_null": 0.0006328922463580966,
+     "confidence": 0.9994704127311707
+    }
+   },
+   "ms": 971,
+   "cost": 0.0000429
+  }
+ ]
+}
