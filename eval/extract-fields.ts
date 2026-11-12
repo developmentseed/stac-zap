@@ -24,6 +24,7 @@
  * the tests.
  */
 import { buildPayload } from "../src/zap/decide";
+import { EXTRACT_GROUPS, extractState } from "../src/zap/extract";
 import { CLOUD_OPTIONS } from "../src/zap/options";
 import type { ExtractField } from "./providers";
 
@@ -41,6 +42,7 @@ export function stateOf(variant: Variant, prompt: string, today: Date): string {
   if (variant === "compact-today" || variant === "terse") {
     return `Today is ${today.toISOString().slice(0, 10)}.\n\n${prompt}`;
   }
+  if (variant === "compact") return extractState(prompt, today);
   // buildPayload with no fields gives the context, the date and the request.
   return buildPayload(prompt, {}, "", today).state.replace(/\n\nCurrent map:\n$/, "");
 }
@@ -60,12 +62,6 @@ const CLOUD =
 const CLOUD_WORDS = Object.entries(CLOUD_OPTIONS)
   .filter(([id, text]) => id !== "any" && text.includes(":"))
   .map(([id, text]) => `'${text.split(":")[0]!.toLowerCase()}' is at most ${id}%`)
-  .join(", ");
-
-/** "cloud-free 5, clear sky 10, ...": the same words, shorter. */
-const CLOUD_MAP = Object.entries(CLOUD_OPTIONS)
-  .filter(([id, text]) => id !== "any" && text.includes(":"))
-  .map(([id, text]) => `${text.split(":")[0]!.toLowerCase()} ${id}`)
   .join(", ");
 
 const SEASONS =
@@ -139,37 +135,22 @@ export function groupsOf(variant: Variant): Record<Group, Record<string, Extract
       },
     };
   }
-  // The compact variants. A season text on each date also moved months that
-  // are not in a season, e.g. "June" to June to August, so code does seasons.
-  const terse = variant === "terse";
+  // The compact variants. The app's fields (`src/zap/extract.ts`), so the
+  // test measures the app. `terse` has short phrases for the dates.
+  if (variant !== "terse") return EXTRACT_GROUPS;
   return {
-    place,
+    ...EXTRACT_GROUPS,
     time: {
-      when: WHEN,
+      when: EXTRACT_GROUPS.time.when,
       start: {
         type: "date",
-        instructions: terse
-          ? "The first day of the period. A day: that day; a month: its 1st; a year: 1 January."
-          : "The first day of the time period the request asks for. For a day, " +
-            "that day; for a month, the 1st of that month; for a year, 1 January.",
+        instructions: "The first day of the period. A day: that day; a month: its 1st; a year: 1 January.",
       },
       end: {
         type: "date",
-        instructions: terse
-          ? "The last day of the period. A day: that day; a month: its last day; a year: 31 December. " +
-            "If the period runs up to now: the reference date."
-          : "The last day of the time period the request asks for. For a day, " +
-            "that day; for a month, the last day of that month; for a year, " +
-            "31 December. If the period runs up to now, the reference date.",
-      },
-    },
-    cloud: {
-      cloud: {
-        type: "number",
-        unit: "percent",
         instructions:
-          "The maximum cloud cover, only if the request mentions clouds or a clear sky. " +
-          `Words: ${CLOUD_MAP}. Any cloud cover: no maximum.`,
+          "The last day of the period. A day: that day; a month: its last day; a year: 31 December. " +
+          "If the period runs up to now: the reference date.",
       },
     },
   };

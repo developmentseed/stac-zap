@@ -159,3 +159,11 @@ export function toRange(
     }
   }
 }
+
+/** The most recent year in which the season is over or has started. */
+export function latestYearOf(season: string, today: Date = new Date()): string {
+  const year = today.getUTCFullYear();
+  const range = toRange(String(year), season, today);
+  const started = range && new Date(`${range.startDatetime}Z`) <= today;
+  return String(started ? year : year - 1);
+}

@@ -9,6 +9,7 @@ import {
   NO_PLACE,
   periodOptions,
   SEASON_OPTIONS,
+  latestYearOf,
   toRange,
   type BBox2D,
   type Range,
@@ -488,14 +489,6 @@ function collectionOf(href: string | null, catalogHref: string): string | null {
   const prefix = `${catalogHref}/collections/`;
   if (!href?.startsWith(prefix)) return null;
   return decodeURIComponent(href.slice(prefix.length).split(/[/?#]/)[0]!);
-}
-
-/** The most recent year in which the season is over or has started. */
-function latestYearOf(season: string, today: Date = new Date()): string {
-  const year = today.getUTCFullYear();
-  const range = toRange(String(year), season, today);
-  const started = range && new Date(`${range.startDatetime}Z`) <= today;
-  return String(started ? year : year - 1);
 }
 
 /**

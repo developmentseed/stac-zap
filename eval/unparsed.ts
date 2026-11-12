@@ -11,11 +11,11 @@
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { KEEP, THRESHOLD } from "../src/zap/decide";
-import { cloudChoice, toRange } from "../src/zap/options";
+import { cloudChoice, latestYearOf, toRange } from "../src/zap/options";
 import { UNPARSED_CASES } from "./cases";
 import { ask, modelOfEnv, type RawAnswer } from "./providers";
 import { questionsOf, TODAY, type Field } from "./questions";
-import { cloudOk, latestYearOf, placeOk, rangeOk, type Range } from "./score";
+import { cloudOk, placeOk, rangeOk, type Range } from "./score";
 
 const PC = "planetary-computer";
 
@@ -72,7 +72,7 @@ for (const c of UNPARSED_CASES) {
       const season = reply.answers.season!;
       let p = prob(period) >= 0.35 && period.choice !== KEEP ? period.choice : null;
       const s = prob(season) >= THRESHOLD && season.choice !== KEEP ? season.choice : "whole-year";
-      if (s !== "whole-year" && (!p || !/^\d{4}$/.test(p))) p = latestYearOf(s);
+      if (s !== "whole-year" && (!p || !/^\d{4}$/.test(p))) p = latestYearOf(s, TODAY);
       const r = p ? toRange(p, s, TODAY) : null;
       const value: Range | null = r ? [r.startDatetime.slice(0, 10), r.endDatetime.slice(0, 10)] : null;
       Object.assign(row, {

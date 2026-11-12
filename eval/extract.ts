@@ -30,12 +30,9 @@ import {
   placeOk,
   rangeOk,
   rangesOf,
-  quarterRange,
-  recentRange,
-  relativeRange,
-  seasonRange,
   type Range,
 } from "./score";
+import { rangeOfAnswers as appRangeOfAnswers } from "../src/zap/extract";
 
 const REFERENCE_DATE = TODAY.toISOString().slice(0, 10);
 const SETS = ["field", "unparsed", "dev"] as const;
@@ -70,20 +67,15 @@ export type ExtractRow = {
 const valueOf = (a: ExtractAnswer | undefined) => (a?.value === undefined ? null : a.value);
 
 /**
- * The range from the start and end answers. With no end, the range runs to
- * today, e.g. "since 2020". An end with no start is not a range. When the
- * fields have a `when` (the words of the time) and it is null, the request
- * asks for no time. With `codeCalendar`, a season, a quarter, "the last N
- * days/weeks/months/years", "recent" or "latest" in the `when` words gives
- * a range made by code, not the dates of the model.
+ * The range from the answers. The compact variants use the app's own
+ * `rangeOfAnswers` (`src/zap/extract.ts`), which makes a season, a quarter,
+ * "the last N units", "recent" or "latest" into a range with code. The other
+ * variants use the dates of the model: with no end, the range runs to today,
+ * an end with no start is not a range, and a null `when` means no time.
  */
 export function rangeOfAnswers(answers: Record<string, ExtractAnswer>): Range | null | undefined {
-  const when = valueOf(answers.when);
-  if ("when" in answers && when === null) return null;
-  if (codeCalendar && typeof when === "string") {
-    const range = seasonRange(when) ?? quarterRange(when) ?? relativeRange(when) ?? recentRange(when);
-    if (range) return range;
-  }
+  if (codeCalendar) return appRangeOfAnswers(answers, TODAY);
+  if ("when" in answers && valueOf(answers.when) === null) return null;
   const start = valueOf(answers.start);
   const end = valueOf(answers.end);
   if (start === null && end === null) return null;
