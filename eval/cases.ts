@@ -59,3 +59,83 @@ export const CASES: Case[] = [
   { prompt: "Landsat imagery from March 2019 of Lake Titicaca", catalog: [PC], collection: LS, place: ["Lake Titicaca", "Titicaca"], period: ["2019"], season: ["m3"], cloud: N },
   { prompt: "wildfires in Los Angeles in January 2025", catalog: ["eoapi"], collection: ["WildFires-LosAngeles-Jan-2025"], place: ["Los Angeles"], period: ["2025"], season: ["m1"] },
 ];
+
+/**
+ * A prompt that stac-zap cannot parse today: the correct answer is not in
+ * the option lists of the app, so a decision model can only select the
+ * nearest wrong option. An extraction model can give the exact value.
+ * One field is tested per prompt. Dates assume the test date, 2026-10-02.
+ */
+export type UnparsedCase = {
+  id: string;
+  prompt: string;
+  /** The limit of the app that makes the prompt fail. */
+  why?: string;
+  /** The first and last day, both included, as `YYYY-MM-DD`. Null: no time filter. */
+  range?: [string, string] | null;
+  /** True when the range runs back from today, e.g. "the last 3 months". */
+  relative?: boolean;
+  /** The maximum cloud cover in percent. Null: no cloud cover filter. */
+  cloud?: number | null;
+  /** The words that name the place, or `MAP_VIEW`. */
+  place?: string;
+};
+
+export const UNPARSED_CASES: UnparsedCase[] = [
+  { id: "U1", prompt: "Sentinel-2 of Lyon between March 2023 and June 2024", range: ["2023-03-01", "2024-06-30"], why: "A period is one year" },
+  { id: "U2", prompt: "Landsat of Cairo since 2020", range: ["2020-01-01", "2026-10-02"], relative: true, why: "No open-ended period" },
+  { id: "U3", prompt: "Landsat of Perth from 2018 to 2020", range: ["2018-01-01", "2020-12-31"], why: "No multi-year period" },
+  { id: "U4", prompt: "Sentinel-1 of Jakarta on 15 January 2024", range: ["2024-01-15", "2024-01-15"], why: "The smallest unit is a month" },
+  { id: "U5", prompt: "Sentinel-2 of Manila in the first two weeks of August 2025", range: ["2025-08-01", "2025-08-14"], why: "The smallest unit is a month" },
+  { id: "U6", prompt: "Sentinel-2 of Oslo in the last 3 months", range: ["2026-07-02", "2026-10-02"], relative: true, why: "Relative periods are only 30 days and 12 months" },
+  { id: "U7", prompt: "Sentinel-2 of Kyiv over the past week", range: ["2026-09-25", "2026-10-02"], relative: true, why: "Relative periods are only 30 days and 12 months" },
+  { id: "U8", prompt: "Sentinel-2 of Lima in the second quarter of 2022", range: ["2022-04-01", "2022-06-30"], why: "Seasons are March to May and so on, not quarters" },
+  { id: "U9", prompt: "Sentinel-2 of Toronto from April to September 2023", range: ["2023-04-01", "2023-09-30"], why: "One season or one month only" },
+  { id: "U10", prompt: "Landsat of the Aral Sea in 2000", range: ["2000-01-01", "2000-12-31"], why: "Years start at 2015" },
+  { id: "U11", prompt: "Landsat of Perth under 12% clouds", cloud: 12, why: "The buckets are 10% and 15%" },
+  { id: "U12", prompt: "Sentinel-2 of Accra with at most 35% cloud cover", cloud: 35, why: "The buckets are 30% and 40%" },
+  { id: "U13", prompt: "Sentinel-2 of Reykjavik, below 3% clouds", cloud: 3, why: "The strictest bucket is 5%" },
+  { id: "U14", prompt: "Landsat of Hanoi with up to 60% clouds", cloud: 60, why: "The buckets are 50% and 75%" },
+  { id: "U15", prompt: "Sentinel-2 over Santa Cruz de la Sierra in 2024", place: "Santa Cruz de la Sierra", why: "Five words; a place span has at most four" },
+  { id: "U16", prompt: "Sentinel-2 of Ciudad Autónoma de Buenos Aires", place: "Ciudad Autónoma de Buenos Aires", why: "Five words; a place span has at most four" },
+];
+
+/**
+ * The prompts used to tune the instructions of the extraction models. None
+ * of them is in `CASES` or `UNPARSED_CASES`, so the tests stay unseen. Same
+ * form as `UNPARSED_CASES`; one prompt can test more than one field.
+ */
+export const DEV_CASES: UnparsedCase[] = [
+  { id: "D1", prompt: "Sentinel-2 of Madrid on 3 May 2022", range: ["2022-05-03", "2022-05-03"] },
+  { id: "D2", prompt: "Landsat of Quito since 2019", range: ["2019-01-01", "2026-10-02"], relative: true },
+  { id: "D3", prompt: "Sentinel-2 of Berlin over the past 2 months", range: ["2026-08-02", "2026-10-02"], relative: true },
+  { id: "D4", prompt: "MODIS of Chile in March 2021", range: ["2021-03-01", "2021-03-31"] },
+  { id: "D5", prompt: "NAIP of Ohio in 2021", range: ["2021-01-01", "2021-12-31"] },
+  { id: "D6", prompt: "Sentinel-2 of Seoul in autumn 2022", range: ["2022-09-01", "2022-11-30"] },
+  { id: "D7", prompt: "Sentinel-2 of Oslo in winter 2023", range: ["2022-12-01", "2023-02-28"] },
+  { id: "D8", prompt: "Landsat of Utah last winter", range: ["2025-12-01", "2026-02-28"] },
+  { id: "D9", prompt: "latest Sentinel-2 of Cape Town", range: ["2026-09-02", "2026-10-02"], relative: true },
+  { id: "D10", prompt: "elevation of the Andes", range: null },
+  { id: "D11", prompt: "Sentinel-2 of Quebec with less than 15% clouds", range: null, cloud: 15 },
+  { id: "D12", prompt: "soil moisture of Spain", range: null },
+  { id: "D13", prompt: "building footprints of Nairobi", range: null },
+  { id: "D14", prompt: "Landsat of the Nile delta", range: null, cloud: null },
+  { id: "D15", prompt: "orthophotos of Bern", range: null },
+  { id: "D16", prompt: "Sentinel-1 of Rotterdam port", range: null },
+  { id: "D17", prompt: "Sentinel-2 of Porto in May 2023", range: ["2023-05-01", "2023-05-31"] },
+  { id: "D18", prompt: "Landsat of Calgary from June to August 2021", range: ["2021-06-01", "2021-08-31"] },
+  { id: "D19", prompt: "Sentinel-2 of Montreal in fall 2020", range: ["2020-09-01", "2020-11-30"] },
+  { id: "D20", prompt: "Sentinel-2 of Athens last summer", range: ["2026-06-01", "2026-08-31"] },
+  { id: "D21", prompt: "Sentinel-2 of Bogota, clear sky", cloud: 10 },
+  { id: "D22", prompt: "Sentinel-2 of Kampala, partly cloudy is fine", cloud: 50 },
+  { id: "D23", prompt: "Landsat of Bali in 2022", range: ["2022-01-01", "2022-12-31"], cloud: null },
+  { id: "D24", prompt: "Sentinel-2 of Dakar, any cloud cover", cloud: null },
+  { id: "D25", prompt: "Sentinel-2 here in June 2024", place: MAP_VIEW, range: ["2024-06-01", "2024-06-30"] },
+  { id: "D26", prompt: "NAIP of the Everglades", place: "Everglades" },
+  { id: "D27", prompt: "Sentinel-2 of Nantes in the last 6 weeks", range: ["2026-08-21", "2026-10-02"], relative: true },
+  { id: "D28", prompt: "Sentinel-1 of Mumbai over the past 10 days", range: ["2026-09-22", "2026-10-02"], relative: true },
+  { id: "D29", prompt: "Landsat of Phoenix in the last two years", range: ["2024-10-02", "2026-10-02"], relative: true },
+  { id: "D30", prompt: "Sentinel-2 of Ghent in Q3 2021", range: ["2021-07-01", "2021-09-30"] },
+  { id: "D31", prompt: "Sentinel-2 of Pune in the first quarter of 2020", range: ["2020-01-01", "2020-03-31"] },
+  { id: "D32", prompt: "Landsat of Tucson for the fourth quarter of 2019", range: ["2019-10-01", "2019-12-31"] },
+];

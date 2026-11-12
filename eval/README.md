@@ -15,6 +15,8 @@ ask the same questions as the app.
 |---|---|
 | `fields.ts` | The field test. For each prompt in `cases.ts`, the model answers the six questions of the app: catalog, collection, place, time period, part of the year and maximum cloud cover. The script scores each answer as the app applies it. |
 | `world.ts` | The world knowledge test. The model finds 38 places with latitude and longitude bands as the options. The script measures the distance from the true point to the chosen bands. |
+| `extract.ts` | The extraction test. An extraction model on the OpenRouter extractions API reads the place, the time range and the maximum cloud cover of each prompt as values, not as options. `SET=unparsed` uses the unparsed prompts instead of the field test prompts. |
+| `unparsed.ts` | The unparsed test for a decision model. The prompts in `UNPARSED_CASES` (`cases.ts`) ask for a value that is not in the option lists of the app, e.g. "between March 2023 and June 2024" or "under 12% clouds". The script applies the answers as the app does and scores the values with the rules of `extract.ts`. |
 | `summary.ts` | Prints the results of a run as Markdown tables. |
 | `heatmap.ts` | Draws the field test results as an SVG heatmap. |
 | `snapshot.ts` | Saves the catalogs and their collections to `data/stac-snapshot.json`. |
@@ -34,7 +36,34 @@ The `PROVIDER` and `MODEL` variables select the model. `PROVIDER` is
 ```bash
 PROVIDER=openrouter MODEL=typesafe/jev-1.14 pnpm tsx eval/fields.ts
 PROVIDER=codiv MODEL=openjev-latest pnpm tsx eval/world.ts
+MODEL=cloudflare/clairic pnpm tsx eval/extract.ts
+MODEL=cloudflare/clairic SET=unparsed pnpm tsx eval/extract.ts
+MODEL=cloudflare/clairic VARIANT=compact pnpm tsx eval/extract.ts
+MODEL=cloudflare/clairic VARIANT=compact SET=dev pnpm tsx eval/extract.ts
+MODEL=typesafe/jev-1.14 pnpm tsx eval/unparsed.ts
 ```
+
+`extract.ts` asks in one of some variants, set with `VARIANT`.
+`extract-fields.ts` holds the state and the fields of each variant. The
+result file name ends with the variant.
+
+- `plain`: the request only, and short instructions.
+- `hinted`: what jev gets from the app: the app context, today's date, the
+  months of each season and the cloud cover of words such as "clear sky".
+- `compact`: the model reads words and values, and code does the calendar.
+  A season, a quarter, "the last N days/weeks/months/years", "recent" or
+  "latest" in the time words gets a range made by code (seasons and
+  "recent" with the app's `toRange`, as for a jev answer).
+- `compact-today` and `terse`: ablations of `compact`, for the record.
+
+The instructions were tuned only on `DEV_CASES` (`SET=dev`), not on the
+prompts of the tests. `ONE_CALL=1` asks all fields of a prompt in one call.
+`APP_CALLS=1` asks them in the two calls of the app (`EXTRACT_CALLS`). Each row stores the schema tokens and the number of
+passes: above a limit, the server splits the fields into more passes.
+
+`extract.ts` uses OpenRouter only. `score.ts` holds the scoring rules of
+`extract.ts` and `unparsed.ts`. `questions.ts` makes the questions of the
+app for `fields.ts` and `unparsed.ts`.
 
 The scripts write the results to `eval/results/<date>/`. To write to a
 different folder, set `RESULTS`. To ask only some fields again, set `FIELDS`,

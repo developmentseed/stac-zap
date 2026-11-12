@@ -9,3 +9,4 @@ account_id = "ccbbf55035041bc17b45e77fbbcd9db2"
 # "http://localhost:4173" (vite preview) with a comma.
 ALLOWED_ORIGINS = "https://developmentseed.org,https://developmentseed.github.io"
 JEV_MODEL = "typesafe/jev-1.14"
+EXTRACT_MODEL = "cloudflare/clairic"

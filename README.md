@@ -43,11 +43,20 @@ only to OpenRouter. The key does not go into the browser bundle.
 ## Deploy
 
 The site is static, on GitHub Pages. A Cloudflare Worker (`worker/`) keeps
-the OpenRouter key and forwards the jev calls. The Worker:
+the OpenRouter key and forwards the jev and Clairic calls. The Worker:
 
 - accepts only requests from the site, `https://developmentseed.org`,
-- forwards only to the OpenRouter decisions API, always with the jev model,
-- accepts about 30 requests each minute from one visitor.
+- forwards `POST /` only to the OpenRouter decisions API, always with the
+  jev model (`JEV_MODEL`),
+- forwards `POST /extract` only to the OpenRouter extractions API, always
+  with the Clairic model (`EXTRACT_MODEL`), with 1 to 8 text, number or
+  date fields,
+- accepts about 50 requests each minute from one visitor. A zap makes 4 or
+  5 calls.
+
+If the Worker has no `/extract` route yet, the site still works: jev picks
+the place, the time and the cloud cover. Deploy the Worker again after you
+update it.
 
 Give the OpenRouter key a budget limit. The budget limit is the last check.
 
@@ -117,12 +126,13 @@ collection. stac-map runs the search.
 | File | Contents |
 | --- | --- |
 | `src/zap/decide.ts` | The jev payload and the answers. A port of the awii zap mode. |
+| `src/zap/extract.ts` | The Clairic fields for the place, the time and the cloud cover, the two Clairic calls, and the code that makes a time range from the time words. |
 | `src/zap/catalogs.ts` | The curated catalogs, STAC Index, and the collections of each catalog. |
 | `src/zap/options.ts` | The time and cloud cover options. |
 | `src/zap/geocode.ts` | The Nominatim search, and the groups of words that can name a place. |
-| `src/zap/run.ts` | The two jev calls, and the changes to the stac-map store. |
+| `src/zap/run.ts` | The Clairic calls, the jev calls, and the changes to the stac-map store. If Clairic fails, jev also picks the place, the time and the cloud cover. |
 | `src/ZapBar.tsx` | The prompt and the probability panel. |
-| `vite.config.ts` | The `/api/decide` endpoint, which adds the key. |
+| `vite.config.ts` | The `/api/decide` and `/api/extract` endpoints, which add the key. |
 | `eval/` | Tests that compare decision models on the questions of the app. |
 
 ## Other decision models
@@ -132,8 +142,8 @@ The results are in [docs/decision-models.md](docs/decision-models.md).
 
 ## Limits
 
-- The dev server is the only server that has `/api/decide`. A static
-  deployment does not have it.
+- The dev server is the only server that has `/api/decide` and
+  `/api/extract`. A static deployment does not have them.
 - The public Nominatim server permits one request each second. The app waits
   between requests. For a public demo with many users, use a different
   geocoder server. Change `SEARCH_URL` in `src/zap/geocode.ts`.

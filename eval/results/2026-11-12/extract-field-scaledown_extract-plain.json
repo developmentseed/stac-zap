@@ -1,0 +1,923 @@
+{
+ "model": "scaledown/extract",
+ "set": "field",
+ "variant": "plain",
+ "today": "2026-10-02",
+ "rows": [
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "group": "place",
+   "expect": "Lisbon",
+   "value": "Lisbon",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "span": [
+      16,
+      22
+     ],
+     "confidence": 1
+    }
+   },
+   "ms": 2318,
+   "cost": 1.164e-05
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "group": "time",
+   "expect": "2026-06-01 to 2026-08-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "group": "cloud",
+   "expect": "15 to 25",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "group": "place",
+   "expect": "Johor | Johor Malaysia",
+   "value": "Johor Malaysia",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Johor Malaysia",
+     "span": [
+      20,
+      34
+     ],
+     "confidence": 0.887
+    }
+   },
+   "ms": 865,
+   "cost": 1.192e-05
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "group": "cloud",
+   "expect": "15 to 20",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "group": "place",
+   "expect": "Denver",
+   "value": "Denver",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Denver",
+     "span": [
+      13,
+      19
+     ],
+     "confidence": 1
+    }
+   },
+   "ms": 806,
+   "cost": 1.168e-05
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "group": "time",
+   "expect": "2024-07-01 to 2024-07-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "group": "place",
+   "expect": "Grand Canyon",
+   "value": "Grand Canyon",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Grand Canyon",
+     "span": [
+      26,
+      38
+     ],
+     "confidence": 0.99
+    }
+   },
+   "ms": 710,
+   "cost": 1.148e-05
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "group": "cloud",
+   "expect": "0 to 10",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "group": "place",
+   "expect": "Netherlands",
+   "value": "Netherlands",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Netherlands",
+     "span": [
+      24,
+      35
+     ],
+     "confidence": 0.939
+    }
+   },
+   "ms": 735,
+   "cost": 1.18e-05
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "group": "time",
+   "expect": "2025-01-01 to 2025-01-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "group": "place",
+   "expect": "Mount Everest | Everest",
+   "value": "Mount Everest",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Mount Everest",
+     "span": [
+      13,
+      26
+     ],
+     "confidence": 0.997
+    }
+   },
+   "ms": 855,
+   "cost": 1.14e-05
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "group": "place",
+   "expect": "Kenya",
+   "value": "Kenya",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kenya",
+     "span": [
+      14,
+      19
+     ],
+     "confidence": 0.999
+    }
+   },
+   "ms": 848,
+   "cost": 1.136e-05
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "group": "place",
+   "expect": "Zurich",
+   "value": "Zurich",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Zurich",
+     "span": [
+      21,
+      27
+     ],
+     "confidence": 0.959
+    }
+   },
+   "ms": 852,
+   "cost": 1.148e-05
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "group": "place",
+   "expect": "no-place",
+   "value": "no-place",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": null
+    }
+   },
+   "ms": 738,
+   "cost": 1.148e-05
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "group": "place",
+   "expect": "Svalbard",
+   "value": "Svalbard",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Svalbard",
+     "span": [
+      23,
+      31
+     ],
+     "confidence": 0.957
+    }
+   },
+   "ms": 805,
+   "cost": 1.152e-05
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "group": "place",
+   "expect": "Austin | Austin Texas",
+   "value": "Texas",
+   "ok": false,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Texas",
+     "span": [
+      24,
+      29
+     ],
+     "confidence": 1
+    }
+   },
+   "ms": 918,
+   "cost": 1.172e-05
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "group": "time",
+   "expect": "2022-01-01 to 2022-12-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "group": "place",
+   "expect": "Lower Saxony",
+   "value": "no-place",
+   "ok": false,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": null
+    }
+   },
+   "ms": 958,
+   "cost": 1.144e-05
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "group": "place",
+   "expect": "Hannover",
+   "value": "Hannover",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Hannover",
+     "span": [
+      17,
+      25
+     ],
+     "confidence": 0.999
+    }
+   },
+   "ms": 3856,
+   "cost": 1.14e-05
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "group": "place",
+   "expect": "Amazon rainforest | Amazon",
+   "value": "Amazon rainforest",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Amazon rainforest",
+     "span": [
+      25,
+      42
+     ],
+     "confidence": 0.773
+    }
+   },
+   "ms": 3752,
+   "cost": 1.156e-05
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "group": "time",
+   "expect": "2026-09-02 to 2026-10-02",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "group": "place",
+   "expect": "Alps",
+   "value": "Alps",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Alps",
+     "span": [
+      26,
+      30
+     ],
+     "confidence": 0.85
+    }
+   },
+   "ms": 2231,
+   "cost": 1.176e-05
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "group": "time",
+   "expect": "2023-12-01 to 2024-02-29",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "group": "place",
+   "expect": "Aral Sea",
+   "value": "Aral Sea",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Aral Sea",
+     "span": [
+      15,
+      23
+     ],
+     "confidence": 0.994
+    }
+   },
+   "ms": 738,
+   "cost": 1.204e-05
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "group": "time",
+   "expect": "2016-01-01 to 2016-12-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "group": "cloud",
+   "expect": "10 to 10",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "group": "place",
+   "expect": "map-view",
+   "value": "no-place",
+   "ok": false,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": null
+    }
+   },
+   "ms": 2885,
+   "cost": 1.16e-05
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "group": "cloud",
+   "expect": "10 to 20",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "group": "place",
+   "expect": "Rome",
+   "value": "Rome",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Rome",
+     "span": [
+      25,
+      29
+     ],
+     "confidence": 1
+    }
+   },
+   "ms": 2235,
+   "cost": 1.16e-05
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "group": "place",
+   "expect": "Louisville",
+   "value": "Louisville",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Louisville",
+     "span": [
+      30,
+      40
+     ],
+     "confidence": 0.99
+    }
+   },
+   "ms": 787,
+   "cost": 1.144e-05
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "group": "place",
+   "expect": "Lagos",
+   "value": "Lagos",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lagos",
+     "span": [
+      39,
+      44
+     ],
+     "confidence": 1
+    }
+   },
+   "ms": 856,
+   "cost": 1.18e-05
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "group": "time",
+   "expect": "2023-01-01 to 2023-12-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "group": "place",
+   "expect": "Kathmandu",
+   "value": "Kathmandu",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kathmandu",
+     "span": [
+      17,
+      26
+     ],
+     "confidence": 1
+    }
+   },
+   "ms": 926,
+   "cost": 1.148e-05
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "group": "place",
+   "expect": "Iceland",
+   "value": "Iceland",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Iceland",
+     "span": [
+      13,
+      20
+     ],
+     "confidence": 1
+    }
+   },
+   "ms": 1720,
+   "cost": 1.2e-05
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "group": "time",
+   "expect": "2021-09-01 to 2021-11-30",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "group": "cloud",
+   "expect": "40 to 40",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "group": "place",
+   "expect": "Lisbon",
+   "value": "Lisbon",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "span": [
+      16,
+      22
+     ],
+     "confidence": 1
+    }
+   },
+   "ms": 1718,
+   "cost": 1.168e-05
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "group": "time",
+   "expect": "2025-10-02 to 2026-10-02",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "group": "place",
+   "expect": "Cotopaxi",
+   "value": "Cotopaxi",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Cotopaxi",
+     "span": [
+      16,
+      24
+     ],
+     "confidence": 0.999
+    }
+   },
+   "ms": 1049,
+   "cost": 1.216e-05
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "group": "time",
+   "expect": "2025-12-01 to 2025-12-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "group": "cloud",
+   "expect": "30 to 30",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "group": "place",
+   "expect": "Helsinki",
+   "value": "Helsinki",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Helsinki",
+     "span": [
+      30,
+      38
+     ],
+     "confidence": 0.954
+    }
+   },
+   "ms": 2183,
+   "cost": 1.148e-05
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "group": "place",
+   "expect": "Klagenfurt",
+   "value": "Klagenfurt",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Klagenfurt",
+     "span": [
+      25,
+      35
+     ],
+     "confidence": 1
+    }
+   },
+   "ms": 988,
+   "cost": 1.16e-05
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "group": "place",
+   "expect": "Vancouver",
+   "value": "Vancouver",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Vancouver",
+     "span": [
+      32,
+      41
+     ],
+     "confidence": 0.997
+    }
+   },
+   "ms": 2044,
+   "cost": 1.144e-05
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "group": "time",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "group": "place",
+   "expect": "Nairobi",
+   "value": "Nairobi",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Nairobi",
+     "span": [
+      14,
+      21
+     ],
+     "confidence": 0.999
+    }
+   },
+   "ms": 935,
+   "cost": 1.184e-05
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "group": "time",
+   "expect": "2023-03-01 to 2023-05-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "group": "place",
+   "expect": "Lake Titicaca | Titicaca",
+   "value": "Lake Titicaca",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lake Titicaca",
+     "span": [
+      35,
+      48
+     ],
+     "confidence": 0.999
+    }
+   },
+   "ms": 710,
+   "cost": 1.184e-05
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "group": "time",
+   "expect": "2019-03-01 to 2019-03-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "group": "cloud",
+   "expect": "none",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract returns text spans only; field \\\"cloud\\\" is a number\",\"code\":400}}"
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "group": "place",
+   "expect": "Los Angeles",
+   "value": "Los Angeles",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Los Angeles",
+     "span": [
+      13,
+      24
+     ],
+     "confidence": 0.999
+    }
+   },
+   "ms": 795,
+   "cost": 1.168e-05
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "group": "time",
+   "expect": "2025-01-01 to 2025-01-31",
+   "error": "400 {\"error\":{\"message\":\"ScaleDown Extract has no date fields, so reference_date is not supported\",\"code\":400}}"
+  }
+ ]
+}

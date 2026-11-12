@@ -21,24 +21,34 @@ const PROVIDERS = {
   codiv: { url: "https://api.codiv.ai/v1/systemone", keyName: "CODIV_API_KEY" },
 } as const;
 
+/** The OpenRouter extractions API, for `POST /api/extract`. */
+const EXTRACTIONS = {
+  url: "https://openrouter.ai/api/alpha/extractions",
+  keyName: "OPENROUTER_API_KEY",
+} as const;
+
 /**
- * Serves `POST /api/decide` in the dev server: it forwards the body to a jev
- * decisions API with the key from `.env`. `?provider=codiv` selects Codiv;
- * the default is OpenRouter. Both take the same body. The key stays on the
- * server and never goes into the bundle. `.env` is read on each request, so a
- * new key works without a restart.
+ * Serves `POST /api/decide` and `POST /api/extract` in the dev server: it
+ * forwards the body to a jev decisions API, or to the OpenRouter extractions
+ * API, with the key from `.env`. For `/api/decide`, `?provider=codiv`
+ * selects Codiv; the default is OpenRouter. Both take the same body. The key
+ * stays on the server and never goes into the bundle. `.env` is read on each
+ * request, so a new key works without a restart.
  */
 function decideProxy(): Plugin {
   return {
     name: "stac-zap-decide",
     configureServer(server) {
-      server.middlewares.use("/api/decide", async (req, res) => {
+      server.middlewares.use(async (req, res, next) => {
+        const path = new URL(req.url ?? "", "http://localhost").pathname;
+        const route = path.endsWith("/api/decide") ? "decide" : path.endsWith("/api/extract") ? "extract" : null;
+        if (!route) return next();
         if (req.method !== "POST") {
           res.statusCode = 405;
           return res.end();
         }
         const name = new URL(req.url ?? "", "http://localhost").searchParams.get("provider") ?? "openrouter";
-        const provider = PROVIDERS[name as keyof typeof PROVIDERS];
+        const provider = route === "extract" ? EXTRACTIONS : PROVIDERS[name as keyof typeof PROVIDERS];
         if (!provider) {
           res.statusCode = 400;
           return res.end(`Unknown provider: ${name}`);

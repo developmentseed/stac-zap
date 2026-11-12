@@ -1,0 +1,4996 @@
+{
+ "model": "cloudflare/clairic",
+ "set": "field",
+ "variant": "compact",
+ "oneCall": true,
+ "today": "2026-10-02",
+ "rows": [
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "group": "place",
+   "expect": "Lisbon",
+   "value": "Lisbon",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "guess": "Lisbon",
+     "span": [
+      579,
+      585
+     ],
+     "p_null": 0.0013433888088911772,
+     "confidence": 0.9990764856338501
+    },
+    "when": {
+     "type": "text",
+     "value": "last summer",
+     "guess": "last summer",
+     "span": [
+      586,
+      597
+     ],
+     "p_null": 0.0029143046122044325,
+     "confidence": 0.9970812201499939
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-06-01",
+     "guess": "2026-06-01",
+     "p_null": 0.0014369826531037688,
+     "confidence": 0.6483234922225182
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-09-02",
+     "guess": "2026-09-02",
+     "p_null": 0.022525295615196228,
+     "confidence": 0.4536395860407144
+    },
+    "cloud": {
+     "type": "number",
+     "value": 20,
+     "guess": 20,
+     "p_null": 0.00974971242249012,
+     "confidence": 0.9916123219616623
+    }
+   },
+   "ms": 1232,
+   "cost": 0.0001419,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 144,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "group": "time",
+   "expect": "2026-06-01 to 2026-08-31",
+   "value": [
+    "2026-06-01",
+    "2026-08-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "guess": "Lisbon",
+     "span": [
+      579,
+      585
+     ],
+     "p_null": 0.0013433888088911772,
+     "confidence": 0.9990764856338501
+    },
+    "when": {
+     "type": "text",
+     "value": "last summer",
+     "guess": "last summer",
+     "span": [
+      586,
+      597
+     ],
+     "p_null": 0.0029143046122044325,
+     "confidence": 0.9970812201499939
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-06-01",
+     "guess": "2026-06-01",
+     "p_null": 0.0014369826531037688,
+     "confidence": 0.6483234922225182
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-09-02",
+     "guess": "2026-09-02",
+     "p_null": 0.022525295615196228,
+     "confidence": 0.4536395860407144
+    },
+    "cloud": {
+     "type": "number",
+     "value": 20,
+     "guess": 20,
+     "p_null": 0.00974971242249012,
+     "confidence": 0.9916123219616623
+    }
+   },
+   "ms": 1232,
+   "cost": 0.0001419,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 144,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "group": "cloud",
+   "expect": "15 to 25",
+   "value": 20,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "guess": "Lisbon",
+     "span": [
+      579,
+      585
+     ],
+     "p_null": 0.0013433888088911772,
+     "confidence": 0.9990764856338501
+    },
+    "when": {
+     "type": "text",
+     "value": "last summer",
+     "guess": "last summer",
+     "span": [
+      586,
+      597
+     ],
+     "p_null": 0.0029143046122044325,
+     "confidence": 0.9970812201499939
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-06-01",
+     "guess": "2026-06-01",
+     "p_null": 0.0014369826531037688,
+     "confidence": 0.6483234922225182
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-09-02",
+     "guess": "2026-09-02",
+     "p_null": 0.022525295615196228,
+     "confidence": 0.4536395860407144
+    },
+    "cloud": {
+     "type": "number",
+     "value": 20,
+     "guess": 20,
+     "p_null": 0.00974971242249012,
+     "confidence": 0.9916123219616623
+    }
+   },
+   "ms": 1232,
+   "cost": 0.0001419,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 144,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "group": "place",
+   "expect": "Johor | Johor Malaysia",
+   "value": "Johor Malaysia",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Johor Malaysia",
+     "guess": "Johor Malaysia",
+     "span": [
+      583,
+      597
+     ],
+     "p_null": 0.00664175720885396,
+     "confidence": 0.9667978286743164
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "less than 20%",
+     "span": [
+      603,
+      616
+     ],
+     "p_null": 0.9973167777061462,
+     "confidence": 0.22661828994750977
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9897909760475159,
+     "confidence": 0.49241071469177033
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9801223278045654,
+     "confidence": 0.9930183052305108
+    },
+    "cloud": {
+     "type": "number",
+     "value": 20,
+     "guess": 20,
+     "p_null": 0.004990460351109505,
+     "confidence": 0.9697138140273783
+    }
+   },
+   "ms": 550,
+   "cost": 0.0001443,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 152,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Johor Malaysia",
+     "guess": "Johor Malaysia",
+     "span": [
+      583,
+      597
+     ],
+     "p_null": 0.00664175720885396,
+     "confidence": 0.9667978286743164
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "less than 20%",
+     "span": [
+      603,
+      616
+     ],
+     "p_null": 0.9973167777061462,
+     "confidence": 0.22661828994750977
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9897909760475159,
+     "confidence": 0.49241071469177033
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9801223278045654,
+     "confidence": 0.9930183052305108
+    },
+    "cloud": {
+     "type": "number",
+     "value": 20,
+     "guess": 20,
+     "p_null": 0.004990460351109505,
+     "confidence": 0.9697138140273783
+    }
+   },
+   "ms": 550,
+   "cost": 0.0001443,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 152,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "group": "cloud",
+   "expect": "15 to 20",
+   "value": 20,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Johor Malaysia",
+     "guess": "Johor Malaysia",
+     "span": [
+      583,
+      597
+     ],
+     "p_null": 0.00664175720885396,
+     "confidence": 0.9667978286743164
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "less than 20%",
+     "span": [
+      603,
+      616
+     ],
+     "p_null": 0.9973167777061462,
+     "confidence": 0.22661828994750977
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9897909760475159,
+     "confidence": 0.49241071469177033
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9801223278045654,
+     "confidence": 0.9930183052305108
+    },
+    "cloud": {
+     "type": "number",
+     "value": 20,
+     "guess": 20,
+     "p_null": 0.004990460351109505,
+     "confidence": 0.9697138140273783
+    }
+   },
+   "ms": 550,
+   "cost": 0.0001443,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 152,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "group": "place",
+   "expect": "Denver",
+   "value": "Denver",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Denver",
+     "guess": "Denver",
+     "span": [
+      576,
+      582
+     ],
+     "p_null": 0.003235369687899947,
+     "confidence": 0.9997642636299133
+    },
+    "when": {
+     "type": "text",
+     "value": "July 2024",
+     "guess": "July 2024",
+     "span": [
+      586,
+      595
+     ],
+     "p_null": 0.0006417658878490329,
+     "confidence": 0.9931393265724182
+    },
+    "start": {
+     "type": "date",
+     "value": "2024-07-01",
+     "guess": "2024-07-01",
+     "p_null": 0.0002817940548993647,
+     "confidence": 0.9980043959677916
+    },
+    "end": {
+     "type": "date",
+     "value": "2024-07-31",
+     "guess": "2024-07-31",
+     "p_null": 0.001874543959274888,
+     "confidence": 0.9740843001839647
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9996185302734375,
+     "confidence": 0.10617510507197958
+    }
+   },
+   "ms": 482,
+   "cost": 0.0001422,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 145,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "group": "time",
+   "expect": "2024-07-01 to 2024-07-31",
+   "value": [
+    "2024-07-01",
+    "2024-07-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Denver",
+     "guess": "Denver",
+     "span": [
+      576,
+      582
+     ],
+     "p_null": 0.003235369687899947,
+     "confidence": 0.9997642636299133
+    },
+    "when": {
+     "type": "text",
+     "value": "July 2024",
+     "guess": "July 2024",
+     "span": [
+      586,
+      595
+     ],
+     "p_null": 0.0006417658878490329,
+     "confidence": 0.9931393265724182
+    },
+    "start": {
+     "type": "date",
+     "value": "2024-07-01",
+     "guess": "2024-07-01",
+     "p_null": 0.0002817940548993647,
+     "confidence": 0.9980043959677916
+    },
+    "end": {
+     "type": "date",
+     "value": "2024-07-31",
+     "guess": "2024-07-31",
+     "p_null": 0.001874543959274888,
+     "confidence": 0.9740843001839647
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9996185302734375,
+     "confidence": 0.10617510507197958
+    }
+   },
+   "ms": 482,
+   "cost": 0.0001422,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 145,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Denver",
+     "guess": "Denver",
+     "span": [
+      576,
+      582
+     ],
+     "p_null": 0.003235369687899947,
+     "confidence": 0.9997642636299133
+    },
+    "when": {
+     "type": "text",
+     "value": "July 2024",
+     "guess": "July 2024",
+     "span": [
+      586,
+      595
+     ],
+     "p_null": 0.0006417658878490329,
+     "confidence": 0.9931393265724182
+    },
+    "start": {
+     "type": "date",
+     "value": "2024-07-01",
+     "guess": "2024-07-01",
+     "p_null": 0.0002817940548993647,
+     "confidence": 0.9980043959677916
+    },
+    "end": {
+     "type": "date",
+     "value": "2024-07-31",
+     "guess": "2024-07-31",
+     "p_null": 0.001874543959274888,
+     "confidence": 0.9740843001839647
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9996185302734375,
+     "confidence": 0.10617510507197958
+    }
+   },
+   "ms": 482,
+   "cost": 0.0001422,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 145,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "group": "place",
+   "expect": "Grand Canyon",
+   "value": "the Grand Canyon",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Grand Canyon",
+     "guess": "the Grand Canyon",
+     "span": [
+      585,
+      601
+     ],
+     "p_null": 0.00022103650553617626,
+     "confidence": 0.9887110590934753
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9992454051971436,
+     "confidence": 0.22254765033721924
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9680482149124146,
+     "confidence": 0.507005857882002
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8455925583839417,
+     "confidence": 0.9976214641929756
+    },
+    "cloud": {
+     "type": "number",
+     "value": 0,
+     "guess": 0,
+     "p_null": 0.040878988802433014,
+     "confidence": 0.5874586953062197
+    }
+   },
+   "ms": 561,
+   "cost": 0.000141,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 141,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Grand Canyon",
+     "guess": "the Grand Canyon",
+     "span": [
+      585,
+      601
+     ],
+     "p_null": 0.00022103650553617626,
+     "confidence": 0.9887110590934753
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9992454051971436,
+     "confidence": 0.22254765033721924
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9680482149124146,
+     "confidence": 0.507005857882002
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8455925583839417,
+     "confidence": 0.9976214641929756
+    },
+    "cloud": {
+     "type": "number",
+     "value": 0,
+     "guess": 0,
+     "p_null": 0.040878988802433014,
+     "confidence": 0.5874586953062197
+    }
+   },
+   "ms": 561,
+   "cost": 0.000141,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 141,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "group": "cloud",
+   "expect": "0 to 10",
+   "value": 0,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Grand Canyon",
+     "guess": "the Grand Canyon",
+     "span": [
+      585,
+      601
+     ],
+     "p_null": 0.00022103650553617626,
+     "confidence": 0.9887110590934753
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9992454051971436,
+     "confidence": 0.22254765033721924
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9680482149124146,
+     "confidence": 0.507005857882002
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8455925583839417,
+     "confidence": 0.9976214641929756
+    },
+    "cloud": {
+     "type": "number",
+     "value": 0,
+     "guess": 0,
+     "p_null": 0.040878988802433014,
+     "confidence": 0.5874586953062197
+    }
+   },
+   "ms": 561,
+   "cost": 0.000141,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 141,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "group": "place",
+   "expect": "Netherlands",
+   "value": "the Netherlands",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Netherlands",
+     "guess": "the Netherlands",
+     "span": [
+      583,
+      598
+     ],
+     "p_null": 0.004221380688250065,
+     "confidence": 0.9097733497619629
+    },
+    "when": {
+     "type": "text",
+     "value": "January 2025",
+     "guess": "January 2025",
+     "span": [
+      602,
+      614
+     ],
+     "p_null": 0.0013936097966507077,
+     "confidence": 0.9912726283073425
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-01-01",
+     "guess": "2025-01-01",
+     "p_null": 0.00013292895164340734,
+     "confidence": 0.999013000905274
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-01-31",
+     "guess": "2025-01-31",
+     "p_null": 0.021112075075507164,
+     "confidence": 0.8617862872396468
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9990041851997375,
+     "confidence": 0.05708904027064297
+    }
+   },
+   "ms": 529,
+   "cost": 0.0001431,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 148,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "group": "time",
+   "expect": "2025-01-01 to 2025-01-31",
+   "value": [
+    "2025-01-01",
+    "2025-01-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Netherlands",
+     "guess": "the Netherlands",
+     "span": [
+      583,
+      598
+     ],
+     "p_null": 0.004221380688250065,
+     "confidence": 0.9097733497619629
+    },
+    "when": {
+     "type": "text",
+     "value": "January 2025",
+     "guess": "January 2025",
+     "span": [
+      602,
+      614
+     ],
+     "p_null": 0.0013936097966507077,
+     "confidence": 0.9912726283073425
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-01-01",
+     "guess": "2025-01-01",
+     "p_null": 0.00013292895164340734,
+     "confidence": 0.999013000905274
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-01-31",
+     "guess": "2025-01-31",
+     "p_null": 0.021112075075507164,
+     "confidence": 0.8617862872396468
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9990041851997375,
+     "confidence": 0.05708904027064297
+    }
+   },
+   "ms": 529,
+   "cost": 0.0001431,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 148,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Netherlands",
+     "guess": "the Netherlands",
+     "span": [
+      583,
+      598
+     ],
+     "p_null": 0.004221380688250065,
+     "confidence": 0.9097733497619629
+    },
+    "when": {
+     "type": "text",
+     "value": "January 2025",
+     "guess": "January 2025",
+     "span": [
+      602,
+      614
+     ],
+     "p_null": 0.0013936097966507077,
+     "confidence": 0.9912726283073425
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-01-01",
+     "guess": "2025-01-01",
+     "p_null": 0.00013292895164340734,
+     "confidence": 0.999013000905274
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-01-31",
+     "guess": "2025-01-31",
+     "p_null": 0.021112075075507164,
+     "confidence": 0.8617862872396468
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9990041851997375,
+     "confidence": 0.05708904027064297
+    }
+   },
+   "ms": 529,
+   "cost": 0.0001431,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 148,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "group": "place",
+   "expect": "Mount Everest | Everest",
+   "value": "Mount Everest",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Mount Everest",
+     "guess": "Mount Everest",
+     "span": [
+      576,
+      589
+     ],
+     "p_null": 0.0003048590733669698,
+     "confidence": 0.9999966621398926
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9992063641548157,
+     "confidence": 0.2567429840564728
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9992414712905884,
+     "confidence": 0.44439214703148944
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8732408285140991,
+     "confidence": 0.9997957109150329
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 0,
+     "p_null": 0.9996176958084106,
+     "confidence": 0.35977132650273796
+    }
+   },
+   "ms": 443,
+   "cost": 0.0001401,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 138,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Mount Everest",
+     "guess": "Mount Everest",
+     "span": [
+      576,
+      589
+     ],
+     "p_null": 0.0003048590733669698,
+     "confidence": 0.9999966621398926
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9992063641548157,
+     "confidence": 0.2567429840564728
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9992414712905884,
+     "confidence": 0.44439214703148944
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8732408285140991,
+     "confidence": 0.9997957109150329
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 0,
+     "p_null": 0.9996176958084106,
+     "confidence": 0.35977132650273796
+    }
+   },
+   "ms": 443,
+   "cost": 0.0001401,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 138,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Mount Everest",
+     "guess": "Mount Everest",
+     "span": [
+      576,
+      589
+     ],
+     "p_null": 0.0003048590733669698,
+     "confidence": 0.9999966621398926
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9992063641548157,
+     "confidence": 0.2567429840564728
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9992414712905884,
+     "confidence": 0.44439214703148944
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8732408285140991,
+     "confidence": 0.9997957109150329
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 0,
+     "p_null": 0.9996176958084106,
+     "confidence": 0.35977132650273796
+    }
+   },
+   "ms": 443,
+   "cost": 0.0001401,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 138,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "group": "place",
+   "expect": "Kenya",
+   "value": "Kenya",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kenya",
+     "guess": "Kenya",
+     "span": [
+      577,
+      582
+     ],
+     "p_null": 0.0013261523563414812,
+     "confidence": 0.9998295307159424
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.999560534954071,
+     "confidence": 0.24474047124385834
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9749313592910767,
+     "confidence": 0.5263067897787675
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.28253427147865295,
+     "confidence": 0.9997599610244748
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 20,
+     "p_null": 0.9994643330574036,
+     "confidence": 0.027877495814089354
+    }
+   },
+   "ms": 550,
+   "cost": 0.0001401,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 138,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kenya",
+     "guess": "Kenya",
+     "span": [
+      577,
+      582
+     ],
+     "p_null": 0.0013261523563414812,
+     "confidence": 0.9998295307159424
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.999560534954071,
+     "confidence": 0.24474047124385834
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9749313592910767,
+     "confidence": 0.5263067897787675
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.28253427147865295,
+     "confidence": 0.9997599610244748
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 20,
+     "p_null": 0.9994643330574036,
+     "confidence": 0.027877495814089354
+    }
+   },
+   "ms": 550,
+   "cost": 0.0001401,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 138,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kenya",
+     "guess": "Kenya",
+     "span": [
+      577,
+      582
+     ],
+     "p_null": 0.0013261523563414812,
+     "confidence": 0.9998295307159424
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.999560534954071,
+     "confidence": 0.24474047124385834
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9749313592910767,
+     "confidence": 0.5263067897787675
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.28253427147865295,
+     "confidence": 0.9997599610244748
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 20,
+     "p_null": 0.9994643330574036,
+     "confidence": 0.027877495814089354
+    }
+   },
+   "ms": 550,
+   "cost": 0.0001401,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 138,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "group": "place",
+   "expect": "Zurich",
+   "value": "Zurich",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Zurich",
+     "guess": "Zurich",
+     "span": [
+      584,
+      590
+     ],
+     "p_null": 0.004933504853397608,
+     "confidence": 0.9996603727340698
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Zurich",
+     "span": [
+      584,
+      590
+     ],
+     "p_null": 0.9990895986557007,
+     "confidence": 0.535499095916748
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9908409118652344,
+     "confidence": 0.6204577393550655
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.6223658323287964,
+     "confidence": 0.9994355679055957
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9982104301452637,
+     "confidence": 0.09125450504317457
+    }
+   },
+   "ms": 649,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Zurich",
+     "guess": "Zurich",
+     "span": [
+      584,
+      590
+     ],
+     "p_null": 0.004933504853397608,
+     "confidence": 0.9996603727340698
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Zurich",
+     "span": [
+      584,
+      590
+     ],
+     "p_null": 0.9990895986557007,
+     "confidence": 0.535499095916748
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9908409118652344,
+     "confidence": 0.6204577393550655
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.6223658323287964,
+     "confidence": 0.9994355679055957
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9982104301452637,
+     "confidence": 0.09125450504317457
+    }
+   },
+   "ms": 649,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Zurich",
+     "guess": "Zurich",
+     "span": [
+      584,
+      590
+     ],
+     "p_null": 0.004933504853397608,
+     "confidence": 0.9996603727340698
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Zurich",
+     "span": [
+      584,
+      590
+     ],
+     "p_null": 0.9990895986557007,
+     "confidence": 0.535499095916748
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9908409118652344,
+     "confidence": 0.6204577393550655
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.6223658323287964,
+     "confidence": 0.9994355679055957
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9982104301452637,
+     "confidence": 0.09125450504317457
+    }
+   },
+   "ms": 649,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "group": "place",
+   "expect": "no-place",
+   "value": "no-place",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": null,
+     "guess": "Hurricane Idalia",
+     "span": [
+      583,
+      599
+     ],
+     "p_null": 0.9580615758895874,
+     "confidence": 0.8907085061073303
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "after Hurricane Idalia",
+     "span": [
+      577,
+      599
+     ],
+     "p_null": 0.7376750111579895,
+     "confidence": 0.8140808343887329
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-21",
+     "guess": "2026-09-21",
+     "p_null": 0.06535153090953827,
+     "confidence": 0.09373974137998224
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.3003833591938019,
+     "confidence": 0.9912989366430126
+    }
+   },
+   "ms": 483,
+   "cost": 0.0001274,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 141,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": null,
+     "guess": "Hurricane Idalia",
+     "span": [
+      583,
+      599
+     ],
+     "p_null": 0.9580615758895874,
+     "confidence": 0.8907085061073303
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "after Hurricane Idalia",
+     "span": [
+      577,
+      599
+     ],
+     "p_null": 0.7376750111579895,
+     "confidence": 0.8140808343887329
+    },
+    "start": {
+     "type": "date",
+     "value": "2026-09-21",
+     "guess": "2026-09-21",
+     "p_null": 0.06535153090953827,
+     "confidence": 0.09373974137998224
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.3003833591938019,
+     "confidence": 0.9912989366430126
+    }
+   },
+   "ms": 483,
+   "cost": 0.0001274,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 141,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "group": "place",
+   "expect": "Svalbard",
+   "value": "Svalbard",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Svalbard",
+     "guess": "Svalbard",
+     "span": [
+      586,
+      594
+     ],
+     "p_null": 0.010164398699998856,
+     "confidence": 0.9997575879096985
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past seasons",
+     "span": [
+      474,
+      486
+     ],
+     "p_null": 0.999363362789154,
+     "confidence": 0.20392100512981415
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9981275200843811,
+     "confidence": 0.5044911046770817
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.3305385410785675,
+     "confidence": 0.9997803419213801
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 0,
+     "p_null": 0.9992910623550415,
+     "confidence": 0.41908933743868676
+    }
+   },
+   "ms": 520,
+   "cost": 0.000141,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 141,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Svalbard",
+     "guess": "Svalbard",
+     "span": [
+      586,
+      594
+     ],
+     "p_null": 0.010164398699998856,
+     "confidence": 0.9997575879096985
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past seasons",
+     "span": [
+      474,
+      486
+     ],
+     "p_null": 0.999363362789154,
+     "confidence": 0.20392100512981415
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9981275200843811,
+     "confidence": 0.5044911046770817
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.3305385410785675,
+     "confidence": 0.9997803419213801
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 0,
+     "p_null": 0.9992910623550415,
+     "confidence": 0.41908933743868676
+    }
+   },
+   "ms": 520,
+   "cost": 0.000141,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 141,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Svalbard",
+     "guess": "Svalbard",
+     "span": [
+      586,
+      594
+     ],
+     "p_null": 0.010164398699998856,
+     "confidence": 0.9997575879096985
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past seasons",
+     "span": [
+      474,
+      486
+     ],
+     "p_null": 0.999363362789154,
+     "confidence": 0.20392100512981415
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9981275200843811,
+     "confidence": 0.5044911046770817
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.3305385410785675,
+     "confidence": 0.9997803419213801
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 0,
+     "p_null": 0.9992910623550415,
+     "confidence": 0.41908933743868676
+    }
+   },
+   "ms": 520,
+   "cost": 0.000141,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 141,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "group": "place",
+   "expect": "Austin | Austin Texas",
+   "value": "Austin, Texas",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Austin, Texas",
+     "guess": "Austin, Texas",
+     "span": [
+      579,
+      592
+     ],
+     "p_null": 0.0025668032467365265,
+     "confidence": 0.9690054059028625
+    },
+    "when": {
+     "type": "text",
+     "value": "2022",
+     "guess": "2022",
+     "span": [
+      598,
+      602
+     ],
+     "p_null": 0.0009885329054668546,
+     "confidence": 0.8988485336303711
+    },
+    "start": {
+     "type": "date",
+     "value": "2022-01-01",
+     "guess": "2022-01-01",
+     "p_null": 0.001452252035960555,
+     "confidence": 0.9982136179490476
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.24449272453784943,
+     "confidence": 0.8480631904727973
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9995104074478149,
+     "confidence": 0.04454634207158053
+    }
+   },
+   "ms": 470,
+   "cost": 0.0001428,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 147,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "group": "time",
+   "expect": "2022-01-01 to 2022-12-31",
+   "value": [
+    "2022-01-01",
+    "2026-10-02"
+   ],
+   "ok": false,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Austin, Texas",
+     "guess": "Austin, Texas",
+     "span": [
+      579,
+      592
+     ],
+     "p_null": 0.0025668032467365265,
+     "confidence": 0.9690054059028625
+    },
+    "when": {
+     "type": "text",
+     "value": "2022",
+     "guess": "2022",
+     "span": [
+      598,
+      602
+     ],
+     "p_null": 0.0009885329054668546,
+     "confidence": 0.8988485336303711
+    },
+    "start": {
+     "type": "date",
+     "value": "2022-01-01",
+     "guess": "2022-01-01",
+     "p_null": 0.001452252035960555,
+     "confidence": 0.9982136179490476
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.24449272453784943,
+     "confidence": 0.8480631904727973
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9995104074478149,
+     "confidence": 0.04454634207158053
+    }
+   },
+   "ms": 470,
+   "cost": 0.0001428,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 147,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Austin, Texas",
+     "guess": "Austin, Texas",
+     "span": [
+      579,
+      592
+     ],
+     "p_null": 0.0025668032467365265,
+     "confidence": 0.9690054059028625
+    },
+    "when": {
+     "type": "text",
+     "value": "2022",
+     "guess": "2022",
+     "span": [
+      598,
+      602
+     ],
+     "p_null": 0.0009885329054668546,
+     "confidence": 0.8988485336303711
+    },
+    "start": {
+     "type": "date",
+     "value": "2022-01-01",
+     "guess": "2022-01-01",
+     "p_null": 0.001452252035960555,
+     "confidence": 0.9982136179490476
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.24449272453784943,
+     "confidence": 0.8480631904727973
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9995104074478149,
+     "confidence": 0.04454634207158053
+    }
+   },
+   "ms": 470,
+   "cost": 0.0001428,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 147,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "group": "place",
+   "expect": "Lower Saxony",
+   "value": "Lower Saxony",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lower Saxony",
+     "guess": "Lower Saxony",
+     "span": [
+      577,
+      589
+     ],
+     "p_null": 0.0011706799268722534,
+     "confidence": 0.9999953508377075
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past seasons",
+     "span": [
+      474,
+      486
+     ],
+     "p_null": 0.9989572763442993,
+     "confidence": 0.19050873816013336
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9933597445487976,
+     "confidence": 0.5381251185033007
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.5115976929664612,
+     "confidence": 0.9996530852152732
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9994490742683411,
+     "confidence": 0.05042391238216439
+    }
+   },
+   "ms": 520,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lower Saxony",
+     "guess": "Lower Saxony",
+     "span": [
+      577,
+      589
+     ],
+     "p_null": 0.0011706799268722534,
+     "confidence": 0.9999953508377075
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past seasons",
+     "span": [
+      474,
+      486
+     ],
+     "p_null": 0.9989572763442993,
+     "confidence": 0.19050873816013336
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9933597445487976,
+     "confidence": 0.5381251185033007
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.5115976929664612,
+     "confidence": 0.9996530852152732
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9994490742683411,
+     "confidence": 0.05042391238216439
+    }
+   },
+   "ms": 520,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lower Saxony",
+     "guess": "Lower Saxony",
+     "span": [
+      577,
+      589
+     ],
+     "p_null": 0.0011706799268722534,
+     "confidence": 0.9999953508377075
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past seasons",
+     "span": [
+      474,
+      486
+     ],
+     "p_null": 0.9989572763442993,
+     "confidence": 0.19050873816013336
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9933597445487976,
+     "confidence": 0.5381251185033007
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.5115976929664612,
+     "confidence": 0.9996530852152732
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9994490742683411,
+     "confidence": 0.05042391238216439
+    }
+   },
+   "ms": 520,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "group": "place",
+   "expect": "Hannover",
+   "value": "Hannover",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Hannover",
+     "guess": "Hannover",
+     "span": [
+      580,
+      588
+     ],
+     "p_null": 0.0008322875364683568,
+     "confidence": 0.9996767044067383
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9994257688522339,
+     "confidence": 0.22299672663211823
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9801623821258545,
+     "confidence": 0.49527829545870206
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.7705079317092896,
+     "confidence": 0.9989721552446785
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9986636638641357,
+     "confidence": 0.09692214207952848
+    }
+   },
+   "ms": 556,
+   "cost": 0.0001401,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 138,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Hannover",
+     "guess": "Hannover",
+     "span": [
+      580,
+      588
+     ],
+     "p_null": 0.0008322875364683568,
+     "confidence": 0.9996767044067383
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9994257688522339,
+     "confidence": 0.22299672663211823
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9801623821258545,
+     "confidence": 0.49527829545870206
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.7705079317092896,
+     "confidence": 0.9989721552446785
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9986636638641357,
+     "confidence": 0.09692214207952848
+    }
+   },
+   "ms": 556,
+   "cost": 0.0001401,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 138,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Hannover",
+     "guess": "Hannover",
+     "span": [
+      580,
+      588
+     ],
+     "p_null": 0.0008322875364683568,
+     "confidence": 0.9996767044067383
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9994257688522339,
+     "confidence": 0.22299672663211823
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9801623821258545,
+     "confidence": 0.49527829545870206
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.7705079317092896,
+     "confidence": 0.9989721552446785
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9986636638641357,
+     "confidence": 0.09692214207952848
+    }
+   },
+   "ms": 556,
+   "cost": 0.0001401,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 138,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "group": "place",
+   "expect": "Amazon rainforest | Amazon",
+   "value": "the Amazon rainforest",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Amazon rainforest",
+     "guess": "the Amazon rainforest",
+     "span": [
+      584,
+      605
+     ],
+     "p_null": 0.0030315883923321962,
+     "confidence": 0.7216290831565857
+    },
+    "when": {
+     "type": "text",
+     "value": "recent",
+     "guess": "recent",
+     "span": [
+      563,
+      569
+     ],
+     "p_null": 0.04905620589852333,
+     "confidence": 0.9888945817947388
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.6507702469825745,
+     "confidence": 0.34148160924443427
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.05730096250772476,
+     "confidence": 0.9955272196301723
+    }
+   },
+   "ms": 430,
+   "cost": 0.000128,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 143,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "group": "time",
+   "expect": "2026-09-02 to 2026-10-02",
+   "value": [
+    "2026-09-02",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Amazon rainforest",
+     "guess": "the Amazon rainforest",
+     "span": [
+      584,
+      605
+     ],
+     "p_null": 0.0030315883923321962,
+     "confidence": 0.7216290831565857
+    },
+    "when": {
+     "type": "text",
+     "value": "recent",
+     "guess": "recent",
+     "span": [
+      563,
+      569
+     ],
+     "p_null": 0.04905620589852333,
+     "confidence": 0.9888945817947388
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.6507702469825745,
+     "confidence": 0.34148160924443427
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.05730096250772476,
+     "confidence": 0.9955272196301723
+    }
+   },
+   "ms": 430,
+   "cost": 0.000128,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 143,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "group": "place",
+   "expect": "Alps",
+   "value": "the Alps",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Alps",
+     "guess": "the Alps",
+     "span": [
+      585,
+      593
+     ],
+     "p_null": 0.0017612625379115343,
+     "confidence": 0.9900891780853271
+    },
+    "when": {
+     "type": "text",
+     "value": "winter 2024",
+     "guess": "winter 2024",
+     "span": [
+      597,
+      608
+     ],
+     "p_null": 0.004422524943947792,
+     "confidence": 0.9735400080680847
+    },
+    "start": {
+     "type": "date",
+     "value": "2024-12-01",
+     "guess": "2024-12-01",
+     "p_null": 0.0032028029672801495,
+     "confidence": 0.45167808529486747
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-03-02",
+     "guess": "2025-03-02",
+     "p_null": 0.02137451246380806,
+     "confidence": 0.1781291819484604
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9921784400939941,
+     "confidence": 0.04006064349316477
+    }
+   },
+   "ms": 542,
+   "cost": 0.0001431,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 148,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "group": "time",
+   "expect": "2023-12-01 to 2024-02-29",
+   "value": [
+    "2023-12-01",
+    "2024-02-29"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Alps",
+     "guess": "the Alps",
+     "span": [
+      585,
+      593
+     ],
+     "p_null": 0.0017612625379115343,
+     "confidence": 0.9900891780853271
+    },
+    "when": {
+     "type": "text",
+     "value": "winter 2024",
+     "guess": "winter 2024",
+     "span": [
+      597,
+      608
+     ],
+     "p_null": 0.004422524943947792,
+     "confidence": 0.9735400080680847
+    },
+    "start": {
+     "type": "date",
+     "value": "2024-12-01",
+     "guess": "2024-12-01",
+     "p_null": 0.0032028029672801495,
+     "confidence": 0.45167808529486747
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-03-02",
+     "guess": "2025-03-02",
+     "p_null": 0.02137451246380806,
+     "confidence": 0.1781291819484604
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9921784400939941,
+     "confidence": 0.04006064349316477
+    }
+   },
+   "ms": 542,
+   "cost": 0.0001431,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 148,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Alps",
+     "guess": "the Alps",
+     "span": [
+      585,
+      593
+     ],
+     "p_null": 0.0017612625379115343,
+     "confidence": 0.9900891780853271
+    },
+    "when": {
+     "type": "text",
+     "value": "winter 2024",
+     "guess": "winter 2024",
+     "span": [
+      597,
+      608
+     ],
+     "p_null": 0.004422524943947792,
+     "confidence": 0.9735400080680847
+    },
+    "start": {
+     "type": "date",
+     "value": "2024-12-01",
+     "guess": "2024-12-01",
+     "p_null": 0.0032028029672801495,
+     "confidence": 0.45167808529486747
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-03-02",
+     "guess": "2025-03-02",
+     "p_null": 0.02137451246380806,
+     "confidence": 0.1781291819484604
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9921784400939941,
+     "confidence": 0.04006064349316477
+    }
+   },
+   "ms": 542,
+   "cost": 0.0001431,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 148,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "group": "place",
+   "expect": "Aral Sea",
+   "value": "the Aral Sea",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Aral Sea",
+     "guess": "the Aral Sea",
+     "span": [
+      574,
+      586
+     ],
+     "p_null": 0.005044401623308659,
+     "confidence": 0.548632025718689
+    },
+    "when": {
+     "type": "text",
+     "value": "in 2016",
+     "guess": "in 2016",
+     "span": [
+      587,
+      594
+     ],
+     "p_null": 0.0006649645511060953,
+     "confidence": 0.852882444858551
+    },
+    "start": {
+     "type": "date",
+     "value": "2016-01-01",
+     "guess": "2016-01-01",
+     "p_null": 0.0029931829776614904,
+     "confidence": 0.994190906334132
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.18072627484798431,
+     "confidence": 0.6902197481296696
+    },
+    "cloud": {
+     "type": "number",
+     "value": 10,
+     "guess": 10,
+     "p_null": 0.004794177133589983,
+     "confidence": 0.9810579411284208
+    }
+   },
+   "ms": 476,
+   "cost": 0.0001449,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 154,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "group": "time",
+   "expect": "2016-01-01 to 2016-12-31",
+   "value": [
+    "2016-01-01",
+    "2026-10-02"
+   ],
+   "ok": false,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Aral Sea",
+     "guess": "the Aral Sea",
+     "span": [
+      574,
+      586
+     ],
+     "p_null": 0.005044401623308659,
+     "confidence": 0.548632025718689
+    },
+    "when": {
+     "type": "text",
+     "value": "in 2016",
+     "guess": "in 2016",
+     "span": [
+      587,
+      594
+     ],
+     "p_null": 0.0006649645511060953,
+     "confidence": 0.852882444858551
+    },
+    "start": {
+     "type": "date",
+     "value": "2016-01-01",
+     "guess": "2016-01-01",
+     "p_null": 0.0029931829776614904,
+     "confidence": 0.994190906334132
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.18072627484798431,
+     "confidence": 0.6902197481296696
+    },
+    "cloud": {
+     "type": "number",
+     "value": 10,
+     "guess": 10,
+     "p_null": 0.004794177133589983,
+     "confidence": 0.9810579411284208
+    }
+   },
+   "ms": 476,
+   "cost": 0.0001449,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 154,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "group": "cloud",
+   "expect": "10 to 10",
+   "value": 10,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "the Aral Sea",
+     "guess": "the Aral Sea",
+     "span": [
+      574,
+      586
+     ],
+     "p_null": 0.005044401623308659,
+     "confidence": 0.548632025718689
+    },
+    "when": {
+     "type": "text",
+     "value": "in 2016",
+     "guess": "in 2016",
+     "span": [
+      587,
+      594
+     ],
+     "p_null": 0.0006649645511060953,
+     "confidence": 0.852882444858551
+    },
+    "start": {
+     "type": "date",
+     "value": "2016-01-01",
+     "guess": "2016-01-01",
+     "p_null": 0.0029931829776614904,
+     "confidence": 0.994190906334132
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.18072627484798431,
+     "confidence": 0.6902197481296696
+    },
+    "cloud": {
+     "type": "number",
+     "value": 10,
+     "guess": 10,
+     "p_null": 0.004794177133589983,
+     "confidence": 0.9810579411284208
+    }
+   },
+   "ms": 476,
+   "cost": 0.0001449,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 154,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "group": "place",
+   "expect": "map-view",
+   "value": "this area",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "this area",
+     "guess": "this area",
+     "span": [
+      577,
+      586
+     ],
+     "p_null": 0.015630047768354416,
+     "confidence": 0.7940097451210022
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "mostly",
+     "span": [
+      588,
+      594
+     ],
+     "p_null": 0.9972196817398071,
+     "confidence": 0.18736916780471802
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8908148407936096,
+     "confidence": 0.8233351816542835
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.6060258150100708,
+     "confidence": 0.9958046876757646
+    },
+    "cloud": {
+     "type": "number",
+     "value": 50,
+     "guess": 50,
+     "p_null": 0.4394626021385193,
+     "confidence": 0.30772959441910774
+    }
+   },
+   "ms": 665,
+   "cost": 0.0001416,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 143,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "this area",
+     "guess": "this area",
+     "span": [
+      577,
+      586
+     ],
+     "p_null": 0.015630047768354416,
+     "confidence": 0.7940097451210022
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "mostly",
+     "span": [
+      588,
+      594
+     ],
+     "p_null": 0.9972196817398071,
+     "confidence": 0.18736916780471802
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8908148407936096,
+     "confidence": 0.8233351816542835
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.6060258150100708,
+     "confidence": 0.9958046876757646
+    },
+    "cloud": {
+     "type": "number",
+     "value": 50,
+     "guess": 50,
+     "p_null": 0.4394626021385193,
+     "confidence": 0.30772959441910774
+    }
+   },
+   "ms": 665,
+   "cost": 0.0001416,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 143,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "group": "cloud",
+   "expect": "10 to 20",
+   "value": 50,
+   "ok": false,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "this area",
+     "guess": "this area",
+     "span": [
+      577,
+      586
+     ],
+     "p_null": 0.015630047768354416,
+     "confidence": 0.7940097451210022
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "mostly",
+     "span": [
+      588,
+      594
+     ],
+     "p_null": 0.9972196817398071,
+     "confidence": 0.18736916780471802
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.8908148407936096,
+     "confidence": 0.8233351816542835
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.6060258150100708,
+     "confidence": 0.9958046876757646
+    },
+    "cloud": {
+     "type": "number",
+     "value": 50,
+     "guess": 50,
+     "p_null": 0.4394626021385193,
+     "confidence": 0.30772959441910774
+    }
+   },
+   "ms": 665,
+   "cost": 0.0001416,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 143,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "group": "place",
+   "expect": "Rome",
+   "value": "Rome",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Rome",
+     "guess": "Rome",
+     "span": [
+      588,
+      592
+     ],
+     "p_null": 0.0012139989994466305,
+     "confidence": 0.999006450176239
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "today.\n\nToday is 2026-10-02.\n\nUser request: Sentinel-2 Level-1C",
+     "span": [
+      519,
+      582
+     ],
+     "p_null": 0.9987103939056396,
+     "confidence": 0.10014541447162628
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9912338852882385,
+     "confidence": 0.47056667707866146
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9869547486305237,
+     "confidence": 0.9936802185383504
+    }
+   },
+   "ms": 499,
+   "cost": 0.000128,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 143,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Rome",
+     "guess": "Rome",
+     "span": [
+      588,
+      592
+     ],
+     "p_null": 0.0012139989994466305,
+     "confidence": 0.999006450176239
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "today.\n\nToday is 2026-10-02.\n\nUser request: Sentinel-2 Level-1C",
+     "span": [
+      519,
+      582
+     ],
+     "p_null": 0.9987103939056396,
+     "confidence": 0.10014541447162628
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9912338852882385,
+     "confidence": 0.47056667707866146
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9869547486305237,
+     "confidence": 0.9936802185383504
+    }
+   },
+   "ms": 499,
+   "cost": 0.000128,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 143,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "group": "place",
+   "expect": "Louisville",
+   "value": "Louisville",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Louisville",
+     "guess": "Louisville",
+     "span": [
+      593,
+      603
+     ],
+     "p_null": 0.018472593277692795,
+     "confidence": 0.9168491959571838
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9993374943733215,
+     "confidence": 0.2136235535144806
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9985014200210571,
+     "confidence": 0.5696697074059788
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.36322125792503357,
+     "confidence": 0.9999098845716798
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 0,
+     "p_null": 0.9991819262504578,
+     "confidence": 0.4765829525191102
+    }
+   },
+   "ms": 509,
+   "cost": 0.0001404,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 139,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Louisville",
+     "guess": "Louisville",
+     "span": [
+      593,
+      603
+     ],
+     "p_null": 0.018472593277692795,
+     "confidence": 0.9168491959571838
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9993374943733215,
+     "confidence": 0.2136235535144806
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9985014200210571,
+     "confidence": 0.5696697074059788
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.36322125792503357,
+     "confidence": 0.9999098845716798
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 0,
+     "p_null": 0.9991819262504578,
+     "confidence": 0.4765829525191102
+    }
+   },
+   "ms": 509,
+   "cost": 0.0001404,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 139,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Louisville",
+     "guess": "Louisville",
+     "span": [
+      593,
+      603
+     ],
+     "p_null": 0.018472593277692795,
+     "confidence": 0.9168491959571838
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9993374943733215,
+     "confidence": 0.2136235535144806
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9985014200210571,
+     "confidence": 0.5696697074059788
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.36322125792503357,
+     "confidence": 0.9999098845716798
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 0,
+     "p_null": 0.9991819262504578,
+     "confidence": 0.4765829525191102
+    }
+   },
+   "ms": 509,
+   "cost": 0.0001404,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 139,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "group": "place",
+   "expect": "Lagos",
+   "value": "Lagos",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lagos",
+     "guess": "Lagos",
+     "span": [
+      602,
+      607
+     ],
+     "p_null": 0.002362760715186596,
+     "confidence": 0.9980205297470093
+    },
+    "when": {
+     "type": "text",
+     "value": "2023",
+     "guess": "2023",
+     "span": [
+      612,
+      616
+     ],
+     "p_null": 0.0024427708704024553,
+     "confidence": 0.9807925820350647
+    },
+    "start": {
+     "type": "date",
+     "value": "2023-01-01",
+     "guess": "2023-01-01",
+     "p_null": 0.0010243639117106795,
+     "confidence": 0.9963722777236015
+    },
+    "end": {
+     "type": "date",
+     "value": "2023-12-31",
+     "guess": "2023-12-31",
+     "p_null": 0.04365299269556999,
+     "confidence": 0.40804064031275955
+    }
+   },
+   "ms": 494,
+   "cost": 0.0001298,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 149,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "group": "time",
+   "expect": "2023-01-01 to 2023-12-31",
+   "value": [
+    "2023-01-01",
+    "2023-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lagos",
+     "guess": "Lagos",
+     "span": [
+      602,
+      607
+     ],
+     "p_null": 0.002362760715186596,
+     "confidence": 0.9980205297470093
+    },
+    "when": {
+     "type": "text",
+     "value": "2023",
+     "guess": "2023",
+     "span": [
+      612,
+      616
+     ],
+     "p_null": 0.0024427708704024553,
+     "confidence": 0.9807925820350647
+    },
+    "start": {
+     "type": "date",
+     "value": "2023-01-01",
+     "guess": "2023-01-01",
+     "p_null": 0.0010243639117106795,
+     "confidence": 0.9963722777236015
+    },
+    "end": {
+     "type": "date",
+     "value": "2023-12-31",
+     "guess": "2023-12-31",
+     "p_null": 0.04365299269556999,
+     "confidence": 0.40804064031275955
+    }
+   },
+   "ms": 494,
+   "cost": 0.0001298,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 149,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "group": "place",
+   "expect": "Kathmandu",
+   "value": "Kathmandu",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kathmandu",
+     "guess": "Kathmandu",
+     "span": [
+      580,
+      589
+     ],
+     "p_null": 0.0003615627938415855,
+     "confidence": 0.9999164342880249
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9993263483047485,
+     "confidence": 0.21793347597122192
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9885669946670532,
+     "confidence": 0.7781484461405833
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.49951255321502686,
+     "confidence": 0.9995911306268934
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9976947903633118,
+     "confidence": 0.09846939666265504
+    }
+   },
+   "ms": 429,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kathmandu",
+     "guess": "Kathmandu",
+     "span": [
+      580,
+      589
+     ],
+     "p_null": 0.0003615627938415855,
+     "confidence": 0.9999164342880249
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9993263483047485,
+     "confidence": 0.21793347597122192
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9885669946670532,
+     "confidence": 0.7781484461405833
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.49951255321502686,
+     "confidence": 0.9995911306268934
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9976947903633118,
+     "confidence": 0.09846939666265504
+    }
+   },
+   "ms": 429,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Kathmandu",
+     "guess": "Kathmandu",
+     "span": [
+      580,
+      589
+     ],
+     "p_null": 0.0003615627938415855,
+     "confidence": 0.9999164342880249
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.9993263483047485,
+     "confidence": 0.21793347597122192
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9885669946670532,
+     "confidence": 0.7781484461405833
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.49951255321502686,
+     "confidence": 0.9995911306268934
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9976947903633118,
+     "confidence": 0.09846939666265504
+    }
+   },
+   "ms": 429,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "group": "place",
+   "expect": "Iceland",
+   "value": "Iceland",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Iceland",
+     "guess": "Iceland",
+     "span": [
+      576,
+      583
+     ],
+     "p_null": 0.009695429354906082,
+     "confidence": 0.9990519881248474
+    },
+    "when": {
+     "type": "text",
+     "value": "autumn 2021",
+     "guess": "autumn 2021",
+     "span": [
+      587,
+      598
+     ],
+     "p_null": 0.0015213636215776205,
+     "confidence": 0.9573854207992554
+    },
+    "start": {
+     "type": "date",
+     "value": "2021-09-01",
+     "guess": "2021-09-01",
+     "p_null": 0.00034420122392475605,
+     "confidence": 0.8604718346555177
+    },
+    "end": {
+     "type": "date",
+     "value": "2021-10-02",
+     "guess": "2021-10-02",
+     "p_null": 0.01101395022124052,
+     "confidence": 0.16288668335464795
+    },
+    "cloud": {
+     "type": "number",
+     "value": 40,
+     "guess": 40,
+     "p_null": 0.016166213899850845,
+     "confidence": 0.9372563265058867
+    }
+   },
+   "ms": 550,
+   "cost": 0.0001446,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 153,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "group": "time",
+   "expect": "2021-09-01 to 2021-11-30",
+   "value": [
+    "2021-09-01",
+    "2021-11-30"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Iceland",
+     "guess": "Iceland",
+     "span": [
+      576,
+      583
+     ],
+     "p_null": 0.009695429354906082,
+     "confidence": 0.9990519881248474
+    },
+    "when": {
+     "type": "text",
+     "value": "autumn 2021",
+     "guess": "autumn 2021",
+     "span": [
+      587,
+      598
+     ],
+     "p_null": 0.0015213636215776205,
+     "confidence": 0.9573854207992554
+    },
+    "start": {
+     "type": "date",
+     "value": "2021-09-01",
+     "guess": "2021-09-01",
+     "p_null": 0.00034420122392475605,
+     "confidence": 0.8604718346555177
+    },
+    "end": {
+     "type": "date",
+     "value": "2021-10-02",
+     "guess": "2021-10-02",
+     "p_null": 0.01101395022124052,
+     "confidence": 0.16288668335464795
+    },
+    "cloud": {
+     "type": "number",
+     "value": 40,
+     "guess": 40,
+     "p_null": 0.016166213899850845,
+     "confidence": 0.9372563265058867
+    }
+   },
+   "ms": 550,
+   "cost": 0.0001446,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 153,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "group": "cloud",
+   "expect": "40 to 40",
+   "value": 40,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Iceland",
+     "guess": "Iceland",
+     "span": [
+      576,
+      583
+     ],
+     "p_null": 0.009695429354906082,
+     "confidence": 0.9990519881248474
+    },
+    "when": {
+     "type": "text",
+     "value": "autumn 2021",
+     "guess": "autumn 2021",
+     "span": [
+      587,
+      598
+     ],
+     "p_null": 0.0015213636215776205,
+     "confidence": 0.9573854207992554
+    },
+    "start": {
+     "type": "date",
+     "value": "2021-09-01",
+     "guess": "2021-09-01",
+     "p_null": 0.00034420122392475605,
+     "confidence": 0.8604718346555177
+    },
+    "end": {
+     "type": "date",
+     "value": "2021-10-02",
+     "guess": "2021-10-02",
+     "p_null": 0.01101395022124052,
+     "confidence": 0.16288668335464795
+    },
+    "cloud": {
+     "type": "number",
+     "value": 40,
+     "guess": 40,
+     "p_null": 0.016166213899850845,
+     "confidence": 0.9372563265058867
+    }
+   },
+   "ms": 550,
+   "cost": 0.0001446,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 153,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "group": "place",
+   "expect": "Lisbon",
+   "value": "Lisbon",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "guess": "Lisbon",
+     "span": [
+      579,
+      585
+     ],
+     "p_null": 0.0013286796165630221,
+     "confidence": 0.9994851350784302
+    },
+    "when": {
+     "type": "text",
+     "value": "the last 12 months",
+     "guess": "the last 12 months",
+     "span": [
+      589,
+      607
+     ],
+     "p_null": 0.002061794511973858,
+     "confidence": 0.9253883361816406
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-10-01",
+     "guess": "2025-10-01",
+     "p_null": 0.00004489261846174486,
+     "confidence": 0.46327969620327153
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.004829139914363623,
+     "confidence": 0.9476579376477509
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.999233603477478,
+     "confidence": 0.01212050617031078
+    }
+   },
+   "ms": 473,
+   "cost": 0.0001422,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 145,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "group": "time",
+   "expect": "2025-10-02 to 2026-10-02",
+   "value": [
+    "2025-10-02",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "guess": "Lisbon",
+     "span": [
+      579,
+      585
+     ],
+     "p_null": 0.0013286796165630221,
+     "confidence": 0.9994851350784302
+    },
+    "when": {
+     "type": "text",
+     "value": "the last 12 months",
+     "guess": "the last 12 months",
+     "span": [
+      589,
+      607
+     ],
+     "p_null": 0.002061794511973858,
+     "confidence": 0.9253883361816406
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-10-01",
+     "guess": "2025-10-01",
+     "p_null": 0.00004489261846174486,
+     "confidence": 0.46327969620327153
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.004829139914363623,
+     "confidence": 0.9476579376477509
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.999233603477478,
+     "confidence": 0.01212050617031078
+    }
+   },
+   "ms": 473,
+   "cost": 0.0001422,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 145,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lisbon",
+     "guess": "Lisbon",
+     "span": [
+      579,
+      585
+     ],
+     "p_null": 0.0013286796165630221,
+     "confidence": 0.9994851350784302
+    },
+    "when": {
+     "type": "text",
+     "value": "the last 12 months",
+     "guess": "the last 12 months",
+     "span": [
+      589,
+      607
+     ],
+     "p_null": 0.002061794511973858,
+     "confidence": 0.9253883361816406
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-10-01",
+     "guess": "2025-10-01",
+     "p_null": 0.00004489261846174486,
+     "confidence": 0.46327969620327153
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.004829139914363623,
+     "confidence": 0.9476579376477509
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.999233603477478,
+     "confidence": 0.01212050617031078
+    }
+   },
+   "ms": 473,
+   "cost": 0.0001422,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 145,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "group": "place",
+   "expect": "Cotopaxi",
+   "value": "Cotopaxi",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Cotopaxi",
+     "guess": "Cotopaxi",
+     "span": [
+      579,
+      587
+     ],
+     "p_null": 0.0006482623284682631,
+     "confidence": 0.9999775886535645
+    },
+    "when": {
+     "type": "text",
+     "value": "December 2025",
+     "guess": "December 2025",
+     "span": [
+      591,
+      604
+     ],
+     "p_null": 0.0017234161496162415,
+     "confidence": 0.8873143792152405
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-12-01",
+     "guess": "2025-12-01",
+     "p_null": 0.00042031228076666594,
+     "confidence": 0.997461090164808
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-12-31",
+     "guess": "2025-12-31",
+     "p_null": 0.005278248339891434,
+     "confidence": 0.9860743702959086
+    },
+    "cloud": {
+     "type": "number",
+     "value": 30,
+     "guess": 30,
+     "p_null": 0.007706782780587673,
+     "confidence": 0.867828049141548
+    }
+   },
+   "ms": 505,
+   "cost": 0.0001458,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 157,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "group": "time",
+   "expect": "2025-12-01 to 2025-12-31",
+   "value": [
+    "2025-12-01",
+    "2025-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Cotopaxi",
+     "guess": "Cotopaxi",
+     "span": [
+      579,
+      587
+     ],
+     "p_null": 0.0006482623284682631,
+     "confidence": 0.9999775886535645
+    },
+    "when": {
+     "type": "text",
+     "value": "December 2025",
+     "guess": "December 2025",
+     "span": [
+      591,
+      604
+     ],
+     "p_null": 0.0017234161496162415,
+     "confidence": 0.8873143792152405
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-12-01",
+     "guess": "2025-12-01",
+     "p_null": 0.00042031228076666594,
+     "confidence": 0.997461090164808
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-12-31",
+     "guess": "2025-12-31",
+     "p_null": 0.005278248339891434,
+     "confidence": 0.9860743702959086
+    },
+    "cloud": {
+     "type": "number",
+     "value": 30,
+     "guess": 30,
+     "p_null": 0.007706782780587673,
+     "confidence": 0.867828049141548
+    }
+   },
+   "ms": 505,
+   "cost": 0.0001458,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 157,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "group": "cloud",
+   "expect": "30 to 30",
+   "value": 30,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Cotopaxi",
+     "guess": "Cotopaxi",
+     "span": [
+      579,
+      587
+     ],
+     "p_null": 0.0006482623284682631,
+     "confidence": 0.9999775886535645
+    },
+    "when": {
+     "type": "text",
+     "value": "December 2025",
+     "guess": "December 2025",
+     "span": [
+      591,
+      604
+     ],
+     "p_null": 0.0017234161496162415,
+     "confidence": 0.8873143792152405
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-12-01",
+     "guess": "2025-12-01",
+     "p_null": 0.00042031228076666594,
+     "confidence": 0.997461090164808
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-12-31",
+     "guess": "2025-12-31",
+     "p_null": 0.005278248339891434,
+     "confidence": 0.9860743702959086
+    },
+    "cloud": {
+     "type": "number",
+     "value": 30,
+     "guess": 30,
+     "p_null": 0.007706782780587673,
+     "confidence": 0.867828049141548
+    }
+   },
+   "ms": 505,
+   "cost": 0.0001458,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 157,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "group": "place",
+   "expect": "Helsinki",
+   "value": "Helsinki",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Helsinki",
+     "guess": "Helsinki",
+     "span": [
+      593,
+      601
+     ],
+     "p_null": 0.025084154680371284,
+     "confidence": 0.9740319848060608
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past seasons",
+     "span": [
+      474,
+      486
+     ],
+     "p_null": 0.9986456036567688,
+     "confidence": 0.21782973408699036
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9872037768363953,
+     "confidence": 0.5517872692164225
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.37576600909233093,
+     "confidence": 0.9996690480980596
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9980295300483704,
+     "confidence": 0.07296661796172828
+    }
+   },
+   "ms": 472,
+   "cost": 0.0001404,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 139,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Helsinki",
+     "guess": "Helsinki",
+     "span": [
+      593,
+      601
+     ],
+     "p_null": 0.025084154680371284,
+     "confidence": 0.9740319848060608
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past seasons",
+     "span": [
+      474,
+      486
+     ],
+     "p_null": 0.9986456036567688,
+     "confidence": 0.21782973408699036
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9872037768363953,
+     "confidence": 0.5517872692164225
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.37576600909233093,
+     "confidence": 0.9996690480980596
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9980295300483704,
+     "confidence": 0.07296661796172828
+    }
+   },
+   "ms": 472,
+   "cost": 0.0001404,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 139,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Helsinki",
+     "guess": "Helsinki",
+     "span": [
+      593,
+      601
+     ],
+     "p_null": 0.025084154680371284,
+     "confidence": 0.9740319848060608
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past seasons",
+     "span": [
+      474,
+      486
+     ],
+     "p_null": 0.9986456036567688,
+     "confidence": 0.21782973408699036
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9872037768363953,
+     "confidence": 0.5517872692164225
+    },
+    "end": {
+     "type": "date",
+     "value": "2026-10-02",
+     "guess": "2026-10-02",
+     "p_null": 0.37576600909233093,
+     "confidence": 0.9996690480980596
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9980295300483704,
+     "confidence": 0.07296661796172828
+    }
+   },
+   "ms": 472,
+   "cost": 0.0001404,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 139,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "group": "place",
+   "expect": "Klagenfurt",
+   "value": "Klagenfurt",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Klagenfurt",
+     "guess": "Klagenfurt",
+     "span": [
+      588,
+      598
+     ],
+     "p_null": 0.017438553273677826,
+     "confidence": 0.906850278377533
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.99872225522995,
+     "confidence": 0.1079336628317833
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9943621158599854,
+     "confidence": 0.623003778976467
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.860663652420044,
+     "confidence": 0.9992318996901889
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9990094900131226,
+     "confidence": 0.06421018803145653
+    }
+   },
+   "ms": 568,
+   "cost": 0.0001419,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 144,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Klagenfurt",
+     "guess": "Klagenfurt",
+     "span": [
+      588,
+      598
+     ],
+     "p_null": 0.017438553273677826,
+     "confidence": 0.906850278377533
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.99872225522995,
+     "confidence": 0.1079336628317833
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9943621158599854,
+     "confidence": 0.623003778976467
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.860663652420044,
+     "confidence": 0.9992318996901889
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9990094900131226,
+     "confidence": 0.06421018803145653
+    }
+   },
+   "ms": 568,
+   "cost": 0.0001419,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 144,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Klagenfurt",
+     "guess": "Klagenfurt",
+     "span": [
+      588,
+      598
+     ],
+     "p_null": 0.017438553273677826,
+     "confidence": 0.906850278377533
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Past",
+     "span": [
+      474,
+      478
+     ],
+     "p_null": 0.99872225522995,
+     "confidence": 0.1079336628317833
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9943621158599854,
+     "confidence": 0.623003778976467
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.860663652420044,
+     "confidence": 0.9992318996901889
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9990094900131226,
+     "confidence": 0.06421018803145653
+    }
+   },
+   "ms": 568,
+   "cost": 0.0001419,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 144,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "group": "place",
+   "expect": "Vancouver",
+   "value": "Vancouver",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Vancouver",
+     "guess": "Vancouver",
+     "span": [
+      595,
+      604
+     ],
+     "p_null": 0.0115109384059906,
+     "confidence": 0.999731719493866
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Vancouver",
+     "span": [
+      595,
+      604
+     ],
+     "p_null": 0.9992039799690247,
+     "confidence": 0.2364145666360855
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9984182119369507,
+     "confidence": 0.4514539564865727
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9053292870521545,
+     "confidence": 0.9994729768406825
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9983623623847961,
+     "confidence": 0.06164059578010203
+    }
+   },
+   "ms": 604,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Vancouver",
+     "guess": "Vancouver",
+     "span": [
+      595,
+      604
+     ],
+     "p_null": 0.0115109384059906,
+     "confidence": 0.999731719493866
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Vancouver",
+     "span": [
+      595,
+      604
+     ],
+     "p_null": 0.9992039799690247,
+     "confidence": 0.2364145666360855
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9984182119369507,
+     "confidence": 0.4514539564865727
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9053292870521545,
+     "confidence": 0.9994729768406825
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9983623623847961,
+     "confidence": 0.06164059578010203
+    }
+   },
+   "ms": 604,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Vancouver",
+     "guess": "Vancouver",
+     "span": [
+      595,
+      604
+     ],
+     "p_null": 0.0115109384059906,
+     "confidence": 0.999731719493866
+    },
+    "when": {
+     "type": "text",
+     "value": null,
+     "guess": "Vancouver",
+     "span": [
+      595,
+      604
+     ],
+     "p_null": 0.9992039799690247,
+     "confidence": 0.2364145666360855
+    },
+    "start": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-01",
+     "p_null": 0.9984182119369507,
+     "confidence": 0.4514539564865727
+    },
+    "end": {
+     "type": "date",
+     "value": null,
+     "guess": "2026-10-02",
+     "p_null": 0.9053292870521545,
+     "confidence": 0.9994729768406825
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 10,
+     "p_null": 0.9983623623847961,
+     "confidence": 0.06164059578010203
+    }
+   },
+   "ms": 604,
+   "cost": 0.0001407,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 140,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "group": "place",
+   "expect": "Nairobi",
+   "value": "Nairobi",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Nairobi",
+     "guess": "Nairobi",
+     "span": [
+      577,
+      584
+     ],
+     "p_null": 0.008296249434351921,
+     "confidence": 0.9385663866996765
+    },
+    "when": {
+     "type": "text",
+     "value": "spring 2023",
+     "guess": "spring 2023",
+     "span": [
+      588,
+      599
+     ],
+     "p_null": 0.002340089064091444,
+     "confidence": 0.9559049606323242
+    },
+    "start": {
+     "type": "date",
+     "value": "2023-01-01",
+     "guess": "2023-01-01",
+     "p_null": 0.0011375052854418755,
+     "confidence": 0.7842530340041963
+    },
+    "end": {
+     "type": "date",
+     "value": "2023-09-02",
+     "guess": "2023-09-02",
+     "p_null": 0.02804594859480858,
+     "confidence": 0.13912315367561143
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9848079681396484,
+     "confidence": 0.04232485606209145
+    }
+   },
+   "ms": 558,
+   "cost": 0.0001434,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 149,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "group": "time",
+   "expect": "2023-03-01 to 2023-05-31",
+   "value": [
+    "2023-03-01",
+    "2023-05-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Nairobi",
+     "guess": "Nairobi",
+     "span": [
+      577,
+      584
+     ],
+     "p_null": 0.008296249434351921,
+     "confidence": 0.9385663866996765
+    },
+    "when": {
+     "type": "text",
+     "value": "spring 2023",
+     "guess": "spring 2023",
+     "span": [
+      588,
+      599
+     ],
+     "p_null": 0.002340089064091444,
+     "confidence": 0.9559049606323242
+    },
+    "start": {
+     "type": "date",
+     "value": "2023-01-01",
+     "guess": "2023-01-01",
+     "p_null": 0.0011375052854418755,
+     "confidence": 0.7842530340041963
+    },
+    "end": {
+     "type": "date",
+     "value": "2023-09-02",
+     "guess": "2023-09-02",
+     "p_null": 0.02804594859480858,
+     "confidence": 0.13912315367561143
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9848079681396484,
+     "confidence": 0.04232485606209145
+    }
+   },
+   "ms": 558,
+   "cost": 0.0001434,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 149,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Nairobi",
+     "guess": "Nairobi",
+     "span": [
+      577,
+      584
+     ],
+     "p_null": 0.008296249434351921,
+     "confidence": 0.9385663866996765
+    },
+    "when": {
+     "type": "text",
+     "value": "spring 2023",
+     "guess": "spring 2023",
+     "span": [
+      588,
+      599
+     ],
+     "p_null": 0.002340089064091444,
+     "confidence": 0.9559049606323242
+    },
+    "start": {
+     "type": "date",
+     "value": "2023-01-01",
+     "guess": "2023-01-01",
+     "p_null": 0.0011375052854418755,
+     "confidence": 0.7842530340041963
+    },
+    "end": {
+     "type": "date",
+     "value": "2023-09-02",
+     "guess": "2023-09-02",
+     "p_null": 0.02804594859480858,
+     "confidence": 0.13912315367561143
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9848079681396484,
+     "confidence": 0.04232485606209145
+    }
+   },
+   "ms": 558,
+   "cost": 0.0001434,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 149,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "group": "place",
+   "expect": "Lake Titicaca | Titicaca",
+   "value": "Lake Titicaca",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lake Titicaca",
+     "guess": "Lake Titicaca",
+     "span": [
+      598,
+      611
+     ],
+     "p_null": 0.0012659101048484445,
+     "confidence": 0.9997697472572327
+    },
+    "when": {
+     "type": "text",
+     "value": "March 2019",
+     "guess": "March 2019",
+     "span": [
+      584,
+      594
+     ],
+     "p_null": 0.0024330599699169397,
+     "confidence": 0.9232816100120544
+    },
+    "start": {
+     "type": "date",
+     "value": "2019-03-01",
+     "guess": "2019-03-01",
+     "p_null": 0.0007178368396125734,
+     "confidence": 0.9921666319631466
+    },
+    "end": {
+     "type": "date",
+     "value": "2019-03-31",
+     "guess": "2019-03-31",
+     "p_null": 0.016594314947724342,
+     "confidence": 0.7154204772550202
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9996815919876099,
+     "confidence": 0.1165255529727135
+    }
+   },
+   "ms": 544,
+   "cost": 0.0001434,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 149,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "group": "time",
+   "expect": "2019-03-01 to 2019-03-31",
+   "value": [
+    "2019-03-01",
+    "2019-03-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lake Titicaca",
+     "guess": "Lake Titicaca",
+     "span": [
+      598,
+      611
+     ],
+     "p_null": 0.0012659101048484445,
+     "confidence": 0.9997697472572327
+    },
+    "when": {
+     "type": "text",
+     "value": "March 2019",
+     "guess": "March 2019",
+     "span": [
+      584,
+      594
+     ],
+     "p_null": 0.0024330599699169397,
+     "confidence": 0.9232816100120544
+    },
+    "start": {
+     "type": "date",
+     "value": "2019-03-01",
+     "guess": "2019-03-01",
+     "p_null": 0.0007178368396125734,
+     "confidence": 0.9921666319631466
+    },
+    "end": {
+     "type": "date",
+     "value": "2019-03-31",
+     "guess": "2019-03-31",
+     "p_null": 0.016594314947724342,
+     "confidence": 0.7154204772550202
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9996815919876099,
+     "confidence": 0.1165255529727135
+    }
+   },
+   "ms": 544,
+   "cost": 0.0001434,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 149,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Lake Titicaca",
+     "guess": "Lake Titicaca",
+     "span": [
+      598,
+      611
+     ],
+     "p_null": 0.0012659101048484445,
+     "confidence": 0.9997697472572327
+    },
+    "when": {
+     "type": "text",
+     "value": "March 2019",
+     "guess": "March 2019",
+     "span": [
+      584,
+      594
+     ],
+     "p_null": 0.0024330599699169397,
+     "confidence": 0.9232816100120544
+    },
+    "start": {
+     "type": "date",
+     "value": "2019-03-01",
+     "guess": "2019-03-01",
+     "p_null": 0.0007178368396125734,
+     "confidence": 0.9921666319631466
+    },
+    "end": {
+     "type": "date",
+     "value": "2019-03-31",
+     "guess": "2019-03-31",
+     "p_null": 0.016594314947724342,
+     "confidence": 0.7154204772550202
+    },
+    "cloud": {
+     "type": "number",
+     "value": null,
+     "guess": 30,
+     "p_null": 0.9996815919876099,
+     "confidence": 0.1165255529727135
+    }
+   },
+   "ms": 544,
+   "cost": 0.0001434,
+   "usage": {
+    "schema_tokens": 987,
+    "state_tokens": 149,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "group": "place",
+   "expect": "Los Angeles",
+   "value": "Los Angeles",
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Los Angeles",
+     "guess": "Los Angeles",
+     "span": [
+      576,
+      587
+     ],
+     "p_null": 0.0028476393781602383,
+     "confidence": 0.9999281167984009
+    },
+    "when": {
+     "type": "text",
+     "value": "January 2025",
+     "guess": "January 2025",
+     "span": [
+      591,
+      603
+     ],
+     "p_null": 0.001247674459591508,
+     "confidence": 0.5292450785636902
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-01-01",
+     "guess": "2025-01-01",
+     "p_null": 0.0002026394649874419,
+     "confidence": 0.9985600205079181
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-01-31",
+     "guess": "2025-01-31",
+     "p_null": 0.02122112363576889,
+     "confidence": 0.910539704889132
+    }
+   },
+   "ms": 442,
+   "cost": 0.0001286,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 145,
+    "passes": 3
+   }
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "group": "time",
+   "expect": "2025-01-01 to 2025-01-31",
+   "value": [
+    "2025-01-01",
+    "2025-01-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "type": "text",
+     "value": "Los Angeles",
+     "guess": "Los Angeles",
+     "span": [
+      576,
+      587
+     ],
+     "p_null": 0.0028476393781602383,
+     "confidence": 0.9999281167984009
+    },
+    "when": {
+     "type": "text",
+     "value": "January 2025",
+     "guess": "January 2025",
+     "span": [
+      591,
+      603
+     ],
+     "p_null": 0.001247674459591508,
+     "confidence": 0.5292450785636902
+    },
+    "start": {
+     "type": "date",
+     "value": "2025-01-01",
+     "guess": "2025-01-01",
+     "p_null": 0.0002026394649874419,
+     "confidence": 0.9985600205079181
+    },
+    "end": {
+     "type": "date",
+     "value": "2025-01-31",
+     "guess": "2025-01-31",
+     "p_null": 0.02122112363576889,
+     "confidence": 0.910539704889132
+    }
+   },
+   "ms": 442,
+   "cost": 0.0001286,
+   "usage": {
+    "schema_tokens": 851,
+    "state_tokens": 145,
+    "passes": 3
+   }
+  }
+ ]
+}
