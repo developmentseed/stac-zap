@@ -43,11 +43,20 @@ only to OpenRouter. The key does not go into the browser bundle.
 ## Deploy
 
 The site is static, on GitHub Pages. A Cloudflare Worker (`worker/`) keeps
-the OpenRouter key and forwards the jev calls. The Worker:
+the OpenRouter key and forwards the jev and Clairic calls. The Worker:
 
 - accepts only requests from the site, `https://developmentseed.org`,
-- forwards only to the OpenRouter decisions API, always with the jev model,
-- accepts about 30 requests each minute from one visitor.
+- forwards `POST /` only to the OpenRouter decisions API, always with the
+  jev model (`JEV_MODEL`),
+- forwards `POST /extract` only to the OpenRouter extractions API, always
+  with the Clairic model (`EXTRACT_MODEL`), with 1 to 8 text, number or
+  date fields,
+- accepts about 50 requests each minute from one visitor. A zap makes 4 or
+  5 calls.
+
+If the Worker has no `/extract` route yet, the site still works: jev picks
+the place, the time and the cloud cover. Deploy the Worker again after you
+update it.
 
 Give the OpenRouter key a budget limit. The budget limit is the last check.
 
