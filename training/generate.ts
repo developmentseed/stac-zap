@@ -90,28 +90,76 @@ function weighted<T>(xs: readonly T[], weight: (x: T) => number): T {
 /** Optical data, where a cloud cover filter makes sense. */
 const OPTICAL = /sentinel-?2|landsat|naip|optical|multispectral|modis|aster|hls|orthophoto|aerial|planet|spot|imagery|rgb/i;
 
-/** Short names that people use for common data, by a pattern of the collection id or title. */
-const NICKNAMES: [RegExp, string[]][] = [
-  [/sentinel-?2.*l2a|sentinel-2-c1-l2a/i, ["Sentinel-2", "S2", "Sentinel 2", "sentinel2", "Sentinel-2 L2A"]],
-  [/sentinel-?2.*l1c/i, ["Sentinel-2 L1C", "Sentinel-2 Level-1C", "S2 L1C"]],
-  [/landsat/i, ["Landsat", "Landsat imagery"]],
-  [/sentinel-?1/i, ["Sentinel-1", "S1", "Sentinel-1 radar", "SAR"]],
-  [/\bnaip\b/i, ["NAIP", "NAIP imagery"]],
-  [/\bdem\b|elevation|terrain/i, ["elevation", "DEM", "a digital elevation model"]],
-  [/ortho|dop\b|aerial/i, ["orthophotos", "aerial photos", "aerial imagery"]],
-  [/land ?cover|worldcover/i, ["land cover", "a land cover map"]],
-  [/modis/i, ["MODIS"]],
-  [/lidar|laz\b|point cloud/i, ["lidar", "a lidar point cloud"]],
-];
+/**
+ * Generic names for common data, and the main products they mean. A request
+ * with a generic name ("Sentinel-2", "elevation") accepts every member of
+ * the group, in every catalog. Other collections are named by their own
+ * title only. (v0 gave the generic names to every collection whose id or
+ * title matched a pattern, so "Sentinel-2" pointed to dozens of mosaics and
+ * bands with one correct answer each, and "elevation" to Swiss geology.)
+ */
+type Group = { names: string[]; members: string[] };
+export const GROUPS: Record<string, Group> = {
+  s2: {
+    names: ["Sentinel-2", "S2", "Sentinel 2", "sentinel2", "Sentinel-2 L2A", "Sentinel-2 imagery", "S2 images"],
+    members: [
+      "planetary-computer/sentinel-2-l2a", "earth-search/sentinel-2-l2a", "earth-search/sentinel-2-c1-l2a",
+      "cdse/sentinel-2-l2a", "astraea-earth-ondemand/sentinel2_l2a", "super-resolved-sentinel-2-2-5m-stac-api/sentinel-2-l2a",
+      "digital-earth-africa/s2_l2a", "digital-earth-africa/s2_l2a_c1", "inpe-stac-server/S2_L2A-1",
+    ],
+  },
+  s2l1c: {
+    names: ["Sentinel-2 L1C", "Sentinel-2 Level-1C", "S2 L1C", "Sentinel-2 top of atmosphere"],
+    members: ["earth-search/sentinel-2-l1c", "cdse/sentinel-2-l1c", "astraea-earth-ondemand/sentinel2_l1c", "dedl-api/EO.ESA.DAT.SENTINEL-2.MSI.L1C"],
+  },
+  s1: {
+    names: ["Sentinel-1", "S1", "Sentinel-1 radar", "SAR", "radar images", "radar"],
+    members: [
+      "planetary-computer/sentinel-1-rtc", "planetary-computer/sentinel-1-grd", "earth-search/sentinel-1-grd", "cdse/sentinel-1-grd",
+      "astraea-earth-ondemand/sentinel1_l1c_grd", "dedl-api/EO.ESA.DAT.SENTINEL-1.L1_GRD", "mtd-stac-api/sentinel1-rtc",
+      "digital-earth-africa/s1_rtc", "inpe-stac-server/sentinel-1-rtc-1",
+    ],
+  },
+  landsat: {
+    names: ["Landsat", "Landsat imagery", "landsat images", "Landsat surface reflectance"],
+    members: [
+      "planetary-computer/landsat-c2-l2", "earth-search/landsat-c2-l2", "usgs-landsat-collection-2-api/landsat-c2l2-sr",
+      "dedl-api/EO.NASA.DAT.LANDSAT.C2_L2", "digital-earth-africa/landsat_c2l2_ar",
+    ],
+  },
+  naip: {
+    names: ["NAIP", "NAIP imagery", "NAIP aerial photos"],
+    members: ["planetary-computer/naip", "earth-search/naip", "astraea-earth-ondemand/naip"],
+  },
+  dem: {
+    names: ["elevation", "DEM", "a digital elevation model", "terrain height", "topography"],
+    members: [
+      "planetary-computer/cop-dem-glo-30", "planetary-computer/cop-dem-glo-90", "planetary-computer/nasadem", "planetary-computer/alos-dem",
+      "earth-search/cop-dem-glo-30", "earth-search/cop-dem-glo-90", "eoapi/copernicus-dem", "openaerialmap/cop-dem-glo-30",
+      "cdse/cop-dem-glo-30-dged-cog", "cdse/cop-dem-glo-90-dged-cog", "dedl-api/EO.DEM.DAT.COP-DEM_GLO-30-DGED",
+      "dedl-api/EO.DEM.DAT.COP-DEM_GLO-90-DGED", "digital-earth-africa/dem_cop_30", "digital-earth-africa/dem_cop_90",
+      "digital-earth-africa/nasadem", "digital-earth-africa/dem_srtm", "mtd-stac-api/srtm",
+    ],
+  },
+  landcover: {
+    names: ["land cover", "a land cover map", "land use and land cover"],
+    members: [
+      "planetary-computer/esa-worldcover", "planetary-computer/esa-cci-lc", "digital-earth-africa/esa_worldcover_2021",
+      "digital-earth-africa/io_lulc_v2", "digital-earth-africa/cgls_landcover", "digital-earth-africa/cci_landcover",
+    ],
+  },
+};
+const groupOf = new Map<string, Group>();
+for (const g of Object.values(GROUPS)) for (const m of g.members) groupOf.set(m, g);
 
 /** The ways a request can name a collection. */
 function namesOf(c: Collection): string[] {
+  // The generic names of a group are added where the collection is used (see `accepted` below).
   const title = (c.title ?? c.id).replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim();
   const names = new Set([title]);
   if (title.length > 50) names.delete(title);
   const short = title.replace(/\b(collection|dataset|data|product|v\d+(\.\d+)*)\b/gi, "").replace(/\s+/g, " ").trim();
   if (short.length >= 3 && short.length <= 50) names.add(short);
-  for (const [re, nicks] of NICKNAMES) if (re.test(`${c.id} ${c.title ?? ""}`)) nicks.forEach((n) => names.add(n));
   for (const k of c.keywords ?? []) if (k.length >= 6 && k.length <= 30 && chance(0.15)) names.add(k);
   for (const n of names) if (ID_LIKE.test(n) && /[._]/.test(n) && names.size > 1) names.delete(n);
   if (names.size === 0) names.add(c.id.replace(/[_-]+/g, " "));
@@ -398,6 +446,8 @@ const allCollections = Object.entries(snapshot.collections).flatMap(([catalog, l
 
 for (const { catalog, c } of allCollections) {
   const names = namesOf(c);
+  // Common data gets more requests: people ask for it more often.
+  const perCollection = groupOf.has(`${catalog}/${c.id}`) ? PER_COLLECTION * 6 : PER_COLLECTION;
   const pool = poolOf(c, catalog);
   // A regional collection with no known place in its extent gets no place.
   const noPlaces = pool && !pool.cities.length && !pool.features.length;
@@ -406,7 +456,7 @@ for (const { catalog, c } of allCollections) {
   const equivalents = key ? sameData.get(key)! : [{ catalog, collection: c.id }];
   // Equivalents in held-out catalogs are not offered to training rows, and the reverse.
   const accepted = equivalents.filter((e) => HELD_OUT_CATALOGS.includes(e.catalog) === HELD_OUT_CATALOGS.includes(catalog));
-  for (let n = 0; n < PER_COLLECTION; n++) {
+  for (let n = 0; n < perCollection; n++) {
     // The reference date moves, so "last summer" does not stick to one year.
     const today = new Date(today0.getTime() - Math.floor(random() * 700) * 86400_000);
     const follow = chance(0.15);
@@ -414,7 +464,16 @@ for (const { catalog, c } of allCollections) {
     const mapView = !follow && chance(0.05);
     const time = chance(follow ? 0.5 : 0.55) ? timePhrase(today) : null;
     const cloud = optical && chance(0.3) ? cloudPhrase() : null;
-    const data = pick(names);
+    // A member of a group is named by a generic name half of the time; then the whole group is correct.
+    const group = groupOf.get(`${catalog}/${c.id}`);
+    const generic = group && chance(0.5);
+    const data = generic ? pick(group.names) : pick(names);
+    const ok = generic
+      ? group.members
+          .map((m) => ({ catalog: m.split("/")[0]!, collection: m.split("/").slice(1).join("/") }))
+          .filter((e) => snapshot.collections[e.catalog]?.some((x) => x.id === e.collection))
+          .filter((e) => HELD_OUT_CATALOGS.includes(e.catalog) === HELD_OUT_CATALOGS.includes(catalog))
+      : accepted;
     let template: string;
     let changes: Set<string>;
     if (follow) {
@@ -459,10 +518,10 @@ for (const { catalog, c } of allCollections) {
       today: today.toISOString().slice(0, 10),
       current,
       catalog: changesData
-        ? { target: catalog, accepted: [...new Set(accepted.map((e) => e.catalog))] }
+        ? { target: catalog, accepted: [...new Set(ok.map((e) => e.catalog))] }
         : { target: null, accepted: [] },
       collection: changesData
-        ? { target: c.id, accepted: accepted.filter((e) => e.catalog === catalog).map((e) => e.collection) }
+        ? { target: c.id, accepted: ok.filter((e) => e.catalog === catalog).map((e) => e.collection) }
         : { target: null, accepted: [] },
       place: placeWords
         ? {
