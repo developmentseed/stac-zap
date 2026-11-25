@@ -13,7 +13,7 @@ import * as chrono from "chrono-node";
 import type { ExtractAnswer, ExtractField, ExtractReply } from "../providers";
 import { requestOf } from "./decide";
 
-type Span = { start: number; end: number; from: string; to: string | null };
+type Span = { start: number; end: number; from: string; to: string | null; closed?: boolean };
 
 const iso = (y: number, m: number, d: number) => new Date(Date.UTC(y, m - 1, d)).toISOString().slice(0, 10);
 const lastDay = (y: number, m: number) => new Date(Date.UTC(y, m, 0)).getUTCDate();
@@ -41,7 +41,8 @@ export function readTime(text: string, today: Date) {
     if (!r.start.isCertain("month") && !r.start.isCertain("year")) continue;
     const [from] = period(r.start);
     const to = period(r.end ?? r.start)[1];
-    spans.push({ start: r.index, end: r.index + r.text.length, from, to });
+    // "April to September 2023": chrono found both ends, so the period is closed.
+    spans.push({ start: r.index, end: r.index + r.text.length, from, to, closed: Boolean(r.end) });
   }
   for (const m of text.matchAll(YEAR)) {
     const i = m.index!;
@@ -63,7 +64,12 @@ export function readTime(text: string, today: Date) {
   const lead = /\b(since|from|between|in|on|during|after|before|until)\s+$/i.exec(text.slice(0, start));
   if (lead) start = lead.index;
   const dated = spans.filter((s) => s.from);
-  const since = /^(since|after|from)\b/i.test(lead?.[1] ?? "") && dated.length === 1;
+  // Open to today: "since 2020", "after May 2021", "from 2018 until now". A plain "from 2022" is the year 2022, as
+  // in the field test and the generator.
+  const openWords = /^\s*(?:until now|onwards|on|to date|to today|to the present|up to now)\b/i.test(text.slice(end));
+  const since =
+    dated.length === 1 && !dated[0]!.closed &&
+    (/^(since|after)\b/i.test(lead?.[1] ?? "") || (/^from\b/i.test(lead?.[1] ?? "") && openWords));
   return {
     when: text.slice(start, end),
     start: dated[0]?.from ?? null,

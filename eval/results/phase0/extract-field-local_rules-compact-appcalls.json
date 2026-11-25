@@ -34,7 +34,7 @@
      "p_null": 1
     }
    },
-   "ms": 20,
+   "ms": 26,
    "cost": 0,
    "usage": {}
   },
@@ -69,7 +69,7 @@
      "p_null": 1
     }
    },
-   "ms": 20,
+   "ms": 26,
    "cost": 0,
    "usage": {}
   },
@@ -101,7 +101,7 @@
      "p_null": 1
     }
    },
-   "ms": 20,
+   "ms": 26,
    "cost": 0,
    "usage": {}
   },
@@ -967,8 +967,8 @@
      "p_null": 0
     },
     "end": {
-     "value": null,
-     "p_null": 1
+     "value": "2022-12-31",
+     "p_null": 0
     }
    },
    "ms": 0,
@@ -981,9 +981,9 @@
    "expect": "2022-01-01 to 2022-12-31",
    "value": [
     "2022-01-01",
-    "2026-10-02"
+    "2022-12-31"
    ],
-   "ok": false,
+   "ok": true,
    "answers": {
     "place": {
      "value": "Austin, Texas",
@@ -1002,8 +1002,8 @@
      "p_null": 0
     },
     "end": {
-     "value": null,
-     "p_null": 1
+     "value": "2022-12-31",
+     "p_null": 0
     }
    },
    "ms": 0,
@@ -1034,8 +1034,8 @@
      "p_null": 0
     },
     "end": {
-     "value": null,
-     "p_null": 1
+     "value": "2022-12-31",
+     "p_null": 0
     }
    },
    "ms": 0,
@@ -2626,8 +2626,8 @@
      "p_null": 0
     },
     "end": {
-     "value": null,
-     "p_null": 1
+     "value": "2019-03-31",
+     "p_null": 0
     }
    },
    "ms": 0,
@@ -2640,9 +2640,9 @@
    "expect": "2019-03-01 to 2019-03-31",
    "value": [
     "2019-03-01",
-    "2026-10-02"
+    "2019-03-31"
    ],
-   "ok": false,
+   "ok": true,
    "answers": {
     "place": {
      "value": "Lake Titicaca",
@@ -2661,8 +2661,8 @@
      "p_null": 0
     },
     "end": {
-     "value": null,
-     "p_null": 1
+     "value": "2019-03-31",
+     "p_null": 0
     }
    },
    "ms": 0,
@@ -2693,8 +2693,8 @@
      "p_null": 0
     },
     "end": {
-     "value": null,
-     "p_null": 1
+     "value": "2019-03-31",
+     "p_null": 0
     }
    },
    "ms": 0,
