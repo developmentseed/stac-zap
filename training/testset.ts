@@ -15,7 +15,9 @@
  * change the columns too. Some cards are "free": write any request.
  *
  * `import` checks the filled sheet and writes test records in the format of
- * `generate.ts` (split "test-human").
+ * `generate.ts` (split "test-human", or "test-claude" for rows with writer
+ * "claude": a first test set that Claude wrote, `testset/claude-v1.psv`).
+ * A file that ends in .psv is read with "|" as the separator.
  *
  * Usage:
  *   pnpm tsx training/testset.ts sheet [cards, default 240] > training/data/testset-sheet.csv
@@ -60,6 +62,16 @@ function parseCsv(text: string): Record<string, string>[] {
   if (cell || row.length) row.push(cell), rows.push(row);
   const [head, ...body] = rows.filter((r) => r.some((c) => c.trim()));
   return body.map((r) => Object.fromEntries(head!.map((h, i) => [h.trim(), (r[i] ?? "").trim()])));
+}
+
+/** A "|"-separated file with a header; the columns "date" and "writer" can be given with DATE and WRITER. */
+function parsePsv(text: string): Record<string, string>[] {
+  const [head, ...body] = text.trim().split("\n").map((l) => l.split("|").map((c) => c.trim()));
+  return body.map((r) => ({
+    date: process.env.DATE ?? "",
+    writer: process.env.WRITER ?? "",
+    ...Object.fromEntries(head!.map((h, i) => [h, r[i] ?? ""])),
+  }));
 }
 
 /** Cards from the generated records: one per collection, spread over catalogs, held-out catalogs included. */
@@ -113,7 +125,8 @@ function spanOf(request: string, words: string, what: string, card: string): [nu
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
 
 function importSheet(file: string) {
-  const rows = parseCsv(readFileSync(file, "utf-8")).filter((r) => r.request);
+  const raw = readFileSync(file, "utf-8");
+  const rows = (file.endsWith(".psv") ? parsePsv(raw) : parseCsv(raw)).filter((r) => r.request);
   const errors: string[] = [];
   const out: Rec[] = [];
   for (const r of rows) {
@@ -132,7 +145,8 @@ function importSheet(file: string) {
       const mapView = /^(here|this area|this region|the map( view)?|the current view)$/i.test(r.place_words ?? "");
       out.push({
         id: `h${card}`,
-        split: "test-human",
+        // Requests written by Claude are a separate split: they share the habits of the generator.
+        split: r.writer === "claude" ? "test-claude" : "test-human",
         request: r.request!,
         // The day the request was written: "last summer" counts from it.
         today: r.date || new Date().toISOString().slice(0, 10),
@@ -148,7 +162,7 @@ function importSheet(file: string) {
         // The writer gives the number; the cloud words are not marked.
         cloud: { span: null, value: cloud },
         template: "human",
-        source: `human:${r.writer || "unknown"}`,
+        source: r.writer === "claude" ? "claude" : `human:${r.writer || "unknown"}`,
       });
     } catch (e) {
       errors.push(String((e as Error).message));

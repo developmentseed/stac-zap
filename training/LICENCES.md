@@ -10,9 +10,19 @@ that needs a person to read the terms.
 ## Rule
 
 No output of a closed model is a label, a target, a paraphrase or a request
-in the training data or the test data. This includes Jev (TypeSafe), Clairic
-(Cloudflare), and Claude. The Jev and Clairic results in `eval/results/` are
-baselines to compare against, nothing more.
+in the training data. This includes Jev (TypeSafe), Clairic (Cloudflare), and
+Claude. The Jev and Clairic results in `eval/results/` are baselines to
+compare against, nothing more.
+
+One exception, for test data only (decided 2026-11-25): `testset/claude-v1.psv`
+is a first test set of 240 requests that Claude wrote, so the models can be
+tested before people write a test set. It is the split `test-claude`, it is
+never used for training or tuning, and each row has `source: "claude"`.
+Anthropic's commercial terms give the customer the rights to outputs and
+restrict their use to train competing AI models; a test set is not training.
+**To confirm:** the terms of the account that was used. Claude also wrote the
+generator, so this test set shares its habits and its scores are optimistic.
+A test set written by people replaces it later.
 
 ## Base models
 

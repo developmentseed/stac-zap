@@ -292,7 +292,7 @@ function cloudPhrase(): { words: string; value: number | null } {
 type Span = [number, number];
 export type RecordOut = {
   id: string;
-  split: "train" | "dev" | "test-catalog" | "test-human";
+  split: "train" | "dev" | "test-catalog" | "test-human" | "test-claude";
   request: string;
   /** The reference date of the request, for "last summer" or "recent". */
   today: string;
