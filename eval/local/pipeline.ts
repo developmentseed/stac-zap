@@ -38,6 +38,8 @@ const SHARED = existsSync(`${dir}/model`);
 /** v3 and later: a trained retriever in the model folder, and "catalog follows collection". */
 const GLOBAL = SHARED || existsSync(`${dir}/retriever`);
 const RETRIEVER = GLOBAL ? "retriever" : "onnx-community/granite-embedding-small-english-r2-ONNX";
+/** The weight of the retriever in the collection pick (see pickGlobal). */
+const COMBINE = Number(process.env.COMBINE ?? 0);
 /** "q8" (the int8 files the page loads) or "fp32". */
 const DTYPE = (process.env.DTYPE ?? "q8") as "q8" | "fp32";
 const cfg = (SHARED
@@ -185,7 +187,12 @@ async function pickGlobal(request: string, curatedOnly: boolean, ok: (key: strin
   const texts = pool.map(({ cat, c }) => docText(cat, c));
   const [q, ...vs] = await embed([request, ...texts]);
   const top = pool.map((x, i) => ({ x, t: texts[i]!, s: vs[i]!.reduce((a, v, j) => a + v * q![j]!, 0) })).sort((a, b) => b.s - a.s).slice(0, cfg.shortlist);
-  const [key] = await pick("collection", query("Which collection?", request), top.map(({ x, t }) => [`${x.cat}/${x.c.id}`, t]));
+  const p = await decide("collection", query("Which collection?", request), top.map(({ t }) => t));
+  // COMBINE: weight of the retriever. Score = log p(decider) + COMBINE * similarity / 0.05 (the retriever's training
+  // temperature), i.e. the decider times the retriever's softmax to the power COMBINE.
+  const score = top.map(({ s }, i) => Math.log(p[i]! + 1e-9) + COMBINE * (s / 0.05));
+  const best = score.indexOf(Math.max(...score));
+  const key = `${top[best]!.x.cat}/${top[best]!.x.c.id}`;
   return { key, onShortlist: top.some(({ x }) => ok(`${x.cat}/${x.c.id}`)) };
 }
 
@@ -340,6 +347,6 @@ if (GLOBAL) {
 }
 
 results.seconds = Math.round((performance.now() - t0) / 1000);
-const out = `${dir}/pipeline-results-${DTYPE}.json`;
+const out = `${dir}/pipeline-results-${DTYPE}${COMBINE ? `-combine${COMBINE}` : ""}.json`;
 writeFileSync(out, JSON.stringify(results, null, 1));
 console.log(`→ ${out} (${results.seconds} s)`);

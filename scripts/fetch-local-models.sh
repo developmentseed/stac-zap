@@ -2,11 +2,11 @@
 # Downloads a run of the local model (one encoder, three heads) into public/models/stac-zap-<run>/, then builds the
 # vectors of the known collections (scripts/build-vectors.ts). public/models/ is not in git.
 #
-# Usage: scripts/fetch-local-models.sh [run, default v6]
+# Usage: scripts/fetch-local-models.sh [run, default v7]
 # With UPLOAD=1, the vectors file also goes to the model repo (shared/<run>/vectors.json), so a deployed site can
 # load everything from the Hub (VITE_LOCAL_MODEL_URL=https://huggingface.co/developmentseed/stac-zap-models/resolve/main/shared/<run>/).
 set -euo pipefail
-RUN=${1:-v6}
+RUN=${1:-v7}
 REPO=developmentseed/stac-zap-models
 OUT=public/models/stac-zap-$RUN
 TMP=$(mktemp -d)

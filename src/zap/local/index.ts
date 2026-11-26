@@ -10,7 +10,7 @@
  *   `rules.ts` make the values.
  *
  * The model (one encoder with three heads) and the vectors of the known collections load from
- * `VITE_LOCAL_MODEL_URL` (default `models/stac-zap-v6/` of the site; see
+ * `VITE_LOCAL_MODEL_URL` (default `models/stac-zap-v7/` of the site; see
  * `scripts/fetch-local-models.ts`). Collections that are not in the vectors
  * file are embedded in the page, once.
  */
@@ -23,13 +23,16 @@ import { docText, NONE_PLACE, placeText, query } from "./text";
 import type { Request, Response } from "./worker";
 
 export const BASE: string =
-  import.meta.env.VITE_LOCAL_MODEL_URL || `${import.meta.env.BASE_URL}models/stac-zap-v6/`;
+  import.meta.env.VITE_LOCAL_MODEL_URL || `${import.meta.env.BASE_URL}models/stac-zap-v7/`;
 /** The decider scores this many collections. */
 const SHORTLIST = 16;
 const QUERY_MAX = 64;
 const DOC_MAX = 128;
 /** See `pickCollection`: read as a new request, a collection with this probability opens without asking about `keep`. */
 const KEEP_BAR = 0.75;
+/** The weight of the retriever in the collection pick, and its training temperature. */
+const RETRIEVER_WEIGHT = 0.5;
+const RETRIEVER_TEMPERATURE = 0.05;
 
 let worker: Worker | null = null;
 let nextId = 0;
@@ -137,14 +140,25 @@ export async function pickCollection(
   );
   if (docs.length === 0) throw new Error("No catalog lists its collections");
   const [[q], vs] = await Promise.all([embed([prompt], QUERY_MAX), vectorsOf(docs)]);
-  const top = docs
+  const ranked = docs
     .map((d, i) => ({ d, s: dot(q!, vs[i]!) }))
     .sort((a, b) => b.s - a.s)
-    .slice(0, SHORTLIST)
-    .map((x) => x.d);
+    .slice(0, SHORTLIST);
+  const top = ranked.map((x) => x.d);
   const options = top.map((d) => d.text);
   const keys = top.map((d) => d.key);
-  const score = (q: string, opts: string[]) => call<number[]>({ type: "score", kind: "collection", query: q, options: opts });
+  // The decider and the retriever vote together: the decider's probability times the retriever's softmax over the
+  // shortlist, to the power RETRIEVER_WEIGHT. `keep` gets the factor of the best collection, so it is neither helped
+  // nor hurt. (The shared v7 model alone sent "Sentinel-2 over Lisbon" to a Canadian snow product, 26% to 21%, while
+  // the retriever ranked Planetary Computer's Sentinel-2 first; see docs/local-model.md.)
+  const factor = ranked.map((x) => Math.exp((RETRIEVER_WEIGHT * (x.s - ranked[0]!.s)) / RETRIEVER_TEMPERATURE));
+  const combine = (p: number[]) => {
+    const w = p.map((v, i) => v * (factor[i] ?? 1));
+    const sum = w.reduce((a, b) => a + b, 0) || 1;
+    return w.map((v) => v / sum);
+  };
+  const score = async (q: string, opts: string[]) =>
+    combine(await call<number[]>({ type: "score", kind: "collection", query: q, options: opts }));
   // With a collection open, the decider likes `keep` too much: it saw `keep` mostly in follow-ups ("now in 2021").
   // So it first reads the request as a new one, with no current collection. A collection with at least KEEP_BAR
   // opens; else it asks again with `keep` as an option.

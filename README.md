@@ -174,14 +174,14 @@ per browser.
 To run it with the model in the site (`public/models/`, not in git):
 
 ```shell
-scripts/fetch-local-models.sh v6   # the model and the collection vectors
+scripts/fetch-local-models.sh v7   # the model and the collection vectors
 pnpm dev
 ```
 
 Or load it from the Hub, with no download step:
 
 ```shell
-VITE_LOCAL_MODEL_URL=https://huggingface.co/developmentseed/stac-zap-models/resolve/main/shared/v6/ pnpm dev
+VITE_LOCAL_MODEL_URL=https://huggingface.co/developmentseed/stac-zap-models/resolve/main/shared/v7/ pnpm dev
 ```
 
 The local model knows the catalogs in its vectors file. With "All STAC

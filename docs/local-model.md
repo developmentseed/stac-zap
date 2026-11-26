@@ -1,6 +1,6 @@
 # Local open model
 
-Date: 26 November 2026. The first report is [local-model-phase0.md](local-model-phase0.md). The plan is in
+Date: 26 November 2026 (updated for the shared model v7). The first report is [local-model-phase0.md](local-model-phase0.md). The plan is in
 [developmentseed/stac-zap-models](https://huggingface.co/developmentseed/stac-zap-models/blob/main/PLAN.md).
 
 stac-zap can now answer a request with open models that run in the browser, with no OpenRouter call. The model list
@@ -11,18 +11,24 @@ below the search bar selects "Jev + Clairic (OpenRouter)" or "Local open model (
 
 ## Design
 
-Three models, each IBM Granite Embedding 30M (Apache-2.0), fine-tuned, int8 weights, about 31 MB each:
+**One model**: IBM Granite Embedding 30M (Apache-2.0), fine-tuned, with three outputs (v6 and later). The page
+downloads 34 MB once: the int8 model (31.4 MB), its settings and `vectors.json` (0.6 MB, the vectors of the 1,021
+curated collections). It loads from the site or straight from the public model repo on the Hugging Face Hub.
 
-| Model | Job |
+| Output | Job |
 |---|---|
-| retriever | Shortlists 16 collections of all known catalogs for the request (bi-encoder). The vectors of the known collections are made before and load with the page (`vectors.json`, 0.6 MB for 1,021 curated collections). |
-| decider | Picks one of the 16, or `keep` (cross-encoder, softmax with a calibrated temperature). **The catalog follows from the collection**: there is no catalog question. Also picks the place among the Photon results. |
-| tagger | Marks the place, time and cloud cover words. Code makes the values: `src/zap/local/rules.ts` with chrono-node. |
+| retriever (`last_hidden_state`, CLS) | Shortlists 16 collections of all known catalogs for the request. |
+| decider (`decider_logits`) | Picks one of the 16, or `keep`. **The catalog follows from the collection**: there is no catalog question. The pick combines the decider and the retriever: the decider's probability times the retriever's softmax over the shortlist, to the power 0.5. Also picks the place among the Photon results. |
+| tagger (`tag_logits`) | Marks the place, time and cloud cover words. Code makes the values: `src/zap/local/rules.ts` with chrono-node. |
+
+Training (`training/train_hf_jobs.py`): stage 1 trains the encoder as a retriever (1 epoch, contrastive, with hard
+negatives from Granite R2); stage 2 trains the decider, the tagger and the retriever together (2 epochs, learning rate
+3e-5). One HF Jobs run on an L4 GPU, 24 minutes.
 
 Training data: requests from templates with exact labels (`training/generate.ts`), from the STAC snapshot and
 GeoNames and Natural Earth places; no output of a closed model. Common data has groups: "Sentinel-2", "Landsat",
 "elevation" and so on accept every main product, with Planetary Computer preferred; "aerial photos" or "lidar" of a
-place accept the collections that cover the place. Training: one HF Jobs run on an L4 GPU, about 20 minutes.
+place accept the collections that cover the place.
 
 ## Results
 
@@ -30,24 +36,24 @@ Field test (30 requests, curated catalogs) and the extraction tests of `eval/cas
 the page loads (`eval/local/pipeline.ts`). test-claude-v1: 240 requests that Claude wrote; it shares the habits of
 the generator, so its scores are optimistic.
 
-| | Jev 1.13 | Clairic | v2: catalog question, then collection | **v5: catalog follows collection** |
-|---|---|---|---|---|
-| Field test: catalog | 28/30 | | 25/30 | 18/30 |
-| Field test: catalog and collection | 27/27 | | 22/28 (in the right catalog) | 17/28 |
-| Field test: place, time, cloud | 80/85 | 84/85 | 83/85 | 82/85 |
-| Requests the option lists cannot hold | 0/16 | 16/16 | 15/16 | 15/16 |
-| test-claude-v1: catalog | | | 76/240 | **202/240** |
-| test-claude-v1: catalog and collection | | | | 162/240 |
+| | Jev 1.13 | Clairic | v5: three models (95 MB) | v6: shared | v7: shared | **v7 + retriever vote (demo)** |
+|---|---|---|---|---|---|---|
+| Field test: catalog | 28/30 | | 18/30 | 10/30 | 19/30 | **26/30** |
+| Field test: catalog and collection | 27/27 | | 17/28 | 10/28 | 18/28 | **24/28** |
+| Field test: place, time, cloud | 80/85 | 84/85 | 82/85 | 81/85 | 80/85 | 80/85 |
+| Requests the option lists cannot hold | 0/16 | 16/16 | 15/16 | 15/16 | 15/16 | 15/16 |
+| test-claude-v1: catalog | | | 202/240 | 173/240 | 182/240 | 196/240 |
+| test-claude-v1: catalog and collection | | | 162/240 | 152/240 | 150/240 | **169/240** |
 
-v2 asks for the catalog first and is better on the curated field test; v5 is much better over all 33 catalogs and
-needs no catalog question, so a catalog in the vectors file works without retraining. Of the 11 field-test misses
-of v5, several are the same data in another catalog (Earth Search instead of Planetary Computer) or topic requests
-("drone imagery", "wildfires in Los Angeles").
+The weight of the retriever vote: 0.25 gave 24/30 and 23/28 on the field test, 0.5 gave 26/30 and 24/28, 1.0 gave
+21/30 and 18/28. v6 trained longer (2 + 3 epochs, learning rate 5e-5): better on the generator's own dev split, worse
+on everything else.
 
-In the browser (headless Chromium, ARM Chromebook, one thread), a zap takes 5 to 11 s, with the geocoder and the
-STAC requests. A sequence of eight requests with follow-ups opened the expected collection each time: Sentinel-2
-Lisbon, SWISSIMAGE 10 cm for Zurich, a Copernicus DEM for Mount Everest, Landsat Perth (≤ 12%), "now in 2021"
-(keeps Landsat, sets 2021), Hurricane Idalia, "same for Hurricane Ian".
+In the browser (headless Chromium, ARM Chromebook, one thread), ten requests in a row opened the expected collection
+nine times: Sentinel-2 Lisbon (Planetary Computer), SWISSIMAGE for Zurich, Copernicus DEM for Mount Everest, Landsat
+Perth (≤ 12%), "now in 2021" (keeps Landsat, sets 2021), Hurricane Idalia, "same for Hurricane Ian", ESA WorldCover
+for Kenya, and the Lower Saxony orthophotos for "aerial photos of Hannover". "Crop types in Lower Saxony" opened a
+Swiss soil layer. A zap takes 5 to 15 s, with the geocoder and the STAC requests.
 
 ## Problems found and fixed
 
@@ -61,21 +67,22 @@ Lisbon, SWISSIMAGE 10 cm for Zurich, a Copernicus DEM for Mount Everest, Landsat
    request; only when no collection gets 75% does it offer `keep`.
 4. **Long current collection ids** made the query longer than the model input; pairs are now cut longest first, as
    in the page.
+5. **One shared model lost accuracy** (v6). Lighter training (v7) and the retriever vote fixed it.
+6. **Loading from the Hub**: transformers.js reads a URL only in its remote mode; `worker.ts` sets the host and the
+   path template for a base that starts with `https://`.
 
 ## Limits
 
 - **Place pick**: it follows the order of Photon. "Perth" gives Perth, Scotland, and "the Matterhorn" a hill in
   Connecticut. Photon gives no population, so the model has no sense of how important a place is.
-- **Regional data**: "aerial photos of Hannover" opens NAIP (USA), not the Lower Saxony orthophotos.
+- **Topic requests**: "crop types in Lower Saxony" opens a Swiss soil layer; "drone imagery", "wildfires" are weak.
 - **Tagger**: "only cloud-free" with no other words is not read; "Mount Everest" became "Mount" (the geocoder still
   found it).
 - **English only**: the 30M model does not read the German and French titles of the Swiss catalog well.
-- **Download**: about 95 MB on the first visit (three models of 31 MB and the vectors), from the site. The model
-  repo on Hugging Face is private, so a deployed site needs the files with the site, or the repo made public.
+- **Download**: 34 MB on the first visit, then from the browser cache.
 
 ## Next
 
 - Topic and paraphrase requests from open models (phase 2), for "drone imagery", "wildfires", "radar images".
 - Place pick: Photon's importance or the place type in the option text.
-- One backbone with three heads: one download of about 31 MB instead of 95 MB.
 - A test set written by people.
