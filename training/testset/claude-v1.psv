@@ -1,0 +1,241 @@
+card|request|catalogs_ok|collections_ok|place_words|time_words|start|end|cloud
+c001|leaf-on aerial mosaic of the Wabash River in 2026, under 10% clouds|igio-stac|indiana-county-mosaic-leafon|Wabash River|in 2026|2026-01-01|2026-12-31|10
+c002|Kentucky lidar point cloud phase 3 along the Barren River|kentucky-from-above-spatiotemporal-asset-catalog|laz-phase3|Barren River||||
+c003|Maxar images of cyclone Emnati damage in Madagascar|eoapi|MAXAR_cyclone_emnati22|Madagascar||||
+c004|WorldPop population for Colombia in 2020|worldpop-stac-api|COL|Colombia|in 2020|2020-01-01|2020-12-31|
+c005|daily sea level pressure grids for Finland|paituli-stac-finland|fmi_daily_sea_level_pressure_10km_at_paituli|Finland||||
+c006|sentinel 2 over Lake Geneva last summer with less than 15% clouds|planetary-computer;earth-search|sentinel-2-l2a;sentinel-2-c1-l2a|Lake Geneva|last summer|2026-06-01|2026-08-31|15
+c007|UERRA reanalysis surface variables over Warsaw for 2015|dedl-api|EO.ECMWF.DAT.REANALYSIS_UERRA_EUROPE_SINGLE_LEVELS|Warsaw|for 2015|2015-01-01|2015-12-31|
+c008|carbon monoxide from Sentinel-5P over this region|cdse|sentinel-5p-l2-co-rpro;sentinel-5p-l2-co-offl;sentinel-5p-l2-co-nrti|this region||||
+c009|ASTER ferrous iron index for the Pilbara|digital-earth-au|aster_ferrous_iron_index|Pilbara||||
+c010|Sentinel-3 OLCI water quality of Lake Victoria in 2024|digital-earth-africa|s3_olci_l2_wfr|Lake Victoria|in 2024|2024-01-01|2024-12-31|
+c011|Sentinel-2 L1C top of atmosphere data over Ahvaz|earth-search|sentinel-2-l1c|Ahvaz||||
+c012|Landsat surface reflectance of the Aral Sea in 1990|planetary-computer;earth-search|landsat-c2-l2|Aral Sea|in 1990|1990-01-01|1990-12-31|
+c013|how many blizzards hit North Dakota between 1950 and 2021|veda|blizzard-count|North Dakota|between 1950 and 2021|1950-01-01|2021-12-31|
+c014|drone data from the IAH4 2021 maize trial|stac-for-data-to-science|819b21bd-e84c-4dca-baec-ac9ecab69286|||||
+c015|Met Office wind forecast at different heights for here|planetary-computer|met-office-global-deterministic-height|here||||
+c016|WAVY drifter buoys in the Oslofjord in September 2024|hub-oceans-ocean-data-platform-catalog|1aa27cee-fe08-43ae-bfb0-617d0f2d9f38|Oslofjord|in September 2024|2024-09-01|2024-09-30|
+c017|Resourcesat-1 LISS-3 scenes of Rio Grande do Sul|inpe-stac-server|RESOURCESAT1_LISS3_L2_DN-1|Rio Grande do Sul||||
+c018|elevation around Mount Kilimanjaro|planetary-computer;earth-search;openaerialmap;eoapi|cop-dem-glo-30;cop-dem-glo-90;nasadem;alos-dem;copernicus-dem|Mount Kilimanjaro||||
+c019|NDVI for Kerala in June 2023|misteo-stac-server|kerala-ndvi-dppd|Kerala|in June 2023|2023-06-01|2023-06-30|
+c020|landsat land surface temperature in Lagos, Nigeria|usgs-landsat-collection-2-api|landsat-c2l2-st|Lagos, Nigeria||||
+c021|degree of urbanisation map for Hamburg|eoc-eo-products-service|URBAN_DEGREE_DE|Hamburg||||
+c022|solar panel footprints in the Aveyron from 2023|mtd-stac-api|spot-6-7-solar-panels|Aveyron|from 2023|2023-01-01|2023-12-31|
+c023|SAURAN solar radiation stations in the Karoo|oie-stac-catalog|sauran|Karoo||||
+c024|radar backscatter of the Netherlands last winter|planetary-computer;earth-search|sentinel-1-rtc;sentinel-1-grd|Netherlands|last winter|2025-12-01|2026-02-28|
+c025|monthly leaf area index for Saskatchewan in July 2025|canadian-geospatial-data-collections-datacube|monthly-vegetation-parameters-20m-v1|Saskatchewan|in July 2025|2025-07-01|2025-07-31|
+c026|orthophotos Tamsweg 2025|kagis-katalog|KAGIS_coll_ortho_tamsweg_2025850|Tamsweg|2025|2025-01-01|2025-12-31|
+c027|NAIP over Bayside, Wisconsin|astraea-earth-ondemand|naip|Bayside, Wisconsin||||
+c028|GEDI canopy height for the Congo Basin in 2021|easierdata|GEDI_L3_LandSurface_Metrics_V2_1952_2|Congo Basin|in 2021|2021-01-01|2021-12-31|
+c029|ArcticDEM strips of Svalbard|pgc-data-catalog|arcticdem-strips-s2s041-2m|Svalbard||||
+c030|wildfire damage in Los Angeles January 2025|eoapi|WildFires-LosAngeles-Jan-2025|Los Angeles|January 2025|2025-01-01|2025-01-31|
+c031|OpenAerialMap drone images of Port-au-Prince from 2021|openaerialmap|openaerialmap|Port-au-Prince|from 2021|2021-01-01|2021-12-31|
+c032|aerial photos of this area|digitale-orthophotos-niedersachsen|DOP|this area||||
+c033|super resolved sentinel-2 at 2.5m for Antwerp|super-resolved-sentinel-2-2-5m-stac-api|sentinel-2-l2a|Antwerp||||
+c034|Indiana lidar surface model of Bloomington since 2017|igio-stac|dsmoptimized-statewide|Bloomington|since 2017|2017-01-01||
+c035|kentucky phase 3 DEM near Louisville|kentucky-from-above-spatiotemporal-asset-catalog|dem-phase3|Louisville||||
+c036|NAIP imagery of Santa Fe, New Mexico in 2022|planetary-computer;earth-search|naip|Santa Fe, New Mexico|in 2022|2022-01-01|2022-12-31|
+c037|population grid for the British Virgin Islands 2025|worldpop-stac-api|VGB|British Virgin Islands|2025|2025-01-01|2025-12-31|
+c038|Landsat for Finland on the current view|paituli-stac-finland|nasa_usgs_latuviitta_landsat_at_paituli|the current view||||
+c039|alpine pastures with livestock guardian dogs in Valais|datageoadminch|ch.bafu.alpweiden-mit_herdenschutzhunden|Valais||||
+c040|surface water occurrence change for the Paraíba do Sul river 1984-2020|dedl-api|EO.GSW.DAT.CHANGE|Paraíba do Sul river|1984-2020|1984-01-01|2020-12-31|
+c041|land surface phenology of Siberia|cdse|clms_lsp_global_300m_yearly_v1_cog;clms_lsp_global_300m_yearly_v2_cog|Siberia||||
+c042|Copernicus DEM 30m of the Andes near Cusco|planetary-computer;earth-search;openaerialmap;eoapi|cop-dem-glo-30;copernicus-dem|Cusco||||
+c043|soil moisture in Ethiopia during the 2023 rainy season|digital-earth-africa|wapor_soil_moisture|Ethiopia|during the 2023 rainy season|2023-06-01|2023-09-30|
+c044|NAIP aerial imagery|earth-search;planetary-computer|naip|||||
+c045|COSMO-SkyMed radar for the Sichuan earthquake supersite|gep-supersites-csk-and-csg-data|csk-china-supersite|Sichuan||||
+c046|parcel damage from the Eaton fire in Altadena|veda|la-fires-parcels|Altadena||||
+c047|Penobscot Experimental Forest lidar 2017|stac-for-data-to-science|penobscot|Penobscot Experimental Forest|2017|2017-01-01|2017-12-31|
+c048|ESA WorldCover land cover of Kenya|planetary-computer|esa-worldcover|Kenya||||
+c049|benthic habitats around Culebra Island|hub-oceans-ocean-data-platform-catalog|11f6351e-a290-41e5-ac81-7eff14359f05|Culebra Island||||
+c050|daily solar radiation over Ceará|inpe-stac-server|GOES-GL-DSWRF-Daily-1|Ceará||||
+c051|SSL4EO monthly embeddings for Senegal|earth-genome|ssl4eo_monthly_embeddings;ssl4eo_monthly_embeddings_v7|Senegal||||
+c052|NO2 levels in Telangana in 2024|misteo-stac-server|telangana-no2|Telangana|in 2024|2024-01-01|2024-12-31|
+c053|Hyperion hyperspectral scenes of Gujarat|usgs-landsat-collection-2-api|eo-1-hyperion-l1t;eo-1-hyperion-l1gst|Gujarat||||
+c054|MODIS snow cover over the Alps in winter 2024|planetary-computer|modis-10A1-061;modis-10A2-061|Alps|in winter 2024|2023-12-01|2024-02-29|
+c055|forest disturbances in the Vosges between 2018 and 2022|mtd-stac-api|FORMSpoT-delta|Vosges|between 2018 and 2022|2018-01-01|2022-12-31|
+c056|SKYNET aerosol stations in Japan|oie-stac-catalog|skynet|Japan||||
+c057|travel time to the nearest city across Kazakhstan|bon-in-a-box-stac|accessibility_to_cities|Kazakhstan||||
+c058|ground deformation map near Vancouver from 2018 to 2023|canadian-geospatial-data-collections-datacube|land-deformation-tile-asc;land-deformation-tile-dsc;land-deformation-mosaic|Vancouver|from 2018 to 2023|2018-01-01|2023-12-31|
+c059|orthofotos Osttirol 2021|kagis-katalog|KAGIS_coll_ortho_osttirol_2021160|Osttirol|2021|2021-01-01|2021-12-31|
+c060|Sentinel-1 radar of Jakarta in the last 3 months|planetary-computer;earth-search|sentinel-1-rtc;sentinel-1-grd|Jakarta|in the last 3 months|2026-08-25|2026-11-25|
+c061|GEDI L2A footprints over Campania since 2020|easierdata|GEDI02_A_002|Campania|since 2020|2020-01-01||
+c062|REMA 32m mosaic of the Antarctic Peninsula|pgc-data-catalog|rema-mosaics-v2.0-32m|Antarctic Peninsula||||
+c063|clay content of cropland in Germany|thunen-earth-observation-theo|soil-clay-content|Germany||||
+c064|NOAA emergency imagery after the Nashville tornado in March 2020|openaerialmap|noaa-emergency-response|Nashville|in March 2020|2020-03-01|2020-03-31|
+c065|Indiana DEM for Fort Wayne|igio-stac|demoptimized-statewide|Fort Wayne||||
+c066|recent Sentinel-2 of Mount Etna, cloud-free|planetary-computer;earth-search|sentinel-2-l2a;sentinel-2-c1-l2a|Mount Etna|recent|2026-10-26|2026-11-25|5
+c067|Maxar before and after the Apiate explosion in Ghana, January 2022|eoapi|MAXAR_ghana_explosion22|Apiate|January 2022|2022-01-01|2022-01-31|
+c068|Burundi population density|worldpop-stac-api|BDI|Burundi||||
+c069|pine pulpwood volume in the forests of Finland|paituli-stac-finland|luke_vmi_mantykuitu_at_paituli|Finland||||
+c070|sulphur in the topsoils of Switzerland|datageoadminch|ch.bafu.geochemischer-bodenatlas_schweiz_schwefel|Switzerland||||
+c071|population density per NUTS 3 region in Austria|dedl-api|STAT.EUSTAT.DAT.POP_DENSITY_NUTS3|Austria||||
+c072|Swiss orthophotos of Lucerne|datageoadminch|ch.swisstopo.swissimage-dop10;ch.swisstopo.swissimage|Lucerne||||
+c073|Landsat 7 annual geomedian for Melbourne 2010|digital-earth-au|ls7_nbart_geomedian_annual;ga_ls7e_nbart_gm_cyear_3|Melbourne|2010|2010-01-01|2010-12-31|
+c074|crop mask for southern Africa|digital-earth-africa|crop_mask_southern|southern Africa||||
+c075|90m Copernicus DEM of Kyushu|earth-search;planetary-computer|cop-dem-glo-90|Kyushu||||
+c076|COSMO-SkyMed radar of Kilauea from 2018|gep-supersites-csk-and-csg-data|csk-hawaii-supersite|Kilauea|from 2018|2018-01-01|2018-12-31|
+c077|HRRR wind gusts during the LA fires|veda|la-fires-hrrr-wind|LA||||
+c078|lidar point cloud of Seattle|planetary-computer|3dep-lidar-copc;3dep-lidar-classification|Seattle||||
+c079|NASADEM elevation of Sindh|planetary-computer|nasadem|Sindh||||
+c080|ROV seabed survey for the GoliatVIND wind farm|hub-oceans-ocean-data-platform-catalog|f91d47f3-f6d4-4255-a808-85a09ee1d303|||||
+c081|CBERS-4A MUX surface reflectance of Mato Grosso|inpe-stac-server|CB4A-MUX-L4-SR-1|Mato Grosso||||
+c082|yearly Sentinel-2 mosaic of Morocco for 2023|earth-genome|sentinel2-temporal-mosaics;sentinel2-yearly-mosaics;sentinel2-yearly-mosaics-v3;sentinel2-yearly-mosaics-v4;sentinel2-yearly-mosaics-v6|Morocco|for 2023|2023-01-01|2023-12-31|
+c083|land surface temperature Hyderabad|misteo-stac-server|telangana-lst|Hyderabad||||
+c084|Planetary Computer HLS over Iowa in August 2024|planetary-computer|hls2-s30;hls2-l30|Iowa|in August 2024|2024-08-01|2024-08-31|
+c085|snow cover duration in the Caucasus 2010 to 2020|eoc-eo-products-service|GSP_SCD_MEAN|Caucasus|2010 to 2020|2010-01-01|2020-12-31|
+c086|lidar HD point clouds of the Landes forest|mtd-stac-api|cartofeux-lidarhd|Landes forest||||
+c087|enerMENA meteorological stations in Egypt|oie-stac-catalog|enermena|Egypt||||
+c088|critical natural assets map 2022|bon-in-a-box-stac|ncp_cna||2022|2022-01-01|2022-12-31|
+c089|pan-arctic wetland inventory for the Yamal Peninsula|canadian-geospatial-data-collections-datacube|pan-arctic-wetland-inventory|Yamal Peninsula||||
+c090|Hurricane Idalia imagery|eoapi|MAXAR_Hurricane_Idalia_Florida_Aug23|||||
+c091|landsat-8 thermal bands over Pahang in 2019|astraea-earth-ondemand|landsat8_tirs_l1|Pahang|in 2019|2019-01-01|2019-12-31|
+c092|GEDI waveforms over the Yukon|easierdata|GEDI01_B_002|Yukon||||
+c093|ArcticDEM 10m mosaic of the Stikine River|pgc-data-catalog|arcticdem-mosaics-v4.1-10m;arcticdem-mosaics-v3.0-10m|Stikine River||||
+c094|fractional cover of cropland around Berlin in spring 2025|thunen-earth-observation-theo|fractional-cover|Berlin|in spring 2025|2025-03-01|2025-05-31|
+c095|Maxar open data|openaerialmap|maxar-opendata|||||
+c096|crop types in Bavaria|thunen-earth-observation-theo|crop-type-map-latest;crop-type-map-v302;hist-crop-type-map|Bavaria||||
+c097|KY phase 2 lidar for this region collected in 2021|kentucky-from-above-spatiotemporal-asset-catalog|laz-phase2|this region|in 2021|2021-01-01|2021-12-31|
+c098|sub-hourly HRRR surface forecast for Warren, Ohio|eoapi|noaa-hrrr-subh-conus|Warren, Ohio||||
+c099|Nigeria population counts|worldpop-stac-api|NGA|Nigeria||||
+c100|forest site class map of Lapland 2021|paituli-stac-finland|luke_vmi_paatyyppi_at_paituli|Lapland|2021|2021-01-01|2021-12-31|
+c101|asylum sectoral plan sites near Basel|datageoadminch|ch.sem.sachplan-asyl_kraft|Basel||||
+c102|Sentinel 2 of Reykjavik on 14 July 2025|planetary-computer;earth-search|sentinel-2-l2a;sentinel-2-c1-l2a|Reykjavik|on 14 July 2025|2025-07-14|2025-07-14|
+c103|snow phenology from Sentinel-2 in the Pyrenees for 2022|cdse|clms_wsi_snow-phenology-s2_europe_laea_100m_yearly_v1|Pyrenees|for 2022|2022-01-01|2022-12-31|
+c104|InSAR ALOS ground velocity for Sydney|digital-earth-au|cemp_insar_alos_velocity|Sydney||||
+c105|West Africa crop mask around Bamako|digital-earth-africa|crop_mask_western|Bamako||||
+c106|S2 L2A of Mpumalanga from March to May 2024 with max 20% cloud|earth-search;planetary-computer|sentinel-2-l2a;sentinel-2-c1-l2a|Mpumalanga|from March to May 2024|2024-03-01|2024-05-31|20
+c107|San Andreas fault radar data|gep-supersites-csk-and-csg-data|csk-san-andrea-supersite|San Andreas fault||||
+c108|ESA WorldCover for this area|planetary-computer|esa-worldcover|this area||||
+c109|drone flights WIH2 2021 Arlington|stac-for-data-to-science|aef44205-f1d1-4c69-878b-5f1b6cf60ea7|Arlington|2021|2021-01-01|2021-12-31|
+c110|active fires from Sentinel-3 in Iran|planetary-computer|sentinel-3-slstr-frp-l2-netcdf|Iran||||
+c111|marine protected areas along the Mediterranean coast of France|hub-oceans-ocean-data-platform-catalog|a8228453-d089-433b-90e1-92fe9c2aa7e1|Mediterranean coast of France||||
+c112|CBERS 4A MUX images from 2025|inpe-stac-server|CB4A-MUX-L4-DN-1;CB4A-MUX-L4-SR-1||from 2025|2025-01-01|2025-12-31|
+c113|Amazon Mining Watch mosaic of the Tapajós region with less than 20% clouds|earth-genome|amw-sentinel2-yearly-mosaics;amw-sentinel2-semiannual-mosaics;amw-sentinel2-quarterly-mosaics|Tapajós region||||20
+c114|Landsat of Lake Chad from 2000 to 2020|planetary-computer;earth-search|landsat-c2-l2|Lake Chad|from 2000 to 2020|2000-01-01|2020-12-31|
+c115|EO-1 ALI over the Murray River in 2005|usgs-landsat-collection-2-api|eo-1-ali-l1gst;eo-1-ali-l1t|Murray River|in 2005|2005-01-01|2005-12-31|
+c116|road traffic noise map of Germany|eoc-eo-products-service|N2N_NOISE_AI_DE_2017|Germany||||
+c117|monthly water surface maps for the Loire|mtd-stac-api|get-omp-surfwater|Loire||||
+c118|CIROCCO sensors from spring 2026|oie-stac-catalog|cirocco||from spring 2026|2026-03-01|2026-05-31|
+c119|CHELSA climate for Kyrgyzstan|bon-in-a-box-stac|chelsa-clim|Kyrgyzstan||||
+c120|Planetary Computer NAIP of Boulder from 2019|planetary-computer|naip|Boulder|from 2019|2019-01-01|2019-12-31|
+c121|Kärnten drone orthophotos of Klagenfurt from 2024|kagis-katalog|KAGIS_coll_fluege_akl|Klagenfurt|from 2024|2024-01-01|2024-12-31|
+c122|3DEP lidar of Denver|astraea-earth-ondemand;planetary-computer|usgs_lidar;3dep-lidar-copc|Denver||||
+c123|HLS and cropland data layer for crop classification in Nebraska|easierdata|HLSS30_2.0|Nebraska||||
+c124|ArcticDEM 2m mosaic v3 for Greenland, 2015|pgc-data-catalog|arcticdem-mosaics-v3.0-2m|Greenland|2015|2015-01-01|2015-12-31|
+c125|bare soil reflectance composite near Frankfurt|thunen-earth-observation-theo|soil-reflectance-composite|Frankfurt||||
+c126|Sentinel-2 of Cotopaxi under 30 percent clouds|planetary-computer;earth-search|sentinel-2-l2a;sentinel-2-c1-l2a|Cotopaxi||||30
+c127|indiana leaf on imagery of Gary in 2025, clear sky|igio-stac|imageryoptimized-leafon|Gary|in 2025|2025-01-01|2025-12-31|10
+c128|Kentucky phase 2 elevation model, Madisonville|kentucky-from-above-spatiotemporal-asset-catalog|dem-phase2|Madisonville||||
+c129|McDougall Creek wildfire West Kelowna|eoapi|MAXAR_McDougallCreekWildfire_BC_Canada_Aug_23|West Kelowna||||
+c130|population of Austria 2030 projection|worldpop-stac-api|AUT|Austria|2030|2030-01-01|2030-12-31|
+c131|sentinel-1 backscatter tiles for Oulu|paituli-stac-finland|sentinel_1_tiles_at_fmi|Oulu||||
+c132|Sentinel-1 RTC over Bangladesh during the 2024 monsoon|planetary-computer|sentinel-1-rtc|Bangladesh|during the 2024 monsoon|2024-06-01|2024-09-30|
+c133|microwave humidity sounder climate record for here, 2010-2015|dedl-api|EO.EUM.DAT.METOP.MHSMWHS0200|here|2010-2015|2010-01-01|2015-12-31|
+c134|land surface temperature from Sentinel-3 over Borneo|cdse;planetary-computer|sentinel-3-sl-2-lst-ntc;sentinel-3-slstr-lst-l2-netcdf|Borneo||||
+c135|Landsat 7 calendar year geomedian Australia|digital-earth-au|ga_ls7e_nbart_gm_cyear_3;ls7_nbart_geomedian_annual|Australia||||
+c136|lake water quality of Lake Malawi in 2022|digital-earth-africa|cgls_lwq100_2019_2024|Lake Malawi|in 2022|2022-01-01|2022-12-31|
+c137|sentinel-1 GRD|earth-search;planetary-computer|sentinel-1-grd|||||
+c138|ArcticDEM elevation of Svalbard|pgc-data-catalog|arcticdem-mosaics-v4.1-2m;arcticdem-mosaics-v4.1-10m;arcticdem-mosaics-v4.1-32m;arcticdem-mosaics-v3.0-2m;arcticdem-mosaics-v3.0-10m;arcticdem-mosaics-v3.0-32m;arcticdem-strips-s2s041-2m|Svalbard||||
+c139|social vulnerability minority index for Swansea, Massachusetts 2018|veda|social-vulnerability-index-minority-nopop|Swansea, Massachusetts|2018|2018-01-01|2018-12-31|
+c140|Penobscot forest NAIP 2021|stac-for-data-to-science|pef-3d-naip2021-normalized|Penobscot forest|2021|2021-01-01|2021-12-31|
+c141|downscaled CMIP6 climate projections for Panama|planetary-computer|cil-gdpcir-cc0;cil-gdpcir-cc-by;cil-gdpcir-cc-by-sa;nasa-nex-gddp-cmip6|Panama||||
+c142|marine nature types along the Norwegian coast since 2000|hub-oceans-ocean-data-platform-catalog|727d59c3-10de-4563-9c06-618160263912|Norwegian coast|since 2000|2000-01-01||
+c143|CBERS-4 wide field imager reflectance of Bolivia|inpe-stac-server|CB4-WFI-L4-SR-1|Bolivia||||
+c144|chesapeake land cover|planetary-computer|chesapeake-lc-13;chesapeake-lc-7|||||
+c145|monthly average temperature of Kerala in 2020|misteo-stac-server|kerala-temp-monthly-avg|Kerala|in 2020|2020-01-01|2020-12-31|
+c146|Landsat dynamic surface water extent for Lake Okeechobee|usgs-landsat-collection-2-api|landsat-c2l3-dswe|Lake Okeechobee||||
+c147|SAR4Tectonics ascending velocity for the Himalaya|eoc-eo-products-service|SAR4TEC_ASCE|Himalaya||||
+c148|forest clear cuts in the Landes from radar|mtd-stac-api|sufosat|Landes||||
+c149|SciDoSol data|oie-stac-catalog|scidosol|||||
+c150|Copernicus DEM of Iceland|planetary-computer;earth-search;openaerialmap;eoapi|cop-dem-glo-30;cop-dem-glo-90;copernicus-dem|Iceland||||
+c151|environmental and social sensitivity index for Alberta|canadian-geospatial-data-collections-datacube|resgeo-mc;resgeo-ol;resgeo-wi;resgeo-xi|Alberta||||
+c152|Klagenfurt orthophoto flight block 2022|kagis-katalog|KAGIS_coll_ortho_klagenfurt_2022460|Klagenfurt|2022|2022-01-01|2022-12-31|
+c153|Landsat 9 L1 over Belarus|astraea-earth-ondemand|landsat9_oli_l1|Belarus||||
+c154|landsat collection 2 level 1 of Connecticut in 2016|easierdata|landsat-c2l1|Connecticut|in 2016|2016-01-01|2016-12-31|
+c155|REMA 2m DEM of South Georgia|pgc-data-catalog|rema-mosaics-v2.0-2m|South Georgia||||
+c156|Swiss elevation model of the Matterhorn|datageoadminch|ch.swisstopo.swissalti3d;ch.swisstopo.swisssurface3d-raster;ch.swisstopo.swisssurface3d|Matterhorn||||
+c157|Vantor open data for Côte d'Ivoire after 2024|openaerialmap|vantor-opendata|Côte d'Ivoire|after 2024|2025-01-01||
+c158|normalized height model Indiana, Oak Forest|igio-stac|ndhmoptimized-statewide|Oak Forest||||
+c159|Kentucky leaf-off orthoimagery phase 1 of Lexington|kentucky-from-above-spatiotemporal-asset-catalog|orthos-phase1|Lexington||||
+c160|turkey earthquake imagery Kahramanmaraş February 2023|eoapi|MAXAR_Kahramanmaras_turkey_earthquake_23|Kahramanmaraş|February 2023|2023-02-01|2023-02-28|
+c161|population for Saint Pierre and Miquelon|worldpop-stac-api|SPM|Saint Pierre and Miquelon||||
+c162|Landsat over Denver in July 2024|planetary-computer;earth-search|landsat-c2-l2|Denver|in July 2024|2024-07-01|2024-07-31|
+c163|Schutzinteressen für Solaranlagen im Kanton Bern 2025|datageoadminch|ch.are.solaranlagen-schutzinteressen|Kanton Bern|2025|2025-01-01|2025-12-31|
+c164|CLARA-A3 cloud albedo radiation record for Slovakia|dedl-api|EO.EUM.DAT.MULT.OLR-CM-11342-CM-6321|Slovakia||||
+c165|Sentinel-5P band 3 radiance over the UAE|cdse|sentinel-5p-l1-ra-bd3-offl;sentinel-5p-l1-ra-bd3-rpro;sentinel-5p-l1-ra-bd3-nrti|UAE||||
+c166|Sentinel-2A level 0 over Queensland in October 2026|digital-earth-au|esa_s2am_level1_0|Queensland|in October 2026|2026-10-01|2026-10-31|
+c167|annual water observations summary for the Okavango Delta|digital-earth-africa|wofs_ls_summary_annual|Okavango Delta||||
+c168|land use of Denver metro|planetary-computer|drcog-lulc|Denver metro||||
+c169|radar data for the Iran supersite in 2022|gep-supersites-csk-and-csg-data|csk-iran-supersite|Iran|in 2022|2022-01-01|2022-12-31|
+c170|methane from rice cultivation in California|veda|EPA-monthly-emissions_4C_Rice_Cultivation|California||||
+c171|USGS 3DEP lidar on AWS|stac-for-data-to-science|3dep|||||
+c172|Chesapeake land use around Baltimore in 2013|planetary-computer|chesapeake-lu|Baltimore|in 2013|2013-01-01|2013-12-31|
+c173|One Ocean Expedition data|hub-oceans-ocean-data-platform-catalog|4afebb6c-a23e-4600-987e-d1e3d3c318cb|||||
+c174|Sentinel-2 of Lagos from June to August 2025, mostly clear|planetary-computer;earth-search|sentinel-2-l2a;sentinel-2-c1-l2a|Lagos|from June to August 2025|2025-06-01|2025-08-31|15
+c175|yearly Sentinel-2 mosaic of Kyiv for 2026|earth-genome|sentinel2-yearly-mosaics-v7|Kyiv|for 2026|2026-01-01|2026-12-31|
+c176|crop land dataset for Gujarat|misteo-stac-server|crop-land|Gujarat||||
+c177|Landsat fractional snow cover of the Altai Mountains|usgs-landsat-collection-2-api|landsat-c2l3-fsca|Altai Mountains||||
+c178|settlement growth in the Nile Delta 1985 to 2015|eoc-eo-products-service|WSF_Evolution|Nile Delta|1985 to 2015|1985-01-01|2015-12-31|
+c179|OSO land cover map of Brittany|mtd-stac-api|oso|Brittany||||
+c180|Planetary Computer burned area MODIS for Australia 2019|planetary-computer|modis-64A1-061|Australia|2019|2019-01-01|2019-12-31|
+c181|forest presence in the Colombian Amazon 2000-2020|bon-in-a-box-stac|colombia_forests|Colombian Amazon|2000-2020|2000-01-01|2020-12-31|
+c182|historic flood susceptibility for Winnipeg|canadian-geospatial-data-collections-datacube|fs-historic;flood-susceptibility|Winnipeg||||
+c183|Klagenfurt orthophotos 2025 of the Wörthersee|kagis-katalog|KAGIS_coll_ortho_klagenfurt_2025460|Wörthersee|2025|2025-01-01|2025-12-31|
+c184|Alaska minimum surface height near Anchorage|astraea-earth-ondemand|ak_alaska_minimum_surface_height|Anchorage||||
+c185|GEDI canopy cover profiles of the Jari river basin|easierdata|GEDI02_B_002|Jari river basin||||
+c186|Sentinel-2 L1C over Rome|earth-search|sentinel-2-l1c|Rome||||
+c187|historical crop types along the Weser in 1995|thunen-earth-observation-theo|hist-crop-type-map|Weser|in 1995|1995-01-01|1995-12-31|
+c188|Indiana leaf off county mosaic Hamilton County|igio-stac|indiana-county-mosaic|Hamilton County||||
+c189|Kentucky phase 1 DEM|kentucky-from-above-spatiotemporal-asset-catalog|dem-phase1|||||
+c190|New Zealand floods 2022 Maxar|eoapi|MAXAR_New_Zealand_Flooding22|New Zealand|2022|2022-01-01|2022-12-31|
+c191|Canada population grid|worldpop-stac-api|CAN|Canada||||
+c192|MODIS NDVI of the Sahel in August 2023|planetary-computer|modis-13Q1-061;modis-13A1-061|Sahel|in August 2023|2023-08-01|2023-08-31|
+c193|dry grasslands of national importance in Graubünden|datageoadminch|ch.bafu.bundesinventare-trockenwiesen_trockenweiden_anhang2;ch.bafu.bundesinventare-trockenwiesen_trockenweiden|Graubünden||||
+c194|building heights in Cairo|dedl-api|EO.GHSL.DAT.BUILT-H|Cairo||||
+c195|soil water index Emilia-Romagna|cdse|clms_swi_global_12.5km_daily_v4_cog|Emilia-Romagna||||
+c196|SRTM 1 second DEM around Bendigo|digital-earth-au|ga_srtm_dem1sv1_0|Bendigo||||
+c197|Landsat 8 and 9 annual geomedian here|digital-earth-africa|gm_ls8_ls9_annual|here||||
+c198|Maxar Maui fires|eoapi|MAXAR_Maui_Hawaii_fires_Aug_23|Maui||||
+c199|CSK radar of San Cristóbal volcano Nicaragua since 2023|gep-supersites-csk-and-csg-data|csk-nicaragua-supersite|San Cristóbal volcano Nicaragua|since 2023|2023-01-01||
+c200|Planet imagery of Mandalay before the earthquake|veda|burma-eq-planet-pre|Mandalay||||
+c201|Aukerman park drone images|stac-for-data-to-science|cd1facaf-19e5-4a33-a9d7-28c3a1d2cfc2|Aukerman park||||
+c202|near surface weather forecast for Roermond|planetary-computer|met-office-global-deterministic-near-surface|Roermond||||
+c203|benthic habitat maps of the US Virgin Islands|hub-oceans-ocean-data-platform-catalog|ddc933d4-08df-49b2-b36a-16743b6ca4fe|US Virgin Islands||||
+c204|Daymet daily weather for Tennessee in 2021|planetary-computer|daymet-daily-na|Tennessee|in 2021|2021-01-01|2021-12-31|
+c205|quarterly sentinel 2 mosaic Q1 2026|earth-genome|sentinel2-quarterly-mosaics-v4||Q1 2026|2026-01-01|2026-03-31|
+c206|NDWI dataset for Bihar|misteo-stac-server|ndwi-dppd|Bihar||||
+c207|ALI L1T over Papua New Guinea|usgs-landsat-collection-2-api|eo-1-ali-l1t;eo-1-ali-l1gst|Papua New Guinea||||
+c208|early season snow cover duration in Scandinavia for 2015|eoc-eo-products-service|GSP_SCDE_P1Y|Scandinavia|for 2015|2015-01-01|2015-12-31|
+c209|canopy height maps of the French Alps 2024|mtd-stac-api|FORMSpoT|French Alps|2024|2024-01-01|2024-12-31|
+c210|Sentinel-2 of the Grand Canyon in the past 2 weeks|planetary-computer;earth-search|sentinel-2-l2a;sentinel-2-c1-l2a|Grand Canyon|in the past 2 weeks|2026-11-11|2026-11-25|
+c211|habitat heterogeneity for Ontario|bon-in-a-box-stac|earthenv_habitat_heterogeneity|Ontario||||
+c212|AVHRR snow cover of Quebec 2006-2010|canadian-geospatial-data-collections-datacube|avhrr_snowcover_2006_2010;snow-dynamics-yearly|Quebec|2006-2010|2006-01-01|2010-12-31|
+c213|Wolfsberg orthofotos|kagis-katalog|KAGIS_coll_ortho_wolfsberg_2022360|Wolfsberg||||
+c214|Landsat 9 surface reflectance for Yunnan in 2023|astraea-earth-ondemand|landsat9_oli_tirs_l2_sr|Yunnan|in 2023|2023-01-01|2023-12-31|
+c215|GEDI aboveground biomass for Dubai|easierdata|GEDI_L4B_Gridded_Biomass_V2_1_2299_2.1|Dubai||||
+c216|ALOS PALSAR forest map of Borneo|planetary-computer|alos-fnf-mosaic;alos-palsar-mosaic|Borneo||||
+c217|winter cropland cover in Saarland 2024|thunen-earth-observation-theo|winter-cover|Saarland|2024|2024-01-01|2024-12-31|
+c218|Hamilton County flood August 2026|igio-stac|hamilton-county-flood-2026|Hamilton County|August 2026|2026-08-01|2026-08-31|
+c219|Kentucky phase 2 orthophotos for Paducah|kentucky-from-above-spatiotemporal-asset-catalog|orthos-phase2|Paducah||||
+c220|Emilia-Romagna flooding May 2023|eoapi|MAXAR_Emilia_Romagna_Italy_flooding_may23|Emilia-Romagna|May 2023|2023-05-01|2023-05-31|
+c221|Brazil population 2022|worldpop-stac-api|BRA|Brazil|2022|2022-01-01|2022-12-31|
+c222|Hurricane Helene Maxar imagery of Asheville|eoapi|MAXAR_HurricaneHelene_Oct24|Asheville||||
+c223|swiss national map 1:10000 of the Jura since 2022|datageoadminch|ch.swisstopo.landeskarte-farbe-10|Jura|since 2022|2022-01-01||
+c224|ERA5 monthly means for Mali in 2023|dedl-api;planetary-computer|EO.ECMWF.DAT.REANALYSIS_ERA5_SINGLE_LEVELS_MONTHLY_MEANS;era5-pds|Mali|in 2023|2023-01-01|2023-12-31|
+c225|ozone from Sentinel-5P over Sulawesi|cdse|sentinel-5p-l2-o3-offl;sentinel-5p-l2-o3-nrti;sentinel-5p-l2-o3-rpro|Sulawesi||||
+c226|Sentinel-1 normalised radar backscatter Australia over the last 6 months|digital-earth-au|ga_s1_nrb_iw_vv_vh_1|Australia|over the last 6 months|2026-05-25|2026-11-25|
+c227|lake water quality 300m for Lake Tana|digital-earth-africa|cgls_lwq300_2024_nrt|Lake Tana||||
+c228|elevation of Mount Everest|planetary-computer;earth-search;openaerialmap;eoapi|cop-dem-glo-30;cop-dem-glo-90;nasadem;alos-dem;copernicus-dem|Mount Everest||||
+c229|Nepal supersite radar after the 2015 earthquake|gep-supersites-csk-and-csg-data|csk-nepal-supersite|Nepal|after the 2015 earthquake|2015-04-25||
+c230|industrial landfill methane emissions in New York 2012|veda|EPA-annual-emissions_6A_Landfills_Industrial|New York|2012|2012-01-01|2012-12-31|
+c231|WIH3 2021 drone data Hancock|stac-for-data-to-science|a3794e12-0c8f-4889-b971-72e40a834d13|Hancock|2021|2021-01-01|2021-12-31|
+c232|chesapeake 13 class land cover in 2014|planetary-computer|chesapeake-lc-13||in 2014|2014-01-01|2014-12-31|
+c233|valuable and vulnerable marine areas in the Barents Sea|hub-oceans-ocean-data-platform-catalog|e69d091b-4150-4bb5-95c3-a9944f93210a|Barents Sea||||
+c234|land cover of Kenya|planetary-computer|esa-worldcover;esa-cci-lc|Kenya||||
+c235|monthly sentinel-2 mosaic of Madagascar for March 2025|earth-genome|sentinel2-monthly-mosaics-v7;sentinel2-monthly-mosaics-v4|Madagascar|for March 2025|2025-03-01|2025-03-31|
+c236|NO2 in Jharkhand|misteo-stac-server|jharkhand-no2|Jharkhand||||
+c237|Hyperion L1GST scenes for this region|usgs-landsat-collection-2-api|eo-1-hyperion-l1gst;eo-1-hyperion-l1t|this region||||
+c238|TanDEM-X 90m DEM for Connecticut, 2012|eoc-eo-products-service|TDM_DEM_90|Connecticut|2012|2012-01-01|2012-12-31|
+c239|Sentinel-1 RTC from the MTD data center for Punjab, Pakistan|mtd-stac-api|sentinel1-rtc|Punjab, Pakistan||||
+c240|Kentucky flooding July 2022 Maxar|eoapi|MAXAR_kentucky_flooding_7_29_2022|Kentucky|July 2022|2022-07-01|2022-07-31|

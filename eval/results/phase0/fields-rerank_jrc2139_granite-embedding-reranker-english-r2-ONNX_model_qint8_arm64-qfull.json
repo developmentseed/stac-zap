@@ -1,0 +1,3710 @@
+{
+ "provider": "local",
+ "model": "rerank:jrc2139/granite-embedding-reranker-english-r2-ONNX#model_qint8_arm64",
+ "today": "2026-10-02",
+ "rows": [
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "planetary-computer",
+   "p": 0.10499501499818568,
+   "choice": "planetary-computer",
+   "ok": true,
+   "probabilities": {
+    "planetary-computer": 0.10499501499818568,
+    "openaerialmap": 0.09946748798053492,
+    "earth-genome": 0.0900121818862078,
+    "earth-search": 0.08446104933644362,
+    "paituli-stac-finland": 0.08134082105585044
+   },
+   "ms": 3507,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "collection",
+   "expect": [
+    "sentinel-2-l2a"
+   ],
+   "options": 135,
+   "top": "sentinel-2-l2a",
+   "p": 0.010187768415094573,
+   "choice": "sentinel-2-l2a",
+   "ok": true,
+   "probabilities": {
+    "sentinel-2-l2a": 0.010187768415094573,
+    "hls2-l30": 0.009953884488887399,
+    "hls2-s30": 0.009464971613046574,
+    "landsat-c2-l2": 0.009397234330371757,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.00931734221603311
+   },
+   "ms": 9542,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "place",
+   "expect": [
+    "Lisbon"
+   ],
+   "options": 13,
+   "top": "no-place",
+   "p": 0.09872952494485311,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.09872952494485311,
+    "few": 0.0828499770244463,
+    "keep": 0.08153762533895555,
+    "few clouds": 0.07873344747060015,
+    "summer with few": 0.07711348770549814
+   },
+   "ms": 1308,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "period",
+   "expect": [
+    "2026"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07879736231797993,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2017": 0.06940826209434664,
+    "2023": 0.06289964924686896,
+    "keep": 0.07879736231797993,
+    "last-12-months": 0.0680545314911887,
+    "last-30-days": 0.06802480482142105
+   },
+   "ms": 708,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "season",
+   "expect": [
+    "summer"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.0685451679757922,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "keep": 0.0685451679757922,
+    "whole-year": 0.06391649722640083,
+    "m1": 0.059992142235163026,
+    "m4": 0.05816142848767538,
+    "m2": 0.05625105738789131
+   },
+   "ms": 976,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Lisbon last summer with few clouds",
+   "field": "cloud",
+   "expect": [
+    "15",
+    "20",
+    "25"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10829474671357407,
+   "choice": "25",
+   "ok": true,
+   "probabilities": {
+    "5": 0.09625696774958288,
+    "15": 0.09179588605816998,
+    "25": 0.09524474891195109,
+    "50": 0.0916576279709981,
+    "keep": 0.10829474671357407
+   },
+   "ms": 599,
+   "cost": 0
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.10334794424134439,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.10334794424134439,
+    "planetary-computer": 0.09951577976935272,
+    "paituli-stac-finland": 0.09162660786217822,
+    "kagis-katalog": 0.07935498158248117,
+    "earth-search": 0.0744315887141183
+   },
+   "ms": 2137,
+   "cost": 0
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "collection",
+   "expect": [
+    "sentinel-2-l2a"
+   ],
+   "options": 135,
+   "top": "3dep-lidar-intensity",
+   "p": 0.00990871297149357,
+   "choice": "3dep-lidar-intensity",
+   "ok": false,
+   "probabilities": {
+    "3dep-lidar-intensity": 0.00990871297149357,
+    "landsat-c2-l2": 0.0097301501672809,
+    "landsat-c2-l1": 0.009601390481621699,
+    "3dep-lidar-returns": 0.009268794538794213,
+    "3dep-lidar-pointsourceid": 0.00908572600569515
+   },
+   "ms": 10084,
+   "cost": 0
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "place",
+   "expect": [
+    "Johor",
+    "Johor Malaysia"
+   ],
+   "options": 30,
+   "top": "no-place",
+   "p": 0.03913438066942598,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "20": 0.03493116572690957,
+    "no-place": 0.03913438066942598,
+    "keep": 0.03592546675090923,
+    "Malaysia": 0.03460173972614985,
+    "S2": 0.03446627332200863
+   },
+   "ms": 3011,
+   "cost": 0
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07241016799752975,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2024": 0.06692829820777785,
+    "keep": 0.07241016799752975,
+    "last-30-days": 0.07101249826384139,
+    "all-time": 0.06823124935703272,
+    "last-12-months": 0.06543511290101979
+   },
+   "ms": 850,
+   "cost": 0
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.062287879511281175,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.062287879511281175,
+    "whole-year": 0.060608803415887855,
+    "winter": 0.05943452499508824,
+    "m2": 0.057685507284488804,
+    "autumn": 0.05681975312681272
+   },
+   "ms": 1020,
+   "cost": 0
+  },
+  {
+   "prompt": "I want S2 images in Johor Malaysia with less than 20% cloud cover",
+   "field": "cloud",
+   "expect": [
+    "15",
+    "20"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10375329858222358,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.09262507944767097,
+    "15": 0.09184838564886011,
+    "25": 0.09243097005760037,
+    "75": 0.0931065773662917,
+    "keep": 0.10375329858222358
+   },
+   "ms": 600,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "planetary-computer",
+   "p": 0.10333080347512683,
+   "choice": "planetary-computer",
+   "ok": true,
+   "probabilities": {
+    "planetary-computer": 0.10333080347512683,
+    "openaerialmap": 0.09959732040858803,
+    "paituli-stac-finland": 0.08584963935650818,
+    "pgc-data-catalog": 0.08219576318537122,
+    "kagis-katalog": 0.07542586730852305
+   },
+   "ms": 1964,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "collection",
+   "expect": [
+    "landsat-c2-l2"
+   ],
+   "options": 135,
+   "top": "landsat-c2-l1",
+   "p": 0.01140724943650155,
+   "choice": "landsat-c2-l1",
+   "ok": false,
+   "probabilities": {
+    "landsat-c2-l1": 0.01140724943650155,
+    "landsat-c2-l2": 0.011355375234903016,
+    "nrcan-landcover": 0.009348201571901513,
+    "hls2-l30": 0.008956016115485915,
+    "hls2-s30": 0.008754923673836347
+   },
+   "ms": 9019,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "place",
+   "expect": [
+    "Denver"
+   ],
+   "options": 11,
+   "top": "no-place",
+   "p": 0.11534840583154636,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.11534840583154636,
+    "July": 0.09639101133128145,
+    "keep": 0.09344735905187912,
+    "Landsat": 0.09189154978576133,
+    "July 2024": 0.09172731610320276
+   },
+   "ms": 992,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "period",
+   "expect": [
+    "2024"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07592884270527664,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2023": 0.062359151628376755,
+    "2024": 0.07090522626814796,
+    "keep": 0.07592884270527664,
+    "last-30-days": 0.07478155997997184,
+    "last-12-months": 0.06446600319400293
+   },
+   "ms": 661,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "season",
+   "expect": [
+    "m7"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06296854239789557,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "keep": 0.06296854239789557,
+    "m3": 0.06077039104371243,
+    "m2": 0.05849587185241876,
+    "m12": 0.057696695986697855,
+    "m6": 0.05762365681827726
+   },
+   "ms": 792,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Denver in July 2024",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10854130691980807,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "25": 0.09262636971898189,
+    "30": 0.09172066313684113,
+    "40": 0.09757595862686806,
+    "75": 0.09473088233045869,
+    "keep": 0.10854130691980807
+   },
+   "ms": 585,
+   "cost": 0
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.11387855581292289,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.11387855581292289,
+    "planetary-computer": 0.09204064501812698,
+    "paituli-stac-finland": 0.08737138977221866,
+    "earth-genome": 0.08097357319696603,
+    "pgc-data-catalog": 0.07992029694980772
+   },
+   "ms": 2033,
+   "cost": 0
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "collection",
+   "expect": [
+    "sentinel-2-l2a",
+    "landsat-c2-l2"
+   ],
+   "options": 135,
+   "top": "landsat-c2-l2",
+   "p": 0.0099406805123801,
+   "choice": "landsat-c2-l2",
+   "ok": true,
+   "probabilities": {
+    "landsat-c2-l2": 0.0099406805123801,
+    "landsat-c2-l1": 0.009649400053770142,
+    "3dep-lidar-intensity": 0.00892442661949163,
+    "3dep-lidar-returns": 0.008861806404588965,
+    "hls2-l30": 0.008724305548085334
+   },
+   "ms": 9346,
+   "cost": 0
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "place",
+   "expect": [
+    "Grand Canyon"
+   ],
+   "options": 10,
+   "top": "no-place",
+   "p": 0.1447279268208202,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.1447279268208202,
+    "keep": 0.11085727467090375,
+    "Grand Canyon": 0.10241194510980649,
+    "cloud-free": 0.09857088345346014,
+    "Grand": 0.0955827177135746
+   },
+   "ms": 922,
+   "cost": 0
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07457840425466951,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.06164352053366845,
+    "keep": 0.07457840425466951,
+    "last-30-days": 0.07450569814960614,
+    "all-time": 0.06712839016583236,
+    "last-12-months": 0.06536843381089866
+   },
+   "ms": 832,
+   "cost": 0
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06872340777509489,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.06872340777509489,
+    "whole-year": 0.061728219042422504,
+    "autumn": 0.05953981971429065,
+    "m7": 0.05775556908087449,
+    "m4": 0.05730853005048418
+   },
+   "ms": 1164,
+   "cost": 0
+  },
+  {
+   "prompt": "cloud-free imagery of the Grand Canyon",
+   "field": "cloud",
+   "expect": [
+    "5",
+    "10"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.1037046301211189,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "10": 0.09746121063466157,
+    "20": 0.09377809144305384,
+    "40": 0.09677606036762519,
+    "75": 0.10027956448436617,
+    "keep": 0.1037046301211189
+   },
+   "ms": 714,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.10573869687729603,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.10573869687729603,
+    "planetary-computer": 0.10284912532858724,
+    "paituli-stac-finland": 0.08347323954487763,
+    "kagis-katalog": 0.07962237426298839,
+    "earth-genome": 0.07944144004106853
+   },
+   "ms": 2196,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "collection",
+   "expect": [
+    "sentinel-1-rtc",
+    "sentinel-1-grd"
+   ],
+   "options": 135,
+   "top": "sentinel-1-rtc",
+   "p": 0.010607431744482164,
+   "choice": "sentinel-1-rtc",
+   "ok": true,
+   "probabilities": {
+    "sentinel-1-rtc": 0.010607431744482164,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.01054058407204819,
+    "landsat-c2-l1": 0.01023595007244206,
+    "sentinel-3-sral-wat-l2-netcdf": 0.010189582100424244,
+    "landsat-c2-l2": 0.009866266465954131
+   },
+   "ms": 10170,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "place",
+   "expect": [
+    "Netherlands"
+   ],
+   "options": 13,
+   "top": "no-place",
+   "p": 0.10494604102815537,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.10494604102815537,
+    "keep": 0.08235645862926544,
+    "radar of the Netherlands": 0.07787969385619464,
+    "Netherlands in January 2025": 0.07738754255336082,
+    "January": 0.07677671324320219
+   },
+   "ms": 1262,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "period",
+   "expect": [
+    "2025"
+   ],
+   "options": 16,
+   "top": "2025",
+   "p": 0.07257555977903042,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2024": 0.06266735007530216,
+    "2025": 0.07257555977903042,
+    "keep": 0.07217937720619728,
+    "last-12-months": 0.07043192284099117,
+    "last-30-days": 0.0674737193926032
+   },
+   "ms": 843,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "season",
+   "expect": [
+    "m1"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06783344780941608,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "keep": 0.06783344780941608,
+    "m1": 0.0634680569682249,
+    "m2": 0.05937013600197217,
+    "m3": 0.058848573076809275,
+    "m6": 0.057131139791897864
+   },
+   "ms": 869,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-1 radar of the Netherlands in January 2025",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10752608582145426,
+   "choice": "30",
+   "ok": false,
+   "probabilities": {
+    "10": 0.09356309530186237,
+    "20": 0.09188895380906488,
+    "40": 0.1008175591560487,
+    "50": 0.09098069603360104,
+    "keep": 0.10752608582145426
+   },
+   "ms": 601,
+   "cost": 0
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer",
+    "pgc-data-catalog"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.09797249831759829,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.09797249831759829,
+    "planetary-computer": 0.09469029843652892,
+    "paituli-stac-finland": 0.08669045162482175,
+    "pgc-data-catalog": 0.08294434084354968,
+    "kagis-katalog": 0.08127575098331609
+   },
+   "ms": 2246,
+   "cost": 0
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "collection",
+   "expect": [
+    "cop-dem-glo-30",
+    "cop-dem-glo-90",
+    "nasadem",
+    "alos-dem"
+   ],
+   "options": 135,
+   "top": "met-office-uk-deterministic-height",
+   "p": 0.00961688207466021,
+   "choice": "met-office-uk-deterministic-height",
+   "ok": false,
+   "probabilities": {
+    "met-office-uk-deterministic-height": 0.00961688207466021,
+    "landsat-c2-l2": 0.009369697958093599,
+    "3dep-seamless": 0.009334381780853685,
+    "met-office-global-deterministic-height": 0.00914910817552576,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.009074176528137202
+   },
+   "ms": 9471,
+   "cost": 0
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "place",
+   "expect": [
+    "Mount Everest",
+    "Everest"
+   ],
+   "options": 9,
+   "top": "no-place",
+   "p": 0.1426149140885235,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.1426149140885235,
+    "keep": 0.11630588636724987,
+    "elevation of Mount": 0.11370242799458594,
+    "elevation of Mount Everest": 0.11066620672589791,
+    "Mount": 0.1094279910483632
+   },
+   "ms": 765,
+   "cost": 0
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07339848620205552,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.06433964303041327,
+    "keep": 0.07339848620205552,
+    "last-12-months": 0.0702609359412749,
+    "last-30-days": 0.06785160568245889,
+    "all-time": 0.06460030136591909
+   },
+   "ms": 661,
+   "cost": 0
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.07062810789809694,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.07062810789809694,
+    "winter": 0.06009948619387434,
+    "whole-year": 0.05976569501003546,
+    "autumn": 0.05680091728978338,
+    "m12": 0.05655261334345903
+   },
+   "ms": 988,
+   "cost": 0
+  },
+  {
+   "prompt": "elevation of Mount Everest",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.1002947839528827,
+   "choice": "30",
+   "ok": false,
+   "probabilities": {
+    "25": 0.09640624812969364,
+    "40": 0.09799963184346787,
+    "50": 0.09571874628601508,
+    "75": 0.0947099291890292,
+    "keep": 0.1002947839528827
+   },
+   "ms": 786,
+   "cost": 0
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.10196211847545347,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.10196211847545347,
+    "paituli-stac-finland": 0.0990506518041056,
+    "planetary-computer": 0.09862966959074261,
+    "pgc-data-catalog": 0.08030050552604846,
+    "kagis-katalog": 0.07684250105465003
+   },
+   "ms": 2119,
+   "cost": 0
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "collection",
+   "expect": [
+    "esa-worldcover"
+   ],
+   "options": 135,
+   "top": "nrcan-landcover",
+   "p": 0.00973584282924608,
+   "choice": "nrcan-landcover",
+   "ok": false,
+   "probabilities": {
+    "nrcan-landcover": 0.00973584282924608,
+    "landsat-c2-l1": 0.009695503990777555,
+    "usgs-lcmap-conus-v13": 0.00954030321075518,
+    "landsat-c2-l2": 0.009434997647865576,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.009118739628193893
+   },
+   "ms": 8855,
+   "cost": 0
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "place",
+   "expect": [
+    "Kenya"
+   ],
+   "options": 9,
+   "top": "no-place",
+   "p": 0.14325766684347005,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.14325766684347005,
+    "keep": 0.12256361410627511,
+    "land": 0.1178574148673055,
+    "cover of Kenya": 0.1084256243122687,
+    "land cover": 0.1056735452652324
+   },
+   "ms": 766,
+   "cost": 0
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.08200613388797494,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2024": 0.06327780182782522,
+    "keep": 0.08200613388797494,
+    "last-30-days": 0.0682497786710019,
+    "last-12-months": 0.06640507332785925,
+    "all-time": 0.06530667759772242
+   },
+   "ms": 610,
+   "cost": 0
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06465930735620046,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.06465930735620046,
+    "whole-year": 0.06264789956766785,
+    "m12": 0.06157501892979334,
+    "m2": 0.06054104101697065,
+    "autumn": 0.05930748996694092
+   },
+   "ms": 754,
+   "cost": 0
+  },
+  {
+   "prompt": "land cover of Kenya",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10660310257774057,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.0942342264373716,
+    "10": 0.0969704063139435,
+    "25": 0.09324643518445606,
+    "75": 0.09436093663519494,
+    "keep": 0.10660310257774057
+   },
+   "ms": 523,
+   "cost": 0
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "catalog",
+   "expect": [
+    "datageoadminch"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.09764969986226237,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.09764969986226237,
+    "datageoadminch": 0.09475317854547023,
+    "kagis-katalog": 0.09113750516918519,
+    "digitale-orthophotos-niedersachsen": 0.08685030206498645,
+    "paituli-stac-finland": 0.0855995569656414
+   },
+   "ms": 2033,
+   "cost": 0
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "collection",
+   "expect": [
+    "ch.swisstopo.swissimage-dop10",
+    "ch.swisstopo.swissimage"
+   ],
+   "options": 250,
+   "top": "ch.swisstopo.swissimage",
+   "p": 0.005712500363769455,
+   "choice": "ch.swisstopo.swissimage",
+   "ok": true,
+   "probabilities": {
+    "ch.swisstopo.swissimage": 0.005712500363769455,
+    "ch.swisstopo.swissimage-dop10": 0.005563947020682675,
+    "ch.swisstopo.pixelkarte-farbe-pk100.noscale": 0.0050565690144336985,
+    "ch.swisstopo.swissnames3d": 0.004979754178407397,
+    "ch.swisstopo.pixelkarte-farbe-pk200.noscale": 0.004859698889660264
+   },
+   "ms": 18825,
+   "cost": 0
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "place",
+   "expect": [
+    "Zurich"
+   ],
+   "options": 9,
+   "top": "no-place",
+   "p": 0.14622882656511235,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.14622882656511235,
+    "keep": 0.11166917640333407,
+    "Swiss orthophotos of Zurich": 0.11118906243669109,
+    "orthophotos of Zurich": 0.11037158562765129,
+    "Swiss orthophotos": 0.1073924520422115
+   },
+   "ms": 998,
+   "cost": 0
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.0802158122522242,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2017": 0.06463150458184161,
+    "2025": 0.06406114724918283,
+    "keep": 0.0802158122522242,
+    "last-12-months": 0.066592799101509,
+    "last-30-days": 0.06407429896861067
+   },
+   "ms": 879,
+   "cost": 0
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06930424629770718,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.06930424629770718,
+    "m6": 0.0602704183830295,
+    "m2": 0.06009050718421428,
+    "whole-year": 0.05786231038853365,
+    "autumn": 0.05751061323234539
+   },
+   "ms": 847,
+   "cost": 0
+  },
+  {
+   "prompt": "Swiss orthophotos of Zurich",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.1136479787798829,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "10": 0.09678827352972219,
+    "25": 0.0968002046204439,
+    "30": 0.08968411390052135,
+    "50": 0.0946604401478813,
+    "keep": 0.1136479787798829
+   },
+   "ms": 683,
+   "cost": 0
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "field": "catalog",
+   "expect": [
+    "eoapi",
+    "openaerialmap"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.1348462361504725,
+   "choice": "openaerialmap",
+   "ok": true,
+   "probabilities": {
+    "openaerialmap": 0.1348462361504725,
+    "eoapi": 0.08680293906195984,
+    "paituli-stac-finland": 0.08563733232406183,
+    "planetary-computer": 0.08456575143793635,
+    "pgc-data-catalog": 0.07722762295739438
+   },
+   "ms": 2148,
+   "cost": 0
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "field": "collection",
+   "expect": [
+    "MAXAR_Hurricane_Idalia_Florida_Aug23"
+   ],
+   "options": 41,
+   "top": "MAXAR_Hurricane_Idalia_Florida_Aug23",
+   "p": 0.03514093421230808,
+   "choice": "MAXAR_Hurricane_Idalia_Florida_Aug23",
+   "ok": true,
+   "probabilities": {
+    "MAXAR_Hurricane_Idalia_Florida_Aug23": 0.03514093421230808,
+    "MAXAR_HurricaneHelene_Oct24": 0.029686971873249927,
+    "MAXAR_HurricaneMilton_Oct24": 0.02822326129110844,
+    "MAXAR_New_Zealand_Flooding22": 0.028032784591615633,
+    "MAXAR_Hurricane_Ian_9_26_2022": 0.028014688076145437
+   },
+   "ms": 2630,
+   "cost": 0
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "field": "place",
+   "expect": [
+    "no-place"
+   ],
+   "options": 12,
+   "top": "no-place",
+   "p": 0.1160029636944677,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.1160029636944677,
+    "keep": 0.09889261411270003,
+    "Hurricane Idalia": 0.09527931790015644,
+    "Hurricane": 0.0857297896392765,
+    "Idalia": 0.0856351147458294
+   },
+   "ms": 1104,
+   "cost": 0
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.0844382233289638,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2017": 0.06313850674539295,
+    "keep": 0.0844382233289638,
+    "last-30-days": 0.07234784906172521,
+    "all-time": 0.06631249248480509,
+    "last-12-months": 0.06543806417860402
+   },
+   "ms": 679,
+   "cost": 0
+  },
+  {
+   "prompt": "Maxar imagery after Hurricane Idalia",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.07217632192158223,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.07217632192158223,
+    "whole-year": 0.06340599182351206,
+    "autumn": 0.061010036700444074,
+    "m4": 0.05663349134211791,
+    "m3": 0.05658288642886149
+   },
+   "ms": 836,
+   "cost": 0
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "catalog",
+   "expect": [
+    "pgc-data-catalog"
+   ],
+   "options": 13,
+   "top": "pgc-data-catalog",
+   "p": 0.10444846186827668,
+   "choice": "pgc-data-catalog",
+   "ok": true,
+   "probabilities": {
+    "pgc-data-catalog": 0.10444846186827668,
+    "openaerialmap": 0.09699355446625708,
+    "paituli-stac-finland": 0.08832832383896898,
+    "planetary-computer": 0.08767086399635962,
+    "canadian-geospatial-data-collections-datacube": 0.07676656038083889
+   },
+   "ms": 2195,
+   "cost": 0
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "collection",
+   "expect": [
+    "arcticdem-mosaics-v4.1-2m",
+    "arcticdem-mosaics-v4.1-10m",
+    "arcticdem-mosaics-v4.1-32m",
+    "arcticdem-mosaics-v3.0-2m",
+    "arcticdem-mosaics-v3.0-10m",
+    "arcticdem-mosaics-v3.0-32m",
+    "arcticdem-strips-s2s041-2m"
+   ],
+   "options": 12,
+   "top": "arcticdem-strips-s2s041-2m",
+   "p": 0.10099961522812101,
+   "choice": "arcticdem-strips-s2s041-2m",
+   "ok": true,
+   "probabilities": {
+    "arcticdem-strips-s2s041-2m": 0.10099961522812101,
+    "arcticdem-mosaics-v3.0-10m": 0.0951568862408863,
+    "arcticdem-mosaics-v4.1-10m": 0.09209258934374318,
+    "arcticdem-mosaics-v4.1-2m": 0.09170885441319779,
+    "arcticdem-mosaics-v4.1-32m": 0.09155230291693284
+   },
+   "ms": 660,
+   "cost": 0
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "place",
+   "expect": [
+    "Svalbard"
+   ],
+   "options": 9,
+   "top": "no-place",
+   "p": 0.14381232515819684,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.14381232515819684,
+    "keep": 0.11745298597989871,
+    "ArcticDEM": 0.11320622619759202,
+    "Svalbard": 0.1103514834464615,
+    "map-view": 0.10602794390992161
+   },
+   "ms": 765,
+   "cost": 0
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07640244346706379,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2015": 0.06503621133088165,
+    "2025": 0.06396507845220219,
+    "keep": 0.07640244346706379,
+    "last-30-days": 0.06934715091048407,
+    "last-12-months": 0.06580473596023448
+   },
+   "ms": 713,
+   "cost": 0
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06907840805984458,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.06907840805984458,
+    "whole-year": 0.05897022442969944,
+    "m2": 0.05810057683238555,
+    "m6": 0.05786359222389456,
+    "m1": 0.05785521880625808
+   },
+   "ms": 836,
+   "cost": 0
+  },
+  {
+   "prompt": "ArcticDEM elevation of Svalbard",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10518884706833345,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "20": 0.099052550647126,
+    "25": 0.09178206411329304,
+    "30": 0.09146306887903986,
+    "40": 0.09359763635509602,
+    "keep": 0.10518884706833345
+   },
+   "ms": 676,
+   "cost": 0
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.11089897499321363,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.11089897499321363,
+    "planetary-computer": 0.09715680201221545,
+    "pgc-data-catalog": 0.08047095859023795,
+    "paituli-stac-finland": 0.07755729365499343,
+    "kentucky-from-above-spatiotemporal-asset-catalog": 0.07611997649904463
+   },
+   "ms": 1975,
+   "cost": 0
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "collection",
+   "expect": [
+    "naip"
+   ],
+   "options": 135,
+   "top": "naip",
+   "p": 0.010131692473641799,
+   "choice": "naip",
+   "ok": true,
+   "probabilities": {
+    "naip": 0.010131692473641799,
+    "landsat-c2-l2": 0.009552944612376766,
+    "landsat-c2-l1": 0.0089881670430298,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.00862559281757978,
+    "hls2-l30": 0.008568793963488149
+   },
+   "ms": 9338,
+   "cost": 0
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "place",
+   "expect": [
+    "Austin",
+    "Austin Texas"
+   ],
+   "options": 15,
+   "top": "no-place",
+   "p": 0.09772140140428996,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.09772140140428996,
+    "keep": 0.07319174522210944,
+    "NAIP": 0.0708188247839047,
+    "NAIP imagery of Austin": 0.06632121256379014,
+    "Austin Texas": 0.0660625561563979
+   },
+   "ms": 1522,
+   "cost": 0
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "period",
+   "expect": [
+    "2022"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07602181935945945,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2015": 0.0646394992263419,
+    "2022": 0.06923236132720449,
+    "keep": 0.07602181935945945,
+    "last-30-days": 0.0717812477658842,
+    "last-12-months": 0.06717160649093923
+   },
+   "ms": 714,
+   "cost": 0
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06277458476471783,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.06277458476471783,
+    "autumn": 0.061926312649809204,
+    "m2": 0.060298566681078816,
+    "m1": 0.05899226705844212,
+    "m4": 0.05844184906699705
+   },
+   "ms": 774,
+   "cost": 0
+  },
+  {
+   "prompt": "NAIP imagery of Austin, Texas from 2022",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10627592187076836,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.09765288747307248,
+    "10": 0.09706427696512325,
+    "15": 0.09496430898788516,
+    "75": 0.09134575136744946,
+    "keep": 0.10627592187076836
+   },
+   "ms": 596,
+   "cost": 0
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "catalog",
+   "expect": [
+    "thunen-earth-observation-theo"
+   ],
+   "options": 13,
+   "top": "digitale-orthophotos-niedersachsen",
+   "p": 0.09694911830705653,
+   "choice": "digitale-orthophotos-niedersachsen",
+   "ok": false,
+   "probabilities": {
+    "digitale-orthophotos-niedersachsen": 0.09694911830705653,
+    "openaerialmap": 0.09186466338767824,
+    "planetary-computer": 0.08778474083608342,
+    "thunen-earth-observation-theo": 0.08777509286072772,
+    "paituli-stac-finland": 0.08457310519177329
+   },
+   "ms": 1951,
+   "cost": 0
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "collection",
+   "expect": [
+    "crop-type-map-latest",
+    "crop-type-map-v302"
+   ],
+   "options": 7,
+   "top": "hist-crop-type-map",
+   "p": 0.17002021839909298,
+   "choice": "hist-crop-type-map",
+   "ok": false,
+   "probabilities": {
+    "hist-crop-type-map": 0.17002021839909298,
+    "crop-type-map-v302": 0.16102324711625393,
+    "crop-type-map-latest": 0.15925931859219009,
+    "winter-cover": 0.14346587072762,
+    "fractional-cover": 0.13840968750121005
+   },
+   "ms": 449,
+   "cost": 0
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "place",
+   "expect": [
+    "Lower Saxony"
+   ],
+   "options": 12,
+   "top": "no-place",
+   "p": 0.11902391502392363,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.11902391502392363,
+    "keep": 0.09812985945272225,
+    "map-view": 0.08463153530039091,
+    "types in Lower Saxony": 0.08088284120704899,
+    "Lower Saxony": 0.08079274849252173
+   },
+   "ms": 1267,
+   "cost": 0
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07673478277843081,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.06450396963203404,
+    "keep": 0.07673478277843081,
+    "last-12-months": 0.06630182229668963,
+    "all-time": 0.06538860302749956,
+    "last-30-days": 0.06502317277034018
+   },
+   "ms": 690,
+   "cost": 0
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.07192796515788967,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.07192796515788967,
+    "whole-year": 0.06444497425706597,
+    "autumn": 0.06428524718169983,
+    "m1": 0.06006669316120175,
+    "m12": 0.056418470250816595
+   },
+   "ms": 900,
+   "cost": 0
+  },
+  {
+   "prompt": "crop types in Lower Saxony",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.1064871546616247,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.09440476142187249,
+    "10": 0.09470348455724784,
+    "20": 0.09695751897434485,
+    "75": 0.09264306133113402,
+    "keep": 0.1064871546616247
+   },
+   "ms": 516,
+   "cost": 0
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "field": "catalog",
+   "expect": [
+    "digitale-orthophotos-niedersachsen"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.11097872633858454,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.11097872633858454,
+    "paituli-stac-finland": 0.08899484273865632,
+    "kagis-katalog": 0.08402772825614672,
+    "digitale-orthophotos-niedersachsen": 0.08327841046042568,
+    "planetary-computer": 0.08158265475357705
+   },
+   "ms": 1899,
+   "cost": 0
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "field": "place",
+   "expect": [
+    "Hannover"
+   ],
+   "options": 9,
+   "top": "no-place",
+   "p": 0.13709921712857712,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.13709921712857712,
+    "keep": 0.12154163549509617,
+    "Hannover": 0.11167006429823163,
+    "photos": 0.10902119387142394,
+    "map-view": 0.10778516716970984
+   },
+   "ms": 753,
+   "cost": 0
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07391027379105354,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.06610682182554244,
+    "keep": 0.07391027379105354,
+    "last-30-days": 0.07162846323992558,
+    "last-12-months": 0.0710953150093329,
+    "all-time": 0.06834485365005072
+   },
+   "ms": 762,
+   "cost": 0
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06930987356523273,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.06930987356523273,
+    "m1": 0.05809510729168445,
+    "whole-year": 0.05775122650894807,
+    "m4": 0.05749005704068979,
+    "m12": 0.05747983960560114
+   },
+   "ms": 734,
+   "cost": 0
+  },
+  {
+   "prompt": "aerial photos of Hannover",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10731547112640943,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.09233017344138364,
+    "10": 0.09331043859638843,
+    "25": 0.09497978951867701,
+    "30": 0.09386142496358965,
+    "keep": 0.10731547112640943
+   },
+   "ms": 536,
+   "cost": 0
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "planetary-computer",
+   "p": 0.10403789243505338,
+   "choice": "planetary-computer",
+   "ok": true,
+   "probabilities": {
+    "planetary-computer": 0.10403789243505338,
+    "openaerialmap": 0.10190299687999424,
+    "earth-genome": 0.09949210389824685,
+    "paituli-stac-finland": 0.0817918401826808,
+    "earth-search": 0.08076092599012825
+   },
+   "ms": 1952,
+   "cost": 0
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "field": "collection",
+   "expect": [
+    "sentinel-2-l2a"
+   ],
+   "options": 135,
+   "top": "sentinel-2-l2a",
+   "p": 0.011185184579035841,
+   "choice": "sentinel-2-l2a",
+   "ok": true,
+   "probabilities": {
+    "sentinel-2-l2a": 0.011185184579035841,
+    "hls2-l30": 0.009947623657047574,
+    "landsat-c2-l2": 0.009713717319466207,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.009547552222100703,
+    "hls2-s30": 0.009357584551814966
+   },
+   "ms": 9486,
+   "cost": 0
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "field": "place",
+   "expect": [
+    "Amazon rainforest",
+    "Amazon"
+   ],
+   "options": 10,
+   "top": "no-place",
+   "p": 0.13060788658109962,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.13060788658109962,
+    "keep": 0.11147475058004885,
+    "recent Sentinel-2": 0.10017009042198823,
+    "recent": 0.10015659776877846,
+    "Amazon": 0.09729354346152935
+   },
+   "ms": 901,
+   "cost": 0
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "field": "period",
+   "expect": [
+    "last-30-days"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.08049456511718905,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2016": 0.06348949696902857,
+    "2017": 0.0633907816671054,
+    "keep": 0.08049456511718905,
+    "last-12-months": 0.0698148337140422,
+    "last-30-days": 0.0686148472774228
+   },
+   "ms": 699,
+   "cost": 0
+  },
+  {
+   "prompt": "recent Sentinel-2 of the Amazon rainforest",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.07034657086035863,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.07034657086035863,
+    "autumn": 0.06328153584695123,
+    "m2": 0.06263163030728666,
+    "whole-year": 0.06254946566025374,
+    "m12": 0.056412411149180455
+   },
+   "ms": 900,
+   "cost": 0
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "planetary-computer",
+   "p": 0.10604904201290984,
+   "choice": "planetary-computer",
+   "ok": true,
+   "probabilities": {
+    "planetary-computer": 0.10604904201290984,
+    "openaerialmap": 0.09679654416671321,
+    "pgc-data-catalog": 0.0831736693329673,
+    "paituli-stac-finland": 0.07829315995783048,
+    "canadian-geospatial-data-collections-datacube": 0.07693168043321184
+   },
+   "ms": 2094,
+   "cost": 0
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "collection",
+   "expect": [
+    "modis-10A1-061",
+    "modis-10A2-061"
+   ],
+   "options": 135,
+   "top": "modis-10A2-061",
+   "p": 0.011503412214915897,
+   "choice": "modis-10A2-061",
+   "ok": true,
+   "probabilities": {
+    "modis-10A2-061": 0.011503412214915897,
+    "modis-10A1-061": 0.01073092531018668,
+    "landsat-c2-l1": 0.009547459718689012,
+    "landsat-c2-l2": 0.009361060822736054,
+    "modis-15A2H-061": 0.009078761698175696
+   },
+   "ms": 9703,
+   "cost": 0
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "place",
+   "expect": [
+    "Alps"
+   ],
+   "options": 16,
+   "top": "no-place",
+   "p": 0.08386701820476936,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.08386701820476936,
+    "keep": 0.0690893274975959,
+    "Alps in winter": 0.0631886558767889,
+    "MODIS": 0.06307889478799661,
+    "winter 2024": 0.06277548946947395
+   },
+   "ms": 1785,
+   "cost": 0
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "period",
+   "expect": [
+    "2024"
+   ],
+   "options": 16,
+   "top": "2024",
+   "p": 0.07400171484487254,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2024": 0.07400171484487254,
+    "2025": 0.06342420885774804,
+    "keep": 0.07303404144362229,
+    "last-30-days": 0.06796828911803704,
+    "last-12-months": 0.06525291563118162
+   },
+   "ms": 789,
+   "cost": 0
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "season",
+   "expect": [
+    "winter"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06106697996247158,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "keep": 0.06106697996247158,
+    "m2": 0.060247326968724764,
+    "winter": 0.059156481599431196,
+    "m1": 0.05903370688734297,
+    "autumn": 0.05901798750435879
+   },
+   "ms": 897,
+   "cost": 0
+  },
+  {
+   "prompt": "MODIS snow cover over the Alps in winter 2024",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10690452199705124,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "15": 0.09321697455427004,
+    "20": 0.09235777524419156,
+    "25": 0.09347533800060738,
+    "40": 0.10173899070212097,
+    "keep": 0.10690452199705124
+   },
+   "ms": 700,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.10343322386950228,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.10343322386950228,
+    "planetary-computer": 0.10083458069504928,
+    "paituli-stac-finland": 0.08747394440295835,
+    "pgc-data-catalog": 0.07698673480514738,
+    "earth-search": 0.07679742433585457
+   },
+   "ms": 2231,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "collection",
+   "expect": [
+    "landsat-c2-l2"
+   ],
+   "options": 135,
+   "top": "landsat-c2-l2",
+   "p": 0.010781807439475587,
+   "choice": "landsat-c2-l2",
+   "ok": true,
+   "probabilities": {
+    "landsat-c2-l2": 0.010781807439475587,
+    "landsat-c2-l1": 0.010609086127226686,
+    "nrcan-landcover": 0.009351290097475764,
+    "hls2-l30": 0.009128880739120594,
+    "sentinel-3-sral-lan-l2-netcdf": 0.008743950155091329
+   },
+   "ms": 9722,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "place",
+   "expect": [
+    "Aral Sea"
+   ],
+   "options": 16,
+   "top": "no-place",
+   "p": 0.08470892888794077,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "10": 0.0676120024638313,
+    "no-place": 0.08470892888794077,
+    "keep": 0.0667792259865085,
+    "2016 under 10": 0.06619856403525286,
+    "clouds": 0.06277844050245855
+   },
+   "ms": 1660,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "period",
+   "expect": [
+    "2016"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07805739233154414,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2015": 0.06502473926221011,
+    "2016": 0.07402578709377895,
+    "2017": 0.06650634812081138,
+    "keep": 0.07805739233154414,
+    "last-30-days": 0.06590817018189588
+   },
+   "ms": 832,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06913570449910639,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.06913570449910639,
+    "m7": 0.05836127744084187,
+    "m9": 0.058229580238864764,
+    "whole-year": 0.05811130617747603,
+    "m2": 0.057730788047915406
+   },
+   "ms": 1066,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat of the Aral Sea in 2016, under 10% clouds",
+   "field": "cloud",
+   "expect": [
+    "10"
+   ],
+   "options": 11,
+   "top": "10",
+   "p": 0.10171106918166907,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "10": 0.10171106918166907,
+    "25": 0.09262779617382823,
+    "30": 0.09389677663601245,
+    "75": 0.09674242406130204,
+    "keep": 0.10041677211536185
+   },
+   "ms": 808,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "planetary-computer",
+   "p": 0.10170637860782218,
+   "choice": "planetary-computer",
+   "ok": true,
+   "probabilities": {
+    "planetary-computer": 0.10170637860782218,
+    "openaerialmap": 0.10141324719878028,
+    "paituli-stac-finland": 0.08875820004523789,
+    "earth-genome": 0.08847015115647976,
+    "pgc-data-catalog": 0.07451246384950504
+   },
+   "ms": 2046,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "collection",
+   "expect": [
+    "sentinel-2-l2a"
+   ],
+   "options": 135,
+   "top": "sentinel-2-l2a",
+   "p": 0.011589686954013582,
+   "choice": "sentinel-2-l2a",
+   "ok": true,
+   "probabilities": {
+    "sentinel-2-l2a": 0.011589686954013582,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.00998612769178934,
+    "sentinel-3-slstr-lst-l2-netcdf": 0.009977909901910784,
+    "hls2-l30": 0.009808220430167516,
+    "hls2-s30": 0.009728555125861463
+   },
+   "ms": 9420,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "place",
+   "expect": [
+    "map-view"
+   ],
+   "options": 11,
+   "top": "no-place",
+   "p": 0.12314289102591071,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.12314289102591071,
+    "keep": 0.09121768253307709,
+    "area": 0.09009483171515244,
+    "map-view": 0.08958782540296491,
+    "mostly clear": 0.08883353954522595
+   },
+   "ms": 972,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.08588852521317238,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2019": 0.06165724338353848,
+    "keep": 0.08588852521317238,
+    "all-time": 0.06675070037087091,
+    "last-30-days": 0.06385072929593402,
+    "last-12-months": 0.0620289743895033
+   },
+   "ms": 735,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06455333035889477,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.06455333035889477,
+    "autumn": 0.0602877179479298,
+    "whole-year": 0.05855377071615511,
+    "m1": 0.05799553067868429,
+    "m4": 0.05736212666481969
+   },
+   "ms": 866,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of this area, mostly clear",
+   "field": "cloud",
+   "expect": [
+    "10",
+    "15",
+    "20"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10758997390374922,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.09618522298664772,
+    "20": 0.0925586874388503,
+    "25": 0.09676271204558765,
+    "50": 0.09114036304299625,
+    "keep": 0.10758997390374922
+   },
+   "ms": 635,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "field": "catalog",
+   "expect": [
+    "earth-search"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.10111497711812113,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.10111497711812113,
+    "planetary-computer": 0.09685751572027648,
+    "earth-genome": 0.0852549077186842,
+    "paituli-stac-finland": 0.08404440891312014,
+    "earth-search": 0.08126694907786665
+   },
+   "ms": 2168,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "field": "collection",
+   "expect": [
+    "sentinel-2-l1c"
+   ],
+   "options": 9,
+   "top": "sentinel-2-c1-l2a",
+   "p": 0.15609280120020913,
+   "choice": "sentinel-2-c1-l2a",
+   "ok": false,
+   "probabilities": {
+    "sentinel-2-c1-l2a": 0.15609280120020913,
+    "sentinel-2-pre-c1-l2a": 0.14483130235224786,
+    "sentinel-2-l1c": 0.13048159459274036,
+    "sentinel-2-l2a": 0.11906167730140803,
+    "sentinel-1-grd": 0.10717492853184218
+   },
+   "ms": 600,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "field": "place",
+   "expect": [
+    "Rome"
+   ],
+   "options": 9,
+   "top": "no-place",
+   "p": 0.1475674255176577,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.1475674255176577,
+    "Sentinel-2 Level-1C over Rome": 0.11427236030657377,
+    "keep": 0.11003143021370826,
+    "Sentinel-2 Level-1C": 0.10861515913676502,
+    "Level-1C": 0.10696184757494039
+   },
+   "ms": 780,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.08916213818309436,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2016": 0.06361284209461222,
+    "2018": 0.06189115055699938,
+    "keep": 0.08916213818309436,
+    "last-30-days": 0.07200376474738436,
+    "last-12-months": 0.06670611768535974
+   },
+   "ms": 737,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 Level-1C over Rome",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.07065513862537066,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.07065513862537066,
+    "m2": 0.05858411279643108,
+    "m1": 0.05854276950275419,
+    "autumn": 0.057884775386338475,
+    "m3": 0.05710187125939301
+   },
+   "ms": 895,
+   "cost": 0
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "catalog",
+   "expect": [
+    "kentucky-from-above-spatiotemporal-asset-catalog"
+   ],
+   "options": 13,
+   "top": "kentucky-from-above-spatiotemporal-asset-catalog",
+   "p": 0.10849746102734592,
+   "choice": "kentucky-from-above-spatiotemporal-asset-catalog",
+   "ok": true,
+   "probabilities": {
+    "kentucky-from-above-spatiotemporal-asset-catalog": 0.10849746102734592,
+    "openaerialmap": 0.10560797138000154,
+    "planetary-computer": 0.09917132680254497,
+    "paituli-stac-finland": 0.09098199999682091,
+    "pgc-data-catalog": 0.07560534905981443
+   },
+   "ms": 2012,
+   "cost": 0
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "collection",
+   "expect": [
+    "dem-phase1",
+    "dem-phase2",
+    "dem-phase3",
+    "laz-phase1",
+    "laz-phase2",
+    "laz-phase3"
+   ],
+   "options": 9,
+   "top": "laz-phase2",
+   "p": 0.12765070346042426,
+   "choice": "laz-phase2",
+   "ok": true,
+   "probabilities": {
+    "laz-phase2": 0.12765070346042426,
+    "orthos-phase2": 0.12194738893313568,
+    "orthos-phase1": 0.11588137802509024,
+    "dem-phase3": 0.1157787706287216,
+    "dem-phase2": 0.1144089289933405
+   },
+   "ms": 599,
+   "cost": 0
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "place",
+   "expect": [
+    "Louisville"
+   ],
+   "options": 12,
+   "top": "no-place",
+   "p": 0.11395400329130982,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.11395400329130982,
+    "elevation": 0.08454907529875798,
+    "Kentucky": 0.08300363332006024,
+    "keep": 0.08281786866006362,
+    "lidar": 0.08178890917274133
+   },
+   "ms": 1198,
+   "cost": 0
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07913125190436171,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2016": 0.06344035579097193,
+    "keep": 0.07913125190436171,
+    "last-30-days": 0.07299451103714286,
+    "last-12-months": 0.07142808480283537,
+    "all-time": 0.06902235971721066
+   },
+   "ms": 780,
+   "cost": 0
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.07108359701707534,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.07108359701707534,
+    "whole-year": 0.0638188735925159,
+    "m3": 0.06238349511644064,
+    "m4": 0.05909287399650814,
+    "m1": 0.05788359936799977
+   },
+   "ms": 755,
+   "cost": 0
+  },
+  {
+   "prompt": "Kentucky lidar elevation near Louisville",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.11775440951842775,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.09238417319835032,
+    "20": 0.09345888453005499,
+    "30": 0.09171378598963029,
+    "50": 0.09714375613205617,
+    "keep": 0.11775440951842775
+   },
+   "ms": 713,
+   "cost": 0
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "field": "catalog",
+   "expect": [
+    "earth-genome"
+   ],
+   "options": 13,
+   "top": "planetary-computer",
+   "p": 0.10561966457409198,
+   "choice": "planetary-computer",
+   "ok": false,
+   "probabilities": {
+    "planetary-computer": 0.10561966457409198,
+    "earth-genome": 0.1007395657706639,
+    "openaerialmap": 0.09236900331577073,
+    "paituli-stac-finland": 0.0879755295795241,
+    "earth-search": 0.07987983931835599
+   },
+   "ms": 2215,
+   "cost": 0
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "field": "place",
+   "expect": [
+    "Lagos"
+   ],
+   "options": 18,
+   "top": "no-place",
+   "p": 0.07476696744093651,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.07476696744093651,
+    "keep": 0.06367605910072975,
+    "map-view": 0.0578383779282467,
+    "Lagos": 0.056634092227916814,
+    "Lagos for 2023": 0.05619505034121877
+   },
+   "ms": 1804,
+   "cost": 0
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "field": "period",
+   "expect": [
+    "2023"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07344742134539287,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2023": 0.07143610740367835,
+    "keep": 0.07344742134539287,
+    "last-30-days": 0.07097073996599458,
+    "all-time": 0.06617611529831977,
+    "last-12-months": 0.06539884061041659
+   },
+   "ms": 741,
+   "cost": 0
+  },
+  {
+   "prompt": "global cloud-free Sentinel-2 mosaic of Lagos for 2023",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "m2",
+   "p": 0.06612636493862423,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "m2": 0.06612636493862423,
+    "keep": 0.06263033960822702,
+    "whole-year": 0.059789059234685527,
+    "m1": 0.0580976281797378,
+    "m4": 0.05785265501952655
+   },
+   "ms": 835,
+   "cost": 0
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "catalog",
+   "expect": [
+    "openaerialmap"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.1300916351941847,
+   "choice": "openaerialmap",
+   "ok": true,
+   "probabilities": {
+    "openaerialmap": 0.1300916351941847,
+    "planetary-computer": 0.09383134255400821,
+    "paituli-stac-finland": 0.08438262771550696,
+    "pgc-data-catalog": 0.07856271692351403,
+    "kagis-katalog": 0.07681298682394949
+   },
+   "ms": 2012,
+   "cost": 0
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "collection",
+   "expect": [
+    "openaerialmap"
+   ],
+   "options": 5,
+   "top": "vantor-opendata",
+   "p": 0.2268330342691577,
+   "choice": "vantor-opendata",
+   "ok": false,
+   "probabilities": {
+    "vantor-opendata": 0.2268330342691577,
+    "maxar-opendata": 0.21172731685264584,
+    "noaa-emergency-response": 0.1986030316280173,
+    "openaerialmap": 0.18143787001829276,
+    "cop-dem-glo-30": 0.18139874723188637
+   },
+   "ms": 276,
+   "cost": 0
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "place",
+   "expect": [
+    "Kathmandu"
+   ],
+   "options": 9,
+   "top": "no-place",
+   "p": 0.1451477575986162,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.1451477575986162,
+    "keep": 0.12403673521379126,
+    "map-view": 0.11625038977668187,
+    "drone": 0.10737809769372166,
+    "Kathmandu": 0.10593543338590106
+   },
+   "ms": 764,
+   "cost": 0
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07727679648080002,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2015": 0.0639218157225662,
+    "2017": 0.06543385562828893,
+    "keep": 0.07727679648080002,
+    "last-30-days": 0.07360890435159764,
+    "last-12-months": 0.06601297202333535
+   },
+   "ms": 655,
+   "cost": 0
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.073442428143714,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.073442428143714,
+    "whole-year": 0.06422696813235101,
+    "m1": 0.06040133516312174,
+    "m2": 0.05849684838432519,
+    "autumn": 0.0584567095102762
+   },
+   "ms": 876,
+   "cost": 0
+  },
+  {
+   "prompt": "drone imagery of Kathmandu",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10804628520134013,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.09695970638945517,
+    "10": 0.09300613553544557,
+    "50": 0.0933750043208141,
+    "75": 0.09448372100465878,
+    "keep": 0.10804628520134013
+   },
+   "ms": 562,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "planetary-computer",
+   "p": 0.1096751588480293,
+   "choice": "planetary-computer",
+   "ok": true,
+   "probabilities": {
+    "planetary-computer": 0.1096751588480293,
+    "openaerialmap": 0.10409109512810268,
+    "paituli-stac-finland": 0.08398284743950676,
+    "pgc-data-catalog": 0.0810670671555975,
+    "kagis-katalog": 0.07924671822442036
+   },
+   "ms": 2123,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "collection",
+   "expect": [
+    "landsat-c2-l2"
+   ],
+   "options": 135,
+   "top": "landsat-c2-l2",
+   "p": 0.01125249944033021,
+   "choice": "landsat-c2-l2",
+   "ok": true,
+   "probabilities": {
+    "landsat-c2-l2": 0.01125249944033021,
+    "landsat-c2-l1": 0.01046562053538539,
+    "hls2-l30": 0.009456739859755477,
+    "3dep-lidar-returns": 0.008885110960009565,
+    "jrc-gsw": 0.008804667657217465
+   },
+   "ms": 10222,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "place",
+   "expect": [
+    "Iceland"
+   ],
+   "options": 19,
+   "top": "no-place",
+   "p": 0.07511069149649142,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "40": 0.05437821821050839,
+    "no-place": 0.07511069149649142,
+    "Landsat": 0.054606129101770325,
+    "keep": 0.05419139977720901,
+    "less than 40": 0.05407371457170618
+   },
+   "ms": 1830,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "period",
+   "expect": [
+    "2021"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07104049077758708,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2021": 0.06736884566603878,
+    "keep": 0.07104049077758708,
+    "last-12-months": 0.06822952554447896,
+    "last-30-days": 0.06820934095222156,
+    "all-time": 0.06575196103906031
+   },
+   "ms": 749,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "season",
+   "expect": [
+    "autumn"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06781772891663898,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "keep": 0.06781772891663898,
+    "whole-year": 0.06214672959737878,
+    "m4": 0.06188747174207861,
+    "autumn": 0.058109525589471994,
+    "m2": 0.058073626102977595
+   },
+   "ms": 919,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat over Iceland in autumn 2021 with less than 40% clouds",
+   "field": "cloud",
+   "expect": [
+    "40"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10912220075124605,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "10": 0.09275216334752952,
+    "25": 0.09304193039321401,
+    "40": 0.09717694707057212,
+    "75": 0.0930572600570045,
+    "keep": 0.10912220075124605
+   },
+   "ms": 599,
+   "cost": 0
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.12205665707294779,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.12205665707294779,
+    "planetary-computer": 0.09464417239663521,
+    "pgc-data-catalog": 0.07986218385653585,
+    "kagis-katalog": 0.07826294912984612,
+    "paituli-stac-finland": 0.07576475118871336
+   },
+   "ms": 2039,
+   "cost": 0
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "collection",
+   "expect": [
+    "sentinel-1-rtc",
+    "sentinel-1-grd"
+   ],
+   "options": 135,
+   "top": "landsat-c2-l2",
+   "p": 0.009462167373129798,
+   "choice": "landsat-c2-l2",
+   "ok": false,
+   "probabilities": {
+    "landsat-c2-l2": 0.009462167373129798,
+    "landsat-c2-l1": 0.009025076390845089,
+    "sentinel-3-sral-wat-l2-netcdf": 0.008898200606651075,
+    "sentinel-3-olci-wfr-l2-netcdf": 0.008717134755328756,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.00868806182836488
+   },
+   "ms": 9484,
+   "cost": 0
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "place",
+   "expect": [
+    "Lisbon"
+   ],
+   "options": 12,
+   "top": "no-place",
+   "p": 0.115239921505041,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.115239921505041,
+    "keep": 0.09458165619426724,
+    "map-view": 0.08630778084252448,
+    "months": 0.08588296037769681,
+    "12 months": 0.08341700978844034
+   },
+   "ms": 1102,
+   "cost": 0
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "period",
+   "expect": [
+    "last-12-months"
+   ],
+   "options": 16,
+   "top": "last-30-days",
+   "p": 0.07764185684725132,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2025": 0.0630115573769048,
+    "last-30-days": 0.07764185684725132,
+    "keep": 0.0759809541091389,
+    "last-12-months": 0.07237189373858265,
+    "all-time": 0.06265687185219862
+   },
+   "ms": 709,
+   "cost": 0
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.07389298363367273,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.07389298363367273,
+    "whole-year": 0.06572512560936326,
+    "autumn": 0.05890189991728958,
+    "winter": 0.05877205838505692,
+    "m4": 0.05791949267214386
+   },
+   "ms": 879,
+   "cost": 0
+  },
+  {
+   "prompt": "radar images of Lisbon in the last 12 months",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.11126064378309226,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "10": 0.09664945938042822,
+    "15": 0.09756335355598056,
+    "25": 0.09395787969556213,
+    "75": 0.09497790945729172,
+    "keep": 0.11126064378309226
+   },
+   "ms": 607,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "planetary-computer",
+   "p": 0.1064193127115384,
+   "choice": "planetary-computer",
+   "ok": true,
+   "probabilities": {
+    "planetary-computer": 0.1064193127115384,
+    "openaerialmap": 0.09685803045494085,
+    "paituli-stac-finland": 0.08667164596062585,
+    "earth-genome": 0.08160861277748428,
+    "earth-search": 0.08137506461869586
+   },
+   "ms": 2047,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "collection",
+   "expect": [
+    "sentinel-2-l2a"
+   ],
+   "options": 135,
+   "top": "sentinel-2-l2a",
+   "p": 0.009881834085248174,
+   "choice": "sentinel-2-l2a",
+   "ok": true,
+   "probabilities": {
+    "sentinel-2-l2a": 0.009881834085248174,
+    "landsat-c2-l2": 0.00983009883018021,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.009332226438415745,
+    "daymet-annual-na": 0.009011674098423829,
+    "landsat-c2-l1": 0.00901065896547642
+   },
+   "ms": 10818,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "place",
+   "expect": [
+    "Cotopaxi"
+   ],
+   "options": 19,
+   "top": "no-place",
+   "p": 0.06690884004535534,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.06690884004535534,
+    "keep": 0.05667842760937741,
+    "less": 0.05503403650649746,
+    "30 clouds": 0.05379688298676425,
+    "less than 30": 0.05355848036992153
+   },
+   "ms": 1950,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "period",
+   "expect": [
+    "2025"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.0783423190275111,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2023": 0.06296255773533872,
+    "2025": 0.07736357008054597,
+    "keep": 0.0783423190275111,
+    "last-30-days": 0.07115905791069657,
+    "all-time": 0.06551417198203294
+   },
+   "ms": 877,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "season",
+   "expect": [
+    "m12"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06790133102504592,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "keep": 0.06790133102504592,
+    "whole-year": 0.06021155644520505,
+    "autumn": 0.0595843643089825,
+    "winter": 0.05873022888061227,
+    "m1": 0.05851305546040519
+   },
+   "ms": 1193,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
+   "field": "cloud",
+   "expect": [
+    "30"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.1034858680550441,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "15": 0.09597588266081548,
+    "25": 0.0945454902605378,
+    "30": 0.0944433878006252,
+    "75": 0.09701772783378879,
+    "keep": 0.1034858680550441
+   },
+   "ms": 713,
+   "cost": 0
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "field": "catalog",
+   "expect": [
+    "paituli-stac-finland"
+   ],
+   "options": 13,
+   "top": "paituli-stac-finland",
+   "p": 0.1291989312627141,
+   "choice": "paituli-stac-finland",
+   "ok": true,
+   "probabilities": {
+    "paituli-stac-finland": 0.1291989312627141,
+    "openaerialmap": 0.0985856520914076,
+    "planetary-computer": 0.08486799609996003,
+    "pgc-data-catalog": 0.08032295065389447,
+    "kagis-katalog": 0.07905118330416394
+   },
+   "ms": 2060,
+   "cost": 0
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "field": "place",
+   "expect": [
+    "Helsinki"
+   ],
+   "options": 12,
+   "top": "no-place",
+   "p": 0.11524374202702045,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.11524374202702045,
+    "keep": 0.09118586766539856,
+    "Helsinki": 0.0845192722112722,
+    "forest inventory near Helsinki": 0.08444758534618499,
+    "map-view": 0.08321704663434593
+   },
+   "ms": 1108,
+   "cost": 0
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07750917600407334,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2017": 0.06614201053631323,
+    "2025": 0.06407120312179959,
+    "keep": 0.07750917600407334,
+    "all-time": 0.07154402247558742,
+    "last-12-months": 0.06758064466075002
+   },
+   "ms": 678,
+   "cost": 0
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.0705353455779002,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.0705353455779002,
+    "whole-year": 0.06608443751280793,
+    "m1": 0.06250953140438759,
+    "m12": 0.05902097874041052,
+    "winter": 0.05852157420020196
+   },
+   "ms": 848,
+   "cost": 0
+  },
+  {
+   "prompt": "Finnish forest inventory near Helsinki",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.1231025857973452,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.09202566466599994,
+    "10": 0.09280775186875698,
+    "25": 0.09353400185557538,
+    "40": 0.09514324873531485,
+    "keep": 0.1231025857973452
+   },
+   "ms": 556,
+   "cost": 0
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "catalog",
+   "expect": [
+    "kagis-katalog"
+   ],
+   "options": 13,
+   "top": "kagis-katalog",
+   "p": 0.11260395324591724,
+   "choice": "kagis-katalog",
+   "ok": true,
+   "probabilities": {
+    "kagis-katalog": 0.11260395324591724,
+    "openaerialmap": 0.105919758052435,
+    "digitale-orthophotos-niedersachsen": 0.08762402632227007,
+    "planetary-computer": 0.07923887552223403,
+    "datageoadminch": 0.07782951953258695
+   },
+   "ms": 2236,
+   "cost": 0
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "collection",
+   "expect": [
+    "KAGIS_coll_ortho_klagenfurt_2025460",
+    "KAGIS_coll_ortho_klagenfurt_2022460"
+   ],
+   "options": 24,
+   "top": "KAGIS_coll_ortho_klagenfurt_2022460",
+   "p": 0.05609155630695487,
+   "choice": "KAGIS_coll_ortho_klagenfurt_2022460",
+   "ok": true,
+   "probabilities": {
+    "KAGIS_coll_ortho_klagenfurt_2022460": 0.05609155630695487,
+    "KAGIS_coll_ortho_klagenfurt_2025460": 0.05525473683038272,
+    "KAGIS_coll_fluege_akl": 0.044578665783233384,
+    "KAGIS_coll_ortho_tamsweg_2025850": 0.044504716447458556,
+    "KAGIS_coll_ortho_tamsweg_2021360": 0.04374239162506593
+   },
+   "ms": 1786,
+   "cost": 0
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "place",
+   "expect": [
+    "Klagenfurt"
+   ],
+   "options": 9,
+   "top": "no-place",
+   "p": 0.14196421949004012,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.14196421949004012,
+    "keep": 0.12448541145235516,
+    "orthophotos of Klagenfurt": 0.11157837116776935,
+    "Klagenfurt": 0.109690814764136,
+    "Carinthia orthophotos of Klagenfurt": 0.10905079343030133
+   },
+   "ms": 976,
+   "cost": 0
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "keep",
+   "p": 0.07843747863277178,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2020": 0.06285344532307192,
+    "keep": 0.07843747863277178,
+    "last-12-months": 0.06650448246814109,
+    "all-time": 0.06400538162882496,
+    "last-30-days": 0.062376018783633934
+   },
+   "ms": 1204,
+   "cost": 0
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06805320525100989,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.06805320525100989,
+    "autumn": 0.06075611125910702,
+    "m4": 0.058566599769088554,
+    "m1": 0.05791784431420448,
+    "whole-year": 0.05769086113271914
+   },
+   "ms": 863,
+   "cost": 0
+  },
+  {
+   "prompt": "Carinthia orthophotos of Klagenfurt",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10752276277116396,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.09489284885336172,
+    "10": 0.09758940854988145,
+    "40": 0.09816360211885171,
+    "75": 0.09216390211885088,
+    "keep": 0.10752276277116396
+   },
+   "ms": 665,
+   "cost": 0
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "catalog",
+   "expect": [
+    "canadian-geospatial-data-collections-datacube"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.1005644990610977,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.1005644990610977,
+    "pgc-data-catalog": 0.09211871031021306,
+    "paituli-stac-finland": 0.09190905066814413,
+    "planetary-computer": 0.09083187821882817,
+    "canadian-geospatial-data-collections-datacube": 0.08820060053104545
+   },
+   "ms": 2179,
+   "cost": 0
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "collection",
+   "expect": [
+    "hrdem-mosaic-1m",
+    "hrdem-mosaic-2m",
+    "hrdem-lidar"
+   ],
+   "options": 52,
+   "top": "hrdem-arcticdem",
+   "p": 0.025713525944894997,
+   "choice": "hrdem-arcticdem",
+   "ok": false,
+   "probabilities": {
+    "hrdem-arcticdem": 0.025713525944894997,
+    "cdem": 0.0255296955322453,
+    "modis-land-cover": 0.022720566358231182,
+    "et-month": 0.02226507631582392,
+    "et-year": 0.02210939405103308
+   },
+   "ms": 6021,
+   "cost": 0
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "place",
+   "expect": [
+    "Vancouver"
+   ],
+   "options": 16,
+   "top": "no-place",
+   "p": 0.08477888082246743,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.08477888082246743,
+    "keep": 0.06890517322882399,
+    "high": 0.06551935169760623,
+    "resolution": 0.06455754756672286,
+    "Canadian high": 0.06281019008916766
+   },
+   "ms": 1435,
+   "cost": 0
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "period",
+   "expect": [
+    "keep",
+    "all-time"
+   ],
+   "options": 16,
+   "top": "last-30-days",
+   "p": 0.0759436533704499,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "2025": 0.06244336727902955,
+    "last-30-days": 0.0759436533704499,
+    "keep": 0.07529800606348036,
+    "last-12-months": 0.0685355496195628,
+    "all-time": 0.06469316312185422
+   },
+   "ms": 644,
+   "cost": 0
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "season",
+   "expect": [
+    "keep",
+    "whole-year"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.0666808058974734,
+   "choice": "keep",
+   "ok": true,
+   "probabilities": {
+    "keep": 0.0666808058974734,
+    "m2": 0.05861429378806148,
+    "m12": 0.058071812008393044,
+    "whole-year": 0.057880700683509714,
+    "m6": 0.05786773719100554
+   },
+   "ms": 766,
+   "cost": 0
+  },
+  {
+   "prompt": "Canadian high resolution DEM of Vancouver",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.11561262744727216,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "5": 0.0927097709985272,
+    "10": 0.09738793197970548,
+    "25": 0.09154158418283245,
+    "40": 0.09274390544290607,
+    "keep": 0.11561262744727216
+   },
+   "ms": 536,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "planetary-computer",
+   "p": 0.11313721602755056,
+   "choice": "planetary-computer",
+   "ok": true,
+   "probabilities": {
+    "planetary-computer": 0.11313721602755056,
+    "openaerialmap": 0.1057575983869957,
+    "earth-genome": 0.08812271816420719,
+    "paituli-stac-finland": 0.08430789115214596,
+    "earth-search": 0.07547041819150198
+   },
+   "ms": 2224,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "collection",
+   "expect": [
+    "sentinel-2-l2a"
+   ],
+   "options": 135,
+   "top": "sentinel-2-l2a",
+   "p": 0.010362149264133239,
+   "choice": "sentinel-2-l2a",
+   "ok": true,
+   "probabilities": {
+    "sentinel-2-l2a": 0.010362149264133239,
+    "landsat-c2-l2": 0.009902801577233592,
+    "sentinel-3-olci-lfr-l2-netcdf": 0.00955959027633842,
+    "hls2-l30": 0.0094234644633029,
+    "landsat-c2-l1": 0.009175841127075219
+   },
+   "ms": 9865,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "place",
+   "expect": [
+    "Nairobi"
+   ],
+   "options": 14,
+   "top": "no-place",
+   "p": 0.09376319220249424,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.09376319220249424,
+    "keep": 0.07672596469399343,
+    "spring 2023": 0.0748205259878477,
+    "spring 2023 any clouds": 0.07279147029575392,
+    "Nairobi in spring 2023": 0.0697598971125844
+   },
+   "ms": 1379,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "period",
+   "expect": [
+    "2023"
+   ],
+   "options": 16,
+   "top": "2023",
+   "p": 0.0743623373210235,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2023": 0.0743623373210235,
+    "2025": 0.06511583310170385,
+    "last-12-months": 0.07195309528457272,
+    "last-30-days": 0.07072973587963913,
+    "keep": 0.06961075578518951
+   },
+   "ms": 769,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "season",
+   "expect": [
+    "spring"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.06628627078988163,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "keep": 0.06628627078988163,
+    "winter": 0.05997286295160071,
+    "m2": 0.05863513455497716,
+    "whole-year": 0.05775421941958502,
+    "m1": 0.05676488867332479
+   },
+   "ms": 985,
+   "cost": 0
+  },
+  {
+   "prompt": "Sentinel-2 of Nairobi in spring 2023, any clouds",
+   "field": "cloud",
+   "expect": [
+    "any",
+    "keep"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.10305355769256713,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "10": 0.09987016958663728,
+    "20": 0.09342664101461431,
+    "30": 0.09364114671824793,
+    "40": 0.09909261937749775,
+    "keep": 0.10305355769256713
+   },
+   "ms": 751,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "catalog",
+   "expect": [
+    "planetary-computer"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.10487544742764619,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.10487544742764619,
+    "planetary-computer": 0.09637198430934016,
+    "pgc-data-catalog": 0.08002885139121324,
+    "earth-search": 0.0796290891927626,
+    "paituli-stac-finland": 0.0757897579842858
+   },
+   "ms": 2353,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "collection",
+   "expect": [
+    "landsat-c2-l2"
+   ],
+   "options": 135,
+   "top": "landsat-c2-l1",
+   "p": 0.01108462031425193,
+   "choice": "landsat-c2-l1",
+   "ok": false,
+   "probabilities": {
+    "landsat-c2-l1": 0.01108462031425193,
+    "landsat-c2-l2": 0.010958134679379053,
+    "hls2-l30": 0.00936323322809766,
+    "hls2-s30": 0.009086895918254054,
+    "jrc-gsw": 0.008848503811308705
+   },
+   "ms": 9877,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "place",
+   "expect": [
+    "Lake Titicaca",
+    "Titicaca"
+   ],
+   "options": 18,
+   "top": "no-place",
+   "p": 0.07471279402475517,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.07471279402475517,
+    "keep": 0.06451723327523609,
+    "March 2019 of Lake": 0.058751628119531635,
+    "March": 0.05622998104334859,
+    "Lake Titicaca": 0.055887659154397515
+   },
+   "ms": 1607,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "period",
+   "expect": [
+    "2019"
+   ],
+   "options": 16,
+   "top": "last-30-days",
+   "p": 0.07406800178642076,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2019": 0.06592494993847202,
+    "last-30-days": 0.07406800178642076,
+    "keep": 0.07152993046314123,
+    "last-12-months": 0.06784363166601665,
+    "all-time": 0.06622240120454911
+   },
+   "ms": 736,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "season",
+   "expect": [
+    "m3"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.0622550186872369,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "keep": 0.0622550186872369,
+    "m1": 0.06113319256754377,
+    "whole-year": 0.059973822089478546,
+    "autumn": 0.05848244575257103,
+    "m8": 0.05790200645144695
+   },
+   "ms": 906,
+   "cost": 0
+  },
+  {
+   "prompt": "Landsat imagery from March 2019 of Lake Titicaca",
+   "field": "cloud",
+   "expect": [
+    "keep",
+    "any"
+   ],
+   "options": 11,
+   "top": "keep",
+   "p": 0.1082693877191044,
+   "choice": "25",
+   "ok": false,
+   "probabilities": {
+    "10": 0.09461358186173789,
+    "20": 0.09151874285153414,
+    "30": 0.09310719034011274,
+    "50": 0.09241044712738934,
+    "keep": 0.1082693877191044
+   },
+   "ms": 599,
+   "cost": 0
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "field": "catalog",
+   "expect": [
+    "eoapi"
+   ],
+   "options": 13,
+   "top": "openaerialmap",
+   "p": 0.11037241026856574,
+   "choice": "openaerialmap",
+   "ok": false,
+   "probabilities": {
+    "openaerialmap": 0.11037241026856574,
+    "planetary-computer": 0.09867103351824542,
+    "pgc-data-catalog": 0.0795478731042069,
+    "datageoadminch": 0.07656123885773908,
+    "earth-genome": 0.07480336564804832
+   },
+   "ms": 2048,
+   "cost": 0
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "field": "collection",
+   "expect": [
+    "WildFires-LosAngeles-Jan-2025"
+   ],
+   "options": 41,
+   "top": "WildFires-LosAngeles-Jan-2025",
+   "p": 0.043871514236934084,
+   "choice": "WildFires-LosAngeles-Jan-2025",
+   "ok": true,
+   "probabilities": {
+    "WildFires-LosAngeles-Jan-2025": 0.043871514236934084,
+    "MAXAR_McDougallCreekWildfire_BC_Canada_Aug_23": 0.02859062690802993,
+    "MAXAR_New_Zealand_Flooding22": 0.02684487151106192,
+    "copernicus-dem": 0.026634908900022257,
+    "openaerialmap": 0.026583302792391437
+   },
+   "ms": 3063,
+   "cost": 0
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "field": "place",
+   "expect": [
+    "Los Angeles"
+   ],
+   "options": 15,
+   "top": "no-place",
+   "p": 0.09242022745291234,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "no-place": 0.09242022745291234,
+    "keep": 0.07480680670683527,
+    "January 2025": 0.06662739903474613,
+    "Los": 0.06621907114528183,
+    "Los Angeles": 0.06588986283805788
+   },
+   "ms": 1486,
+   "cost": 0
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "field": "period",
+   "expect": [
+    "2025"
+   ],
+   "options": 16,
+   "top": "2025",
+   "p": 0.0779046828268624,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "2020": 0.06456401970806896,
+    "2023": 0.06304014069853513,
+    "2024": 0.06880419655097106,
+    "2025": 0.0779046828268624,
+    "keep": 0.07034897299131948
+   },
+   "ms": 724,
+   "cost": 0
+  },
+  {
+   "prompt": "wildfires in Los Angeles in January 2025",
+   "field": "season",
+   "expect": [
+    "m1"
+   ],
+   "options": 18,
+   "top": "keep",
+   "p": 0.0782768060039326,
+   "choice": "keep",
+   "ok": false,
+   "probabilities": {
+    "keep": 0.0782768060039326,
+    "m1": 0.05998793284022849,
+    "autumn": 0.059379546753018264,
+    "m2": 0.058979775883372436,
+    "whole-year": 0.058427454526290674
+   },
+   "ms": 886,
+   "cost": 0
+  }
+ ]
+}

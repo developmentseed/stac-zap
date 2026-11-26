@@ -6,6 +6,8 @@
  * The keys come from `.env`, as for the dev server.
  */
 import { readFileSync } from "node:fs";
+import { askLocal } from "./local/decide";
+import { extractLocal } from "./local/extract";
 
 export type Question = {
   type: "choice";
@@ -36,6 +38,8 @@ const PROVIDERS = {
     // Codiv allows 60 requests per minute.
     gap: () => 1100,
   },
+  /** A model on this computer, see `local/decide.ts`. No key, no network. */
+  local: { url: "", keyName: "", gap: () => 0 },
 } as const;
 
 export type ProviderName = keyof typeof PROVIDERS;
@@ -45,7 +49,9 @@ export function modelOfEnv(): { provider: ProviderName; model: string; tag: stri
   const provider = (process.env.PROVIDER ?? "openrouter") as ProviderName;
   if (!(provider in PROVIDERS)) throw new Error(`Unknown provider: ${provider}`);
   const model = process.env.MODEL ?? "typesafe/jev-1.14";
-  return { provider, model, tag: model.replace(/[/:~]/g, "_") };
+  // A local model can run with another query text (see local/decide.ts).
+  const query = provider === "local" && process.env.QUERY ? `-q${process.env.QUERY}` : "";
+  return { provider, model, tag: model.replace(/[/:~#]/g, "_") + query };
 }
 
 function keyOf(name: string): string {
@@ -100,6 +106,7 @@ export async function ask(
   state: string,
   questions: Record<string, Question>,
 ): Promise<Reply> {
+  if (provider === "local") return askLocal(model, state, questions);
   const { url, keyName, gap } = PROVIDERS[provider];
   const reply = await post<{ answers: Record<string, RawAnswer>; usage?: { cost?: number } }>(
     url,
@@ -151,6 +158,7 @@ export async function extract(
   fields: Record<string, ExtractField>,
   referenceDate?: string,
 ): Promise<ExtractReply> {
+  if (model.startsWith("local:")) return extractLocal(model, state, fields, referenceDate);
   const body: Record<string, unknown> = { model, state, fields };
   // Models without date fields reject a reference date.
   if (referenceDate) body.reference_date = referenceDate;

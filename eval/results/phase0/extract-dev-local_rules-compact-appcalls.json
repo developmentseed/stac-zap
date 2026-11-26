@@ -1,0 +1,1261 @@
+{
+ "model": "local:rules",
+ "set": "dev",
+ "variant": "compact",
+ "oneCall": false,
+ "appCalls": true,
+ "today": "2026-10-02",
+ "rows": [
+  {
+   "id": "D1",
+   "prompt": "Sentinel-2 of Madrid on 3 May 2022",
+   "group": "time",
+   "expect": "2022-05-03 to 2022-05-03",
+   "value": [
+    "2022-05-03",
+    "2022-05-03"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Madrid",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "on 3 May 2022",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2022-05-03",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2022-05-03",
+     "p_null": 0
+    }
+   },
+   "ms": 20,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D2",
+   "prompt": "Landsat of Quito since 2019",
+   "group": "time",
+   "expect": "2019-01-01 to 2026-10-02",
+   "value": [
+    "2019-01-01",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Quito",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "since 2019",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2019-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D3",
+   "prompt": "Sentinel-2 of Berlin over the past 2 months",
+   "group": "time",
+   "expect": "2026-08-02 to 2026-10-02",
+   "value": [
+    "2026-08-02",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Berlin",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "past 2 months",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2026-08-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2026-08-31",
+     "p_null": 0
+    }
+   },
+   "ms": 1,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D4",
+   "prompt": "MODIS of Chile in March 2021",
+   "group": "time",
+   "expect": "2021-03-01 to 2021-03-31",
+   "value": [
+    "2021-03-01",
+    "2021-03-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Chile",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in March 2021",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2021-03-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2021-03-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D5",
+   "prompt": "NAIP of Ohio in 2021",
+   "group": "time",
+   "expect": "2021-01-01 to 2021-12-31",
+   "value": [
+    "2021-01-01",
+    "2021-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Ohio",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in 2021",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2021-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2021-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D6",
+   "prompt": "Sentinel-2 of Seoul in autumn 2022",
+   "group": "time",
+   "expect": "2022-09-01 to 2022-11-30",
+   "value": [
+    "2022-09-01",
+    "2022-11-30"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Seoul",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in autumn 2022",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2022-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2022-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D7",
+   "prompt": "Sentinel-2 of Oslo in winter 2023",
+   "group": "time",
+   "expect": "2022-12-01 to 2023-02-28",
+   "value": [
+    "2022-12-01",
+    "2023-02-28"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Oslo",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in winter 2023",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2023-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2023-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D8",
+   "prompt": "Landsat of Utah last winter",
+   "group": "time",
+   "expect": "2025-12-01 to 2026-02-28",
+   "value": [
+    "2025-12-01",
+    "2026-02-28"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Utah",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "last winter",
+     "p_null": 0
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D9",
+   "prompt": "latest Sentinel-2 of Cape Town",
+   "group": "time",
+   "expect": "2026-09-02 to 2026-10-02",
+   "value": [
+    "2026-09-02",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Cape Town",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "latest",
+     "p_null": 0
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D10",
+   "prompt": "elevation of the Andes",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Andes",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D11",
+   "prompt": "Sentinel-2 of Quebec with less than 15% clouds",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Quebec",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": 15,
+     "p_null": 0
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D11",
+   "prompt": "Sentinel-2 of Quebec with less than 15% clouds",
+   "group": "cloud",
+   "expect": "15",
+   "value": 15,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Quebec",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": 15,
+     "p_null": 0
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D12",
+   "prompt": "soil moisture of Spain",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Spain",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D13",
+   "prompt": "building footprints of Nairobi",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Nairobi",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D14",
+   "prompt": "Landsat of the Nile delta",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Nile",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D14",
+   "prompt": "Landsat of the Nile delta",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Nile",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D15",
+   "prompt": "orthophotos of Bern",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Bern",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D16",
+   "prompt": "Sentinel-1 of Rotterdam port",
+   "group": "time",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Rotterdam",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D17",
+   "prompt": "Sentinel-2 of Porto in May 2023",
+   "group": "time",
+   "expect": "2023-05-01 to 2023-05-31",
+   "value": [
+    "2023-05-01",
+    "2023-05-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Porto",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in May 2023",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2023-05-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2023-05-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D18",
+   "prompt": "Landsat of Calgary from June to August 2021",
+   "group": "time",
+   "expect": "2021-06-01 to 2021-08-31",
+   "value": [
+    "2021-06-01",
+    "2021-08-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Calgary",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "from June to August 2021",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2021-06-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2021-08-31",
+     "p_null": 0
+    }
+   },
+   "ms": 1,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D19",
+   "prompt": "Sentinel-2 of Montreal in fall 2020",
+   "group": "time",
+   "expect": "2020-09-01 to 2020-11-30",
+   "value": [
+    "2020-09-01",
+    "2020-11-30"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Montreal",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in fall 2020",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2020-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2020-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D20",
+   "prompt": "Sentinel-2 of Athens last summer",
+   "group": "time",
+   "expect": "2026-06-01 to 2026-08-31",
+   "value": [
+    "2026-06-01",
+    "2026-08-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Athens",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "last summer",
+     "p_null": 0
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D21",
+   "prompt": "Sentinel-2 of Bogota, clear sky",
+   "group": "cloud",
+   "expect": "10",
+   "value": 10,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Bogota",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": 10,
+     "p_null": 0
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D22",
+   "prompt": "Sentinel-2 of Kampala, partly cloudy is fine",
+   "group": "cloud",
+   "expect": "50",
+   "value": 50,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Kampala",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": 50,
+     "p_null": 0
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D23",
+   "prompt": "Landsat of Bali in 2022",
+   "group": "time",
+   "expect": "2022-01-01 to 2022-12-31",
+   "value": [
+    "2022-01-01",
+    "2022-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Bali",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in 2022",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2022-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2022-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D23",
+   "prompt": "Landsat of Bali in 2022",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Bali",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in 2022",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2022-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2022-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D24",
+   "prompt": "Sentinel-2 of Dakar, any cloud cover",
+   "group": "cloud",
+   "expect": "none",
+   "value": null,
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Dakar",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D25",
+   "prompt": "Sentinel-2 here in June 2024",
+   "group": "time",
+   "expect": "2024-06-01 to 2024-06-30",
+   "value": [
+    "2024-06-01",
+    "2024-06-30"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "here",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in June 2024",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2024-06-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2024-06-30",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D25",
+   "prompt": "Sentinel-2 here in June 2024",
+   "group": "place",
+   "expect": "map-view",
+   "value": "here",
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "here",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in June 2024",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2024-06-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2024-06-30",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D26",
+   "prompt": "NAIP of the Everglades",
+   "group": "place",
+   "expect": "Everglades",
+   "value": "Everglades",
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Everglades",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": null,
+     "p_null": 1
+    },
+    "start": {
+     "value": null,
+     "p_null": 1
+    },
+    "end": {
+     "value": null,
+     "p_null": 1
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D27",
+   "prompt": "Sentinel-2 of Nantes in the last 6 weeks",
+   "group": "time",
+   "expect": "2026-08-21 to 2026-10-02",
+   "value": [
+    "2026-08-21",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Nantes",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "last 6 weeks",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2026-08-21",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2026-08-21",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D28",
+   "prompt": "Sentinel-1 of Mumbai over the past 10 days",
+   "group": "time",
+   "expect": "2026-09-22 to 2026-10-02",
+   "value": [
+    "2026-09-22",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Mumbai",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "past 10 days",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2026-09-22",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2026-09-22",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D29",
+   "prompt": "Landsat of Phoenix in the last two years",
+   "group": "time",
+   "expect": "2024-10-02 to 2026-10-02",
+   "value": [
+    "2024-10-02",
+    "2026-10-02"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Phoenix",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "last two years",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2024-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2024-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D30",
+   "prompt": "Sentinel-2 of Ghent in Q3 2021",
+   "group": "time",
+   "expect": "2021-07-01 to 2021-09-30",
+   "value": [
+    "2021-07-01",
+    "2021-09-30"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Ghent",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in Q3 2021",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2021-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2021-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D31",
+   "prompt": "Sentinel-2 of Pune in the first quarter of 2020",
+   "group": "time",
+   "expect": "2020-01-01 to 2020-03-31",
+   "value": [
+    "2020-01-01",
+    "2020-03-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Pune",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "in the first quarter of 2020",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2020-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2020-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  },
+  {
+   "id": "D32",
+   "prompt": "Landsat of Tucson for the fourth quarter of 2019",
+   "group": "time",
+   "expect": "2019-10-01 to 2019-12-31",
+   "value": [
+    "2019-10-01",
+    "2019-12-31"
+   ],
+   "ok": true,
+   "answers": {
+    "place": {
+     "value": "Tucson",
+     "p_null": 0
+    },
+    "cloud": {
+     "value": null,
+     "p_null": 1
+    },
+    "when": {
+     "value": "the fourth quarter of 2019",
+     "p_null": 0
+    },
+    "start": {
+     "value": "2019-01-01",
+     "p_null": 0
+    },
+    "end": {
+     "value": "2019-12-31",
+     "p_null": 0
+    }
+   },
+   "ms": 0,
+   "cost": 0,
+   "usage": {}
+  }
+ ]
+}

@@ -5,3 +5,5 @@ dist/
 .dev.vars
 .wrangler/
 .claude/
+training/data/
+public/models/
