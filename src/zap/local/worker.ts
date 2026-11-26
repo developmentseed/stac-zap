@@ -8,7 +8,7 @@
  * - `tag_logits`: the place, time and cloud cover tags of each token.
  *
  * The files come from `base` (see `index.ts`): `model/` in the layout that
- * transformers.js reads (int4 embeddings and int8 weights, "q4", computed in fp32, fetched as gzip) and
+ * transformers.js reads (int8 weights, "q8", computed in fp32, fetched as gzip) and
  * `stac-zap.json` with the settings.
  */
 import {
@@ -38,11 +38,14 @@ type Models = {
 
 let models: Promise<Models> | null = null;
 
-/** The model file: int4 embedding table, int8 weights (`training/tools/weight_int4.py`), 22.5 MB. */
-const DTYPE = "q4" as const;
+/**
+ * The model file: weight-only int8 (`model_quantized.onnx`, 31.4 MB; 27.8 MB as gzip). The int4 file
+ * (`model_q4.onnx`, 19.3 MB as gzip) is smaller but lost about 4% of the answers (docs/local-model.md).
+ */
+const DTYPE = "q8" as const;
 
 /**
- * Fetches an ONNX file as its gzip copy (`model_q4.onnx.gz`, 19.3 MB instead of 22.5 MB) when the host has one,
+ * Fetches an ONNX file as its gzip copy (`model_quantized.onnx.gz`, 27.8 MB instead of 31.4 MB) when the host has one,
  * and unzips it in the browser. The Hugging Face Hub sends model files without compression, so the page does it.
  * Range requests (transformers.js asks for the size first) and hosts without the copy get the plain file.
  */

@@ -768,13 +768,15 @@ def export_shared(model, temps):
         opset_version=17, dynamo=False,
     )
     weight_only_int8(str(d / "model/onnx/model.onnx"), str(d / "model/onnx/model_quantized.onnx"))
-    # The file the page loads: int4 embedding table (blocks of 32, fp16 scales), int8 weights, and its gzip copy.
-    # int4 in the weights broke the model (decider agreement with fp32 13-29%); see training/tools/weight_int4.py.
+    # The page loads model_quantized.onnx (int8), as its gzip copy. model_q4.onnx (int4 embedding table, blocks of
+    # 32, fp16 scales; int8 weights) is smaller but lost about 4% of the answers; int4 in the weights broke the model
+    # (decider agreement with fp32 13-29%). See training/tools/weight_int4.py.
     quantize_int4(str(d / "model/onnx/model.onnx"), str(d / "model/onnx/model_q4.onnx"), 4, 32, 8, 0)
     import gzip
     import shutil
-    with open(d / "model/onnx/model_q4.onnx", "rb") as fi, gzip.open(d / "model/onnx/model_q4.onnx.gz", "wb", compresslevel=9) as fo:
-        shutil.copyfileobj(fi, fo)
+    for name in ["model_quantized.onnx", "model_q4.onnx"]:
+        with open(d / "model/onnx" / name, "rb") as fi, gzip.open(d / "model/onnx" / f"{name}.gz", "wb", compresslevel=9) as fo:
+            shutil.copyfileobj(fi, fo)
     import onnxruntime as ort
 
     sess = ort.InferenceSession(str(d / "model/onnx/model_quantized.onnx"))

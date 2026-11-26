@@ -10,7 +10,7 @@ RUN=${1:-v7}
 REPO=developmentseed/stac-zap-models
 OUT=public/models/stac-zap-$RUN
 TMP=$(mktemp -d)
-hf download "$REPO" --include "shared/$RUN/*" --exclude "*.pt" --exclude "*/onnx/model.onnx" --exclude "*/onnx/model_quantized.onnx" --local-dir "$TMP" >/dev/null
+hf download "$REPO" --include "shared/$RUN/*" --exclude "*.pt" --exclude "*/onnx/model.onnx" --exclude "*/onnx/model_q4.onnx*" --local-dir "$TMP" >/dev/null
 mkdir -p "$OUT"
 cp -r "$TMP/shared/$RUN/." "$OUT/"
 rm -rf "$TMP"
