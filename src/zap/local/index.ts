@@ -28,6 +28,8 @@ export const BASE: string =
 const SHORTLIST = 16;
 const QUERY_MAX = 64;
 const DOC_MAX = 128;
+/** See `pickCollection`: read as a new request, a collection with this probability opens without asking about `keep`. */
+const KEEP_BAR = 0.75;
 
 let worker: Worker | null = null;
 let nextId = 0;
@@ -142,21 +144,22 @@ export async function pickCollection(
     .map((x) => x.d);
   const options = top.map((d) => d.text);
   const keys = top.map((d) => d.key);
-  if (current) {
-    options.push(`keep: keep the current collection (${current})`);
+  const score = (q: string, opts: string[]) => call<number[]>({ type: "score", kind: "collection", query: q, options: opts });
+  // With a collection open, the decider likes `keep` too much: it saw `keep` mostly in follow-ups ("now in 2021").
+  // So it first reads the request as a new one, with no current collection. A collection with at least KEEP_BAR
+  // opens; else it asks again with `keep` as an option.
+  let p = await score(query("Which collection?", prompt), options);
+  let best = p.indexOf(Math.max(...p));
+  if (current && p[best]! < KEEP_BAR) {
+    p = await score(query("Which collection?", prompt, current), [...options, `keep: keep the current collection (${current})`]);
     keys.push(KEEP_KEY);
+    best = p.indexOf(Math.max(...p));
   }
-  const p = await call<number[]>({
-    type: "score",
-    kind: "collection",
-    query: query("Which collection?", prompt, current),
-    options,
-  });
   const probabilities = Object.fromEntries(keys.map((k, i) => [k, p[i]!]));
   const labels = Object.fromEntries(
     top.map((d) => [d.key, `${d.c.title ?? d.c.id} (${d.key.split("/")[0]})`]).concat(current ? [[KEEP_KEY, `Keep ${current}`]] : []),
   );
-  const choice = keys[p.indexOf(Math.max(...p))]!;
+  const choice = keys[best]!;
   return { probabilities, labels, choice };
 }
 

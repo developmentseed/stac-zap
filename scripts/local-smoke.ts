@@ -10,7 +10,7 @@ import { chromium } from "playwright";
 const url = process.env.URL ?? "http://localhost:5173/stac-zap/";
 const prompts = process.argv.slice(2).length ? process.argv.slice(2) : ["Sentinel-2 over Lisbon last summer with few clouds"];
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1400, height: 900 } });
+const page = await browser.newPage({ viewport: { width: 1400, height: 900 }, deviceScaleFactor: Number(process.env.DPR ?? 1) });
 await page.addInitScript(() => {
   localStorage.setItem("stac-zap:backend", "local");
   localStorage.setItem("stac-zap:mode", "zap");
