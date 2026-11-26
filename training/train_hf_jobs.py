@@ -74,6 +74,7 @@ p.add_argument("--max-records", type=int, default=0)
 p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
 p.add_argument("--no-upload", action="store_true")
 p.add_argument("--seed", type=int, default=13)
+p.add_argument("--retriever-epochs", type=int, default=2)
 p.add_argument("--data", default="v3", help="folder of generated/ in the dataset")
 args = p.parse_args()
 random.seed(args.seed)
@@ -690,7 +691,7 @@ def export_shared(model, temps):
 report = {"run": args.run, "base": BASE, "retriever": RETRIEVER, "args": vars(args), "data": {k: len(v) for k, v in splits.items()}}
 
 model = Shared().to(dev)
-train_retriever(model)
+train_retriever(model, epochs=args.retriever_epochs)
 # The decider learns on the shortlists of the stage 1 retriever; the metrics below use the final encoder.
 log("embedding collections with the stage 1 retriever")
 doc_vecs = embed(model, tok, doc_texts)

@@ -33,12 +33,16 @@ import { readCloud, readTime } from "./extract";
 import { docText } from "../../src/zap/local/text";
 
 const dir = resolve(process.argv[2] ?? `${process.env.HOME}/.cache/stac-zap-models/v1`);
+/** v6 and later: one encoder with three outputs, in <dir>/model. */
+const SHARED = existsSync(`${dir}/model`);
 /** v3 and later: a trained retriever in the model folder, and "catalog follows collection". */
-const GLOBAL = existsSync(`${dir}/retriever`);
+const GLOBAL = SHARED || existsSync(`${dir}/retriever`);
 const RETRIEVER = GLOBAL ? "retriever" : "onnx-community/granite-embedding-small-english-r2-ONNX";
 /** "q8" (the int8 files the page loads) or "fp32". */
 const DTYPE = (process.env.DTYPE ?? "q8") as "q8" | "fp32";
-const cfg = JSON.parse(readFileSync(`${dir}/decider/decider.json`, "utf-8")) as {
+const cfg = (SHARED
+  ? ((c) => ({ ...c, max_length: c.decider_max_length }))(JSON.parse(readFileSync(`${dir}/stac-zap.json`, "utf-8")))
+  : JSON.parse(readFileSync(`${dir}/decider/decider.json`, "utf-8"))) as {
   temperatures: Record<string, number>;
   shortlist: number;
   max_length: number;
@@ -67,7 +71,17 @@ const query = (question: string, request: string, current: string | null = null)
 // ---------------------------------------------------------------- models
 
 env.localModelPath = `${dir}/`;
-const [dtok, decider, ttok, tagger, rtok, retriever] = await Promise.all([
+// The shared model answers all three calls; each view returns the output its caller reads.
+type Call = (x: unknown) => Promise<Record<string, unknown>>;
+async function sharedModels(): Promise<[any, Call, any, Call, any, Call]> {
+  const [tok, m] = await Promise.all([
+    AutoTokenizer.from_pretrained("model", { local_files_only: true }),
+    AutoModel.from_pretrained("model", { dtype: DTYPE, local_files_only: true }),
+  ]);
+  const view = (name: string, as: string): Call => async (x) => ({ [as]: (await m(x as never))[name] });
+  return [tok, view("decider_logits", "logits"), tok, view("tag_logits", "logits"), tok, view("last_hidden_state", "last_hidden_state")];
+}
+const [dtok, decider, ttok, tagger, rtok, retriever] = SHARED ? await sharedModels() : await Promise.all([
   AutoTokenizer.from_pretrained("decider", { local_files_only: true }),
   AutoModelForSequenceClassification.from_pretrained("decider", { dtype: DTYPE, local_files_only: true }),
   AutoTokenizer.from_pretrained("tagger", { local_files_only: true }),
