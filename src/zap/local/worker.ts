@@ -8,7 +8,7 @@
  * - `tag_logits`: the place, time and cloud cover tags of each token.
  *
  * The files come from `base` (see `index.ts`): `model/` in the layout that
- * transformers.js reads (int8 weights, "q8", computed in fp32) and
+ * transformers.js reads (int4 embeddings and int8 weights, "q4", computed in fp32, fetched as gzip) and
  * `stac-zap.json` with the settings.
  */
 import {
@@ -38,6 +38,35 @@ type Models = {
 
 let models: Promise<Models> | null = null;
 
+/** The model file: int4 embedding table, int8 weights (`training/tools/weight_int4.py`), 22.5 MB. */
+const DTYPE = "q4" as const;
+
+/**
+ * Fetches an ONNX file as its gzip copy (`model_q4.onnx.gz`, 19.3 MB instead of 22.5 MB) when the host has one,
+ * and unzips it in the browser. The Hugging Face Hub sends model files without compression, so the page does it.
+ * Range requests (transformers.js asks for the size first) and hosts without the copy get the plain file.
+ */
+type Fetch = typeof env.fetch;
+
+function gzipFetch(plain: Fetch): Fetch {
+  return async (input, init) => {
+    const url = typeof input === "string" ? input : input.href;
+    const range = new Headers(init?.headers).has("Range");
+    if (/\.onnx(\?|$)/.test(url) && !range && typeof DecompressionStream !== "undefined") {
+      const gz = await plain(url.replace(/\.onnx(\?|$)/, ".onnx.gz$1"), init).catch(() => null);
+      if (gz?.ok && gz.body) {
+        // A server that sets Content-Encoding: gzip has already unzipped it.
+        if (/gzip/.test(gz.headers.get("content-encoding") ?? "")) return gz;
+        return new Response(gz.body.pipeThrough(new DecompressionStream("gzip")), {
+          status: 200,
+          headers: { "content-type": "application/octet-stream" },
+        });
+      }
+    }
+    return plain(input, init);
+  };
+}
+
 async function load(base: string): Promise<Models> {
   base = base.endsWith("/") ? base : `${base}/`;
   if (/^https?:\/\//.test(base)) {
@@ -54,9 +83,12 @@ async function load(base: string): Promise<Models> {
     env.allowLocalModels = true;
     env.localModelPath = base;
   }
+  if (!(env.fetch as { gzip?: boolean }).gzip) {
+    env.fetch = Object.assign(gzipFetch(env.fetch), { gzip: true });
+  }
   const [tok, model, cfg] = await Promise.all([
     AutoTokenizer.from_pretrained("model"),
-    AutoModel.from_pretrained("model", { dtype: "q8", device: "wasm" }),
+    AutoModel.from_pretrained("model", { dtype: DTYPE, device: "wasm" }),
     fetch(new URL("stac-zap.json", new URL(base, self.location.href))).then((r) => r.json()),
   ]);
   return { tok, model, temperatures: cfg.temperatures, maxLength: cfg.decider_max_length, tags: cfg.tags };

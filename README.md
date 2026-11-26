@@ -168,8 +168,9 @@ The training data is in
 [developmentseed/stac-zap-data](https://huggingface.co/datasets/developmentseed/stac-zap-data)
 (private until its licence review). The training code is in `training/`,
 the tests in `eval/local/`, the results in
-[docs/local-model.md](docs/local-model.md). Download: about 32 MB, once
-per browser.
+[docs/local-model.md](docs/local-model.md). Download: the model is 19.3 MB
+(gzip; int4 embeddings, int8 weights), about 27 MB with the tokenizer, the
+vectors and ONNX Runtime, once per browser.
 
 To run it with the model in the site (`public/models/`, not in git):
 

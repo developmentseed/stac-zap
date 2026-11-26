@@ -21,7 +21,7 @@ page.on("console", (m) => {
   if (m.type() === "error") errors.push(`console: ${m.text().slice(0, 300)}`);
 });
 const t0 = Date.now();
-await page.goto(url);
+await page.goto(url, { timeout: 180_000, waitUntil: "domcontentloaded" });
 const input = page.getByLabel("Zap prompt");
 await input.waitFor({ timeout: 60_000 });
 for (const prompt of prompts) {

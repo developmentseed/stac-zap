@@ -12,8 +12,10 @@ below the search bar selects "Jev + Clairic (OpenRouter)" or "Local open model (
 ## Design
 
 **One model**: IBM Granite Embedding 30M (Apache-2.0), fine-tuned, with three outputs (v6 and later). The page
-downloads 34 MB once: the int8 model (31.4 MB), its settings and `vectors.json` (0.6 MB, the vectors of the 1,021
-curated collections). It loads from the site or straight from the public model repo on the Hugging Face Hub.
+downloads it once: `model_q4.onnx.gz`, 19.3 MB on the wire (int4 embedding table, int8 weights, gzip, unzipped in the
+browser), the tokenizer (0.7 MB), the settings and `vectors.json` (0.3 MB, the vectors of the 1,021 curated
+collections), plus ONNX Runtime Web (5.6 MB, jsDelivr) and transformers.js. It loads from the site or straight from
+the public model repo on the Hugging Face Hub.
 
 | Output | Job |
 |---|---|
@@ -55,6 +57,21 @@ Perth (≤ 12%), "now in 2021" (keeps Landsat, sets 2021), Hurricane Idalia, "sa
 for Kenya, and the Lower Saxony orthophotos for "aerial photos of Hannover". "Crop types in Lower Saxony" opened a
 Swiss soil layer. A zap takes 5 to 15 s, with the geocoder and the STAC requests.
 
+## Download size
+
+Measured in Chromium, bytes on the wire for the model file (`scripts/measure-download.ts`):
+
+| File | On the wire | Field test: catalog / both | test-claude: both |
+|---|---|---|---|
+| `model_quantized.onnx`: weight-only int8, per channel | 31.4 MB | 26/30 · 24/28 | 169/240 |
+| **`model_q4.onnx.gz`: int4 embedding table (blocks of 32, fp16 scales), int8 weights, gzip** | **19.3 MB** | 25/30 · 23/28 | 163/240 |
+
+62% of the int8 file is the embedding table (50,265 word pieces × 384); it takes int4 well. int4 in the layer weights
+broke the model: the decider's top answer agreed with fp32 on 13 to 29% of questions
+(`training/tools/weight_int4.py`). The Hub sends model files without compression, so the page fetches a gzip copy
+and unzips it with `DecompressionStream` (`worker.ts`). Brotli would save no more: int8 and int4 weights hardly
+compress (31.4 MB → 27.4 MB with brotli, 27.8 MB with gzip).
+
 ## Problems found and fixed
 
 1. **Dynamic int8 broke the models** (ONNX Runtime `quantize_dynamic` also makes the activations int8). The decider
@@ -79,7 +96,7 @@ Swiss soil layer. A zap takes 5 to 15 s, with the geocoder and the STAC requests
 - **Tagger**: "only cloud-free" with no other words is not read; "Mount Everest" became "Mount" (the geocoder still
   found it).
 - **English only**: the 30M model does not read the German and French titles of the Swiss catalog well.
-- **Download**: 34 MB on the first visit, then from the browser cache.
+- **Download**: about 27 MB on the first visit (19.3 MB of it the model), then from the browser cache.
 
 ## Next
 

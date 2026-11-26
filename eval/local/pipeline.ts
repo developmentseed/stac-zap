@@ -40,8 +40,8 @@ const GLOBAL = SHARED || existsSync(`${dir}/retriever`);
 const RETRIEVER = GLOBAL ? "retriever" : "onnx-community/granite-embedding-small-english-r2-ONNX";
 /** The weight of the retriever in the collection pick (see pickGlobal). */
 const COMBINE = Number(process.env.COMBINE ?? 0);
-/** "q8" (the int8 files the page loads) or "fp32". */
-const DTYPE = (process.env.DTYPE ?? "q8") as "q8" | "fp32";
+/** "q4" (int4 embeddings, int8 weights: model_q4.onnx, the file the page loads), "q8" (int8) or "fp32". */
+const DTYPE = (process.env.DTYPE ?? "q4") as "q4" | "q8" | "fp32";
 const cfg = (SHARED
   ? ((c) => ({ ...c, max_length: c.decider_max_length }))(JSON.parse(readFileSync(`${dir}/stac-zap.json`, "utf-8")))
   : JSON.parse(readFileSync(`${dir}/decider/decider.json`, "utf-8"))) as {
