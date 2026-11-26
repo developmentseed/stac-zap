@@ -15,5 +15,5 @@ for part in retriever decider tagger; do
   cp -r "$TMP/$part/$RUN/." "$OUT/$part/"
 done
 rm -rf "$TMP"
-pnpm tsx scripts/build-vectors.ts "$OUT"
+npx tsx scripts/build-vectors.ts "$OUT"
 du -sh "$OUT"

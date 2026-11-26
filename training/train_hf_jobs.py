@@ -55,6 +55,8 @@ MODEL_REPO = "developmentseed/stac-zap-models"
 BASE = "ibm-granite/granite-embedding-30m-english"
 RETRIEVER = "ibm-granite/granite-embedding-small-english-r2"
 SHORTLIST = 16
+PREFERRED = 0.6
+KEEP_AUGMENT = 0.4
 TAGS = ["O", "B-PLACE", "I-PLACE", "B-TIME", "I-TIME", "B-CLOUD", "I-CLOUD"]
 KEEP = "keep"
 NONE = "none"
@@ -129,8 +131,8 @@ def place_text(pid):
     pl = places[pid]
     where = ", ".join(x for x in [pl.get("region"), pl.get("country")] if x)
     kind = "city" if pl["kind"] == "city" else pl["type"]
-    pop = f", {pl['population']:,} people" if pl.get("population") else ""
-    return f"{pl['name']}{', ' + where if where else ''} ({kind}{pop})"
+    # No population: the geocoder of the app (Photon) does not give it.
+    return f"{pl['name']}{', ' + where if where else ''} ({kind})"
 
 
 def query(question, r, current=None):
@@ -277,8 +279,14 @@ def recall(docs, reqs, records, pool, ks=(1, 5, 16, 32)):
 def questions_of(r, train):
     """The decider questions of a record: (kind, query, [(option id, text)], set of correct ids)."""
     qs = []
-    cur = r.get("current") or {}
+    cur = dict(r.get("current") or {})
     ok = pairs_of(r)
+    # A full new request while another collection is open: keep is an option, but not the answer. (v3 saw keep only
+    # in follow-ups, so after the first zap it kept the open collection for every request.)
+    if train and not cur.get("collection") and r["collection"]["target"] and random.random() < KEEP_AUGMENT:
+        other = doc_keys[random.randrange(len(doc_keys))]
+        if pair_key(*other) not in ok:
+            cur = {"catalog": other[0], "collection": other[1], "place": None}
     # Collection, on the shortlist of all known catalogs (curated only half of the time in training, as the app
     # does by default; at test time, curated only when every correct pair is curated).
     if ok or cur.get("collection"):
@@ -298,8 +306,13 @@ def questions_of(r, train):
         else:
             gold = {KEEP} if cur.get("collection") else set()
         current = f"{cur['catalog']}/{cur['collection']}" if cur.get("collection") else None
+        # Soft target: the preferred answer gets PREFERRED of the weight, the other correct ones share the rest.
+        weights = None
+        pref = r["collection"].get("preferred")
+        if pref in gold and len(gold) > 1:
+            weights = {k: (PREFERRED if k == pref else (1 - PREFERRED) / (len(gold) - 1)) for k in gold}
         if gold or not train:
-            qs.append(("collection", query("Which collection?", r, current), opts, gold))
+            qs.append(("collection", query("Which collection?", r, current), opts, gold, weights))
 
     # Place pick: the places with the words of the request.
     pl = r["place"]
@@ -312,9 +325,15 @@ def questions_of(r, train):
         if train and random.random() < 0.15:
             cands = [c for c in cands if c != pl["target"]]
             gold = {NONE}
-        random.shuffle(cands) if train else None
-        opts = [(c, place_text(c)) for c in cands] + [(NONE, place_text(NONE))]
-        qs.append(("place", query(f"Which place is '{pl['words']}'?", r), opts, gold))
+        # The order of the geocoder: most important first. Population stands in for it here; in training, some
+        # neighbours swap, as a geocoder's order is not always by size.
+        cands.sort(key=lambda c: -(places[c].get("population") or 0))
+        if train:
+            for i in range(len(cands) - 1):
+                if random.random() < 0.15:
+                    cands[i], cands[i + 1] = cands[i + 1], cands[i]
+        opts = [(c, f"[rank {i + 1}] {place_text(c)}") for i, c in enumerate(cands)] + [(NONE, place_text(NONE))]
+        qs.append(("place", query(f"Which place is '{pl['words']}'?", r), opts, gold, None))
     return qs
 
 
@@ -328,7 +347,7 @@ def encode_pairs(q, texts):
 def group_logits(model, groups):
     """One forward pass for all pairs of the groups; returns a list of logit vectors."""
     qs, ts, sizes = [], [], []
-    for _, q, opts, _ in groups:
+    for _, q, opts, *_ in groups:
         qs += [q] * len(opts)
         ts += [t for _, t in opts]
         sizes.append(len(opts))
@@ -353,8 +372,8 @@ def train_decider():
         for b in range(n):
             batch = groups[b * args.groups_per_batch : (b + 1) * args.groups_per_batch]
             losses = []
-            for logits, (_, _, opts, gold) in zip(group_logits(model, batch), batch):
-                target = torch.tensor([1.0 if o in gold else 0.0 for o, _ in opts], device=dev)
+            for logits, (_, _, opts, gold, weights) in zip(group_logits(model, batch), batch):
+                target = torch.tensor([(weights or {}).get(o, 1.0) if o in gold else 0.0 for o, _ in opts], device=dev)
                 if target.sum() == 0:
                     continue  # no correct option among the options: nothing to learn
                 target = target / target.sum()
@@ -382,7 +401,7 @@ def answer(model, groups, temps=None):
     out = []
     for i in range(0, len(groups), 32):
         batch = groups[i : i + 32]
-        for logits, (kind, _, opts, gold) in zip(group_logits(model, batch), batch):
+        for logits, (kind, _, opts, gold, *_) in zip(group_logits(model, batch), batch):
             out.append((kind, [o for o, _ in opts], logits.cpu(), gold))
     return out
 

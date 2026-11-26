@@ -391,7 +391,7 @@ export type RecordOut = {
   current: { catalog: string | null; collection: string | null; place: string | null };
   catalog: { target: string | null; accepted: string[] };
   /** accepted: ids in the target catalog; pairs: every correct "catalog/collection", in any catalog. */
-  collection: { target: string | null; accepted: string[]; pairs?: string[] };
+  collection: { target: string | null; accepted: string[]; pairs?: string[]; preferred?: string };
   place: { span: Span | null; words: string | null; map_view: boolean; target: string | null; candidates: string[] };
   time: { span: Span | null; range: DayRange | null };
   cloud: { span: Span | null; value: number | null };
@@ -558,6 +558,21 @@ for (const { catalog, c } of allCollections) {
     const changesData = Boolean(slots.data);
     // "aerial photos" with no place: every member is correct; with a place, the members that cover it.
     const ok = okFor(Boolean(slots.place) && !mapView);
+    // The preferred answer among the correct ones: for a generic name, the first member of the group (the
+    // catalog the app prefers, e.g. Planetary Computer for Sentinel-2: it filters by cloud cover and has RTC);
+    // for a regional name with a place, the smallest member that covers the place; else the target itself.
+    const area = (cat: string, id: string) => {
+      const col = snapshot.collections[cat]?.find((x) => x.id === id);
+      const box = col ? (regional(col.bbox) ?? catalogExtent.get(cat) ?? null) : null;
+      return box ? (box[2] - box[0]) * (box[3] - box[1]) : Infinity;
+    };
+    const okKeys = ok.map((e) => `${e.catalog}/${e.collection}`);
+    let preferred = `${catalog}/${c.id}`;
+    if (generic && regionalGroup && slots.place && !mapView) {
+      preferred = [...ok].sort((x, y) => area(x.catalog, x.collection) - area(y.catalog, y.collection)).map((e) => `${e.catalog}/${e.collection}`)[0] ?? preferred;
+    } else if (generic) {
+      preferred = group.members.find((m) => okKeys.includes(m)) ?? preferred;
+    }
     const placeWords = slots.place;
     records.push({
       id: createHash("sha1").update(`${catalog}/${c.id}/${request}`).digest("hex").slice(0, 12),
@@ -572,7 +587,8 @@ for (const { catalog, c } of allCollections) {
         ? {
             target: c.id,
             accepted: ok.filter((e) => e.catalog === catalog).map((e) => e.collection),
-            pairs: ok.map((e) => `${e.catalog}/${e.collection}`),
+            pairs: okKeys,
+            preferred,
           }
         : { target: null, accepted: [], pairs: [] },
       place: placeWords

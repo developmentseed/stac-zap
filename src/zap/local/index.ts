@@ -169,7 +169,8 @@ export async function pickPlace(
   places: readonly Place[],
 ): Promise<{ choice: string | null; probabilities: Record<string, number> }> {
   await loadLocal();
-  const options = [...places.map((p) => placeText(p.label)), NONE_PLACE];
+  // In the order of the geocoder, most important first, as in training.
+  const options = [...places.map((p, i) => `[rank ${i + 1}] ${placeText(p.label)}`), NONE_PLACE];
   const p = await call<number[]>({
     type: "score",
     kind: "place",

@@ -28,14 +28,15 @@ for (const prompt of prompts) {
   const t = Date.now();
   await input.fill(prompt);
   await input.press("Enter");
-  // Busy: the input is disabled or a spinner shows; wait for the answers, then for the spinner to go.
-  await page.waitForTimeout(500);
-  await page.waitForFunction(() => !document.querySelector(".chakra-spinner"), null, { timeout: 180_000 }).catch(() => {});
-  const panel = await page.locator("body").innerText();
-  const start = panel.indexOf(prompt);
-  console.log(`\n== ${prompt} (${((Date.now() - t) / 1000).toFixed(1)} s)`);
-  console.log(panel.slice(Math.max(0, start), start + 1500).split("\n").filter(Boolean).slice(0, 40).join("\n"));
-  console.log("map href:", await page.evaluate(() => location.href));
+  // A zap is busy while the input is read-only.
+  await page.waitForFunction(() => (document.querySelector('[aria-label="Zap prompt"]') as HTMLInputElement)?.readOnly, null, { timeout: 10_000 }).catch(() => {});
+  await page.waitForFunction(() => !(document.querySelector('[aria-label="Zap prompt"]') as HTMLInputElement)?.readOnly, null, { timeout: 240_000 });
+  const secs = ((Date.now() - t) / 1000).toFixed(1);
+  const panel = (await page.getByTestId("zap-answers").innerText().catch(() => "(no answers panel)")).split("\n").filter(Boolean);
+  console.log(`\n== ${prompt} (${secs} s)`);
+  console.log(panel.slice(0, 30).join(" | "));
+  const href = new URL(await page.evaluate(() => location.href)).searchParams.get("href");
+  console.log("opened:", href);
   await page.screenshot({ path: `/tmp/local-smoke-${prompts.indexOf(prompt)}.png` });
 }
 console.log(`\npage errors (${errors.length}):\n${errors.slice(0, 15).join("\n")}`);

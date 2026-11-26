@@ -241,7 +241,7 @@ export default function ZapBar() {
         </InputGroup>
       </form>
       {hasAnswers && (
-        <Stack
+        <Stack data-testid="zap-answers"
           mt={2}
           w={`${panelWidth}px`}
           bg="bg.panel"
