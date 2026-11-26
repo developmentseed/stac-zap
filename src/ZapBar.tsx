@@ -6,6 +6,7 @@ import {
   IconButton,
   Input,
   InputGroup,
+  NativeSelect,
   Spinner,
   Stack,
   Switch,
@@ -15,7 +16,8 @@ import { useEffect, useRef, useState } from "react";
 import { LuLink, LuZap } from "react-icons/lu";
 import { listCatalogs } from "./zap/catalogs";
 import { KEEP, THRESHOLD } from "./zap/decide";
-import { zap, type ZapStep } from "./zap/run";
+import { loadLocal } from "./zap/local";
+import { zap, type Backend, type ZapStep } from "./zap/run";
 
 const EXAMPLES = [
   "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
@@ -32,6 +34,7 @@ const HREF_INPUT = 'input[placeholder^="Enter a url to a STAC API"]';
 const MIN_PANEL_WIDTH = 460;
 const MODE_KEY = "stac-zap:mode";
 const ALL_CATALOGS_KEY = "stac-zap:all-catalogs";
+const BACKEND_KEY = "stac-zap:backend";
 
 type Mode = "zap" | "url";
 
@@ -51,6 +54,8 @@ export default function ZapBar() {
     () => readStored(ALL_CATALOGS_KEY) === "true",
   );
   const [catalogCount, setCatalogCount] = useState<number | null>(null);
+  const [backend, setBackend] = useState<Backend>(() => (readStored(BACKEND_KEY) === "local" ? "local" : "jev"));
+  const [localState, setLocalState] = useState<"loading" | "ready" | "error" | null>(null);
   const rect = useHrefInputRect(mode);
   const [prompt, setPrompt] = useState("");
   const [busy, setBusy] = useState(false);
@@ -75,6 +80,19 @@ export default function ZapBar() {
       current = false;
     };
   }, [allCatalogs]);
+
+  // The local models are about 90 MB: they start to load when the local backend is chosen, not on the first prompt.
+  useEffect(() => {
+    if (backend !== "local") return;
+    setLocalState((s) => (s === "ready" ? s : "loading"));
+    loadLocal().then(
+      () => setLocalState("ready"),
+      (e: unknown) => {
+        setLocalState("error");
+        setError(`The local model did not load: ${e instanceof Error ? e.message : String(e)}`);
+      },
+    );
+  }, [backend]);
 
   function changeMode(next: Mode) {
     setMode(next);
@@ -104,11 +122,12 @@ export default function ZapBar() {
     try {
       const outcome = await zap(text, {
         allCatalogs,
+        backend,
         onStep: (step) => setSteps((steps) => [...steps, step]),
         onNote: (note) => setNotes((notes) => [...notes, note]),
       });
       // Which data people open, never what they type.
-      if (outcome) window.plausible?.("Zap", { props: outcome });
+      if (outcome) window.plausible?.("Zap", { props: { ...outcome, backend } });
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -277,7 +296,23 @@ export default function ZapBar() {
             {catalogCount === null
               ? "Checking catalogs…"
               : `Asks ${catalogCount} ${allCatalogs ? "" : "curated "}catalogs`}
+            {backend === "local" && localState === "loading" ? " · loading the local model…" : ""}
           </Text>
+          <NativeSelect.Root size="xs" width="auto">
+            <NativeSelect.Field
+              aria-label="Model"
+              value={backend}
+              onChange={(event) => {
+                const next = event.currentTarget.value as Backend;
+                setBackend(next);
+                writeStored(BACKEND_KEY, next);
+              }}
+            >
+              <option value="jev">Jev + Clairic (OpenRouter)</option>
+              <option value="local">Local open model (in the browser)</option>
+            </NativeSelect.Field>
+            <NativeSelect.Indicator />
+          </NativeSelect.Root>
           <Switch.Root
             size="sm"
             checked={allCatalogs}

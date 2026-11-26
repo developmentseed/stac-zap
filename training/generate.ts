@@ -149,6 +149,37 @@ export const GROUPS: Record<string, Group> = {
     ],
   },
 };
+/**
+ * Regional groups: a generic name ("aerial photos of Hannover") accepts the
+ * members whose extent holds the place, so the place picks the catalog.
+ */
+export const REGIONAL_GROUPS: Record<string, Group> = {
+  ortho: {
+    names: ["aerial photos", "orthophotos", "aerial imagery", "orthoimagery", "an orthophoto"],
+    members: [
+      "planetary-computer/naip", "earth-search/naip", "astraea-earth-ondemand/naip",
+      "datageoadminch/ch.swisstopo.swissimage", "datageoadminch/ch.swisstopo.swissimage-dop10",
+      "kentucky-from-above-spatiotemporal-asset-catalog/orthos-phase1", "kentucky-from-above-spatiotemporal-asset-catalog/orthos-phase2",
+      "kentucky-from-above-spatiotemporal-asset-catalog/orthos-phase3", "digitale-orthophotos-niedersachsen/DOP",
+      "kagis-katalog/KAGIS_coll_ortho_klagenfurt_2025460", "kagis-katalog/KAGIS_coll_ortho_villach_2025160",
+      "kagis-katalog/KAGIS_coll_ortho_wolfsberg_2025360", "kagis-katalog/KAGIS_coll_ortho_osttirol_2025650",
+      "igio-stac/imageryoptimized-statewide", "igio-stac/imageryoptimized-leafon", "stac-for-data-to-science/indiana-ortho-imagery",
+      "paituli-stac-finland/nls_orthoimage_newest_at_paituli",
+    ],
+  },
+  lidar: {
+    names: ["lidar", "a lidar point cloud", "point cloud", "lidar data"],
+    members: [
+      "planetary-computer/3dep-lidar-copc", "planetary-computer/3dep-lidar-classification",
+      "kentucky-from-above-spatiotemporal-asset-catalog/laz-phase1", "kentucky-from-above-spatiotemporal-asset-catalog/laz-phase2",
+      "kentucky-from-above-spatiotemporal-asset-catalog/laz-phase3", "igio-stac/copc-statewide", "astraea-earth-ondemand/usgs_lidar_copc",
+      "mtd-stac-api/lidarhd", "stac-for-data-to-science/indiana-lidar-point-cloud",
+    ],
+  },
+};
+const regionalOf = new Map<string, Group>();
+for (const g of Object.values(REGIONAL_GROUPS)) for (const m of g.members) regionalOf.set(m, g);
+
 const groupOf = new Map<string, Group>();
 for (const g of Object.values(GROUPS)) for (const m of g.members) groupOf.set(m, g);
 
@@ -234,9 +265,12 @@ const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.len
  * federal data); the catalog extent is used for those.
  */
 const catalogExtent = new Map<string, BBox>();
+/** Catalogs whose collections give no extent. Paituli: Finland. */
+const MANUAL_EXTENTS: Record<string, BBox> = { "paituli-stac-finland": [19.0, 59.5, 31.6, 70.1] };
+for (const [k, v] of Object.entries(MANUAL_EXTENTS)) catalogExtent.set(k, v);
 for (const [catalog, list] of Object.entries(snapshot.collections)) {
   const boxes = list.map((c) => regional(c.bbox)).filter((b): b is BBox => b !== null);
-  if (boxes.length >= 0.5 * list.length && boxes.length > 0) {
+  if (boxes.length >= 0.5 * list.length && boxes.length > 0 && !catalogExtent.has(catalog)) {
     catalogExtent.set(catalog, [0, 1, 2, 3].map((i) => median(boxes.map((b) => b[i]!))) as BBox);
   }
 }
@@ -247,6 +281,15 @@ function poolOf(c: Collection, catalog: string): { cities: Place[]; features: Pl
   const [w, s, e, n] = box;
   const inside = (p: Place) => p.lat >= s && p.lat <= n && (w <= e ? p.lon >= w && p.lon <= e : p.lon >= w || p.lon <= e);
   return { cities: cities.filter(inside), features: features.filter(inside) };
+}
+
+/** Whether the extent of a collection (or of its catalog) holds a place. An unknown extent holds nothing. */
+function covers(catalog: string, id: string, p: Place): boolean {
+  const c = snapshot.collections[catalog]?.find((x) => x.id === id);
+  const box = c ? (regional(c.bbox) ?? catalogExtent.get(catalog) ?? null) : null;
+  if (!box) return false;
+  const [w, s, e, n] = box;
+  return p.lat >= s && p.lat <= n && p.lon >= w && p.lon <= e;
 }
 
 /** Titles that look like ids, e.g. "eo.eum.dat.mult.mhsmwhs0100": nobody types them. */
@@ -347,7 +390,8 @@ export type RecordOut = {
   /** The map before the request. Null fields: not set. */
   current: { catalog: string | null; collection: string | null; place: string | null };
   catalog: { target: string | null; accepted: string[] };
-  collection: { target: string | null; accepted: string[] };
+  /** accepted: ids in the target catalog; pairs: every correct "catalog/collection", in any catalog. */
+  collection: { target: string | null; accepted: string[]; pairs?: string[] };
   place: { span: Span | null; words: string | null; map_view: boolean; target: string | null; candidates: string[] };
   time: { span: Span | null; range: DayRange | null };
   cloud: { span: Span | null; value: number | null };
@@ -447,7 +491,7 @@ const allCollections = Object.entries(snapshot.collections).flatMap(([catalog, l
 for (const { catalog, c } of allCollections) {
   const names = namesOf(c);
   // Common data gets more requests: people ask for it more often.
-  const perCollection = groupOf.has(`${catalog}/${c.id}`) ? PER_COLLECTION * 6 : PER_COLLECTION;
+  const perCollection = groupOf.has(`${catalog}/${c.id}`) || regionalOf.has(`${catalog}/${c.id}`) ? PER_COLLECTION * 6 : PER_COLLECTION;
   const pool = poolOf(c, catalog);
   // A regional collection with no known place in its extent gets no place.
   const noPlaces = pool && !pool.cities.length && !pool.features.length;
@@ -465,11 +509,13 @@ for (const { catalog, c } of allCollections) {
     const time = chance(follow ? 0.5 : 0.55) ? timePhrase(today) : null;
     const cloud = optical && chance(0.3) ? cloudPhrase() : null;
     // A member of a group is named by a generic name half of the time; then the whole group is correct.
-    const group = groupOf.get(`${catalog}/${c.id}`);
+    const regionalGroup = regionalOf.get(`${catalog}/${c.id}`);
+    const group = groupOf.get(`${catalog}/${c.id}`) ?? regionalGroup;
     const generic = group && chance(0.5);
     const data = generic ? pick(group.names) : pick(names);
-    const ok = generic
+    const okFor = (withPlace: boolean) => generic
       ? group.members
+          .filter((m) => !regionalGroup || !withPlace || m === `${catalog}/${c.id}` || covers(m.split("/")[0]!, m.split("/").slice(1).join("/"), place.target))
           .map((m) => ({ catalog: m.split("/")[0]!, collection: m.split("/").slice(1).join("/") }))
           .filter((e) => snapshot.collections[e.catalog]?.some((x) => x.id === e.collection))
           .filter((e) => HELD_OUT_CATALOGS.includes(e.catalog) === HELD_OUT_CATALOGS.includes(catalog))
@@ -510,6 +556,8 @@ for (const { catalog, c } of allCollections) {
         }
       : { catalog: null, collection: null, place: null };
     const changesData = Boolean(slots.data);
+    // "aerial photos" with no place: every member is correct; with a place, the members that cover it.
+    const ok = okFor(Boolean(slots.place) && !mapView);
     const placeWords = slots.place;
     records.push({
       id: createHash("sha1").update(`${catalog}/${c.id}/${request}`).digest("hex").slice(0, 12),
@@ -521,8 +569,12 @@ for (const { catalog, c } of allCollections) {
         ? { target: catalog, accepted: [...new Set(ok.map((e) => e.catalog))] }
         : { target: null, accepted: [] },
       collection: changesData
-        ? { target: c.id, accepted: ok.filter((e) => e.catalog === catalog).map((e) => e.collection) }
-        : { target: null, accepted: [] },
+        ? {
+            target: c.id,
+            accepted: ok.filter((e) => e.catalog === catalog).map((e) => e.collection),
+            pairs: ok.map((e) => `${e.catalog}/${e.collection}`),
+          }
+        : { target: null, accepted: [], pairs: [] },
       place: placeWords
         ? {
             span: spans.place ?? null,

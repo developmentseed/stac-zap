@@ -15,7 +15,7 @@
  * Usage: pnpm tsx eval/local/pipeline.ts <model dir with decider/ and tagger/>
  * The collection step reads training/data/stac-full.json (`training/snapshot.ts`).
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import {
   AutoModel,
@@ -30,9 +30,12 @@ import { CASES, DEV_CASES, UNPARSED_CASES } from "../cases";
 import { TODAY } from "../questions";
 import { cloudInRange, cloudOk, cloudsOf, placeOf, placeOk, rangeOk, rangesOf, type Range } from "../score";
 import { readCloud, readTime } from "./extract";
+import { docText } from "../../src/zap/local/text";
 
 const dir = resolve(process.argv[2] ?? `${process.env.HOME}/.cache/stac-zap-models/v1`);
-const RETRIEVER = "onnx-community/granite-embedding-small-english-r2-ONNX";
+/** v3 and later: a trained retriever in the model folder, and "catalog follows collection". */
+const GLOBAL = existsSync(`${dir}/retriever`);
+const RETRIEVER = GLOBAL ? "retriever" : "onnx-community/granite-embedding-small-english-r2-ONNX";
 /** "q8" (the int8 files the page loads) or "fp32". */
 const DTYPE = (process.env.DTYPE ?? "q8") as "q8" | "fp32";
 const cfg = JSON.parse(readFileSync(`${dir}/decider/decider.json`, "utf-8")) as {
@@ -69,8 +72,8 @@ const [dtok, decider, ttok, tagger, rtok, retriever] = await Promise.all([
   AutoModelForSequenceClassification.from_pretrained("decider", { dtype: DTYPE, local_files_only: true }),
   AutoTokenizer.from_pretrained("tagger", { local_files_only: true }),
   AutoModelForTokenClassification.from_pretrained("tagger", { dtype: DTYPE, local_files_only: true }),
-  AutoTokenizer.from_pretrained(RETRIEVER),
-  AutoModel.from_pretrained(RETRIEVER, { dtype: "q8" }),
+  AutoTokenizer.from_pretrained(RETRIEVER, { local_files_only: GLOBAL }),
+  AutoModel.from_pretrained(RETRIEVER, { dtype: "q8", local_files_only: GLOBAL }),
 ]);
 
 /** Probabilities of the options of one question. */
@@ -89,7 +92,7 @@ async function embed(texts: string[]): Promise<Float32Array[]> {
   const todo = [...new Set(texts)].filter((t) => !vecCache.has(t));
   for (let i = 0; i < todo.length; i += 32) {
     const batch = todo.slice(i, i + 32);
-    const h = (await retriever(rtok(batch, { padding: true, truncation: true, max_length: 256 }))).last_hidden_state as Tensor;
+    const h = (await retriever(rtok(batch, { padding: true, truncation: true, max_length: GLOBAL ? 128 : 256 }))).last_hidden_state as Tensor;
     const [n, len, d] = h.dims as [number, number, number];
     for (let j = 0; j < n; j++) {
       const v = (h.data as Float32Array).slice(j * len * d, j * len * d + d);
@@ -162,8 +165,36 @@ const results: Record<string, unknown> = { model: dir };
 const pct = (ok: number, n: number) => `${ok}/${n}`;
 const t0 = performance.now();
 
+/** v3: the shortlist of all collections of the pool, and the decider picks one; the catalog follows. */
+async function pickGlobal(request: string, curatedOnly: boolean, ok: (key: string) => boolean) {
+  const pool = snapshot.catalogs.filter((c) => !curatedOnly || c.curated).flatMap((c) => (snapshot.collections[c.id] ?? []).map((x) => ({ cat: c.id, c: x })));
+  const texts = pool.map(({ cat, c }) => docText(cat, c));
+  const [q, ...vs] = await embed([request, ...texts]);
+  const top = pool.map((x, i) => ({ x, t: texts[i]!, s: vs[i]!.reduce((a, v, j) => a + v * q![j]!, 0) })).sort((a, b) => b.s - a.s).slice(0, cfg.shortlist);
+  const [key] = await pick("collection", query("Which collection?", request), top.map(({ x, t }) => [`${x.cat}/${x.c.id}`, t]));
+  return { key, onShortlist: top.some(({ x }) => ok(`${x.cat}/${x.c.id}`)) };
+}
+
+if (GLOBAL) {
+  let cat = 0, col = 0, ncol = 0, reach = 0;
+  const rows = [];
+  for (const c of CASES) {
+    const ok = (k: string) => c.catalog.includes(k.split("/")[0]!) && (!c.collection || c.collection.includes(k.slice(k.indexOf("/") + 1)));
+    const { key, onShortlist } = await pickGlobal(c.prompt, true, ok);
+    cat += Number(c.catalog.includes(key.split("/")[0]!));
+    if (c.collection) {
+      ncol++;
+      col += Number(ok(key));
+      reach += Number(onShortlist);
+    }
+    rows.push({ prompt: c.prompt, catalog: key.split("/")[0], collection: key.slice(key.indexOf("/") + 1) });
+  }
+  results.field_decisions = { catalog: pct(cat, CASES.length), collection: pct(col, ncol), collection_on_shortlist: pct(reach, ncol), rows };
+  console.log(`field test (catalog follows collection): catalog ${pct(cat, CASES.length)}, catalog and collection ${pct(col, ncol)} (on shortlist ${pct(reach, ncol)})`);
+}
+
 // Field test: catalog (curated list) and collection (shortlist of the expected catalog).
-{
+if (!GLOBAL) {
   let cat = 0, col = 0, ncol = 0, reach = 0;
   const rows = [];
   for (const c of CASES) {
@@ -221,6 +252,28 @@ for (const [name, cases] of [["unparsed", UNPARSED_CASES], ["dev", DEV_CASES]] a
   }
   results[name] = { ok: pct(ok, cases.length), rows };
   console.log(`${name}: ${pct(ok, cases.length)}`);
+}
+
+// test-claude-v1, v3: one shortlist of all catalogs (curated only when every correct catalog is curated).
+if (GLOBAL) {
+  type Rec = { request: string; catalog: { accepted: string[] }; collection: { accepted: string[] } };
+  const recs: Rec[] = readFileSync(new URL("../../training/data/test-claude.jsonl", import.meta.url), "utf-8").trim().split("\n").map((l) => JSON.parse(l));
+  let ok = 0, catOk = 0, reach = 0, n = 0;
+  const curatedIds = new Set(curated);
+  const rows = [];
+  for (const r of recs) {
+    if (!r.collection.accepted.length) continue;
+    n++;
+    const good = (k: string) => r.catalog.accepted.includes(k.split("/")[0]!) && r.collection.accepted.includes(k.slice(k.indexOf("/") + 1));
+    const curatedOnly = r.catalog.accepted.every((c) => curatedIds.has(c));
+    const res = await pickGlobal(r.request, curatedOnly, good);
+    ok += Number(good(res.key));
+    catOk += Number(r.catalog.accepted.includes(res.key.split("/")[0]!));
+    reach += Number(res.onShortlist);
+    rows.push({ request: r.request, pick: res.key, ok: good(res.key) });
+  }
+  results.test_claude_global = { catalog: pct(catOk, n), catalog_and_collection: pct(ok, n), on_shortlist: pct(reach, n), rows };
+  console.log(`test-claude-v1 (catalog follows collection): catalog ${pct(catOk, n)}, catalog and collection ${pct(ok, n)} (on shortlist ${pct(reach, n)})`);
 }
 
 // test-claude-v1: all catalogs, the shortlist of the expected catalog, and the values.

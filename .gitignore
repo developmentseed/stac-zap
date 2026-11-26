@@ -6,3 +6,4 @@ dist/
 .wrangler/
 .claude/
 training/data/
+public/models/

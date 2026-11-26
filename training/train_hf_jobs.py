@@ -70,7 +70,7 @@ p.add_argument("--max-records", type=int, default=0)
 p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
 p.add_argument("--no-upload", action="store_true")
 p.add_argument("--seed", type=int, default=13)
-p.add_argument("--data", default="v1", help="folder of generated/ in the dataset")
+p.add_argument("--data", default="v2", help="folder of generated/ in the dataset")
 args = p.parse_args()
 random.seed(args.seed)
 torch.manual_seed(args.seed)
@@ -137,41 +137,138 @@ def query(question, r, current=None):
     return f"{question} | request: {r['request']} | current: {current or 'not set'}"
 
 
-# ---------------------------------------------------------------- retriever shortlist
+# ---------------------------------------------------------------- retriever (catalog follows collection)
+#
+# The decider picks a collection among the shortlist of all known catalogs; the catalog follows from it. The
+# shortlist comes from a retriever: Granite 30M trained as a bi-encoder (contrastive, in-batch and hard negatives
+# from the R2 model). The page embeds each collection once (or loads the vectors with the site), then only the
+# request per zap.
+
+
+def pair_key(cat, cid):
+    return f"{cat}/{cid}"
+
+
+def doc_text(cat, cid):
+    """A collection as the retriever and the decider read it: catalog, title, id, start of the description."""
+    return f"{cat.replace('-', ' ')} | {collection_text(cat, cid)}"
 
 
 @torch.no_grad()
-def embed(model, tok, texts, bs=128):
+def embed(model, tok_, texts, bs=128, max_length=128):
+    model.eval()
     out = []
     for i in range(0, len(texts), bs):
-        x = tok(texts[i : i + bs], padding=True, truncation=True, max_length=256, return_tensors="pt").to(dev)
-        h = model(**x).last_hidden_state[:, 0]
+        x = tok_(texts[i : i + bs], padding=True, truncation=True, max_length=max_length, return_tensors="pt").to(dev)
+        with torch.autocast(dev.type, dtype=torch.bfloat16, enabled=dev.type == "cuda"):
+            h = model(**x).last_hidden_state[:, 0]
         out.append(F.normalize(h.float(), dim=-1).cpu())
     return torch.cat(out) if out else torch.zeros(0, 384)
 
 
-log("retriever: embedding collections and requests")
+doc_keys = [(cat, cid) for cat, cols in collections.items() for cid in cols]
+doc_index = {pair_key(c, i): n for n, (c, i) in enumerate(doc_keys)}
+doc_texts = [doc_text(c, i) for c, i in doc_keys]
+curated_set = set(curated)
+all_records = [r for sp in splits.values() for r in sp]
+
+
+def pairs_of(r):
+    """Every correct catalog/collection pair of a record."""
+    pairs = set(r["collection"].get("pairs") or [])
+    if not pairs and r["collection"].get("accepted"):  # test sheet: catalogs x collections that exist
+        pairs = {pair_key(c, i) for c in r["catalog"]["accepted"] for i in r["collection"]["accepted"] if pair_key(c, i) in doc_index}
+    if not pairs and r["collection"].get("target") and r["catalog"].get("target"):
+        pairs = {pair_key(r["catalog"]["target"], r["collection"]["target"])}
+    return {p for p in pairs if p in doc_index}
+
+
+log("R2: embedding collections and requests (hard negatives, and the comparison)")
 rtok = AutoTokenizer.from_pretrained(RETRIEVER)
-rmodel = AutoModel.from_pretrained(RETRIEVER).to(dev).eval()
-col_keys = [(cat, cid) for cat, cols in collections.items() for cid in cols]
-col_vecs = embed(rmodel, rtok, [collection_text(cat, cid) for cat, cid in col_keys])
-col_index = {}
-for i, (cat, cid) in enumerate(col_keys):
-    col_index.setdefault(cat, []).append(i)
-all_records = [r for s in splits.values() for r in s]
-req_vecs = embed(rmodel, rtok, [r["request"] for r in all_records])
-req_vec = {id(r): req_vecs[i] for i, r in enumerate(all_records)}
-del rmodel
+r2 = AutoModel.from_pretrained(RETRIEVER).to(dev)
+r2_docs = embed(r2, rtok, doc_texts, max_length=256)
+r2_reqs = embed(r2, rtok, [r["request"] for r in all_records], max_length=256)
+r2_req = {id(r): r2_reqs[n] for n, r in enumerate(all_records)}
+del r2
 torch.cuda.empty_cache() if dev.type == "cuda" else None
 
+tok = AutoTokenizer.from_pretrained(BASE)
 
-def shortlist(r, cat, k=SHORTLIST):
-    idx = col_index.get(cat, [])
-    if not idx:
-        return []
-    sims = col_vecs[idx] @ req_vec[id(r)]
-    order = torch.argsort(sims, descending=True)[:k].tolist()
-    return [col_keys[idx[j]][1] for j in order]
+
+def pool_ids(train, curated_only):
+    return [n for n, (c, _) in enumerate(doc_keys) if (not train or c not in HELD_OUT) and (not curated_only or c in curated_set)]
+
+
+POOL_ALL_TRAIN, POOL_CUR_TRAIN = pool_ids(True, False), pool_ids(True, True)
+POOL_ALL, POOL_CUR = pool_ids(False, False), pool_ids(False, True)
+
+
+def top_k(qvec, docs, pool, k):
+    sims = docs[pool] @ qvec
+    return [pool[j] for j in torch.topk(sims, min(k, len(pool))).indices.tolist()]
+
+
+def train_retriever(epochs=2, bs=96, lr=3e-5, temp=0.05):
+    model = AutoModel.from_pretrained(BASE).to(dev)
+    data = [r for r in splits["train"] if pairs_of(r)]
+    opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
+    n = math.ceil(len(data) / bs)
+    sched = get_linear_schedule_with_warmup(opt, int(0.05 * n * epochs), n * epochs)
+    for epoch in range(epochs):
+        random.shuffle(data)
+        model.train()
+        total = 0.0
+        for b in range(n):
+            batch = data[b * bs : (b + 1) * bs]
+            pos, neg = [], []
+            for r in batch:
+                ok = pairs_of(r)
+                pos.append(doc_texts[doc_index[random.choice(sorted(ok))]])
+                # A hard negative: a top R2 result that is not correct.
+                cands = [d for d in top_k(r2_req[id(r)], r2_docs, POOL_ALL_TRAIN, 12) if pair_key(*doc_keys[d]) not in ok]
+                neg.append(doc_texts[random.choice(cands)] if cands else doc_texts[random.randrange(len(doc_texts))])
+            q = tok([r["request"] for r in batch], padding=True, truncation=True, max_length=64, return_tensors="pt").to(dev)
+            d = tok(pos + neg, padding=True, truncation=True, max_length=128, return_tensors="pt").to(dev)
+            with torch.autocast(dev.type, dtype=torch.bfloat16, enabled=dev.type == "cuda"):
+                qv = F.normalize(model(**q).last_hidden_state[:, 0].float(), dim=-1)
+                dv = F.normalize(model(**d).last_hidden_state[:, 0].float(), dim=-1)
+            logits = qv @ dv.T / temp
+            # In-batch negatives; a positive of another request in the batch that is also correct is not a negative.
+            mask = torch.zeros_like(logits, dtype=torch.bool)
+            texts = pos + neg
+            for a, r in enumerate(batch):
+                ok_texts = {doc_texts[doc_index[p]] for p in pairs_of(r)}
+                for c, text in enumerate(texts):
+                    if c != a and text in ok_texts:
+                        mask[a, c] = True
+            logits = logits.masked_fill(mask, -1e4)
+            loss = F.cross_entropy(logits, torch.arange(len(batch), device=dev))
+            if not torch.isfinite(loss):
+                raise RuntimeError(f"retriever loss is {loss.item()}")
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            opt.step()
+            sched.step()
+            opt.zero_grad()
+            total += loss.item()
+            if b % 100 == 0:
+                log(f"retriever epoch {epoch} step {b}/{n} loss {total / (b + 1):.4f}")
+        log(f"retriever epoch {epoch} loss {total / n:.4f}")
+    return model
+
+
+def recall(docs, reqs, records, pool, ks=(1, 5, 16, 32)):
+    hits = {k: 0 for k in ks}
+    n = 0
+    for r in records:
+        ok = pairs_of(r)
+        if not ok:
+            continue
+        n += 1
+        top = top_k(reqs[id(r)], docs, pool, max(ks))
+        for k in ks:
+            hits[k] += any(pair_key(*doc_keys[d]) in ok for d in top[:k])
+    return {f"@{k}": round(hits[k] / max(n, 1), 4) for k in ks} | {"n": n}
 
 
 # ---------------------------------------------------------------- questions
@@ -181,37 +278,28 @@ def questions_of(r, train):
     """The decider questions of a record: (kind, query, [(option id, text)], set of correct ids)."""
     qs = []
     cur = r.get("current") or {}
-    # Catalog. Training uses curated-only lists half of the time, as the app does by default.
-    cat_target = r["catalog"]["target"]
-    accepted = set(r["catalog"]["accepted"]) or ({cat_target} if cat_target else set())
-    pool = [c for c in catalogs if not (train and c in HELD_OUT)]
-    if train and cat_target in curated and random.random() < 0.5:
-        pool = [c for c in curated if c not in HELD_OUT]
-    if train and len(pool) > SHORTLIST:
-        keep_ok = [c for c in pool if c in accepted]
-        others = random.sample([c for c in pool if c not in accepted], SHORTLIST - len(keep_ok))
-        pool = keep_ok + others
-        random.shuffle(pool)
-    opts = [(c, catalog_text(c)) for c in pool]
-    if cur.get("catalog"):
-        opts.append((KEEP, f"keep: keep the current catalog ({cur['catalog']})"))
-    gold = (accepted & set(pool)) if cat_target else ({KEEP} if cur.get("catalog") else set())
-    if gold:
-        qs.append(("catalog", query("Which STAC catalog?", r, cur.get("catalog")), opts, gold))
-
-    # Collection, on the shortlist of the catalog of the target (or the current catalog).
-    cat = cat_target or cur.get("catalog")
-    if cat in collections:
-        ids = shortlist(r, cat)
-        col_ok = set(r["collection"]["accepted"]) or ({r["collection"]["target"]} if r["collection"]["target"] else set())
-        if train and col_ok and not col_ok & set(ids):
-            ids = ids[:-1] + [random.choice(sorted(col_ok))]
-        opts = [(c, collection_text(cat, c)) for c in ids]
+    ok = pairs_of(r)
+    # Collection, on the shortlist of all known catalogs (curated only half of the time in training, as the app
+    # does by default; at test time, curated only when every correct pair is curated).
+    if ok or cur.get("collection"):
+        cur_only = random.random() < 0.5 if train else all(p.split("/")[0] in curated_set for p in ok) if ok else False
+        pool = (POOL_CUR_TRAIN if cur_only else POOL_ALL_TRAIN) if train else (POOL_CUR if cur_only else POOL_ALL)
+        ids = top_k(req_vec[id(r)], doc_vecs, pool, SHORTLIST)
+        keys = [pair_key(*doc_keys[d]) for d in ids]
+        if train and ok and not ok & set(keys):
+            cand = [p for p in ok if doc_index[p] in set(pool)]
+            if cand:
+                keys = keys[:-1] + [random.choice(sorted(cand))]
+        opts = [(k, doc_texts[doc_index[k]]) for k in keys]
         if cur.get("collection"):
-            opts.append((KEEP, f"keep: keep the current collection ({cur['collection']})"))
-        gold = (col_ok & set(ids)) if r["collection"]["target"] else ({KEEP} if cur.get("collection") else set())
+            opts.append((KEEP, f"keep: keep the current collection ({cur['catalog']}/{cur['collection']})"))
+        if r["collection"]["target"]:
+            gold = ok & set(keys)
+        else:
+            gold = {KEEP} if cur.get("collection") else set()
+        current = f"{cur['catalog']}/{cur['collection']}" if cur.get("collection") else None
         if gold or not train:
-            qs.append(("collection", query("Which collection?", r, cur.get("collection")), opts, gold))
+            qs.append(("collection", query("Which collection?", r, current), opts, gold))
 
     # Place pick: the places with the words of the request.
     pl = r["place"]
@@ -231,9 +319,6 @@ def questions_of(r, train):
 
 
 # ---------------------------------------------------------------- decider
-
-
-tok = AutoTokenizer.from_pretrained(BASE)
 
 
 def encode_pairs(q, texts):
@@ -536,9 +621,51 @@ def export(model, name, output_axes):
     return d
 
 
+class Hidden(torch.nn.Module):
+    def __init__(self, m):
+        super().__init__()
+        self.m = m
+
+    def forward(self, input_ids, attention_mask):
+        return self.m(input_ids=input_ids, attention_mask=attention_mask).last_hidden_state
+
+
+def export_retriever(model):
+    """The retriever: last_hidden_state; the page takes the first (CLS) vector and normalizes it, as for R2."""
+    d = OUT / "retriever"
+    (d / "onnx").mkdir(parents=True, exist_ok=True)
+    model = model.float().cpu().eval()
+    model.save_pretrained(d)
+    tok.save_pretrained(d)
+    x = tok(["Sentinel-2 over Lisbon"], return_tensors="pt")
+    torch.onnx.export(
+        Hidden(model), (x["input_ids"], x["attention_mask"]), str(d / "onnx/model.onnx"),
+        input_names=["input_ids", "attention_mask"], output_names=["last_hidden_state"],
+        dynamic_axes={"input_ids": {0: "batch", 1: "seq"}, "attention_mask": {0: "batch", 1: "seq"}, "last_hidden_state": {0: "batch", 1: "seq"}},
+        opset_version=17, dynamo=False,
+    )
+    weight_only_int8(str(d / "onnx/model.onnx"), str(d / "onnx/model_quantized.onnx"))
+    json.dump({"pooling": "cls", "normalize": True, "query_max_length": 64, "doc_max_length": 128, "doc_text": "catalog with spaces | title (id): description"}, open(d / "retriever.json", "w"), indent=1)
+    return d
+
+
 # ---------------------------------------------------------------- run
 
 report = {"run": args.run, "base": BASE, "retriever": RETRIEVER, "args": vars(args), "data": {k: len(v) for k, v in splits.items()}}
+
+retriever = train_retriever()
+doc_vecs = embed(retriever, tok, doc_texts)
+req_vecs_all = embed(retriever, tok, [r["request"] for r in all_records], max_length=64)
+req_vec = {id(r): req_vecs_all[n] for n, r in enumerate(all_records)}
+report["retriever"] = {}
+for sname in ["dev", "test-catalog", "test-claude"]:
+    for pname, pool in [("all", POOL_ALL), ("curated", POOL_CUR)]:
+        recs = splits[sname] if pname == "all" else [r for r in splits[sname] if pairs_of(r) and all(p.split("/")[0] in curated_set for p in pairs_of(r))]
+        report["retriever"][f"{sname}/{pname}"] = {
+            "granite-30m-trained": recall(doc_vecs, req_vec, recs, pool),
+            "r2-untrained": recall(r2_docs, r2_req, recs, pool),
+        }
+log("retriever", json.dumps(report["retriever"], indent=1))
 
 decider = train_decider()
 dev_answers = answer(decider, [q for r in splits["dev"] for q in questions_of(r, False)])
@@ -554,15 +681,16 @@ report["tagger"] = {s: tagger_metrics(tagger, splits[s]) for s in ["dev", "test-
 log("tagger", json.dumps(report["tagger"], indent=1))
 
 ddir = export(decider, "decider", {0: "batch"})
-json.dump({"temperatures": temps, "shortlist": SHORTLIST, "max_length": args.max_len, "retriever": RETRIEVER}, open(ddir / "decider.json", "w"), indent=1)
+json.dump({"temperatures": temps, "shortlist": SHORTLIST, "max_length": args.max_len, "design": "catalog follows collection", "option_text": "catalog with spaces | title (id): description"}, open(ddir / "decider.json", "w"), indent=1)
 tdir = export(tagger, "tagger", {0: "batch", 1: "seq"})
+rdir = export_retriever(retriever)
 report["minutes"] = round((time.time() - t0) / 60, 1)
 json.dump(report, open(OUT / f"report-{args.run}.json", "w"), indent=1)
 log("report", OUT / f"report-{args.run}.json")
 
 if not args.no_upload:
     api = HfApi()
-    for name in ["decider", "tagger"]:
+    for name in ["retriever", "decider", "tagger"]:
         api.upload_folder(repo_id=MODEL_REPO, folder_path=str(OUT / name), path_in_repo=f"{name}/{args.run}",
                           commit_message=f"{name} {args.run}")
     api.upload_file(path_or_fileobj=str(OUT / f"report-{args.run}.json"), path_in_repo=f"reports/report-{args.run}.json",

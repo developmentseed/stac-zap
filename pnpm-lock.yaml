@@ -17,9 +17,15 @@ importers:
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.3.0)(react@19.3.0)
+      '@huggingface/transformers':
+        specifier: ^4.3.2
+        version: 4.3.2(@types/node@26.6.3)
       '@tanstack/react-query':
         specifier: ^5.104.0
         version: 5.104.0(react@19.3.0)
+      chrono-node:
+        specifier: ^2.10.3
+        version: 2.10.3
       maplibre-gl:
         specifier: ^6.11.2
         version: 6.11.2
@@ -42,9 +48,6 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1(oidc-client-ts@3.5.0)(react@19.3.0)
     devDependencies:
-      '@huggingface/transformers':
-        specifier: ^4.3.2
-        version: 4.3.2(@types/node@26.6.3)
       '@types/node':
         specifier: ^26.6.3
         version: 26.6.3
@@ -57,9 +60,6 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^6.1.1
         version: 6.1.1(vite@8.3.1(@types/node@26.6.3)(esbuild@0.28.2)(tsx@4.23.15))
-      chrono-node:
-        specifier: ^2.10.3
-        version: 2.10.3
       playwright:
         specifier: 1.65.1
         version: 1.65.1

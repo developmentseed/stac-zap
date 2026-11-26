@@ -23,11 +23,13 @@ import {
   hasRenderableItem,
   listCollections,
   shortlist,
+  type Catalog,
   type Collection,
   type Link,
 } from "./catalogs";
 import { geocode, placeSpans, type Place } from "./geocode";
 import { extract, isMapView, toInputRange, type DayRange, type Extraction } from "./extract";
+import { extractLocal, KEEP_KEY, pickCollection, pickPlace } from "./local";
 
 /**
  * Runs one prompt with an extraction call and two or three jev calls. The
@@ -44,6 +46,9 @@ import { extract, isMapView, toInputRange, type DayRange, type Extraction } from
 /** What a zap opened, e.g. for analytics. */
 export type ZapOutcome = { catalog: string; collection: string };
 
+/** "jev": jev and Clairic on OpenRouter; "local": the open models in the browser (`local/`). */
+export type Backend = "jev" | "local";
+
 /** One jev call, with the fields it answered, for the probability panel. */
 export type ZapStep = { fields: ZapFields; result: ZapResult };
 
@@ -51,6 +56,8 @@ export type ZapStep = { fields: ZapFields; result: ZapResult };
 export type ZapListener = {
   /** Also the catalogs of STAC Index, not only the curated ones. */
   allCatalogs: boolean;
+  /** Who answers: jev and Clairic on OpenRouter, or the local models in the browser. */
+  backend?: Backend;
   /** Called after each jev call, so the panel can show its answers. */
   onStep: (step: ZapStep) => void;
   /** Called with a line for the user, e.g. when no place has the name. */
@@ -86,75 +93,16 @@ let last: Search = { cloud: null };
  */
 export async function zap(
   prompt: string,
-  { allCatalogs, onStep, onNote }: ZapListener,
+  { allCatalogs, backend = "jev", onStep, onNote }: ZapListener,
 ): Promise<ZapOutcome | null> {
   const store = useStore.getState();
   const today = new Date();
-  // The extraction does not need the catalog, so it runs at the same time
-  // as the catalog call. On a failure, jev answers its fields as options.
-  const extraction = extract(prompt, today).catch((error: unknown) => {
-    onNote(`Could not read the place, time and cloud cover (${error}), so jev picks them from options`);
-    return null;
-  });
-  const catalogs = await listCatalogs(allCatalogs);
-  const currentCatalog = catalogOf(catalogs, store.href)?.id ?? null;
-
-  const first: ZapFields = {
-    catalog: {
-      label: "STAC catalog",
-      current: currentCatalog,
-      options: Object.fromEntries(
-        catalogs.map((c) => [c.id, c.description]),
-      ),
-      keepable: currentCatalog !== null,
-      threshold: 0,
-    },
-  };
-  const firstResult = await decide(prompt, first);
-  onStep({ fields: first, result: firstResult });
-  const catalogId =
-    firstResult.changes.catalog ??
-    currentCatalog ??
-    validChoice(first, firstResult, "catalog");
-  const catalog = catalogs.find((c) => c.id === catalogId) ?? DEFAULT_CATALOG;
-  const catalogHref = catalog.href;
-
-  let collections: Collection[];
-  try {
-    collections = await listCollections(catalogHref);
-  } catch (error) {
-    // A catalog from STAC Index can be down or block browsers (CORS).
-    onNote(`Could not list the collections of ${catalogHref}: ${error}`);
-    return null;
-  }
-  if (collections.length === 0) {
-    onNote(`${catalogHref} has no collections`);
-    return null;
-  }
-  const options = shortlist(collections, prompt);
-  const currentCollection =
-    catalog.id === currentCatalog
-      ? collectionOf(store.href, catalogHref)
-      : null;
-  const extracted = await extraction;
-  const lastCloud = cloudOptionOf(last.cloud);
-  const second: ZapFields = {
-    collection: {
-      label: "collection",
-      current: currentCollection,
-      options: Object.fromEntries(options.map((c) => [c.id, describe(c)])),
-      keepable: currentCollection !== null,
-      threshold: 0,
-    },
-    // Without an extraction, jev picks the place, the time and the cloud
-    // cover from options.
-    ...(extracted ? {} : searchFields(prompt, lastCloud)),
-  };
-  const secondResult = await decide(prompt, second);
-  // The cloud cover options are an ordered scale, so the median applies, not
-  // the 0.5 threshold. The panel shows the median, as it is the filter used.
-  const cloud = extracted ? null : medianCloud(secondResult, lastCloud);
-  onStep({ fields: second, result: secondResult });
+  const chosenSteps =
+    backend === "local"
+      ? await localSteps(prompt, today, allCatalogs, onStep, onNote)
+      : await jevSteps(prompt, today, allCatalogs, onStep, onNote);
+  if (!chosenSteps) return null;
+  const { catalog, catalogHref, collections, currentCollection, second, secondResult, extracted, cloud } = chosenSteps;
 
   const collectionId =
     secondResult.changes.collection ??
@@ -188,7 +136,7 @@ export async function zap(
       next.place = { label: "The map view", bbox: store.mapBbox };
     }
   } else if (changes.place) {
-    const place = await findPlace(prompt, changes.place, onStep, onNote);
+    const place = await findPlace(prompt, changes.place, onStep, onNote, backend);
     // With a new collection, the last place is only a guess; a named place
     // that was not found replaces it with no place.
     if (place || newCollection) next.place = place ?? undefined;
@@ -269,6 +217,169 @@ export async function zap(
   return { catalog: catalog.id, collection: collection.id };
 }
 
+/** What the first steps of a zap chose: the catalog, the collection answer, and the extraction. */
+type Steps = {
+  catalog: Catalog;
+  catalogHref: string;
+  collections: Collection[];
+  currentCollection: string | null;
+  second: ZapFields;
+  secondResult: ZapResult;
+  extracted: Extraction | null;
+  /** The cloud cover option of the jev fields, when there is no extraction. */
+  cloud: string | null;
+};
+
+/** Jev picks the catalog, then the collection; Clairic reads the place, the time and the cloud cover. */
+async function jevSteps(
+  prompt: string,
+  today: Date,
+  allCatalogs: boolean,
+  onStep: ZapListener["onStep"],
+  onNote: ZapListener["onNote"],
+): Promise<Steps | null> {
+  const store = useStore.getState();
+  // The extraction does not need the catalog, so it runs at the same time
+  // as the catalog call. On a failure, jev answers its fields as options.
+  const extraction = extract(prompt, today).catch((error: unknown) => {
+    onNote(`Could not read the place, time and cloud cover (${error}), so jev picks them from options`);
+    return null;
+  });
+  const catalogs = await listCatalogs(allCatalogs);
+  const currentCatalog = catalogOf(catalogs, store.href)?.id ?? null;
+
+  const first: ZapFields = {
+    catalog: {
+      label: "STAC catalog",
+      current: currentCatalog,
+      options: Object.fromEntries(
+        catalogs.map((c) => [c.id, c.description]),
+      ),
+      keepable: currentCatalog !== null,
+      threshold: 0,
+    },
+  };
+  const firstResult = await decide(prompt, first);
+  onStep({ fields: first, result: firstResult });
+  const catalogId =
+    firstResult.changes.catalog ??
+    currentCatalog ??
+    validChoice(first, firstResult, "catalog");
+  const catalog = catalogs.find((c) => c.id === catalogId) ?? DEFAULT_CATALOG;
+  const catalogHref = catalog.href;
+
+  let collections: Collection[];
+  try {
+    collections = await listCollections(catalogHref);
+  } catch (error) {
+    // A catalog from STAC Index can be down or block browsers (CORS).
+    onNote(`Could not list the collections of ${catalogHref}: ${error}`);
+    return null;
+  }
+  if (collections.length === 0) {
+    onNote(`${catalogHref} has no collections`);
+    return null;
+  }
+  const options = shortlist(collections, prompt);
+  const currentCollection =
+    catalog.id === currentCatalog
+      ? collectionOf(store.href, catalogHref)
+      : null;
+  const extracted = await extraction;
+  const lastCloud = cloudOptionOf(last.cloud);
+  const second: ZapFields = {
+    collection: {
+      label: "collection",
+      current: currentCollection,
+      options: Object.fromEntries(options.map((c) => [c.id, describe(c)])),
+      keepable: currentCollection !== null,
+      threshold: 0,
+    },
+    // Without an extraction, jev picks the place, the time and the cloud
+    // cover from options.
+    ...(extracted ? {} : searchFields(prompt, lastCloud)),
+  };
+  const secondResult = await decide(prompt, second);
+  // The cloud cover options are an ordered scale, so the median applies, not
+  // the 0.5 threshold. The panel shows the median, as it is the filter used.
+  const cloud = extracted ? null : medianCloud(secondResult, lastCloud);
+  onStep({ fields: second, result: secondResult });
+
+  return { catalog, catalogHref, collections, currentCollection, second, secondResult, extracted, cloud };
+}
+
+/**
+ * The local models pick the collection among all known catalogs, and the
+ * catalog follows from it; the tagger reads the place, the time and the
+ * cloud cover. See `local/index.ts`.
+ */
+async function localSteps(
+  prompt: string,
+  today: Date,
+  allCatalogs: boolean,
+  onStep: ZapListener["onStep"],
+  onNote: ZapListener["onNote"],
+): Promise<Steps | null> {
+  const store = useStore.getState();
+  const extraction = extractLocal(prompt, today).catch((error: unknown) => {
+    onNote(`The local model could not read the place, time and cloud cover (${error})`);
+    return null;
+  });
+  const catalogs = await listCatalogs(allCatalogs);
+  const currentCatalog = catalogOf(catalogs, store.href);
+  const currentCollectionId = currentCatalog ? collectionOf(store.href, currentCatalog.href) : null;
+  const current = currentCatalog && currentCollectionId ? `${currentCatalog.id}/${currentCollectionId}` : null;
+  const pick = await pickCollection(prompt, catalogs, (c) => listCollections(c.href), current);
+  const key = pick.choice === KEEP_KEY ? current : pick.choice;
+  if (!key) {
+    onNote("The local model kept the current collection, but none is open");
+    return null;
+  }
+  const catalogId = key.split("/")[0]!;
+  const catalog = catalogs.find((c) => c.id === catalogId) ?? DEFAULT_CATALOG;
+  const catalogHref = catalog.href;
+  let collections: Collection[];
+  try {
+    collections = await listCollections(catalogHref);
+  } catch (error) {
+    onNote(`Could not list the collections of ${catalogHref}: ${error}`);
+    return null;
+  }
+  // The answer as a jev answer for one question: the options of this catalog, keyed by collection id, so the rest
+  // of the zap (renderable check, answers panel) works as with jev. The panel shows the whole shortlist.
+  const prefix = `${catalogId}/`;
+  const probabilities = Object.fromEntries(
+    Object.entries(pick.probabilities)
+      .filter(([k]) => k.startsWith(prefix))
+      .map(([k, p]) => [k.slice(prefix.length), p]),
+  );
+  const collectionId = key.slice(prefix.length);
+  const currentCollection = currentCatalog?.id === catalogId ? currentCollectionId : null;
+  const second: ZapFields = {
+    collection: {
+      label: "collection",
+      current: currentCollection,
+      options: Object.fromEntries(
+        Object.entries(pick.labels).filter(([k]) => k !== KEEP_KEY).map(([k, label]) => [k.startsWith(prefix) ? k.slice(prefix.length) : k, label]),
+      ),
+      keepable: false,
+      threshold: 0,
+    },
+  };
+  const secondResult: ZapResult = {
+    changes: collectionId !== currentCollection ? { collection: collectionId } : {},
+    answers: {
+      collection: {
+        choice: collectionId,
+        probability: pick.probabilities[key] ?? 0,
+        probabilities: { ...probabilities, ...Object.fromEntries(Object.entries(pick.probabilities).filter(([k]) => !k.startsWith(prefix) && k !== KEEP_KEY)) },
+      },
+    },
+  };
+  onStep({ fields: second, result: secondResult });
+  return { catalog, catalogHref, collections, currentCollection, second, secondResult, extracted: await extraction, cloud: null };
+}
+
 /** The number of collections, best first, to check for data stac-map can show. */
 const RENDER_CANDIDATES = 4;
 /** Collections less likely than this are not checked. */
@@ -329,6 +440,7 @@ async function findPlace(
   name: string,
   onStep: ZapListener["onStep"],
   onNote: ZapListener["onNote"],
+  backend: Backend = "jev",
 ): Promise<Place | null> {
   let places: Place[];
   try {
@@ -355,7 +467,15 @@ async function findPlace(
       question: `The request names "${name}". Which of these places does it mean?`,
     },
   };
-  const result = await decide(prompt, fields);
+  let result: ZapResult;
+  if (backend === "local") {
+    const pick = await pickPlace(prompt, name, places);
+    const choice = pick.choice ?? NO_MATCH;
+    const probability = pick.probabilities[choice] ?? 0;
+    result = { changes: { match: choice }, answers: { match: { choice, probability, probabilities: pick.probabilities } } };
+  } else {
+    result = await decide(prompt, fields);
+  }
   onStep({ fields, result });
   const place = places.find((p) => p.id === validChoice(fields, result, "match"));
   if (!place) onNote(`No place found for "${name}"`);
