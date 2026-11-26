@@ -9,23 +9,26 @@
 #   "numpy",
 # ]
 # ///
-"""Trains the local models of stac-zap and exports them as int8 ONNX.
+"""Trains the local model of stac-zap and exports it as ONNX (weight-only int8).
 
-- decider: ibm-granite/granite-embedding-30m-english as a cross-encoder. It scores (question, option) pairs; a
-  softmax over the options of one question gives the probabilities, as Jev does. Questions: catalog, collection
-  (on the shortlist of the retriever), place pick. Each question has `keep` when the map has a current value.
-- tagger: the same base as a token classifier: BIO tags for the place, time and cloud cover words.
-- retriever: ibm-granite/granite-embedding-small-english-r2 with no fine-tuning (phase 0: 28/28 in the top 16). It
-  makes the collection shortlists here, as the app will.
+One Granite 30M encoder (ibm-granite/granite-embedding-30m-english) with three uses, so the page downloads one
+model (v6 and later; v1 to v5 were three models, see the git history):
+- retriever: the normalized CLS vector of a text. It shortlists the collections of all known catalogs.
+- decider: a head on the CLS vector of a (question, option) pair. It picks a collection of the shortlist (the
+  catalog follows from it), or `keep`, or a place among the geocoder results. A softmax over the options of one
+  question, with a calibrated temperature, gives the probabilities.
+- tagger: a head on each token: BIO tags for the place, time and cloud cover words.
+Stage 1 trains the retriever (contrastive, with hard negatives from R2, ibm-granite/granite-embedding-small-english-r2);
+stage 2 trains the three together.
 
-Data: the dataset developmentseed/stac-zap-data (generated/v0, snapshot, places, testset). Output: the model repo
-developmentseed/stac-zap-models, folders decider/<run>/ and tagger/<run>/ in the layout transformers.js reads
-(config.json, tokenizer files, onnx/model.onnx, onnx/model_quantized.onnx), and report-<run>.json.
+Data: the dataset developmentseed/stac-zap-data (generated/<version>, snapshot, places, testset). Output: the model repo
+developmentseed/stac-zap-models, folder shared/<run>/ (model/ in the layout transformers.js reads, stac-zap.json),
+and reports/report-<run>.json.
 
 Run on HF Jobs:
-  hf jobs uv run --flavor l4x1 --timeout 2h --secrets HF_TOKEN --detach training/train_hf_jobs.py --run v1
+  hf jobs uv run --flavor l4x1 --timeout 3h --secrets HF_TOKEN --detach training/train_hf_jobs.py --run v6
 Smoke test on a laptop CPU:
-  uv run training/train_hf_jobs.py --run smoke --max-records 300 --epochs 1 --no-upload --device cpu
+  uv run training/train_hf_jobs.py --run smoke --max-records 60 --epochs 1 --no-upload --device cpu
 """
 
 import argparse
@@ -44,8 +47,6 @@ from huggingface_hub import HfApi, hf_hub_download
 from onnx import helper, numpy_helper
 from transformers import (
     AutoModel,
-    AutoModelForSequenceClassification,
-    AutoModelForTokenClassification,
     AutoTokenizer,
     get_linear_schedule_with_warmup,
 )
@@ -56,6 +57,7 @@ BASE = "ibm-granite/granite-embedding-30m-english"
 RETRIEVER = "ibm-granite/granite-embedding-small-english-r2"
 SHORTLIST = 16
 PREFERRED = 0.6
+RETRIEVER_WEIGHT = 0.5
 KEEP_AUGMENT = 0.4
 TAGS = ["O", "B-PLACE", "I-PLACE", "B-TIME", "I-TIME", "B-CLOUD", "I-CLOUD"]
 KEEP = "keep"
@@ -72,7 +74,7 @@ p.add_argument("--max-records", type=int, default=0)
 p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
 p.add_argument("--no-upload", action="store_true")
 p.add_argument("--seed", type=int, default=13)
-p.add_argument("--data", default="v2", help="folder of generated/ in the dataset")
+p.add_argument("--data", default="v3", help="folder of generated/ in the dataset")
 args = p.parse_args()
 random.seed(args.seed)
 torch.manual_seed(args.seed)
@@ -137,6 +139,45 @@ def place_text(pid):
 
 def query(question, r, current=None):
     return f"{question} | request: {r['request']} | current: {current or 'not set'}"
+
+
+# ---------------------------------------------------------------- shared model (v6)
+#
+# One Granite 30M encoder with three uses, so the page downloads one model:
+# - retriever: the normalized CLS vector of a single text,
+# - decider: a head on the CLS vector of a (question, option) pair,
+# - tagger: a head on each token.
+# Stage 1 trains the retriever; stage 2 trains the decider, the tagger and the retriever together, so the encoder
+# keeps all three abilities.
+
+
+class Out:
+    def __init__(self, **kw):
+        self.__dict__.update(kw)
+
+
+class Shared(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.enc = AutoModel.from_pretrained(BASE, add_pooling_layer=False, dtype=torch.float32)
+        h = self.enc.config.hidden_size
+        self.dec = torch.nn.Sequential(torch.nn.Dropout(0.1), torch.nn.Linear(h, h), torch.nn.Tanh(), torch.nn.Dropout(0.1), torch.nn.Linear(h, 1))
+        self.tag = torch.nn.Sequential(torch.nn.Dropout(0.1), torch.nn.Linear(h, len(TAGS)))
+
+    def forward(self, input_ids, attention_mask, **_):
+        hidden = self.enc(input_ids=input_ids, attention_mask=attention_mask).last_hidden_state
+        return Out(last_hidden_state=hidden, logits=self.dec(hidden[:, 0]), tag_logits=self.tag(hidden))
+
+
+class TagView(torch.nn.Module):
+    """The shared model as a token classifier, for the tagger metrics."""
+
+    def __init__(self, m):
+        super().__init__()
+        self.m = m
+
+    def forward(self, **x):
+        return Out(logits=self.m(**x).tag_logits)
 
 
 # ---------------------------------------------------------------- retriever (catalog follows collection)
@@ -210,8 +251,36 @@ def top_k(qvec, docs, pool, k):
     return [pool[j] for j in torch.topk(sims, min(k, len(pool))).indices.tolist()]
 
 
-def train_retriever(epochs=2, bs=96, lr=3e-5, temp=0.05):
-    model = AutoModel.from_pretrained(BASE).to(dev)
+RETRIEVER_DATA = None
+
+
+def retriever_loss(model, batch, temp=0.05):
+    """InfoNCE with in-batch negatives and one hard negative (a top R2 result that is not correct) per request."""
+    pos, neg = [], []
+    for r in batch:
+        ok = pairs_of(r)
+        pos.append(doc_texts[doc_index[random.choice(sorted(ok))]])
+        cands = [d for d in top_k(r2_req[id(r)], r2_docs, POOL_ALL_TRAIN, 12) if pair_key(*doc_keys[d]) not in ok]
+        neg.append(doc_texts[random.choice(cands)] if cands else doc_texts[random.randrange(len(doc_texts))])
+    q = tok([r["request"] for r in batch], padding=True, truncation=True, max_length=64, return_tensors="pt").to(dev)
+    d = tok(pos + neg, padding=True, truncation=True, max_length=128, return_tensors="pt").to(dev)
+    with torch.autocast(dev.type, dtype=torch.bfloat16, enabled=dev.type == "cuda"):
+        qv = F.normalize(model(**q).last_hidden_state[:, 0].float(), dim=-1)
+        dv = F.normalize(model(**d).last_hidden_state[:, 0].float(), dim=-1)
+    logits = qv @ dv.T / temp
+    # A positive of another request in the batch that is also correct is not a negative.
+    mask = torch.zeros_like(logits, dtype=torch.bool)
+    texts = pos + neg
+    for a, r in enumerate(batch):
+        ok_texts = {doc_texts[doc_index[p]] for p in pairs_of(r)}
+        for c, text in enumerate(texts):
+            if c != a and text in ok_texts:
+                mask[a, c] = True
+    return F.cross_entropy(logits.masked_fill(mask, -1e4), torch.arange(len(batch), device=dev))
+
+
+def train_retriever(model, epochs=2, bs=96, lr=3e-5):
+    """Stage 1: the encoder as a retriever."""
     data = [r for r in splits["train"] if pairs_of(r)]
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     n = math.ceil(len(data) / bs)
@@ -221,30 +290,7 @@ def train_retriever(epochs=2, bs=96, lr=3e-5, temp=0.05):
         model.train()
         total = 0.0
         for b in range(n):
-            batch = data[b * bs : (b + 1) * bs]
-            pos, neg = [], []
-            for r in batch:
-                ok = pairs_of(r)
-                pos.append(doc_texts[doc_index[random.choice(sorted(ok))]])
-                # A hard negative: a top R2 result that is not correct.
-                cands = [d for d in top_k(r2_req[id(r)], r2_docs, POOL_ALL_TRAIN, 12) if pair_key(*doc_keys[d]) not in ok]
-                neg.append(doc_texts[random.choice(cands)] if cands else doc_texts[random.randrange(len(doc_texts))])
-            q = tok([r["request"] for r in batch], padding=True, truncation=True, max_length=64, return_tensors="pt").to(dev)
-            d = tok(pos + neg, padding=True, truncation=True, max_length=128, return_tensors="pt").to(dev)
-            with torch.autocast(dev.type, dtype=torch.bfloat16, enabled=dev.type == "cuda"):
-                qv = F.normalize(model(**q).last_hidden_state[:, 0].float(), dim=-1)
-                dv = F.normalize(model(**d).last_hidden_state[:, 0].float(), dim=-1)
-            logits = qv @ dv.T / temp
-            # In-batch negatives; a positive of another request in the batch that is also correct is not a negative.
-            mask = torch.zeros_like(logits, dtype=torch.bool)
-            texts = pos + neg
-            for a, r in enumerate(batch):
-                ok_texts = {doc_texts[doc_index[p]] for p in pairs_of(r)}
-                for c, text in enumerate(texts):
-                    if c != a and text in ok_texts:
-                        mask[a, c] = True
-            logits = logits.masked_fill(mask, -1e4)
-            loss = F.cross_entropy(logits, torch.arange(len(batch), device=dev))
+            loss = retriever_loss(model, data[b * bs : (b + 1) * bs])
             if not torch.isfinite(loss):
                 raise RuntimeError(f"retriever loss is {loss.item()}")
             loss.backward()
@@ -357,41 +403,68 @@ def group_logits(model, groups):
     return list(torch.split(logits, sizes))
 
 
-def train_decider():
-    model = AutoModelForSequenceClassification.from_pretrained(BASE, num_labels=1).to(dev)
+def decider_loss(model, batch):
+    losses = []
+    for logits, (_, _, opts, gold, weights) in zip(group_logits(model, batch), batch):
+        target = torch.tensor([(weights or {}).get(o, 1.0) if o in gold else 0.0 for o, _ in opts], device=dev)
+        if target.sum() == 0:
+            continue  # no correct option among the options: nothing to learn
+        target = target / target.sum()
+        losses.append(-(target * F.log_softmax(logits, -1)).sum())
+    return torch.stack(losses).mean() if losses else None
+
+
+def tagger_loss(model, batch):
+    x = tok.pad([{k: v for k, v in e.items() if k != "labels"} for e in batch], return_tensors="pt").to(dev)
+    width = x["input_ids"].shape[1]
+    y = torch.tensor([e["labels"] + [-100] * (width - len(e["labels"])) for e in batch], device=dev)
+    with torch.autocast(dev.type, dtype=torch.bfloat16, enabled=dev.type == "cuda"):
+        logits = model(**x).tag_logits.float()
+    return F.cross_entropy(logits.reshape(-1, len(TAGS)), y.reshape(-1), ignore_index=-100)
+
+
+def train_joint(model):
+    """Stage 2: each step adds the decider loss, a tagger batch and a retriever batch."""
+    tag_data = [tag_example(r) for r in splits["train"] if has_all_spans(r)]
+    ret_data = [r for r in splits["train"] if pairs_of(r)]
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
     sched = None
+    ti = ri = 0
     for epoch in range(args.epochs):
         groups = [q for r in splits["train"] for q in questions_of(r, True) if q[3]]
+        log(f"joint epoch {epoch}: {len(groups)} questions")
         random.shuffle(groups)
         n = math.ceil(len(groups) / args.groups_per_batch)
         if sched is None:
             sched = get_linear_schedule_with_warmup(opt, int(0.05 * n * args.epochs), n * args.epochs)
         model.train()
-        total = 0.0
+        totals = {"decider": 0.0, "tagger": 0.0, "retriever": 0.0}
         for b in range(n):
-            batch = groups[b * args.groups_per_batch : (b + 1) * args.groups_per_batch]
-            losses = []
-            for logits, (_, _, opts, gold, weights) in zip(group_logits(model, batch), batch):
-                target = torch.tensor([(weights or {}).get(o, 1.0) if o in gold else 0.0 for o, _ in opts], device=dev)
-                if target.sum() == 0:
-                    continue  # no correct option among the options: nothing to learn
-                target = target / target.sum()
-                losses.append(-(target * F.log_softmax(logits, -1)).sum())
-            if not losses:
-                continue
-            loss = torch.stack(losses).mean()
+            dl = decider_loss(model, groups[b * args.groups_per_batch : (b + 1) * args.groups_per_batch])
+            if ti + 32 > len(tag_data):
+                random.shuffle(tag_data)
+                ti = 0
+            tl = tagger_loss(model, tag_data[ti : ti + 32])
+            ti += 32
+            if ri + 48 > len(ret_data):
+                random.shuffle(ret_data)
+                ri = 0
+            rl = retriever_loss(model, ret_data[ri : ri + 48])
+            ri += 48
+            loss = tl + RETRIEVER_WEIGHT * rl + (dl if dl is not None else 0)
             if not torch.isfinite(loss):
-                raise RuntimeError(f"loss is {loss.item()} at epoch {epoch} step {b}")
+                raise RuntimeError(f"joint loss is {loss.item()} at epoch {epoch} step {b}")
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             opt.step()
             sched.step()
             opt.zero_grad()
-            total += loss.item()
-            if b % 200 == 0:
-                log(f"decider epoch {epoch} step {b}/{n} loss {total / (b + 1):.4f}")
-        log(f"decider epoch {epoch} done, {len(groups)} questions, loss {total / n:.4f}")
+            totals["decider"] += dl.item() if dl is not None else 0
+            totals["tagger"] += tl.item()
+            totals["retriever"] += rl.item()
+            if b % 200 == 0 or b < 3:
+                log(f"joint epoch {epoch} step {b}/{n} " + " ".join(f"{k} {v / (b + 1):.4f}" for k, v in totals.items()))
+        log(f"joint epoch {epoch} done, {len(groups)} questions, " + " ".join(f"{k} {v / n:.4f}" for k, v in totals.items()))
     return model
 
 
@@ -474,38 +547,6 @@ def tag_example(r):
 def has_all_spans(r):
     """Test records from the sheet have no cloud span; the tagger is scored on the other spans."""
     return not (r["cloud"]["value"] is not None and r["cloud"]["span"] is None)
-
-
-def train_tagger():
-    model = AutoModelForTokenClassification.from_pretrained(
-        BASE, num_labels=len(TAGS), id2label=dict(enumerate(TAGS)), label2id={t: i for i, t in enumerate(TAGS)}
-    ).to(dev)
-    data = [tag_example(r) for r in splits["train"] if has_all_spans(r)]
-    opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
-    bs = 32
-    n = math.ceil(len(data) / bs)
-    sched = get_linear_schedule_with_warmup(opt, int(0.05 * n * args.tag_epochs), n * args.tag_epochs)
-    for epoch in range(args.tag_epochs):
-        random.shuffle(data)
-        model.train()
-        total = 0.0
-        for b in range(n):
-            batch = data[b * bs : (b + 1) * bs]
-            x = tok.pad([{k: v for k, v in e.items() if k != "labels"} for e in batch], return_tensors="pt").to(dev)
-            width = x["input_ids"].shape[1]
-            y = torch.tensor([e["labels"] + [-100] * (width - len(e["labels"])) for e in batch], device=dev)
-            with torch.autocast(dev.type, dtype=torch.bfloat16, enabled=dev.type == "cuda"):
-                loss = model(**x, labels=y).loss
-            if not torch.isfinite(loss):
-                raise RuntimeError(f"tagger loss is {loss.item()} at epoch {epoch} step {b}")
-            loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
-            opt.step()
-            sched.step()
-            opt.zero_grad()
-            total += loss.item()
-        log(f"tagger epoch {epoch} loss {total / n:.4f}")
-    return model
 
 
 @torch.no_grad()
@@ -598,73 +639,49 @@ def weight_only_int8(src, dst, min_size=4096):
 
 
 
-class Squeeze(torch.nn.Module):
+class Heads(torch.nn.Module):
     def __init__(self, m):
         super().__init__()
         self.m = m
 
     def forward(self, input_ids, attention_mask):
-        return self.m(input_ids=input_ids, attention_mask=attention_mask).logits
+        o = self.m(input_ids=input_ids, attention_mask=attention_mask)
+        return o.last_hidden_state, o.logits.squeeze(-1), o.tag_logits
 
 
-def export(model, name, output_axes):
-    """fp32 ONNX, and weight-only int8 as model_quantized.onnx (training/tools/weight_only.py). Dynamic int8
-    (quantize_dynamic) also turns the activations into int8; it broke v1 (decider top answer agreed with fp32 on
-    47% of questions; weight-only int8: 95%)."""
-
-    d = OUT / name
-    (d / "onnx").mkdir(parents=True, exist_ok=True)
+def export_shared(model, temps):
+    """One ONNX file with three outputs: last_hidden_state (retriever: CLS, normalized), decider_logits (one per
+    input), tag_logits. The layout transformers.js reads: <run>/model/{config.json, tokenizer, onnx/}, and the
+    settings in <run>/stac-zap.json."""
+    d = OUT / "shared"
+    (d / "model/onnx").mkdir(parents=True, exist_ok=True)
     model = model.float().cpu().eval()
-    model.save_pretrained(d)  # config.json (and weights, for later fine-tuning)
-    tok.save_pretrained(d)
-    x = tok(["a | request: b"], ["c"], return_tensors="pt")
+    model.enc.config.save_pretrained(d / "model")
+    tok.save_pretrained(d / "model")
+    torch.save(model.state_dict(), d / "shared.pt")
+    x = tok(["Which collection? | request: Sentinel-2 over Lisbon | current: not set"], ["planetary computer | Sentinel-2"], return_tensors="pt")
     torch.onnx.export(
-        Squeeze(model),
-        (x["input_ids"], x["attention_mask"]),
-        str(d / "onnx/model.onnx"),
-        input_names=["input_ids", "attention_mask"],
-        output_names=["logits"],
-        dynamic_axes={"input_ids": {0: "batch", 1: "seq"}, "attention_mask": {0: "batch", 1: "seq"}, "logits": output_axes},
-        opset_version=17,
-        dynamo=False,
-    )
-    weight_only_int8(str(d / "onnx/model.onnx"), str(d / "onnx/model_quantized.onnx"))
-    # Parity: int8 ONNX against the PyTorch model.
-    import onnxruntime as ort
-
-    sess = ort.InferenceSession(str(d / "onnx/model_quantized.onnx"))
-    y = sess.run(None, {"input_ids": x["input_ids"].numpy(), "attention_mask": x["attention_mask"].numpy()})[0]
-    with torch.no_grad():
-        ref = model(**x).logits.numpy()
-    log(f"{name}: onnx int8 max abs diff {float(np.abs(y - ref).max()):.4f}, size {(d / 'onnx/model_quantized.onnx').stat().st_size / 1e6:.1f} MB")
-    return d
-
-
-class Hidden(torch.nn.Module):
-    def __init__(self, m):
-        super().__init__()
-        self.m = m
-
-    def forward(self, input_ids, attention_mask):
-        return self.m(input_ids=input_ids, attention_mask=attention_mask).last_hidden_state
-
-
-def export_retriever(model):
-    """The retriever: last_hidden_state; the page takes the first (CLS) vector and normalizes it, as for R2."""
-    d = OUT / "retriever"
-    (d / "onnx").mkdir(parents=True, exist_ok=True)
-    model = model.float().cpu().eval()
-    model.save_pretrained(d)
-    tok.save_pretrained(d)
-    x = tok(["Sentinel-2 over Lisbon"], return_tensors="pt")
-    torch.onnx.export(
-        Hidden(model), (x["input_ids"], x["attention_mask"]), str(d / "onnx/model.onnx"),
-        input_names=["input_ids", "attention_mask"], output_names=["last_hidden_state"],
-        dynamic_axes={"input_ids": {0: "batch", 1: "seq"}, "attention_mask": {0: "batch", 1: "seq"}, "last_hidden_state": {0: "batch", 1: "seq"}},
+        Heads(model), (x["input_ids"], x["attention_mask"]), str(d / "model/onnx/model.onnx"),
+        input_names=["input_ids", "attention_mask"], output_names=["last_hidden_state", "decider_logits", "tag_logits"],
+        dynamic_axes={"input_ids": {0: "batch", 1: "seq"}, "attention_mask": {0: "batch", 1: "seq"},
+                      "last_hidden_state": {0: "batch", 1: "seq"}, "decider_logits": {0: "batch"}, "tag_logits": {0: "batch", 1: "seq"}},
         opset_version=17, dynamo=False,
     )
-    weight_only_int8(str(d / "onnx/model.onnx"), str(d / "onnx/model_quantized.onnx"))
-    json.dump({"pooling": "cls", "normalize": True, "query_max_length": 64, "doc_max_length": 128, "doc_text": "catalog with spaces | title (id): description"}, open(d / "retriever.json", "w"), indent=1)
+    weight_only_int8(str(d / "model/onnx/model.onnx"), str(d / "model/onnx/model_quantized.onnx"))
+    import onnxruntime as ort
+
+    sess = ort.InferenceSession(str(d / "model/onnx/model_quantized.onnx"))
+    got = sess.run(None, {"input_ids": x["input_ids"].numpy(), "attention_mask": x["attention_mask"].numpy()})
+    with torch.no_grad():
+        ref = Heads(model)(x["input_ids"], x["attention_mask"])
+    diffs = [float(np.abs(g - r.numpy()).max()) for g, r in zip(got, ref)]
+    log(f"shared: onnx int8 max abs diff (hidden, decider, tags) {diffs}, size {(d / 'model/onnx/model_quantized.onnx').stat().st_size / 1e6:.1f} MB")
+    json.dump({
+        "temperatures": temps, "shortlist": SHORTLIST, "decider_max_length": args.max_len, "query_max_length": 64,
+        "doc_max_length": 128, "tags": TAGS, "pooling": "cls", "normalize": True,
+        "design": "one encoder, three heads; catalog follows collection",
+        "doc_text": "catalog with spaces | title (id): description",
+    }, open(d / "stac-zap.json", "w"), indent=1)
     return d
 
 
@@ -672,46 +689,51 @@ def export_retriever(model):
 
 report = {"run": args.run, "base": BASE, "retriever": RETRIEVER, "args": vars(args), "data": {k: len(v) for k, v in splits.items()}}
 
-retriever = train_retriever()
-doc_vecs = embed(retriever, tok, doc_texts)
-req_vecs_all = embed(retriever, tok, [r["request"] for r in all_records], max_length=64)
+model = Shared().to(dev)
+train_retriever(model)
+# The decider learns on the shortlists of the stage 1 retriever; the metrics below use the final encoder.
+log("embedding collections with the stage 1 retriever")
+doc_vecs = embed(model, tok, doc_texts)
+req_vecs_all = embed(model, tok, [r["request"] for r in all_records], max_length=64)
+req_vec = {id(r): req_vecs_all[n] for n, r in enumerate(all_records)}
+
+log("stage 2: decider, tagger and retriever together")
+train_joint(model)
+log("embedding collections with the final encoder")
+
+doc_vecs = embed(model, tok, doc_texts)
+req_vecs_all = embed(model, tok, [r["request"] for r in all_records], max_length=64)
 req_vec = {id(r): req_vecs_all[n] for n, r in enumerate(all_records)}
 report["retriever"] = {}
 for sname in ["dev", "test-catalog", "test-claude"]:
     for pname, pool in [("all", POOL_ALL), ("curated", POOL_CUR)]:
         recs = splits[sname] if pname == "all" else [r for r in splits[sname] if pairs_of(r) and all(p.split("/")[0] in curated_set for p in pairs_of(r))]
         report["retriever"][f"{sname}/{pname}"] = {
-            "granite-30m-trained": recall(doc_vecs, req_vec, recs, pool),
+            "shared-30m": recall(doc_vecs, req_vec, recs, pool),
             "r2-untrained": recall(r2_docs, r2_req, recs, pool),
         }
 log("retriever", json.dumps(report["retriever"], indent=1))
 
-decider = train_decider()
-dev_answers = answer(decider, [q for r in splits["dev"] for q in questions_of(r, False)])
+dev_answers = answer(model, [q for r in splits["dev"] for q in questions_of(r, False)])
 temps = fit_temperatures(dev_answers)
 report["temperatures"] = temps
 report["decider"] = {"dev": decider_metrics(dev_answers, temps)}
-for s in ["test-catalog", "test-claude"]:
-    report["decider"][s] = decider_metrics(answer(decider, [q for r in splits[s] for q in questions_of(r, False)]), temps)
+for s_ in ["test-catalog", "test-claude"]:
+    report["decider"][s_] = decider_metrics(answer(model, [q for r in splits[s_] for q in questions_of(r, False)]), temps)
 log("decider", json.dumps(report["decider"], indent=1))
 
-tagger = train_tagger()
-report["tagger"] = {s: tagger_metrics(tagger, splits[s]) for s in ["dev", "test-catalog", "test-claude"]}
+report["tagger"] = {s_: tagger_metrics(TagView(model), splits[s_]) for s_ in ["dev", "test-catalog", "test-claude"]}
 log("tagger", json.dumps(report["tagger"], indent=1))
 
-ddir = export(decider, "decider", {0: "batch"})
-json.dump({"temperatures": temps, "shortlist": SHORTLIST, "max_length": args.max_len, "design": "catalog follows collection", "option_text": "catalog with spaces | title (id): description"}, open(ddir / "decider.json", "w"), indent=1)
-tdir = export(tagger, "tagger", {0: "batch", 1: "seq"})
-rdir = export_retriever(retriever)
+sdir = export_shared(model, temps)
 report["minutes"] = round((time.time() - t0) / 60, 1)
 json.dump(report, open(OUT / f"report-{args.run}.json", "w"), indent=1)
 log("report", OUT / f"report-{args.run}.json")
 
 if not args.no_upload:
     api = HfApi()
-    for name in ["retriever", "decider", "tagger"]:
-        api.upload_folder(repo_id=MODEL_REPO, folder_path=str(OUT / name), path_in_repo=f"{name}/{args.run}",
-                          commit_message=f"{name} {args.run}")
+    api.upload_folder(repo_id=MODEL_REPO, folder_path=str(OUT / "shared"), path_in_repo=f"shared/{args.run}",
+                      commit_message=f"shared model {args.run}")
     api.upload_file(path_or_fileobj=str(OUT / f"report-{args.run}.json"), path_in_repo=f"reports/report-{args.run}.json",
                     repo_id=MODEL_REPO, commit_message=f"report {args.run}")
     log("uploaded to", MODEL_REPO)

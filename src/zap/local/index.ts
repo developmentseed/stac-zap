@@ -9,8 +9,8 @@
  * - Place, time and cloud cover: the tagger marks the words; the rules of
  *   `rules.ts` make the values.
  *
- * The models and the vectors of the known collections load from
- * `VITE_LOCAL_MODEL_URL` (default `models/stac-zap-v5/` of the site; see
+ * The model (one encoder with three heads) and the vectors of the known collections load from
+ * `VITE_LOCAL_MODEL_URL` (default `models/stac-zap-v6/` of the site; see
  * `scripts/fetch-local-models.ts`). Collections that are not in the vectors
  * file are embedded in the page, once.
  */
@@ -23,7 +23,7 @@ import { docText, NONE_PLACE, placeText, query } from "./text";
 import type { Request, Response } from "./worker";
 
 export const BASE: string =
-  import.meta.env.VITE_LOCAL_MODEL_URL || `${import.meta.env.BASE_URL}models/stac-zap-v5/`;
+  import.meta.env.VITE_LOCAL_MODEL_URL || `${import.meta.env.BASE_URL}models/stac-zap-v6/`;
 /** The decider scores this many collections. */
 const SHORTLIST = 16;
 const QUERY_MAX = 64;

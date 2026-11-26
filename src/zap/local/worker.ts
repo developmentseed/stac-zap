@@ -1,17 +1,18 @@
 /**
- * Runs the local models in a Web Worker, so the page stays responsive:
- * - retriever: embeds texts (CLS vector, normalized),
- * - decider: scores (query, option) pairs; a softmax with the calibrated
- *   temperature of the question gives the probabilities,
- * - tagger: marks the place, time and cloud cover words of a request.
+ * Runs the local model in a Web Worker, so the page stays responsive. One
+ * encoder with three outputs (`training/train_hf_jobs.py`):
+ * - `last_hidden_state`: the retriever embeds a text as its CLS vector,
+ *   normalized,
+ * - `decider_logits`: one score per (query, option) pair; a softmax with the
+ *   calibrated temperature of the question gives the probabilities,
+ * - `tag_logits`: the place, time and cloud cover tags of each token.
  *
- * The model files come from `base` (see `index.ts`), in the layout that
- * transformers.js reads; int8 weights ("q8"), computed in fp32.
+ * The files come from `base` (see `index.ts`): `model/` in the layout that
+ * transformers.js reads (int8 weights, "q8", computed in fp32) and
+ * `stac-zap.json` with the settings.
  */
 import {
   AutoModel,
-  AutoModelForSequenceClassification,
-  AutoModelForTokenClassification,
   AutoTokenizer,
   env,
   type PreTrainedModel,
@@ -28,41 +29,32 @@ export type Request =
 export type Response = { id: number; result?: unknown; error?: string; progress?: string };
 
 type Models = {
-  rtok: PreTrainedTokenizer;
-  retriever: PreTrainedModel;
-  dtok: PreTrainedTokenizer;
-  decider: PreTrainedModel;
-  ttok: PreTrainedTokenizer;
-  tagger: PreTrainedModel;
+  tok: PreTrainedTokenizer;
+  model: PreTrainedModel;
   temperatures: Record<string, number>;
   maxLength: number;
+  tags: string[];
 };
 
 let models: Promise<Models> | null = null;
-const TAGS = ["O", "B-PLACE", "I-PLACE", "B-TIME", "I-TIME", "B-CLOUD", "I-CLOUD"];
 
 async function load(base: string): Promise<Models> {
   env.allowRemoteModels = false;
   env.allowLocalModels = true;
   env.localModelPath = base.endsWith("/") ? base : `${base}/`;
-  const opts = { dtype: "q8" as const, device: "wasm" as const };
-  const [rtok, retriever, dtok, decider, ttok, tagger, cfg] = await Promise.all([
-    AutoTokenizer.from_pretrained("retriever"),
-    AutoModel.from_pretrained("retriever", opts),
-    AutoTokenizer.from_pretrained("decider"),
-    AutoModelForSequenceClassification.from_pretrained("decider", opts),
-    AutoTokenizer.from_pretrained("tagger"),
-    AutoModelForTokenClassification.from_pretrained("tagger", opts),
-    fetch(`${env.localModelPath}decider/decider.json`).then((r) => r.json()),
+  const [tok, model, cfg] = await Promise.all([
+    AutoTokenizer.from_pretrained("model"),
+    AutoModel.from_pretrained("model", { dtype: "q8", device: "wasm" }),
+    fetch(`${env.localModelPath}stac-zap.json`).then((r) => r.json()),
   ]);
-  return { rtok, retriever, dtok, decider, ttok, tagger, temperatures: cfg.temperatures, maxLength: cfg.max_length };
+  return { tok, model, temperatures: cfg.temperatures, maxLength: cfg.decider_max_length, tags: cfg.tags };
 }
 
 async function embed(m: Models, texts: string[], maxLength: number): Promise<number[][]> {
   const out: number[][] = [];
   for (let i = 0; i < texts.length; i += 32) {
     const batch = texts.slice(i, i + 32);
-    const h = (await m.retriever(m.rtok(batch, { padding: true, truncation: true, max_length: maxLength })))
+    const h = (await m.model(m.tok(batch, { padding: true, truncation: true, max_length: maxLength })))
       .last_hidden_state as Tensor;
     const [n, len, d] = h.dims as [number, number, number];
     const data = h.data as Float32Array;
@@ -76,13 +68,13 @@ async function embed(m: Models, texts: string[], maxLength: number): Promise<num
 }
 
 async function score(m: Models, kind: string, q: string, options: string[]): Promise<number[]> {
-  const x = m.dtok(Array(options.length).fill(q), {
+  const x = m.tok(Array(options.length).fill(q), {
     text_pair: options,
     padding: true,
     truncation: true,
     max_length: m.maxLength,
   });
-  const logits = Array.from(((await m.decider(x)).logits as Tensor).data as Float32Array);
+  const logits = Array.from(((await m.model(x)).decider_logits as Tensor).data as Float32Array);
   const t = m.temperatures[kind] ?? 1;
   const max = Math.max(...logits);
   const e = logits.map((v) => Math.exp((v - max) / t));
@@ -96,8 +88,8 @@ async function score(m: Models, kind: string, q: string, options: string[]): Pro
  * offsets come from finding each token's text in the request.
  */
 async function tag(m: Models, text: string): Promise<Record<string, { words: string; p: number }>> {
-  const enc = m.ttok(text, { truncation: true, max_length: 64 });
-  const logits = (await m.tagger(enc)).logits as Tensor;
+  const enc = m.tok(text, { truncation: true, max_length: 64 });
+  const logits = (await m.model(enc)).tag_logits as Tensor;
   const [, n, k] = logits.dims as [number, number, number];
   const data = logits.data as Float32Array;
   const ids = Array.from(enc.input_ids.data as BigInt64Array, Number);
@@ -105,7 +97,7 @@ async function tag(m: Models, text: string): Promise<Record<string, { words: str
   let pos = 0;
   let prev: string | null = null;
   for (let i = 0; i < n; i++) {
-    const word = m.ttok.decode([ids[i]!], { skip_special_tokens: true }).trimStart();
+    const word = m.tok.decode([ids[i]!], { skip_special_tokens: true }).trimStart();
     if (!word) continue;
     const start = text.indexOf(word, pos);
     if (start < 0) continue;
@@ -116,7 +108,7 @@ async function tag(m: Models, text: string): Promise<Record<string, { words: str
     const e = row.map((v) => Math.exp(v - max));
     const sum = e.reduce((a, b) => a + b, 0);
     const best = row.indexOf(max);
-    const kind = best === 0 ? null : TAGS[best]!.slice(2);
+    const kind = best === 0 ? null : m.tags[best]!.slice(2);
     if (kind && kind === prev && spans[kind]?.open) {
       spans[kind]!.e = end;
       spans[kind]!.ps.push(e[best]! / sum);

@@ -1,6 +1,6 @@
 /**
  * Embeds the collections of the curated catalogs (and of the STAC Index
- * catalogs, with --all) with the local retriever and writes
+ * catalogs, with --all) with the local model (its retriever output) and writes
  * `<model dir>/vectors.json`. The page loads it, so it only embeds the
  * request of each zap. Collections that are not in the file are embedded in
  * the page when a zap first needs them.
@@ -20,8 +20,8 @@ const dir = resolve(process.argv[2] ?? "public/models/stac-zap-v3");
 const all = process.argv.includes("--all");
 env.localModelPath = `${dir}/`;
 env.allowRemoteModels = false;
-const tok = await AutoTokenizer.from_pretrained("retriever");
-const model = await AutoModel.from_pretrained("retriever", { dtype: "q8" });
+const tok = await AutoTokenizer.from_pretrained("model");
+const model = await AutoModel.from_pretrained("model", { dtype: "q8" });
 
 const catalogs = await listCatalogs(all);
 const docs: { key: string; text: string }[] = [];

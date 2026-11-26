@@ -147,36 +147,41 @@ collection. stac-map runs the search.
 ## Local open model
 
 The model list below the search bar has a second choice: **Local open model
-(in the browser)**. Then no request goes to OpenRouter. Three small open
-models (IBM Granite Embedding 30M, fine-tuned, Apache-2.0) run in the page,
-in a Web Worker:
+(in the browser)**. Then no request goes to OpenRouter. One small open model
+(IBM Granite Embedding 30M, fine-tuned, Apache-2.0) runs in the page, in a
+Web Worker. It is one encoder with three outputs:
 
-1. The retriever finds the 16 collections, of all known catalogs, that fit
+1. Retriever: it finds the 16 collections, of all known catalogs, that fit
    the request best. The vectors of the known collections are made before
    (`vectors.json`); a collection that is not in the file is embedded in the
    page once.
-2. The decider picks one of the 16, or `keep`. The catalog follows from the
-   collection: there is no catalog question.
-3. The tagger marks the words of the place, the time and the cloud cover.
+2. Decider: it picks one of the 16, or `keep`. The catalog follows from the
+   collection: there is no catalog question. It also picks the place among
+   the results of Photon.
+3. Tagger: it marks the words of the place, the time and the cloud cover.
    Code makes the values (`src/zap/local/rules.ts`, with
    [chrono-node](https://github.com/wanasit/chrono)).
-4. Photon finds the places with the place words, and the decider picks one.
 
-The models are in
-[developmentseed/stac-zap-models](https://huggingface.co/developmentseed/stac-zap-models)
-and the training data in
+The model is public:
+[developmentseed/stac-zap-models](https://huggingface.co/developmentseed/stac-zap-models).
+The training data is in
 [developmentseed/stac-zap-data](https://huggingface.co/datasets/developmentseed/stac-zap-data)
-(both private for now). The training code is in `training/`, the tests in
-`eval/local/`. Download size: about 95 MB (int8 weights), loaded once per
-browser.
+(private until its licence review). The training code is in `training/`,
+the tests in `eval/local/`, the results in
+[docs/local-model.md](docs/local-model.md). Download: about 32 MB, once
+per browser.
 
-To run it, download a model run into `public/models/` (not in git), then
-start the dev server:
+To run it with the model in the site (`public/models/`, not in git):
 
 ```shell
-hf auth login                      # the model repo is private for now
-scripts/fetch-local-models.sh v5   # models and the collection vectors
-pnpm dev                          # the default model folder is public/models/stac-zap-v5/
+scripts/fetch-local-models.sh v6   # the model and the collection vectors
+pnpm dev
+```
+
+Or load it from the Hub, with no download step:
+
+```shell
+VITE_LOCAL_MODEL_URL=https://huggingface.co/developmentseed/stac-zap-models/resolve/main/shared/v6/ pnpm dev
 ```
 
 The local model knows the catalogs in its vectors file. With "All STAC
