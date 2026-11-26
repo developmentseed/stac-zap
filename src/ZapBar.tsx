@@ -298,7 +298,13 @@ export default function ZapBar() {
               : `Asks ${catalogCount} ${allCatalogs ? "" : "curated "}catalogs`}
             {backend === "local" && localState === "loading" ? " · loading the local model…" : ""}
           </Text>
-          <NativeSelect.Root size="xs" width="auto">
+          <NativeSelect.Root
+            size="xs"
+            width="auto"
+            // The row keeps the focus in the prompt on mousedown, which also kept a tap from opening the select on a
+            // phone. The select takes the focus; the bar's focus handling keeps the row open while it has it.
+            onMouseDown={(event) => event.stopPropagation()}
+          >
             <NativeSelect.Field
               aria-label="Model"
               value={backend}
