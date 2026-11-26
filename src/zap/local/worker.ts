@@ -39,13 +39,25 @@ type Models = {
 let models: Promise<Models> | null = null;
 
 async function load(base: string): Promise<Models> {
-  env.allowRemoteModels = false;
-  env.allowLocalModels = true;
-  env.localModelPath = base.endsWith("/") ? base : `${base}/`;
+  base = base.endsWith("/") ? base : `${base}/`;
+  if (/^https?:\/\//.test(base)) {
+    // A model on another host, e.g. the Hugging Face Hub: transformers.js reads remote files from
+    // remoteHost + remotePathTemplate, with {model} replaced by the name ("model" below). It also keeps them in the
+    // browser cache.
+    const url = new URL(base);
+    env.allowLocalModels = false;
+    env.allowRemoteModels = true;
+    env.remoteHost = `${url.origin}/`;
+    env.remotePathTemplate = `${url.pathname.replace(/^\//, "")}{model}/`;
+  } else {
+    env.allowRemoteModels = false;
+    env.allowLocalModels = true;
+    env.localModelPath = base;
+  }
   const [tok, model, cfg] = await Promise.all([
     AutoTokenizer.from_pretrained("model"),
     AutoModel.from_pretrained("model", { dtype: "q8", device: "wasm" }),
-    fetch(`${env.localModelPath}stac-zap.json`).then((r) => r.json()),
+    fetch(new URL("stac-zap.json", new URL(base, self.location.href))).then((r) => r.json()),
   ]);
   return { tok, model, temperatures: cfg.temperatures, maxLength: cfg.decider_max_length, tags: cfg.tags };
 }
