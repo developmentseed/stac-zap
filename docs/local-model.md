@@ -12,7 +12,7 @@ below the search bar selects "Jev + Clairic (OpenRouter)" or "Local open model (
 ## Design
 
 **One model**: IBM Granite Embedding 30M (Apache-2.0), fine-tuned, with three outputs (v6 and later). The page
-downloads it once: `model_q4.onnx.gz`, 19.3 MB on the wire (int4 embedding table, int8 weights, gzip, unzipped in the
+downloads it once: `model_quantized.onnx.gz`, 27.8 MB on the wire (weight-only int8, gzip, unzipped in the
 browser), the tokenizer (0.7 MB), the settings and `vectors.json` (0.3 MB, the vectors of the 1,021 curated
 collections), plus ONNX Runtime Web (5.6 MB, jsDelivr) and transformers.js. It loads from the site or straight from
 the public model repo on the Hugging Face Hub.
@@ -63,8 +63,12 @@ Measured in Chromium, bytes on the wire for the model file (`scripts/measure-dow
 
 | File | On the wire | Field test: catalog / both | test-claude: both |
 |---|---|---|---|
-| `model_quantized.onnx`: weight-only int8, per channel | 31.4 MB | 26/30 · 24/28 | 169/240 |
-| **`model_q4.onnx.gz`: int4 embedding table (blocks of 32, fp16 scales), int8 weights, gzip** | **19.3 MB** | 25/30 · 23/28 | 163/240 |
+| **`model_quantized.onnx.gz`: weight-only int8, per channel, gzip (the page loads this)** | **27.8 MB** | 26/30 · 24/28 | 169/240 |
+| `model_q4.onnx.gz`: int4 embedding table (blocks of 32, fp16 scales), int8 weights, gzip | 19.3 MB | 25/30 · 23/28 | 163/240 |
+
+The int4 file lost one field-test answer and 6 of 240 on test-claude-v1. That is not worth 8.5 MB, so the page loads
+the int8 file. `model_q4.onnx` stays on the Hub. (Both files miss the place in "land cover of Kenya" and read only
+"Idalia" in "Maxar imagery after Hurricane Idalia": that is the tagger of v7, not int4.)
 
 62% of the int8 file is the embedding table (50,265 word pieces × 384); it takes int4 well. int4 in the layer weights
 broke the model: the decider's top answer agreed with fp32 on 13 to 29% of questions
@@ -94,9 +98,9 @@ compress (31.4 MB → 27.4 MB with brotli, 27.8 MB with gzip).
   Connecticut. Photon gives no population, so the model has no sense of how important a place is.
 - **Topic requests**: "crop types in Lower Saxony" opens a Swiss soil layer; "drone imagery", "wildfires" are weak.
 - **Tagger**: "only cloud-free" with no other words is not read; "Mount Everest" became "Mount" (the geocoder still
-  found it).
+  found it); "land cover of Kenya" gives no place; "Hurricane Idalia" gives the place "Idalia".
 - **English only**: the 30M model does not read the German and French titles of the Swiss catalog well.
-- **Download**: about 27 MB on the first visit (19.3 MB of it the model), then from the browser cache.
+- **Download**: about 35 MB on the first visit (27.8 MB of it the model), then from the browser cache.
 
 ## Next
 

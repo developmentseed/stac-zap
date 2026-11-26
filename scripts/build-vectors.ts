@@ -21,7 +21,7 @@ const all = process.argv.includes("--all");
 env.localModelPath = `${dir}/`;
 env.allowRemoteModels = false;
 const tok = await AutoTokenizer.from_pretrained("model");
-const model = await AutoModel.from_pretrained("model", { dtype: "q4" });
+const model = await AutoModel.from_pretrained("model", { dtype: "q8" });
 
 const catalogs = await listCatalogs(all);
 const docs: { key: string; text: string }[] = [];
