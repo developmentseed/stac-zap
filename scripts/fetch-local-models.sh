@@ -2,10 +2,10 @@
 # Downloads a run of the local models into public/models/stac-zap-<run>/, then builds the vectors of the known
 # collections (scripts/build-vectors.ts). public/models/ is not in git.
 #
-# Usage: scripts/fetch-local-models.sh [run, default v3]
+# Usage: scripts/fetch-local-models.sh [run, default v5]
 # The model repo is private for now: log in first with `hf auth login`.
 set -euo pipefail
-RUN=${1:-v3}
+RUN=${1:-v5}
 REPO=developmentseed/stac-zap-models
 OUT=public/models/stac-zap-$RUN
 TMP=$(mktemp -d)

@@ -341,7 +341,7 @@ def questions_of(r, train):
 
 
 def encode_pairs(q, texts):
-    return tok([q] * len(texts), texts, padding=True, truncation="only_second", max_length=args.max_len, return_tensors="pt")
+    return tok([q] * len(texts), texts, padding=True, truncation="longest_first", max_length=args.max_len, return_tensors="pt")
 
 
 def group_logits(model, groups):
@@ -351,7 +351,7 @@ def group_logits(model, groups):
         qs += [q] * len(opts)
         ts += [t for _, t in opts]
         sizes.append(len(opts))
-    x = tok(qs, ts, padding=True, truncation="only_second", max_length=args.max_len, return_tensors="pt").to(dev)
+    x = tok(qs, ts, padding=True, truncation="longest_first", max_length=args.max_len, return_tensors="pt").to(dev)
     with torch.autocast(dev.type, dtype=torch.bfloat16, enabled=dev.type == "cuda"):
         logits = model(**x).logits.squeeze(-1).float()
     return list(torch.split(logits, sizes))

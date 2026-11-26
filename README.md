@@ -176,7 +176,7 @@ start the dev server:
 ```shell
 hf auth login                      # the model repo is private for now
 scripts/fetch-local-models.sh v5   # models and the collection vectors
-VITE_LOCAL_MODEL_URL=/models/stac-zap-v5/ pnpm dev
+pnpm dev                          # the default model folder is public/models/stac-zap-v5/
 ```
 
 The local model knows the catalogs in its vectors file. With "All STAC

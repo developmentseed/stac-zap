@@ -10,7 +10,7 @@
  *   `rules.ts` make the values.
  *
  * The models and the vectors of the known collections load from
- * `VITE_LOCAL_MODEL_URL` (default `models/stac-zap-v3/` of the site; see
+ * `VITE_LOCAL_MODEL_URL` (default `models/stac-zap-v5/` of the site; see
  * `scripts/fetch-local-models.ts`). Collections that are not in the vectors
  * file are embedded in the page, once.
  */
@@ -23,7 +23,7 @@ import { docText, NONE_PLACE, placeText, query } from "./text";
 import type { Request, Response } from "./worker";
 
 export const BASE: string =
-  import.meta.env.VITE_LOCAL_MODEL_URL || `${import.meta.env.BASE_URL}models/stac-zap-v3/`;
+  import.meta.env.VITE_LOCAL_MODEL_URL || `${import.meta.env.BASE_URL}models/stac-zap-v5/`;
 /** The decider scores this many collections. */
 const SHORTLIST = 16;
 const QUERY_MAX = 64;
