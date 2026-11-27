@@ -2,16 +2,18 @@ import type { BBox2D } from "./options";
 
 /**
  * Finds places by name with Photon (https://photon.komoot.io), a geocoder for
- * OpenStreetMap data by komoot.
+ * OpenStreetMap data by komoot. When Photon fails, e.g. when its server is
+ * down, Nominatim (https://nominatim.openstreetmap.org) answers.
  *
  * The public Photon server has no fixed request limit, but asks for fair use.
- * Nominatim, the other public OpenStreetMap geocoder, allows one request per
- * second for all users together, which a public demo can easily pass. Photon
- * can also run on its own server; then change `SEARCH_URL`.
+ * The public Nominatim server allows one request per second for all users
+ * together, which a public demo can easily pass. Thus, Nominatim is only the
+ * fallback. Photon can also run on its own server; then change `SEARCH_URL`.
  */
 
 const SEARCH_URL = "https://photon.komoot.io/api/";
-/** The app uses the first match only: Photon sorts them by importance. */
+const FALLBACK_URL = "https://nominatim.openstreetmap.org/search";
+/** The app uses the first match only: both geocoders sort them by importance. */
 const LIMIT = 1;
 /** Wait this long between two requests from this page, in milliseconds. */
 const INTERVAL = 300;
@@ -48,7 +50,7 @@ let queue: Promise<unknown> = Promise.resolve();
 /**
  * Finds the places that match a name, best match first.
  * @param query A place name, e.g. "Lisbon".
- * @throws If Photon cannot answer.
+ * @throws If Photon and Nominatim cannot answer.
  */
 export function geocode(query: string): Promise<Place[]> {
   const key = query.toLowerCase();
@@ -66,6 +68,15 @@ export function geocode(query: string): Promise<Place[]> {
 }
 
 async function search(query: string): Promise<Place[]> {
+  try {
+    return await searchPhoton(query);
+  } catch (error) {
+    console.warn(`Photon failed (${error}), so Nominatim answers`);
+    return searchNominatim(query);
+  }
+}
+
+async function searchPhoton(query: string): Promise<Place[]> {
   const url = new URL(SEARCH_URL);
   url.searchParams.set("q", query);
   url.searchParams.set("limit", String(LIMIT));
@@ -76,24 +87,72 @@ async function search(query: string): Promise<Place[]> {
   const { features } = (await response.json()) as { features?: Feature[] };
   return (features ?? []).map((feature, index) => {
     const p = feature.properties;
-    const bbox = toBbox(feature);
-    // The names from the place up to its country, without repeats, e.g.
-    // "Zurich, Zurich, Switzerland" becomes "Zurich, Switzerland". A large
-    // place gets its own name only: OpenStreetMap gives the Alps the country
-    // "Italy", and then jev reads it as the Italian Alps.
-    const large = maxSizeKm(bbox) > LARGE_KM;
-    const names = (large ? [p.name] : [p.name, p.city, p.county, p.state, p.country]).filter(
-      (name, i, all): name is string => !!name && all.indexOf(name) === i,
+    return toPlace(
+      p.osm_type && p.osm_id ? `${p.osm_type}/${p.osm_id}` : `photon/${index}`,
+      [p.name, p.city, p.county, p.state, p.country],
+      p.osm_value ?? p.type ?? "place",
+      toBbox(feature),
+      query,
     );
-    // The size tells jev the extent, e.g. that "Alps" is the whole mountain
-    // range and not one peak.
-    const kind = p.osm_value ?? p.type ?? "place";
-    return {
-      id: p.osm_type && p.osm_id ? `${p.osm_type}/${p.osm_id}` : `photon/${index}`,
-      label: `${names.join(", ") || query} (${kind}, ${sizeOf(bbox)})`,
-      bbox,
-    };
   });
+}
+
+/** A Nominatim result, in the `jsonv2` format with address details. */
+type NominatimResult = {
+  osm_type: string;
+  osm_id: number;
+  name?: string;
+  type?: string;
+  addresstype?: string;
+  address?: { city?: string; town?: string; village?: string; county?: string; state?: string; country?: string };
+  /** [south, north, west, east], as strings. */
+  boundingbox: [string, string, string, string];
+};
+
+async function searchNominatim(query: string): Promise<Place[]> {
+  const url = new URL(FALLBACK_URL);
+  url.searchParams.set("q", query);
+  url.searchParams.set("format", "jsonv2");
+  url.searchParams.set("addressdetails", "1");
+  url.searchParams.set("limit", String(LIMIT));
+  url.searchParams.set("accept-language", "en");
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Nominatim: ${response.status}`);
+  const results = (await response.json()) as NominatimResult[];
+  return results.map((r) => {
+    const a = r.address ?? {};
+    const [s, n, w, e] = r.boundingbox.map(Number) as [number, number, number, number];
+    return toPlace(
+      `${r.osm_type[0]!.toUpperCase()}/${r.osm_id}`,
+      [r.name, a.city ?? a.town ?? a.village, a.county, a.state, a.country],
+      r.addresstype ?? r.type ?? "place",
+      padBbox(w, s, e, n),
+      query,
+    );
+  });
+}
+
+/**
+ * A place with its label, e.g. "Lisbon, Portugal (city, about 17 × 22 km)".
+ * @param names The names from the place up to its country.
+ */
+function toPlace(
+  id: string,
+  names: (string | undefined)[],
+  kind: string,
+  bbox: BBox2D,
+  query: string,
+): Place {
+  // Without repeats, e.g. "Zurich, Zurich, Switzerland" becomes "Zurich,
+  // Switzerland". A large place gets its own name only: OpenStreetMap gives
+  // the Alps the country "Italy", and then jev reads it as the Italian Alps.
+  const large = maxSizeKm(bbox) > LARGE_KM;
+  const unique = (large ? names.slice(0, 1) : names).filter(
+    (name, i, all): name is string => !!name && all.indexOf(name) === i,
+  );
+  // The size tells the extent, e.g. that "Alps" is the whole mountain range
+  // and not one peak.
+  return { id, label: `${unique.join(", ") || query} (${kind}, ${sizeOf(bbox)})`, bbox };
 }
 
 /** A place wider or taller than this, in km, is labeled with its name only. */
@@ -122,6 +181,11 @@ function sizeOf(bbox: BBox2D): string {
 function toBbox({ geometry, properties }: Feature): BBox2D {
   const [lon, lat] = geometry.coordinates;
   const [w, n, e, s] = properties.extent ?? [lon, lat, lon, lat];
+  return padBbox(w, s, e, n);
+}
+
+/** A box at least `MIN_SIZE` wide and tall. */
+function padBbox(w: number, s: number, e: number, n: number): BBox2D {
   const pad = (lo: number, hi: number): [number, number] => {
     const half = Math.max(0, MIN_SIZE - (hi - lo)) / 2;
     return [lo - half, hi + half];

@@ -116,13 +116,6 @@ const CURATED: Catalog[] = [
       "Earth Genome: global cloud-free Sentinel-2 yearly mosaics",
   },
   {
-    id: "thunen-earth-observation-theo",
-    href: "https://eodata.thuenen.de/stac/api/v1",
-    description:
-      "Thünen Earth Observation: crop type maps, winter cover and " +
-      "fractional cover of Germany",
-  },
-  {
     id: "kentucky-from-above-spatiotemporal-asset-catalog",
     href: "https://spved5ihrl.execute-api.us-west-2.amazonaws.com",
     description:
