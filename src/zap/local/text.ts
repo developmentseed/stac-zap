@@ -21,15 +21,3 @@ export function docText(catalogId: string, c: CollectionLike): string {
 export function query(question: string, request: string, current: string | null = null): string {
   return `${question} | request: ${request} | current: ${current ?? "not set"}`;
 }
-
-/** The decider option for "none of these places". */
-export const NONE_PLACE = "None of these places";
-
-/**
- * A geocoder result as the decider reads it, close to the training text
- * ("Lisbon, Lisbon, Portugal (city, 545,000 people)"): the label without the
- * size of the box, e.g. "Lisbon, Portugal (city)".
- */
-export function placeText(label: string): string {
-  return label.replace(/\(([^,()]+),[^()]*\)\s*$/, "($1)");
-}

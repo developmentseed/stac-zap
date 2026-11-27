@@ -29,15 +29,15 @@ import {
 } from "./catalogs";
 import { geocode, placeSpans, type Place } from "./geocode";
 import { extract, isMapView, toInputRange, type DayRange, type Extraction } from "./extract";
-import { extractLocal, KEEP_KEY, pickCollection, pickPlace } from "./local";
+import { extractLocal, KEEP_KEY, pickCollection } from "./local";
 
 /**
- * Runs one prompt with an extraction call and two or three jev calls. The
+ * Runs one prompt with an extraction call and two jev calls. The
  * extraction (Clairic, see `extract.ts`) reads the place, the time and the
  * cloud cover as values, at the same time as the first jev call, which picks
  * the catalog. The collection options come from the catalog, so the second
- * jev call picks the collection. For the place, Nominatim finds the places
- * with the name, and a third jev call picks the one the prompt means. When
+ * jev call picks the collection. For the place, the app takes the first
+ * match of the geocoder (see {@link findPlace}). When
  * the extraction fails, the second jev call also asks for the place, the
  * time and the cloud cover, as options. The changes go through the stac-map
  * store, so a zap does what the same clicks in the panel would do.
@@ -136,7 +136,7 @@ export async function zap(
       next.place = { label: "The map view", bbox: store.mapBbox };
     }
   } else if (changes.place) {
-    const place = await findPlace(prompt, changes.place, onStep, onNote, backend);
+    const place = await findPlace(changes.place, onNote);
     // With a new collection, the last place is only a guess; a named place
     // that was not found replaces it with no place.
     if (place || newCollection) next.place = place ?? undefined;
@@ -430,18 +430,12 @@ function hrefOf(collection: Collection, catalogHref: string): string {
 }
 
 /**
- * Finds the place that a name in the prompt means. With more than one match,
- * jev picks the one that fits the prompt, e.g. the Alps in Europe and not a
- * peak called "The Alps" in Vermont.
- * @returns The place, or null if Nominatim has no match or fails.
+ * Finds the place that a name in the prompt means: the first match of the
+ * geocoder. Photon sorts its matches by importance, so "Cotopaxi" is the
+ * province in Ecuador and not the hamlet in Colorado.
+ * @returns The place, or null if the geocoder has no match or fails.
  */
-async function findPlace(
-  prompt: string,
-  name: string,
-  onStep: ZapListener["onStep"],
-  onNote: ZapListener["onNote"],
-  backend: Backend = "jev",
-): Promise<Place | null> {
+async function findPlace(name: string, onNote: ZapListener["onNote"]): Promise<Place | null> {
   let places: Place[];
   try {
     places = await geocode(name);
@@ -449,41 +443,10 @@ async function findPlace(
     onNote(`Could not look up "${name}": ${error}`);
     return null;
   }
-  if (places.length === 0) {
-    onNote(`No place found for "${name}"`);
-    return null;
-  }
-  // Nominatim can match only other things with the same name, e.g. shops
-  // called "Amazon", so jev can also reject all of them.
-  const fields: ZapFields = {
-    match: {
-      label: "place the request means",
-      current: null,
-      options: {
-        ...Object.fromEntries(places.map((p) => [p.id, p.label])),
-        [NO_MATCH]: `None of these: the request means a different "${name}"`,
-      },
-      keepable: false,
-      question: `The request names "${name}". Which of these places does it mean?`,
-    },
-  };
-  let result: ZapResult;
-  if (backend === "local") {
-    const pick = await pickPlace(prompt, name, places);
-    const choice = pick.choice ?? NO_MATCH;
-    const probability = pick.probabilities[choice] ?? 0;
-    result = { changes: { match: choice }, answers: { match: { choice, probability, probabilities: pick.probabilities } } };
-  } else {
-    result = await decide(prompt, fields);
-  }
-  onStep({ fields, result });
-  const place = places.find((p) => p.id === validChoice(fields, result, "match"));
+  const place = places[0];
   if (!place) onNote(`No place found for "${name}"`);
   return place ?? null;
 }
-
-/** The `match` option for "none of the places Nominatim found". */
-const NO_MATCH = "none";
 
 /**
  * Opens a collection in stac-map and waits until it is loaded.

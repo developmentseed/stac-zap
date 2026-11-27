@@ -5,7 +5,6 @@
  * - Collection, and the catalog with it: the retriever shortlists the
  *   collections of all known catalogs for the request, and the decider picks
  *   one. The catalog follows from the collection.
- * - Place pick: the decider picks one of the places the geocoder finds.
  * - Place, time and cloud cover: the tagger marks the words; the rules of
  *   `rules.ts` make the values.
  *
@@ -17,9 +16,8 @@
 import type { Catalog, Collection } from "../catalogs";
 import type { DayRange, ExtractAnswer, Extraction } from "../extract";
 import { isMapView, rangeOfAnswers } from "../extract";
-import type { Place } from "../geocode";
 import { readCloud, readTime } from "./rules";
-import { docText, NONE_PLACE, placeText, query } from "./text";
+import { docText, query } from "./text";
 import type { Request, Response } from "./worker";
 
 export const BASE: string =
@@ -175,29 +173,6 @@ export async function pickCollection(
   );
   const choice = keys[best]!;
   return { probabilities, labels, choice };
-}
-
-// ---------------------------------------------------------------- place pick
-
-/** Picks the place the request means among the geocoder results, or null for none of them. */
-export async function pickPlace(
-  prompt: string,
-  words: string,
-  places: readonly Place[],
-): Promise<{ choice: string | null; probabilities: Record<string, number> }> {
-  await loadLocal();
-  // In the order of the geocoder, most important first, as in training.
-  const options = [...places.map((p, i) => `[rank ${i + 1}] ${placeText(p.label)}`), NONE_PLACE];
-  const p = await call<number[]>({
-    type: "score",
-    kind: "place",
-    query: query(`Which place is '${words}'?`, prompt),
-    options,
-  });
-  const ids = [...places.map((pl) => pl.id), "none"];
-  const probabilities = Object.fromEntries(ids.map((id, i) => [id, p[i]!]));
-  const best = ids[p.indexOf(Math.max(...p))]!;
-  return { choice: best === "none" ? null : best, probabilities };
 }
 
 // ---------------------------------------------------------------- place, time, cloud cover
