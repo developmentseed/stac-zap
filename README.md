@@ -93,7 +93,7 @@ Without this secret, the workflow stops before it deploys the site.
 
 ### Catalogs
 
-By default, jev selects from 14 curated STAC APIs. For each of these
+By default, the app selects from 12 curated STAC APIs. For each of these
 catalogs, stac-map can show the data of sampled collections in a browser.
 The list is in `src/zap/catalogs.ts`.
 
@@ -116,15 +116,16 @@ One request makes two or three calls to jev:
    cover. jev also selects the words of the request that name the place, for
    example "Lisbon". The options are all the groups of one to four words in
    the request.
-3. The app sends these words to [Nominatim](https://nominatim.org/), the
-   OpenStreetMap geocoder. Then jev selects the place that the request means
-   from the places that Nominatim finds. For example, for "elevation around
-   Mount Everest", jev selects the peak in Nepal and not a place with the
-   same name in Florida. If no place fits, jev selects "None of these", and
-   the app keeps the last place.
+3. The app sends these words to [Photon](https://photon.komoot.io), an
+   OpenStreetMap geocoder. The app uses the first match. Photon sorts the
+   matches by importance. For example, "Cotopaxi" is the province in Ecuador
+   and not the hamlet in Colorado. If Photon does not answer, the app sends
+   the words to [Nominatim](https://nominatim.org/), the other public
+   OpenStreetMap geocoder.
 
-Nominatim gives the bounding box of the place. The app uses it for the search
-and for the map view. A point, for example a peak, gets a box of 0.2 degrees.
+The geocoder gives the bounding box of the place. The app uses it for the
+search and for the map view. A point, for example a peak, gets a box of 0.2
+degrees.
 
 Each question has a `keep` option. A field changes only when jev selects an
 option that is not `keep` and the probability is 0.5 or more.
@@ -138,7 +139,7 @@ collection. stac-map runs the search.
 | `src/zap/extract.ts` | The Clairic fields for the place, the time and the cloud cover, the two Clairic calls, and the code that makes a time range from the time words. |
 | `src/zap/catalogs.ts` | The curated catalogs, STAC Index, and the collections of each catalog. |
 | `src/zap/options.ts` | The time and cloud cover options. |
-| `src/zap/geocode.ts` | The Nominatim search, and the groups of words that can name a place. |
+| `src/zap/geocode.ts` | The Photon search, the Nominatim search if Photon fails, and the groups of words that can name a place. |
 | `src/zap/run.ts` | The Clairic calls, the jev calls, and the changes to the stac-map store. If Clairic fails, jev also picks the place, the time and the cloud cover. |
 | `src/ZapBar.tsx` | The prompt and the probability panel. |
 | `vite.config.ts` | The `/api/decide` and `/api/extract` endpoints, which add the key. |
@@ -146,8 +147,11 @@ collection. stac-map runs the search.
 
 ## Local open model
 
-The model list below the search bar has a second choice: **Local open model
-(in the browser)**. Then no request goes to OpenRouter. One small open model
+On a computer, the app uses the **Local open model (in the browser)** by
+default. On a phone, the app uses jev by default, because the local model is
+a large download. The model list below the search bar changes the model, and
+the browser keeps the choice. With the local model, no request goes to
+OpenRouter. One small open model
 (IBM Granite Embedding 30M, fine-tuned, Apache-2.0) runs in the page, in a
 Web Worker. It is one encoder with three outputs:
 
@@ -156,8 +160,7 @@ Web Worker. It is one encoder with three outputs:
    (`vectors.json`); a collection that is not in the file is embedded in the
    page once.
 2. Decider: it picks one of the 16, or `keep`. The catalog follows from the
-   collection: there is no catalog question. It also picks the place among
-   the results of Photon.
+   collection: there is no catalog question.
 3. Tagger: it marks the words of the place, the time and the cloud cover.
    Code makes the values (`src/zap/local/rules.ts`, with
    [chrono-node](https://github.com/wanasit/chrono)).
@@ -198,8 +201,9 @@ The results are in [docs/decision-models.md](docs/decision-models.md).
 
 - The dev server is the only server that has `/api/decide` and
   `/api/extract`. A static deployment does not have them.
-- The public Nominatim server permits one request each second. The app waits
-  between requests. For a public demo with many users, use a different
+- The public Photon server asks for fair use. The public Nominatim server
+  permits one request each second for all users, thus the app uses it only
+  when Photon fails. For a public demo with many users, use a different
   geocoder server. Change `SEARCH_URL` in `src/zap/geocode.ts`.
 - The app does not send a Planetary Computer asset URL without a token.
   `src/planetary-computer.ts` adds a SAS token to each asset request, because

@@ -18,12 +18,14 @@ import { listCatalogs } from "./zap/catalogs";
 import { KEEP, THRESHOLD } from "./zap/decide";
 import { loadLocal } from "./zap/local";
 import { zap, type Backend, type ZapStep } from "./zap/run";
+import { MOBILE_QUERY } from "./mobile";
+import { ZAP_SUBMIT_EVENT } from "./events";
 
 const EXAMPLES = [
   "Sentinel-2 over Cotopaxi in December 2025 with less than 30% clouds",
   "Swiss orthophotos of Zurich",
   "elevation of Greenland",
-  "crop types around Hanover",
+  "aerial photos of Hannover",
   "Maxar imagery after Hurricane Idalia",
   "land cover around Delhi",
 ];
@@ -54,7 +56,7 @@ export default function ZapBar() {
     () => readStored(ALL_CATALOGS_KEY) === "true",
   );
   const [catalogCount, setCatalogCount] = useState<number | null>(null);
-  const [backend, setBackend] = useState<Backend>(() => (readStored(BACKEND_KEY) === "local" ? "local" : "jev"));
+  const [backend, setBackend] = useState<Backend>(readBackend);
   const [localState, setLocalState] = useState<"loading" | "ready" | "error" | null>(null);
   const rect = useHrefInputRect(mode);
   const [prompt, setPrompt] = useState("");
@@ -119,6 +121,8 @@ export default function ZapBar() {
     if (!text || busy) return;
     setBusy(true);
     clearAnswers();
+    // The welcome panel folds into its info button (see `Welcome.tsx`).
+    window.dispatchEvent(new Event(ZAP_SUBMIT_EVENT));
     try {
       const outcome = await zap(text, {
         allCatalogs,
@@ -370,6 +374,25 @@ function readMode(): Mode {
 }
 
 /** Settings are only remembered when browser storage works. */
+/**
+ * The backend the user chose last. Without a choice, the local models on a
+ * computer, and jev on a phone: the local models are a large download and
+ * slow on a phone.
+ */
+function readBackend(): Backend {
+  const stored = readStored(BACKEND_KEY);
+  if (stored === "local" || stored === "jev") return stored;
+  return isMobile() ? "jev" : "local";
+}
+
+/** A phone: a narrow screen (as in `src/mobile.ts`) or a mobile browser. */
+function isMobile(): boolean {
+  if (window.matchMedia(MOBILE_QUERY).matches) return true;
+  const data = (navigator as Navigator & { userAgentData?: { mobile?: boolean } }).userAgentData;
+  if (typeof data?.mobile === "boolean") return data.mobile;
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
 function readStored(key: string): string | null {
   try {
     return localStorage.getItem(key);
