@@ -132,13 +132,13 @@ function WelcomeText({ maxH }: { maxH?: string }) {
         bar.
       </Box>
       <Box>
-        By default, small open models run in your browser. On a phone, or with
-        the model menu below the search bar, the{" "}
+        By default, the{" "}
         <Link variant="underline" href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank">
           jev
         </Link>{" "}
-        model answers. jev has a small budget: with many users, requests can be
-        slow or stop.
+        model answers. It has a small budget: with many users, requests can be
+        slow or stop. The model menu below the search bar can also run small
+        open models in your browser.
       </Box>
       <Box>
         Code and issues on{" "}

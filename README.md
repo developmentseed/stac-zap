@@ -147,11 +147,9 @@ collection. stac-map runs the search.
 
 ## Local open model
 
-On a computer, the app uses the **Local open model (in the browser)** by
-default. On a phone, the app uses jev by default, because the local model is
-a large download. The model list below the search bar changes the model, and
-the browser keeps the choice. With the local model, no request goes to
-OpenRouter. One small open model
+The model list below the search bar has a second choice: **Local open model
+(in the browser)**. The default is jev and Clairic. The browser keeps the
+choice. With the local model, no request goes to OpenRouter. One small open model
 (IBM Granite Embedding 30M, fine-tuned, Apache-2.0) runs in the page, in a
 Web Worker. It is one encoder with three outputs:
 
