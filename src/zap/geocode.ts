@@ -11,8 +11,8 @@ import type { BBox2D } from "./options";
  */
 
 const SEARCH_URL = "https://photon.komoot.io/api/";
-/** The number of matches jev can pick from. */
-const LIMIT = 5;
+/** The app uses the first match only: Photon sorts them by importance. */
+const LIMIT = 1;
 /** Wait this long between two requests from this page, in milliseconds. */
 const INTERVAL = 300;
 /** A point, such as a peak, gets a box this wide, in degrees. */
@@ -48,7 +48,7 @@ let queue: Promise<unknown> = Promise.resolve();
 /**
  * Finds the places that match a name, best match first.
  * @param query A place name, e.g. "Lisbon".
- * @throws If Nominatim cannot answer.
+ * @throws If Photon cannot answer.
  */
 export function geocode(query: string): Promise<Place[]> {
   const key = query.toLowerCase();
